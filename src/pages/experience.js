@@ -127,6 +127,5 @@ export default () => (
         <span className="text-primary">2 años</span>
       </div>
     </div>
-
   </div>
 )

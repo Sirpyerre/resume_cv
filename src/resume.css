@@ -10,6 +10,10 @@ section.resume-section {
     max-width: 75rem;
 }
 
+.dev-icons {
+    font-size: 3rem;
+}
+
 @media (min-width: 992px) {
     body {
         padding-top: 0;

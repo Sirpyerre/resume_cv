@@ -6,10 +6,10 @@ export default () => (
       Pedro
       <span className="text-primary"> Rojas Reyes</span>
     </h1>
-    <div className="subheading mb-5">San Ramón · Puebla, MX ·
+    <div className="subheading mb-3">San Ramón · Puebla, MX ·
       <a href="mailto:pedro.rojas@gmail.com"> pedro.rojas(@)gmail.com</a>
     </div>
-    <p className="lead mb-5">Licenciado en Tecnologías de la información, con Maestría en Gestión de Tecnologías de la
+    <p className="lead mb-3">Licenciado en Tecnologías de la información, con Maestría en Gestión de Tecnologías de la
       Información, con certificación en Administración de Proyectos. Programador web (PHP, MySQL, JavaScript, JQuery,
       CSS3, HTML 5 y VUE), Soporte técnico, Administración de servidores, SQL Server, Laravel, Symfony, GIT e
       implementación de APIS.

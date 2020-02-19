@@ -30,7 +30,7 @@ export const Sidebar = () => (
           <Nav.Link eventKey="interests" href="#interest">Intereses</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="awards" href="#awards">Reconocimientos</Nav.Link>
+          <Nav.Link eventKey="awards" href="#awards">Otros estudios</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="contact" href="#contact">Contacto</Nav.Link>
