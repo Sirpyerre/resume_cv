@@ -2,7 +2,7 @@ import React from "react"
 
 export default () => (
   <div className="w-100">
-    <h2 className="mb-3">Experience</h2>
+    <h2 className="mb-5">Experience</h2>
 
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-3">
       <div className="resume-content">
@@ -21,7 +21,9 @@ export default () => (
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between mb-3">
       <div className="resume-content">
         <h3 className="mb-0">Analista Consultivo</h3>
-        <div className="subheading mb-3">Secretaria de Infraestructura Movilidad y Transportes del Estado de Puebla
+        <div className="subheading mb-3">
+          {/*Secretaria de Infraestructura Movilidad y Transportes del Estado de Puebla*/}
+          SIMT del estado de puebla
         </div>
         <ul>
           <li>
@@ -49,7 +51,7 @@ export default () => (
             Desarrollo e implementación de un módulo de inventario y almacenes.
           </li>
           <li>
-            Inicio y planeación de un sistema de administración de condominios.
+            Inicio, planeación y desarrollo de un sistema de administración de condominios.
           </li>
         </ul>
       </div>
@@ -93,7 +95,7 @@ export default () => (
 
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
       <div className="resume-content">
-        <h3 className="mb-0">Soporte técnico y desarrollador web. Telefonía digital.</h3>
+        <h3 className="mb-0">Soporte técnico y programador.</h3>
         <div className="subheading mb-3">Telefonía digital</div>
         <ul>
           <li>Soporte técnico en sitio para las empresas cliente. Instalación de cámaras IP con monitoreo desde

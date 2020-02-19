@@ -28,7 +28,7 @@ export default () => (
     </div>
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
       <div className="resume-content">
-        <h3 className="mb-0">Técnico Superior Universitario en Informática con especialidad en programación</h3>
+        <h3 className="mb-0">TSU en Informática, especialidad en programación</h3>
         <div className="subheading mb-3">
           Universidad Tecnológica de Puebla. <span className="text-primary">Titulado</span>
         </div>

@@ -3,7 +3,7 @@ import { Link} from "gatsby";
 import { Navbar, Nav } from "react-bootstrap"
 
 export const Sidebar = () => (
-  <Navbar bg="primary" expand="lg" fixed="top" id="sideNav">
+  <Navbar bg="dark" variant="dark" expand="lg" fixed="top" id="sideNav">
     <Navbar.Brand href="#home">
       <span className="d-block d-lg-none">Pedro Rojas Reyes</span>
       <span className="d-none d-lg-block">
