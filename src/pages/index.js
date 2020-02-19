@@ -1,4 +1,5 @@
 import React from "react"
+import {graphql} from "gatsby"
 import { Container } from "react-bootstrap"
 import { Sidebar } from "../components/Sidebar"
 import "bootstrap/dist/css/bootstrap.min.css"
@@ -10,9 +11,11 @@ import Skills from "../pages/skills"
 import Awards from "../pages/awards"
 import Interest from "../pages/interests"
 import "../resume.css"
+import SEO from "../components/seo"
 
 export default () => (
   <div>
+    <SEO title='Resume'/>
     <Sidebar/>
     <Container fluid className="p-0">
       <section className="resume-section p-3 p-lg-5 d-flex align-items-center" id="about">
@@ -43,4 +46,4 @@ export default () => (
 
     </Container>
   </div>
-)
+);

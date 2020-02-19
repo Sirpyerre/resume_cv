@@ -1,5 +1,4 @@
 import React from "react";
-import { Link} from "gatsby";
 import { Navbar, Nav } from "react-bootstrap"
 
 export const Sidebar = () => (
