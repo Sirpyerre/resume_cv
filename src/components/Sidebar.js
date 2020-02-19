@@ -21,20 +21,20 @@ export const Sidebar = () => (
           <Nav.Link href="#experience" eventKey="experience" >Experiencia</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-2">Educación</Nav.Link>
+          <Nav.Link eventKey="education" href="#education">Educación</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-3">Skills</Nav.Link>
+          <Nav.Link eventKey="skills" href="#skills">Skills</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-4">Intereses</Nav.Link>
+          <Nav.Link eventKey="interests" href="#interest">Intereses</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link eventKey="link-5">Reconocimientos</Nav.Link>
+          <Nav.Link eventKey="awards" href="#awards">Reconocimientos</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          {/*<Nav.Link eventKey="link-2">Contacto</Nav.Link>*/}
-          <Link to="/contact/">Contacto</Link>
+          <Nav.Link eventKey="contact" href="#contact">Contacto</Nav.Link>
+          {/*<Link to="/contact/">Contacto</Link>*/}
         </Nav.Item>
       </Nav>
     </Navbar.Collapse>
