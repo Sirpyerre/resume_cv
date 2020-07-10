@@ -167,3 +167,10 @@ p.lead {
         min-width: 3rem;
     }
 }
+
+.text-legend{
+    display: block;
+    text-align: center;
+    font-size: small;
+    font-weight: bold;
+}

@@ -1,5 +1,10 @@
-import React from "react";
+import React from "react"
 import { Navbar, Nav } from "react-bootstrap"
+
+if (typeof window !== "undefined") {
+  // eslint-disable-next-line global-require
+  require("smooth-scroll")('a[href*="#"]')
+}
 
 export const Sidebar = () => (
   <Navbar bg="dark" variant="dark" expand="lg" fixed="top" id="sideNav">
@@ -17,7 +22,7 @@ export const Sidebar = () => (
           <Nav.Link href="#about">Acerca</Nav.Link>
         </Nav.Item>
         <Nav.Item>
-          <Nav.Link href="#experience" eventKey="experience" >Experiencia</Nav.Link>
+          <Nav.Link href="#experience" eventKey="experience">Experiencia</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="education" href="#education">Educación</Nav.Link>

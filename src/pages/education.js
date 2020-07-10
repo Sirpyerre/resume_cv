@@ -6,8 +6,8 @@ export default () => (
 
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
       <div className="resume-content">
-        <h3 className="mb-0">Maestría en Gestión de Tecnologías de la información.</h3>
-        <div className="subheading mb-3">
+        <h3 className="mb-0 h5">Maestría en Gestión de Tecnologías de la información.</h3>
+        <div className="mb-3">
           Universidad Tecmilenio. <span className="text-primary">Titulado</span>
         </div>
       </div>
@@ -17,8 +17,8 @@ export default () => (
     </div>
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
       <div className="resume-content">
-        <h3 className="mb-0">Ingeniería en Tecnologías de la Información</h3>
-        <div className="subheading mb-3">
+        <h3 className="mb-0 h5">Ingeniería en Tecnologías de la Información</h3>
+        <div className="mb-3">
           Universidad Tecnológica de Puebla. <span className="text-primary">Titulado</span>
         </div>
       </div>
@@ -28,8 +28,8 @@ export default () => (
     </div>
     <div className="resume-item d-flex flex-column flex-md-row justify-content-between">
       <div className="resume-content">
-        <h3 className="mb-0">TSU en Informática, especialidad en programación</h3>
-        <div className="subheading mb-3">
+        <h3 className="mb-0 h5">TSU en Informática, especialidad en programación</h3>
+        <div className="mb-3">
           Universidad Tecnológica de Puebla. <span className="text-primary">Titulado</span>
         </div>
 
