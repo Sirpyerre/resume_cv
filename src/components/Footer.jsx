@@ -1,12 +1,30 @@
-import React from 'react'
+import React from 'react';
+import { useLanguage } from '../contexts/LanguageContext';
 
+export default function Footer() {
+    const { language } = useLanguage();
+    const currentYear = new Date().getFullYear();
 
-export default function Footer(){
     return (
-        <footer className="bg-gray-50 border-t py-6 mt-8">
-            <div className="container mx-auto px-4 text-center text-sm">
-            © {new Date().getFullYear()} Pedro Rojas — Backend Developer • <a href="https://github.com/Sirpyerre" target="_blank" rel="noreferrer">GitHub</a>
+        <footer className="bg-slate-800/50 border-t border-slate-700 py-8 px-4 sm:px-6">
+            <div className="container mx-auto max-w-6xl">
+                <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
+                    <div className="text-gray-400 text-sm text-center sm:text-left">
+                        © {currentYear} Pedro Rojas Reyes. {language === 'en' ? 'All rights reserved.' : 'Todos los derechos reservados.'}
+                    </div>
+                    <div className="flex items-center gap-4 text-sm text-gray-400">
+                        <span>
+                            {language === 'en' ? 'Built with' : 'Construido con'} ⚡ Vite + React
+                        </span>
+                        <button
+                            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+                            className="text-green-400 hover:text-green-300 transition-colors"
+                        >
+                            ↑ {language === 'en' ? 'Top' : 'Arriba'}
+                        </button>
+                    </div>
+                </div>
             </div>
         </footer>
-    )
+    );
 }
