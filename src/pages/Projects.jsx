@@ -1,8 +1,8 @@
 import React from "react";
 import ProjectCard from "../components/ProjectCard";
-import SEO from "../components/SEO.jsx";
+import SEO from "../seo/SEO.jsx";
 
-expor default function Projects() {
+export default function Projects() {
     const projects = [
         {
             title: 'fintech-backend',
