@@ -10,9 +10,9 @@ import Contact from "./pages/Contact.jsx";
 
 export default function App() {
     return (
-        <div className="min-h-screen flex flex-col">
+        <div className="min-h-screen flex flex-col bg-slate-900 text-white">
             <Navbar />
-            <main className="flex-1 container mx-auto px-4 py-8">
+            <main className="flex-1">
                 <Suspense>
                     <Routes>
                         <Route path="/" element={<Home />} />

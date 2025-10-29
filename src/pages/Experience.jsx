@@ -7,9 +7,9 @@ import SEO from "../seo/SEO.jsx"
 
 export default function Experience(){
 return (
-    <div>
+    <div className="container mx-auto px-6 py-12">
         <SEO title="Experience — Pedro Rojas" />
-        <div className="space-y-6">
+        <div className="prose prose-invert max-w-none space-y-8">
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{occ}</ReactMarkdown>
             <ReactMarkdown remarkPlugins={[remarkGfm]}>{bt}</ReactMarkdown>
         </div>

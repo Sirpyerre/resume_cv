@@ -7,9 +7,9 @@ import SEO from '../seo/SEO.jsx'
 
 export default function Education(){
 return (
-        <div>
+        <div className="container mx-auto px-6 py-12">
             <SEO title="Education — Pedro Rojas" />
-            <div className="prose max-w-none">
+            <div className="prose prose-invert max-w-none">
                 <ReactMarkdown remarkPlugins={[remarkGfm]}>{educationMd}</ReactMarkdown>
             </div>
         </div>
