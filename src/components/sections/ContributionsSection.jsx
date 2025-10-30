@@ -27,6 +27,13 @@ export default function ContributionsSection() {
                             <h3 className="text-lg sm:text-xl font-semibold text-white mb-4 sm:mb-6 leading-tight">
                                 {project.title}
                             </h3>
+                            {project.description && (
+                                <p 
+                                    className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base"
+                                    dangerouslySetInnerHTML={{ __html: project.description }}
+                                />
+                            )}
+                            
                             
                             {/* Tags */}
                             <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">

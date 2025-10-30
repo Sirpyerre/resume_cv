@@ -35,10 +35,10 @@ export default function ProjectsSection() {
                                 )}
                             </div>
                             
-                            <p className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                                {project.description}
-                            </p>
-                            
+                           <p
+                               className="text-gray-300 mb-4 sm:mb-6 leading-relaxed text-sm sm:text-base"
+                               dangerouslySetInnerHTML={{ __html: project.description }}></p>
+
                             {/* Tags */}
                             <div className="flex flex-wrap gap-2 mb-4 sm:mb-6">
                                 {project.tags.map((tag, tagIndex) => (
