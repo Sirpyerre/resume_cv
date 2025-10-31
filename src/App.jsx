@@ -14,7 +14,6 @@ import EducationSection from "./components/sections/EducationSection";
 import ContactSection from "./components/sections/ContactSection";
 
 export default function App() {
-    console.log("App.jsx")
     return (
         <LanguageProvider>
             <div className="min-h-screen bg-slate-900 text-white">

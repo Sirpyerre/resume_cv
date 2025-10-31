@@ -55,7 +55,7 @@ export default function Navbar() {
                     onClick={() => scrollToSection('hero')}
                     className="text-xl font-bold text-green-400 hover:text-green-300 transition-colors"
                 >
-                    &lt;PR /&gt;
+                    &lt;PRR /&gt;
                 </button>
 
                 {/* Desktop Navigation */}
