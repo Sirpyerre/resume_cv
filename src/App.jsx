@@ -2,6 +2,7 @@ import React from "react";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import SEO from "./components/seo/SEOSimple.jsx";
 
 // Import all sections
 import HeroSection from "./components/sections/HeroSection";
@@ -16,6 +17,7 @@ import ContactSection from "./components/sections/ContactSection";
 export default function App() {
     return (
         <LanguageProvider>
+            <SEO />
             <div className="min-h-screen bg-slate-900 text-white">
                 <Navbar />
                 <main>
