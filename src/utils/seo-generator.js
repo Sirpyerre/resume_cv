@@ -1,6 +1,6 @@
 // Generate sitemap.xml for SEO
 export const generateSitemap = () => {
-  const baseUrl = 'https://pedrorojas.dev'; // Update with your actual domain
+  const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
   const currentDate = new Date().toISOString();
   
   const pages = [
@@ -60,7 +60,7 @@ ${pages.map(page => `  <url>
 
 // Generate robots.txt
 export const generateRobotsTxt = () => {
-  const baseUrl = 'https://pedrorojas.dev'; // Update with your actual domain
+  const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
   
   return `User-agent: *
 Allow: /
