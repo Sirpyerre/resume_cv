@@ -1,10 +1,147 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useLanguage } from '../../contexts/LanguageContext.jsx'
 import { content } from '../../content/content.jsx'
 
 export default function ContactSection() {
     const { language } = useLanguage();
     const t = content[language];
+
+    // Form state
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        phone: '',
+        message: '',
+        honeypot: '' // Bot trap field
+    });
+
+    const [formStatus, setFormStatus] = useState({
+        submitting: false,
+        submitted: false,
+        error: null
+    });
+
+    // Form validation
+    const [errors, setErrors] = useState({});
+
+    // Rate limiting - simple timestamp check
+    const [lastSubmit, setLastSubmit] = useState(0);
+
+    const validateForm = () => {
+        const newErrors = {};
+
+        // Name validation
+        if (!formData.name.trim()) {
+            newErrors.name = language === 'es' ? 'El nombre es requerido' : 'Name is required';
+        } else if (formData.name.trim().length < 2) {
+            newErrors.name = language === 'es' ? 'El nombre debe tener al menos 2 caracteres' : 'Name must be at least 2 characters';
+        }
+
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!formData.email.trim()) {
+            newErrors.email = language === 'es' ? 'El email es requerido' : 'Email is required';
+        } else if (!emailRegex.test(formData.email)) {
+            newErrors.email = language === 'es' ? 'Email inválido' : 'Invalid email';
+        }
+
+        // Message validation
+        if (!formData.message.trim()) {
+            newErrors.message = language === 'es' ? 'El mensaje es requerido' : 'Message is required';
+        } else if (formData.message.trim().length < 10) {
+            newErrors.message = language === 'es' ? 'El mensaje debe tener al menos 10 caracteres' : 'Message must be at least 10 characters';
+        }
+
+        setErrors(newErrors);
+        return Object.keys(newErrors).length === 0;
+    };
+
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+        // Clear error for this field when user starts typing
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: null
+            }));
+        }
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        // Bot detection: Check honeypot field
+        if (formData.honeypot) {
+            console.warn('Bot detected');
+            return;
+        }
+
+        // Rate limiting: Prevent multiple submissions within 5 seconds
+        const now = Date.now();
+        if (now - lastSubmit < 5000) {
+            setFormStatus({
+                submitting: false,
+                submitted: false,
+                error: language === 'es' 
+                    ? 'Por favor espera unos segundos antes de enviar de nuevo' 
+                    : 'Please wait a few seconds before submitting again'
+            });
+            return;
+        }
+
+        // Validate form
+        if (!validateForm()) {
+            return;
+        }
+
+        setFormStatus({ submitting: true, submitted: false, error: null });
+        setLastSubmit(now);
+
+        try {
+            // TODO: Replace with your actual backend endpoint or service (FormSpree, EmailJS, etc.)
+            // For now, we'll simulate a successful submission
+            
+            // Example with FormSpree (you'll need to replace YOUR_FORM_ID):
+            // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json'
+            //     },
+            //     body: JSON.stringify({
+            //         name: formData.name,
+            //         email: formData.email,
+            //         phone: formData.phone,
+            //         message: formData.message,
+            //         _subject: `New contact from ${formData.name}`,
+            //     })
+            // });
+
+            // Simulate API call
+            await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Success
+            setFormStatus({ submitting: false, submitted: true, error: null });
+            setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+            
+            // Reset success message after 5 seconds
+            setTimeout(() => {
+                setFormStatus({ submitting: false, submitted: false, error: null });
+            }, 5000);
+
+        } catch (error) {
+            setFormStatus({
+                submitting: false,
+                submitted: false,
+                error: language === 'es' 
+                    ? 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.' 
+                    : 'There was an error sending the message. Please try again.'
+            });
+        }
+    };
 
     const socialLinks = [
         {
@@ -47,41 +184,250 @@ export default function ContactSection() {
 
     return (
         <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-slate-800/50">
-            <div className="container mx-auto max-w-4xl">
+            <div className="container mx-auto max-w-6xl">
                 {/* Section Header */}
                 <div className="text-center mb-12 sm:mb-16">
                     <h2 className="text-3xl sm:text-4xl font-bold text-green-400 mb-4 flex items-center justify-center">
                         <span className="text-green-400 mr-3">📧</span>
                         {t.contact.title}
                     </h2>
-                </div>
-
-                {/* Contact Content */}
-                <div className="text-center mb-12 sm:mb-16">
                     <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
                         {t.contact.subtitle}
                     </p>
                 </div>
 
-                {/* Social Links */}
-                <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-                    {socialLinks.map((link, index) => (
-                        <a
-                            key={index}
-                            href={link.href}
-                            target={link.href.startsWith('http') ? '_blank' : undefined}
-                            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                            className="flex items-center gap-3 px-4 sm:px-6 py-3 sm:py-4 bg-slate-700/40 hover:bg-slate-600/40 border border-slate-600/30 hover:border-green-400/50 rounded-xl transition-all duration-300 hover:-translate-y-1 text-white hover:text-green-400"
-                        >
-                            {link.icon}
-                            <span className="font-medium text-sm sm:text-base">
-                                {link.name}
-                            </span>
-                        </a>
-                    ))}
-                </div>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
+                    {/* Contact Form */}
+                    <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
+                        <h3 className="text-2xl font-bold text-white mb-6">
+                            {language === 'es' ? 'Envíame un Mensaje' : 'Send Me a Message'}
+                        </h3>
+                        
+                        <form onSubmit={handleSubmit} className="space-y-4">
+                            {/* Name Field */}
+                            <div>
+                                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                                    {language === 'es' ? 'Nombre *' : 'Name *'}
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    value={formData.name}
+                                    onChange={handleChange}
+                                    className={`w-full px-4 py-3 bg-slate-800 border ${
+                                        errors.name ? 'border-red-500' : 'border-slate-600'
+                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors`}
+                                    placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
+                                    disabled={formStatus.submitting}
+                                />
+                                {errors.name && (
+                                    <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                                )}
+                            </div>
 
-                {/* Additional Contact Info */}
+                            {/* Email Field */}
+                            <div>
+                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                    {language === 'es' ? 'Email *' : 'Email *'}
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    value={formData.email}
+                                    onChange={handleChange}
+                                    className={`w-full px-4 py-3 bg-slate-800 border ${
+                                        errors.email ? 'border-red-500' : 'border-slate-600'
+                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors`}
+                                    placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
+                                    disabled={formStatus.submitting}
+                                />
+                                {errors.email && (
+                                    <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                                )}
+                            </div>
+
+                            {/* Phone Field (Optional) */}
+                            <div>
+                                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                                    {language === 'es' ? 'Teléfono (opcional)' : 'Phone (optional)'}
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    value={formData.phone}
+                                    onChange={handleChange}
+                                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors"
+                                    placeholder={language === 'es' ? '222 123 4567' : '222 123 4567'}
+                                    disabled={formStatus.submitting}
+                                />
+                            </div>
+
+                            {/* Message Field */}
+                            <div>
+                                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                                    {language === 'es' ? 'Mensaje *' : 'Message *'}
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    value={formData.message}
+                                    onChange={handleChange}
+                                    rows="5"
+                                    className={`w-full px-4 py-3 bg-slate-800 border ${
+                                        errors.message ? 'border-red-500' : 'border-slate-600'
+                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors resize-none`}
+                                    placeholder={language === 'es' 
+                                        ? 'Cuéntame sobre tu proyecto o negocio...' 
+                                        : 'Tell me about your project or business...'}
+                                    disabled={formStatus.submitting}
+                                />
+                                {errors.message && (
+                                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                                )}
+                            </div>
+
+                            {/* Honeypot field - hidden from users, visible to bots */}
+                            <div className="hidden">
+                                <label htmlFor="honeypot">Leave this field empty</label>
+                                <input
+                                    type="text"
+                                    id="honeypot"
+                                    name="honeypot"
+                                    value={formData.honeypot}
+                                    onChange={handleChange}
+                                    tabIndex="-1"
+                                    autoComplete="off"
+                                />
+                            </div>
+
+                            {/* Submit Button */}
+                            <button
+                                type="submit"
+                                disabled={formStatus.submitting}
+                                className="w-full bg-green-400 text-slate-900 px-6 py-4 rounded-lg font-bold hover:bg-green-300 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
+                            >
+                                {formStatus.submitting ? (
+                                    <span className="flex items-center justify-center">
+                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                        </svg>
+                                        {language === 'es' ? 'Enviando...' : 'Sending...'}
+                                    </span>
+                                ) : (
+                                    language === 'es' ? 'Enviar Mensaje' : 'Send Message'
+                                )}
+                            </button>
+
+                            {/* Success Message */}
+                            {formStatus.submitted && (
+                                <div className="p-4 bg-green-400/20 border border-green-400 rounded-lg">
+                                    <p className="text-green-400 text-center font-medium">
+                                        {language === 'es' 
+                                            ? '¡Mensaje enviado! Te responderé pronto.' 
+                                            : 'Message sent! I\'ll get back to you soon.'}
+                                    </p>
+                                </div>
+                            )}
+
+                            {/* Error Message */}
+                            {formStatus.error && (
+                                <div className="p-4 bg-red-400/20 border border-red-400 rounded-lg">
+                                    <p className="text-red-400 text-center font-medium">
+                                        {formStatus.error}
+                                    </p>
+                                </div>
+                            )}
+                        </form>
+                    </div>
+
+                    {/* Contact Information & Social Links */}
+                    <div className="space-y-8">
+                        {/* Direct Contact Info */}
+                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
+                            <h3 className="text-2xl font-bold text-white mb-6">
+                                {language === 'es' ? 'Otras Formas de Contacto' : 'Other Ways to Reach Me'}
+                            </h3>
+                            
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-green-400/20 rounded-lg">
+                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-semibold mb-1">Email</h4>
+                                        <a href="mailto:contact@pedrorojas.dev" className="text-gray-400 hover:text-green-400 transition-colors">
+                                            contact@pedrorojas.dev
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-green-400/20 rounded-lg">
+                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-semibold mb-1">
+                                            {language === 'es' ? 'Ubicación' : 'Location'}
+                                        </h4>
+                                        <p className="text-gray-400">Puebla, México</p>
+                                    </div>
+                                </div>
+
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-green-400/20 rounded-lg">
+                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <h4 className="text-white font-semibold mb-1">
+                                            {language === 'es' ? 'Horario de Respuesta' : 'Response Time'}
+                                        </h4>
+                                        <p className="text-gray-400">
+                                            {language === 'es' 
+                                                ? 'Normalmente en 24-48 horas' 
+                                                : 'Usually within 24-48 hours'}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        {/* Social Links */}
+                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
+                            <h3 className="text-xl font-bold text-white mb-4">
+                                {language === 'es' ? 'Sígueme en Redes' : 'Follow Me on Social'}
+                            </h3>
+                            <div className="grid grid-cols-2 gap-3">
+                                {socialLinks.map((link, index) => (
+                                    <a
+                                        key={index}
+                                        href={link.href}
+                                        target={link.href.startsWith('http') ? '_blank' : undefined}
+                                        rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                        className="flex items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-green-400 rounded-lg transition-all duration-300 text-white hover:text-green-400"
+                                    >
+                                        <div className="flex-shrink-0">
+                                            {link.icon}
+                                        </div>
+                                        <span className="font-medium text-sm truncate">
+                                            {link.name}
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     );
