@@ -42,7 +42,15 @@ export default function HeroSection() {
                     </a>
                 </div>
                 
-                {/* Download Resume Button */}
+                {/* CTA Button */}
+                <div className="mb-8">
+                    <a
+                        href="#contact"
+                        className="inline-block bg-green-400 text-slate-900 px-8 py-4 rounded-lg font-bold text-lg hover:bg-green-300 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-green-400/50"
+                    >
+                        {t.hero.downloadResume}
+                    </a>
+                </div>
              
             </div>
             

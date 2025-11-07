@@ -11,11 +11,9 @@ export default function Navbar() {
     const sections = [
         { id: 'hero', label: t.nav.aboutMe },
         { id: 'about', label: t.nav.aboutMe },
-        { id: 'tech-stack', label: t.nav.techStack },
+        { id: 'services', label: t.nav.services },
+        { id: 'why-me', label: t.nav.whyMe },
         { id: 'contributions', label: t.nav.contributions },
-        { id: 'projects', label: t.nav.projects },
-        { id: 'experience', label: t.nav.experience },
-        { id: 'education', label: t.nav.education },
         { id: 'contact', label: t.nav.contact }
     ];
 
@@ -29,7 +27,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['hero', 'about', 'tech-stack', 'contributions', 'projects', 'experience', 'education', 'contact'];
+            const sections = ['hero', 'about', 'services', 'why-me', 'contributions', 'contact'];
             const scrollPosition = window.scrollY + 100;
 
             for (const sectionId of sections) {

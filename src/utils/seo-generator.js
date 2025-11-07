@@ -1,5 +1,12 @@
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
 // Generate sitemap.xml for SEO
-export const generateSitemap = () => {
+const generateSitemap = () => {
   const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
   const currentDate = new Date().toISOString();
   
@@ -59,7 +66,7 @@ ${pages.map(page => `  <url>
 };
 
 // Generate robots.txt
-export const generateRobotsTxt = () => {
+const generateRobotsTxt = () => {
   const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
   
   return `User-agent: *
@@ -79,3 +86,27 @@ User-agent: Bingbot
 Allow: /
 Crawl-delay: 1`;
 };
+
+// Main execution
+const publicDir = path.resolve(__dirname, '../../public');
+
+// Create public directory if it doesn't exist
+if (!fs.existsSync(publicDir)) {
+  fs.mkdirSync(publicDir, { recursive: true });
+}
+
+// Generate and save sitemap.xml
+const sitemapPath = path.join(publicDir, 'sitemap.xml');
+const sitemapContent = generateSitemap();
+fs.writeFileSync(sitemapPath, sitemapContent, 'utf-8');
+console.log('✅ sitemap.xml generated successfully at:', sitemapPath);
+
+// Generate and save robots.txt
+const robotsPath = path.join(publicDir, 'robots.txt');
+const robotsContent = generateRobotsTxt();
+fs.writeFileSync(robotsPath, robotsContent, 'utf-8');
+console.log('✅ robots.txt generated successfully at:', robotsPath);
+
+console.log('\n📍 Files generated in /public directory:');
+console.log('   - sitemap.xml');
+console.log('   - robots.txt');

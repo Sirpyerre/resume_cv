@@ -7,11 +7,13 @@ import SEO from "./components/seo/SEOSimple.jsx";
 // Import all sections
 import HeroSection from "./components/sections/HeroSection";
 import AboutSection from "./components/sections/AboutSection";
-import TechStackSection from "./components/sections/TechStackSection";
+import ServicesSection from "./components/sections/ServicesSection";
+import WhyMeSection from "./components/sections/WhyMeSection";
 import ContributionsSection from "./components/sections/ContributionsSection";
-import ProjectsSection from "./components/sections/ProjectsSection";
-import ExperienceSection from "./components/sections/ExperienceSection";
-import EducationSection from "./components/sections/EducationSection";
+// import ProjectsSection from "./components/sections/ProjectsSection"; // Hidden - will be replaced with case studies
+// import TechStackSection from "./components/sections/TechStackSection"; // Hidden - too technical
+// import ExperienceSection from "./components/sections/ExperienceSection"; // Hidden - CV style, not marketing
+// import EducationSection from "./components/sections/EducationSection"; // Hidden - CV style, not marketing
 import ContactSection from "./components/sections/ContactSection";
 
 export default function App() {
@@ -23,11 +25,9 @@ export default function App() {
                 <main>
                     <HeroSection />
                     <AboutSection />
-                    <TechStackSection />
+                    <ServicesSection />
+                    <WhyMeSection />
                     <ContributionsSection />
-                    <ProjectsSection />
-                    <ExperienceSection />
-                    <EducationSection />
                     <ContactSection />
                 </main>
                 <Footer />

@@ -2,27 +2,28 @@ export const content = {
   en: {
     nav: {
       aboutMe: "About Me",
-      techStack: "Tech Stack",
-      contributions: "Key Professional Contributions",
-      projects: "Personal Projects & Labs",
-      experience: "Professional Experience",
-      education: "Education & Courses",
+      services: "Services",
+      whyMe: "Why Me",
+      contributions: "Success Stories",
+      projects: "Projects",
+      experience: "Experience",
+      education: "Education",
       contact: "Contact",
       language: "ES / Español"
     },
     hero: {
       name: "Pedro Rojas Reyes",
-      title: "Backend Developer / Cloud Native Engineer",
-      description: "Designing and Scaling Microservices with Go, .NET and Kubernetes.",
-      specialization: "Specialist in Distributed Architecture, Observability, and Code Quality.",
-      downloadResume: "Download Resume (PDF)",
-      availability: "Available for: Freelance Projects and Full-Time Opportunities."
+      title: "I Help Puebla Businesses Get More Clients",
+      description: "I create professional, fast, and secure websites that convert visitors into sales.",
+      specialization: "Custom solutions that make your business stand out online and attract more customers.",
+      downloadResume: "Get a Free Consultation",
+      availability: "Serving local businesses in Puebla and beyond."
     },
     about: {
       title: "About Me",
-      paragraph1: "Senior Backend Developer with over 10 years of experience, including 6 years as Backend Developer and 4 years specializing in Go (Golang). Proven experience in the design and development of highly scalable distributed systems and microservices.",
-      paragraph2: "Leadership in migration to AWS and Kubernetes, with a key focus on performance optimization and observability (Prometheus/Grafana). Application of Clean Architecture and Code Refactoring patterns to maintain code quality and modularity in C#/.NET and Go. Strong knowledge of CI/CD and Cloud Native processes.",
-      languages: "🌐 Languages: Español (Native), Inglés (B2 Conversational)."
+      paragraph1: "I'm Pedro R., a web consultant and developer based in Puebla. My passion is using technology to help local businesses like yours grow. I understand the challenges of small and medium businesses and I know how important it is to have a strong online presence.",
+      paragraph2: "With over 10 years of experience in web development and cloud infrastructure, I've worked with companies like OCC Mundial, building high-performance systems. Now, I use that expertise to help local businesses in Puebla get more customers and grow online.",
+      languages: "🌐 Languages: Spanish (Native), English (B2 Conversational)."
     },
     techStack: {
       title: "Tech Stack",
@@ -30,9 +31,78 @@ export const content = {
       cloudDevOps: "Cloud & DevOps",
       databases: "Databases & Messaging"
     },
+    services: {
+      title: "Solutions for Your Business",
+      subtitle: "Packages designed to boost your online presence and grow your business",
+      packages: [
+        {
+          name: "Essential Presence",
+          price: "Starting at $5,000 MXN",
+          description: "A professional and ultra-fast website so your customers can find you. Includes 3-5 pages (Home, Services, Contact) and a form to receive prospects directly to your email.",
+          features: [
+            "Modern and responsive design (mobile-friendly)",
+            "3-5 professional pages",
+            "Contact form integrated with email",
+            "Google-optimized (Fast SEO)",
+            "Hosted on secure cloud infrastructure",
+            "1 month of free support"
+          ],
+          ideal: "Ideal for: Restaurants, Consultants, Local Services, Small Businesses"
+        },
+        {
+          name: "Custom Web App",
+          price: "From $15,000 MXN",
+          description: "Need more? I integrate an appointment system, online quote calculator, or a customer portal. I turn your manual processes into a digital tool.",
+          features: [
+            "Custom online booking system",
+            "Online quote calculator",
+            "Customer/member portal",
+            "Inventory or catalog management",
+            "Integration with payment systems",
+            "Scalable cloud infrastructure"
+          ],
+          ideal: "Ideal for: Service businesses, Stores, Professionals who need automation"
+        },
+        {
+          name: "Maintenance & Support",
+          price: "$1,500 MXN/month",
+          description: "Your site always secure and up-to-date. I take care of the technology so you can take care of your business.",
+          features: [
+            "Monthly security updates",
+            "Performance monitoring",
+            "Regular backups",
+            "Priority technical support",
+            "Minor content updates",
+            "Peace of mind knowing your site is protected"
+          ],
+          ideal: "Ideal for: Any business that wants to forget about technical problems"
+        }
+      ]
+    },
+    whyMe: {
+      title: "Why Choose Me?",
+      subtitle: "Your secret weapon in the digital world",
+      reasons: [
+        {
+          title: "Amazon-Level Performance & Security",
+          description: "Your site won't be on slow, cheap hosting. I use the same cloud infrastructure as Netflix and Amazon, ensuring your site loads instantly (something Google loves) and is protected against attacks.",
+          icon: "shield"
+        },
+        {
+          title: "Real Solutions, Not Just Templates",
+          description: "Unlike other designers, I build functionality from scratch. If you need a specific tool for your business, I don't depend on plugins; I create it for you. This gives you total control and flexibility for the future.",
+          icon: "code"
+        },
+        {
+          title: "I Understand Local Business",
+          description: "I'm not a faceless agency. I'm Pedro, based in Puebla, and I understand the challenges of local small and medium businesses. I speak your language and I'm here to help you grow.",
+          icon: "handshake"
+        }
+      ]
+    },
     contributions: {
-      title: "Key Professional Contributions",
-      subtitle: "Impact, Leadership, and Results in Backend Engineering",
+      title: "Success Stories",
+      subtitle: "Real results with leading companies",
       projects: [
         {
           title: "Migration from C# .NET Framework 4 to Go with Echo Framework",
@@ -173,7 +243,7 @@ export const content = {
     },
     contact: {
       title: "Contact",
-      subtitle: "Contact me to discuss your next scalable project or a career opportunity!",
+      subtitle: "Ready to grow your business online? Let's talk about how I can help you get more customers!",
       links: {
         email: "Email",
         github: "GitHub",
@@ -186,26 +256,27 @@ export const content = {
   es: {
     nav: {
       aboutMe: "Acerca de Mí",
-      techStack: "Stack Tecnológico",
-      contributions: "Contribuciones Profesionales Clave",
-      projects: "Proyectos Personales y Labs",
-      experience: "Experiencia Profesional",
-      education: "Educación y Cursos",
+      services: "Servicios",
+      whyMe: "Por Qué Yo",
+      contributions: "Casos de Éxito",
+      projects: "Proyectos",
+      experience: "Experiencia",
+      education: "Educación",
       contact: "Contacto",
       language: "EN / English"
     },
     hero: {
       name: "Pedro Rojas Reyes",
-      title: "Desarrollador Backend / Ingeniero Cloud Native",
-      description: "Diseñando y Escalando Microservicios con Go, .NET y Kubernetes.",
-      specialization: "Especialista en Arquitectura Distribuida, Observabilidad y Calidad de Código.",
-      downloadResume: "Descargar CV (PDF)",
-      availability: "Disponible para: Proyectos Freelance y Oportunidades de Tiempo Completo."
+      title: "Ayudo a Negocios en Puebla a Conseguir Más Clientes",
+      description: "Creo sitios web profesionales, rápidos y seguros que convierten visitantes en ventas.",
+      specialization: "Soluciones personalizadas que hacen que tu negocio destaque en línea y atraiga más clientes.",
+      downloadResume: "Obtén una Consulta Gratuita",
+      availability: "Sirviendo a negocios locales en Puebla y más allá."
     },
     about: {
       title: "Acerca de Mí",
-      paragraph1: "Desarrollador Backend Senior con más de 10 años de experiencia, incluyendo 6 años como Desarrollador Backend y 4 años especializándome en Go (Golang). Experiencia comprobada en el diseño y desarrollo de sistemas distribuidos altamente escalables y microservicios.",
-      paragraph2: "Liderazgo en migración a AWS y Kubernetes, con un enfoque clave en optimización de rendimiento y observabilidad (Prometheus/Grafana). Aplicación de patrones de Arquitectura Limpia y Refactorización de Código para mantener la calidad y modularidad del código en C#/.NET y Go. Sólido conocimiento de procesos CI/CD y Cloud Native.",
+      paragraph1: "Soy Pedro R., un consultor y desarrollador web basado en Puebla. Mi pasión es usar la tecnología para ayudar a negocios locales como el tuyo a crecer. Entiendo los retos de la pequeña y mediana empresa y sé lo importante que es tener una presencia en línea sólida.",
+      paragraph2: "Con más de 10 años de experiencia en desarrollo web e infraestructura en la nube, he trabajado con empresas como OCC Mundial, construyendo sistemas de alto rendimiento. Ahora, uso esa experiencia para ayudar a negocios locales en Puebla a conseguir más clientes y crecer en línea.",
       languages: "🌐 Idiomas: Español (Nativo), Inglés (B2 Conversacional)."
     },
     techStack: {
@@ -214,9 +285,78 @@ export const content = {
       cloudDevOps: "Cloud y DevOps",
       databases: "Bases de Datos y Mensajería"
     },
+    services: {
+      title: "Soluciones para tu Negocio",
+      subtitle: "Paquetes diseñados para impulsar tu presencia en línea y hacer crecer tu negocio",
+      packages: [
+        {
+          name: "Presencia Esencial",
+          price: "Desde $5,000 MXN",
+          description: "Un sitio web profesional y ultra-rápido para que tus clientes te encuentren. Incluye 3-5 páginas (Inicio, Servicios, Contacto) y un formulario para recibir prospectos directo en tu email.",
+          features: [
+            "Diseño moderno y responsivo (móvil-friendly)",
+            "3-5 páginas profesionales",
+            "Formulario de contacto integrado con email",
+            "Optimizado para Google (SEO rápido)",
+            "Alojamiento en infraestructura en la nube segura",
+            "1 mes de soporte gratuito"
+          ],
+          ideal: "Ideal para: Restaurantes, Consultores, Servicios Locales, Pequeños Negocios"
+        },
+        {
+          name: "Web App Personalizada",
+          price: "Desde $15,000 MXN",
+          description: "¿Necesitas más? Integro un sistema de citas, un cotizador en línea o un portal para tus clientes. Convierto tus procesos manuales en una herramienta digital.",
+          features: [
+            "Sistema de reservas en línea personalizado",
+            "Cotizador en línea",
+            "Portal para clientes/miembros",
+            "Gestión de inventarios o catálogos",
+            "Integración con sistemas de pago",
+            "Infraestructura en la nube escalable"
+          ],
+          ideal: "Ideal para: Negocios de servicios, Tiendas, Profesionales que necesitan automatización"
+        },
+        {
+          name: "Mantenimiento y Soporte",
+          price: "$1,500 MXN/mes",
+          description: "Tu sitio siempre seguro y actualizado. Me encargo de la tecnología para que tú te encargues de tu negocio.",
+          features: [
+            "Actualizaciones de seguridad mensuales",
+            "Monitoreo de rendimiento",
+            "Respaldos regulares",
+            "Soporte técnico prioritario",
+            "Actualizaciones menores de contenido",
+            "Tranquilidad de saber que tu sitio está protegido"
+          ],
+          ideal: "Ideal para: Cualquier negocio que quiera olvidarse de problemas técnicos"
+        }
+      ]
+    },
+    whyMe: {
+      title: "¿Por Qué Elegirme?",
+      subtitle: "Tu arma secreta en el mundo digital",
+      reasons: [
+        {
+          title: "Rendimiento y Seguridad Nivel Amazon",
+          description: "Tu sitio no estará en un hosting lento y barato. Uso la misma infraestructura en la nube que Netflix y Amazon, garantizando que tu sitio cargue al instante (algo que Google ama) y esté protegido contra ataques.",
+          icon: "shield"
+        },
+        {
+          title: "Soluciones Reales, No Solo Plantillas",
+          description: "A diferencia de otros diseñadores, yo construyo la funcionalidad desde cero. Si necesitas una herramienta específica para tu negocio, no dependo de plugins; yo la creo para ti. Esto te da control total y flexibilidad a futuro.",
+          icon: "code"
+        },
+        {
+          title: "Entiendo el Negocio Local",
+          description: "No soy una agencia sin rostro. Soy Pedro, basado en Puebla, y entiendo los retos de las pequeñas y medianas empresas locales. Hablo tu idioma y estoy aquí para ayudarte a crecer.",
+          icon: "handshake"
+        }
+      ]
+    },
     contributions: {
-      title: "Contribuciones Profesionales Clave",
-      subtitle: "Impacto, Liderazgo y Resultados en Ingeniería Backend",
+      title: "Casos de Éxito",
+      subtitle: "Resultados reales con empresas líderes",
       projects: [
         {
           title: "Migración de C# .NET Framework 4 a Go con Echo Framework",
@@ -359,7 +499,7 @@ export const content = {
     },
     contact: {
       title: "Contacto",
-      subtitle: "¡Contáctame para discutir tu próximo proyecto escalable o una oportunidad laboral!",
+      subtitle: "¿Listo para hacer crecer tu negocio en línea? ¡Hablemos de cómo puedo ayudarte a conseguir más clientes!",
       links: {
         email: "Email",
         github: "GitHub",
