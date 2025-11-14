@@ -101,27 +101,27 @@ export default function ContactSection() {
         setFormStatus({ submitting: true, submitted: false, error: null });
         setLastSubmit(now);
 
+        const formId = process.env.REACT_APP_FORMSPREE_FORM_ID;
+
         try {
             // TODO: Replace with your actual backend endpoint or service (FormSpree, EmailJS, etc.)
             // For now, we'll simulate a successful submission
             
             // Example with FormSpree (you'll need to replace YOUR_FORM_ID):
-            // const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
-            //     method: 'POST',
-            //     headers: {
-            //         'Content-Type': 'application/json'
-            //     },
-            //     body: JSON.stringify({
-            //         name: formData.name,
-            //         email: formData.email,
-            //         phone: formData.phone,
-            //         message: formData.message,
-            //         _subject: `New contact from ${formData.name}`,
-            //     })
-            // });
+            const response = await fetch(`https://formspree.io/f/${formId}`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    message: formData.message,
+                    _subject: `New contact from ${formData.name}`,
+                })
+            });
 
-            // Simulate API call
-            await new Promise(resolve => setTimeout(resolve, 1500));
 
             // Success
             setFormStatus({ submitting: false, submitted: true, error: null });
