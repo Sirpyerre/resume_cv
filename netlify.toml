@@ -2,6 +2,10 @@
 command = "npm run build"
 publish = "dist"
 
+# Allow FormSpree Form ID to be included in build output
+# This is safe because it's a public form endpoint ID, not a secret API key
+[build.environment]
+SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID"
 
 [[redirects]]
 from = "/*"
