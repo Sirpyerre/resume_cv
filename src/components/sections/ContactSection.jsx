@@ -3,8 +3,15 @@ import { useLanguage } from '../../contexts/LanguageContext.jsx'
 import { content } from '../../content/content.jsx'
 
 export default function ContactSection() {
+    const formId = import.meta.env.VITE_FORMSPREE_FORM_ID;
     const { language } = useLanguage();
     const t = content[language];
+
+    // Log configuration status
+    if (!formId) {
+        console.warn('⚠️ FormSpree Form ID not configured. Please set VITE_FORMSPREE_FORM_ID in your .env file');
+        console.info('📝 Check .env.example for setup instructions');
+    }
 
     // Form state
     const [formData, setFormData] = useState({
@@ -101,13 +108,32 @@ export default function ContactSection() {
         setFormStatus({ submitting: true, submitted: false, error: null });
         setLastSubmit(now);
 
-        const formId = process.env.REACT_APP_FORMSPREE_FORM_ID;
-
         try {
-            // TODO: Replace with your actual backend endpoint or service (FormSpree, EmailJS, etc.)
-            // For now, we'll simulate a successful submission
-            
-            // Example with FormSpree (you'll need to replace YOUR_FORM_ID):
+            // Check if FormSpree is configured
+            if (!formId) {
+                // Simulate successful submission for development/testing
+                console.info('📧 Form submission (simulated - FormSpree not configured):');
+                console.info('Name:', formData.name);
+                console.info('Email:', formData.email);
+                console.info('Phone:', formData.phone);
+                console.info('Message:', formData.message);
+                
+                // Simulate API delay
+                await new Promise(resolve => setTimeout(resolve, 1500));
+                
+                // Show success message
+                setFormStatus({ submitting: false, submitted: true, error: null });
+                setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
+                
+                // Reset success message after 5 seconds
+                setTimeout(() => {
+                    setFormStatus({ submitting: false, submitted: false, error: null });
+                }, 5000);
+                
+                return;
+            }
+
+            // Send to FormSpree
             const response = await fetch(`https://formspree.io/f/${formId}`, {
                 method: 'POST',
                 headers: {
@@ -121,6 +147,10 @@ export default function ContactSection() {
                     _subject: `New contact from ${formData.name}`,
                 })
             });
+
+            if (!response.ok) {
+                throw new Error('FormSpree submission failed');
+            }
 
 
             // Success
