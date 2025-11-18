@@ -1,8 +1,13 @@
 import React from "react";
+import { Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
+import ConsentBanner from "./components/ConsentBanner.jsx";
 import SEO from "./components/seo/SEOSimple.jsx";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import TermsOfService from "./pages/TermsOfService.jsx";
+import CookiePolicy from "./pages/CookiePolicy.jsx";
 
 // Import all sections
 import HeroSection from "./components/sections/HeroSection";
@@ -23,14 +28,24 @@ export default function App() {
             <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
                 <Navbar />
                 <main className="overflow-x-hidden">
-                    <HeroSection />
-                    <AboutSection />
-                    <ServicesSection />
-                    <WhyMeSection />
-                    <ContributionsSection />
-                    <ContactSection />
+                    <Routes>
+                        <Route path="/" element={
+                            <>
+                                <HeroSection />
+                                <AboutSection />
+                                <ServicesSection />
+                                <WhyMeSection />
+                                <ContributionsSection />
+                                <ContactSection />
+                            </>
+                        } />
+                        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                        <Route path="/terms-of-service" element={<TermsOfService />} />
+                        <Route path="/cookie-policy" element={<CookiePolicy />} />
+                    </Routes>
                 </main>
                 <Footer />
+                <ConsentBanner />
             </div>
         </LanguageProvider>
     )

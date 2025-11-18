@@ -14,10 +14,10 @@ export const content = {
     },
     hero: {
       name: "Pedro Rojas Reyes",
-      title: "I Help Puebla Businesses Get More Clients",
+      title: "I Help Puebla Businesses Get More Clients and Automate",
       description: "I create professional, fast, and secure websites that convert visitors into sales.",
       specialization: "Custom solutions that make your business stand out online and attract more customers.",
-      downloadResume: "Get a Free Consultation",
+      downloadResume: "Schedule an Exploratory Call",
       availability: "Serving local businesses in Puebla and beyond."
     },
     about: {
@@ -271,11 +271,11 @@ export const content = {
     },
     hero: {
       name: "Pedro Rojas Reyes",
-      title: "Ayudo a Negocios en Puebla a Conseguir Más Clientes",
+      title: "Ayudo a Negocios en Puebla a Conseguir Más Clientes y Automatizar",
       description: "Creo sitios web profesionales, rápidos y seguros que convierten visitantes en ventas.",
       specialization: "Soluciones personalizadas que hacen que tu negocio destaque en línea y atraiga más clientes.",
-      downloadResume: "Obtén una Consulta Gratuita",
-      availability: "Sirviendo a negocios locales en Puebla y más allá."
+      downloadResume: "Agenda una Llamada Exploratoria",
+      availability: "Sirviendo a negocios locales en Puebla y más."
     },
     about: {
       title: "Acerca de Mí",

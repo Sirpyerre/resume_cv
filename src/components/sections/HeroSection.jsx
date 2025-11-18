@@ -50,6 +50,11 @@ export default function HeroSection() {
                     >
                         {t.hero.downloadResume}
                     </a>
+                    <p className="text-gray-400 text-xs sm:text-sm mt-3 italic">
+                        {language === 'es' 
+                            ? '*La asesoría inicial no tendrá costo en caso de concretarse el proyecto.' 
+                            : '*The initial consultation will be free if the project is confirmed.'}
+                    </p>
                 </div>
              
             </div>

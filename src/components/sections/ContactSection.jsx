@@ -456,6 +456,45 @@ export default function ContactSection() {
                                 ))}
                             </div>
                         </div>
+
+                        {/* ARCO Rights Notice */}
+                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
+                            <h3 className="text-xl font-bold text-white mb-4">
+                                {language === 'es' ? 'Protección de Datos Personales' : 'Personal Data Protection'}
+                            </h3>
+                            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
+                                {language === 'es' 
+                                    ? 'Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, usted tiene derecho a Acceder, Rectificar, Cancelar y Oponerse (derechos ARCO) al tratamiento de sus datos personales.'
+                                    : 'In accordance with the Federal Law on Protection of Personal Data Held by Private Parties, you have the right to Access, Rectify, Cancel, and Oppose (ARCO rights) the processing of your personal data.'}
+                            </p>
+                            <p className="text-gray-400 text-xs mb-4">
+                                {language === 'es'
+                                    ? 'Sus datos serán utilizados exclusivamente para responder a su consulta y no serán compartidos con terceros sin su consentimiento.'
+                                    : 'Your data will be used exclusively to respond to your inquiry and will not be shared with third parties without your consent.'}
+                            </p>
+                            <div className="flex flex-wrap gap-2">
+                                <a 
+                                    href="/privacy-policy" 
+                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                >
+                                    {language === 'es' ? 'Aviso de Privacidad' : 'Privacy Policy'}
+                                </a>
+                                <span className="text-gray-600">•</span>
+                                <a 
+                                    href="/terms-of-service" 
+                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                >
+                                    {language === 'es' ? 'Términos de Uso' : 'Terms of Service'}
+                                </a>
+                                <span className="text-gray-600">•</span>
+                                <a 
+                                    href="/cookie-policy" 
+                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                >
+                                    {language === 'es' ? 'Política de Cookies' : 'Cookie Policy'}
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

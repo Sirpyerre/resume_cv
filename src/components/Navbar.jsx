@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { useLanguage } from "../contexts/LanguageContext";
 import { content } from "../content/content";
 
@@ -6,6 +7,8 @@ export default function Navbar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [activeSection, setActiveSection] = useState('hero');
     const { language, toggleLanguage } = useLanguage();
+    const navigate = useNavigate();
+    const location = useLocation();
     const t = content[language];
 
     const sections = [
@@ -18,9 +21,23 @@ export default function Navbar() {
     ];
 
     const scrollToSection = (sectionId) => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+        // Check if we're not on the home page
+        if (location.pathname !== '/') {
+            // Navigate to home page with hash
+            navigate('/', { replace: true });
+            // Wait for navigation to complete, then scroll
+            setTimeout(() => {
+                const element = document.getElementById(sectionId);
+                if (element) {
+                    element.scrollIntoView({ behavior: 'smooth' });
+                }
+            }, 100);
+        } else {
+            // We're already on home page, just scroll
+            const element = document.getElementById(sectionId);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
         }
         setIsMenuOpen(false);
     };
