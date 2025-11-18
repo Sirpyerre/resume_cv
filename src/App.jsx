@@ -20,9 +20,9 @@ export default function App() {
     return (
         <LanguageProvider>
             <SEO />
-            <div className="min-h-screen bg-slate-900 text-white">
+            <div className="min-h-screen bg-slate-900 text-white overflow-x-hidden">
                 <Navbar />
-                <main>
+                <main className="overflow-x-hidden">
                     <HeroSection />
                     <AboutSection />
                     <ServicesSection />

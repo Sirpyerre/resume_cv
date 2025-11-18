@@ -7,7 +7,7 @@ export default function HeroSection() {
     const t = content[language];
 
     return (
-        <section id="hero" className="min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-16">
+        <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-16 pb-20">
             <div className="max-w-4xl mx-auto">
                 {/* Name */}
                 <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-white mb-4 sm:mb-6">
@@ -55,8 +55,8 @@ export default function HeroSection() {
             </div>
             
             {/* Availability Message */}
-            <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 px-4">
-                <p className="text-yellow-400 font-medium text-sm sm:text-base text-center">
+            <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 px-4 w-full max-w-2xl">
+                <p className="text-yellow-400 font-medium text-sm sm:text-base text-center px-4">
                     {t.hero.availability}
                 </p>
             </div>

@@ -4,7 +4,8 @@ export const content = {
       aboutMe: "About Me",
       services: "Services",
       whyMe: "Why Me",
-      contributions: "Success Stories",
+      portfolio: "Portfolio",
+      contributions: "Portfolio",
       projects: "Projects",
       experience: "Experience",
       education: "Education",
@@ -84,8 +85,8 @@ export const content = {
       subtitle: "Your secret weapon in the digital world",
       reasons: [
         {
-          title: "Amazon-Level Performance & Security",
-          description: "Your site won't be on slow, cheap hosting. I use the same cloud infrastructure as Netflix and Amazon, ensuring your site loads instantly (something Google loves) and is protected against attacks.",
+          title: "Your Site: Fast and Always Available",
+          description: "Forget about slow hosting that makes your customers wait. I use modern infrastructure that guarantees instant loading and maximum stability. Your website will always be ready to sell and optimized so Google prefers it over the competition.",
           icon: "shield"
         },
         {
@@ -100,28 +101,30 @@ export const content = {
         }
       ]
     },
-    contributions: {
-      title: "Success Stories",
-      subtitle: "Real results with leading companies",
+    portfolio: {
+      title: "My Creative Showcase",
+      subtitle: "Real results for businesses and SMEs. Innovative projects, impactful designs, and solutions that set standards.",
       projects: [
         {
-          title: "Migration from C# .NET Framework 4 to Go with Echo Framework",
-          tags: ["Go", "Echo", "AWS S3", "Observability", "QA Leadership"],
-          description: "Migration of a legacy application (ASP.NET Framework 4) to <strong>Go</strong> and <strong>Echo Framework</strong> in a <strong>Cloud Native</strong> environment. This improved performance and resilience. I implemented S3 security policies and roles for credentials. Led the definition of new QA scenarios to ensure the quality and stability of the migrated service.",
-          leadership: "Leadership: Proposed and defined new QA testing scenarios, taking ownership of ensuring the quality and stability of the migrated service."
+          title: "Nuu Dee Consulting",
+          description: "A modern and ultra-fast website (Next.js) for a visa processing consultancy. The design focuses on a clear call-to-action and establishing authority, generating instant credibility and capturing new prospects.",
+          image: "/hero-section-resize1.png",
+          url: "https://consultorianuudee.com",
+          tags: ["Next.js", "SEO", "Conversions"]
         },
         {
-          title: "Design and Creation of GraphQL API for SEO Impact",
-          tags: ["GraphQL", "Kubernetes", "Performance", "Solr"],
-          description: "Critical redesign of the search flow to optimize speed and delegate filter construction to the backend. Created a <strong>GraphQL API from scratch</strong> to centralize filtering logic, achieving encapsulation of multiple responses in a single efficient query and reducing latency.",
-          leadership: "Leadership: Proposed and defined new performance optimization strategies, ensuring the GraphQL API met the needs of both frontend and backend teams."
+          title: "Local Restaurant",
+          description: "Responsive website with online menu and reservation system. Increased visibility by 200% in local searches and reduced phone inquiries by 60%.",
+          image: "/images/portfolio/restaurant.jpg",
+          url: "#",
+          tags: ["React", "Online Reservations", "Local SEO"]
         },
         {
-          title: "Most Challenging Project: Migration of 3 Legacy Apps to Kubernetes",
-          tags: ["Kubernetes", "Go", "Prometheus", "Grafana", "CI/CD Harness"],
-          description: "Migration of 3 <strong>on-premise</strong> legacy applications to a <strong>Kubernetes</strong> environment. The most critical application (search engine) exhibited latency and <strong>memory leaks</strong>." +
-"<ul><li>Performance: Reduced inter-service communication latency by <strong>89%</strong>. Eliminated memory leaks through code profiling and optimization in Go.</li><li>Observability: Implemented Prometheus metrics and Grafana dashboards for real-time monitoring of application health and performance.</li><li>CI/CD: Established a robust CI/CD pipeline using Harness, automating deployments and rollbacks to Kubernetes clusters.</li></ul>",
-          leadership: "Leadership: Proposed and defined new observability and performance optimization strategies, ensuring the migrated applications met the needs of both frontend and backend teams."
+          title: "Professional Services",
+          description: "Corporate website with customer portal and automated quote system. Reduced response time from 48 to 2 hours.",
+          image: "/images/portfolio/services.jpg",
+          url: "#",
+          tags: ["Custom Portal", "Automation", "CRM"]
         }
       ]
     },
@@ -258,7 +261,8 @@ export const content = {
       aboutMe: "Acerca de Mí",
       services: "Servicios",
       whyMe: "Por Qué Yo",
-      contributions: "Casos de Éxito",
+      portfolio: "Portafolio",
+      contributions: "Portafolio",
       projects: "Proyectos",
       experience: "Experiencia",
       education: "Educación",
@@ -338,8 +342,8 @@ export const content = {
       subtitle: "Tu arma secreta en el mundo digital",
       reasons: [
         {
-          title: "Rendimiento y Seguridad Nivel Amazon",
-          description: "Tu sitio no estará en un hosting lento y barato. Uso la misma infraestructura en la nube que Netflix y Amazon, garantizando que tu sitio cargue al instante (algo que Google ama) y esté protegido contra ataques.",
+          title: "Tu Sitio: Rápido y Siempre Disponible",
+          description: "Olvídate de los hostings lentos que hacen esperar a tus clientes. Uso infraestructura moderna que garantiza una carga instantánea y máxima estabilidad. Tu página siempre estará lista para vender y optimizada para que Google la prefiera sobre la competencia.",
           icon: "shield"
         },
         {
@@ -354,30 +358,30 @@ export const content = {
         }
       ]
     },
-    contributions: {
-      title: "Casos de Éxito",
-      subtitle: "Resultados reales con empresas líderes",
+    portfolio: {
+      title: "Mi Muestra Creativa",
+      subtitle: "Resultados reales para negocios y Pymes. Proyectos innovadores, diseños de impacto y soluciones que definen estándares.",
       projects: [
         {
-          title: "Migración de C# .NET Framework 4 a Go con Echo Framework",
-          tags: ["Go", "Echo", "AWS S3", "Observabilidad", "Liderazgo QA"],
-          description: "Migración de una aplicación legacy (ASP.NET Framework 4) a <strong>Go</strong> y <strong>Echo Framework</strong> en un entorno <strong>Cloud Native</strong>. Esto mejoró la performance y resiliencia. Implementé políticas de seguridad S3 y roles para credenciales. Lideré la definición de nuevos escenarios de QA para asegurar la calidad y estabilidad del servicio migrado.",
-          leadership: "Liderazgo: Propuse y definí nuevos escenarios de prueba QA, tomando propiedad de asegurar la calidad y estabilidad del servicio migrado."
+          title: "Consultoría Nuu Dee",
+          description: "Un sitio web moderno y ultra-rápido (Next.js) para una consultoría de trámites de visa. El diseño se enfoca en un llamado a la acción claro y en establecer autoridad, generando credibilidad al instante y capturando nuevos prospectos.",
+          image: "/images/portfolio/consultoria-nuudee.jpg",
+          url: "https://consultorianuudee.com",
+          tags: ["Next.js", "SEO", "Conversiones"]
         },
         {
-          title: "Diseño y Creación de API GraphQL para Impacto SEO",
-          tags: ["GraphQL", "Kubernetes", "Rendimiento", "Solr"],
-          description: "Rediseño crítico del flujo de búsqueda para optimizar la velocidad y delegar la construcción de filtros al backend. Creé una API <strong>GraphQL desde cero</strong> para centralizar la lógica de filtrado, logrando encapsular múltiples respuestas en una sola consulta eficiente y reduciendo la latencia.",
-          leadership: "Liderazgo: Me convertí en el punto técnico de referencia del proyecto. Lideré la comunicación y la aclaración de roles en un entorno ambiguo frente a colegas senior, fortaleciendo el *ownership* técnico."
+          title: "Restaurante Local",
+          description: "Sitio web responsivo con menú en línea y sistema de reservas. Aumentó la visibilidad en 200% en búsquedas locales y redujo consultas telefónicas en 60%.",
+          image: "/images/portfolio/restaurant.jpg",
+          url: "#",
+          tags: ["React", "Reservas Online", "SEO Local"]
         },
         {
-          title: "Proyecto Más Desafiante: Migración de 3 Apps Legacy a Kubernetes",
-          tags: ["Kubernetes", "Go", "Prometheus", "Grafana", "CI/CD Harness"],
-          description: "Migración de 3 aplicaciones legacy <strong>on-premise</strong> a un entorno <strong>Kubernetes</strong>. La aplicación más crítica (motor de búsqueda) presentaba latencia y <strong>memory leaks</strong>." +
-"<ul><li>Rendimiento: Reduje la latencia de comunicación entre servicios en un <strong>89%</strong>. Eliminé los <strong>memory leaks</strong> y se redujo significativamente el consumo de CPU/Memoria.</li>" +
-"<li>Observabilidad: Implementé un stack de <strong>Prometheus/OpenTelemetry/Grafana</strong> desde cero, obteniendo visibilidad total del rendimiento de la aplicación en producción por primera vez.</li>" +
-"<li>Estabilidad: Implementé <strong>pipelines</strong> <strong>CI/CD con Harness</strong> para el despliegue automático en Kubernetes, mejorando la estabilidad.</li></ul>",
-          leadership: "Liderazgo: Liderazgo Técnico y Ownership: Tomé la iniciativa en el proyecto de migración (de principio a fin), mejorando la calidad del código, la observabilidad y la documentación."
+          title: "Servicios Profesionales",
+          description: "Sitio corporativo con portal de clientes y sistema de cotización automatizado. Redujo tiempo de respuesta de 48 a 2 horas.",
+          image: "/images/portfolio/services.jpg",
+          url: "#",
+          tags: ["Portal Custom", "Automatización", "CRM"]
         }
       ]
     },

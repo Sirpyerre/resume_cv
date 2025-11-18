@@ -11,10 +11,12 @@ html, body {
     height: 100%; 
     background-color: #0f172a;
     color: white;
+    overflow-x: hidden;
 }
 
 #root {
     height: 100%;
+    overflow-x: hidden;
 }
 
 /* Mobile optimizations */
