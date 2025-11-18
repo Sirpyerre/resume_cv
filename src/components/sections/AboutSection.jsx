@@ -27,13 +27,6 @@ export default function AboutSection() {
                         <p className="text-base sm:text-lg md:text-xl text-gray-300 leading-relaxed">
                             {t.about.paragraph2}
                         </p>
-                        
-                        <div className="pt-4 sm:pt-6 border-t border-slate-600/50">
-                            <p className="text-sm sm:text-base text-blue-400 flex items-center">
-                                <span className="mr-2">🌐</span>
-                                {t.about.languages}
-                            </p>
-                        </div>
                     </div>
                 </div>
             </div>

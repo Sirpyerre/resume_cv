@@ -4,10 +4,12 @@ import { LanguageProvider } from "./contexts/LanguageContext";
 import Navbar from "./components/Navbar.jsx";
 import Footer from "./components/Footer.jsx";
 import ConsentBanner from "./components/ConsentBanner.jsx";
+import WhatsAppButton from "./components/WhatsAppButton.jsx";
 import SEO from "./components/seo/SEOSimple.jsx";
 import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import TermsOfService from "./pages/TermsOfService.jsx";
 import CookiePolicy from "./pages/CookiePolicy.jsx";
+import NotFound from "./pages/NotFound.jsx";
 
 // Import all sections
 import HeroSection from "./components/sections/HeroSection";
@@ -42,10 +44,12 @@ export default function App() {
                         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                         <Route path="/terms-of-service" element={<TermsOfService />} />
                         <Route path="/cookie-policy" element={<CookiePolicy />} />
+                        <Route path="*" element={<NotFound />} />
                     </Routes>
                 </main>
                 <Footer />
                 <ConsentBanner />
+                <WhatsAppButton />
             </div>
         </LanguageProvider>
     )

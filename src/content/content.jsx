@@ -24,7 +24,6 @@ export const content = {
       title: "About Me",
       paragraph1: "I'm Pedro R., a web consultant and developer based in Puebla. My passion is using technology to help local businesses like yours grow. I understand the challenges of small and medium businesses and I know how important it is to have a strong online presence.",
       paragraph2: "With over 10 years of experience in web development and cloud infrastructure, I've worked with companies like OCC Mundial, building high-performance systems. Now, I use that expertise to help local businesses in Puebla get more customers and grow online.",
-      languages: "🌐 Languages: Spanish (Native), English (B2 Conversational)."
     },
     techStack: {
       title: "Tech Stack",
@@ -281,7 +280,6 @@ export const content = {
       title: "Acerca de Mí",
       paragraph1: "Soy Pedro R., un consultor y desarrollador web basado en Puebla. Mi pasión es usar la tecnología para ayudar a negocios locales como el tuyo a crecer. Entiendo los retos de la pequeña y mediana empresa y sé lo importante que es tener una presencia en línea sólida.",
       paragraph2: "Con más de 10 años de experiencia en desarrollo web e infraestructura en la nube, he trabajado con empresas como OCC Mundial, construyendo sistemas de alto rendimiento. Ahora, uso esa experiencia para ayudar a negocios locales en Puebla a conseguir más clientes y crecer en línea.",
-      languages: "🌐 Idiomas: Español (Nativo), Inglés (B2 Conversacional)."
     },
     techStack: {
       title: "Stack Tecnológico",
