@@ -1,5 +1,5 @@
 [build]
-command = "npm run build"
+command = "npm run sitemap && npm run build"
 publish = "dist"
 
 # Allow FormSpree Form ID to be included in build output
