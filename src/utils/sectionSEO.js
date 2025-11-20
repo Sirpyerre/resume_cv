@@ -2,56 +2,46 @@
 export const sectionSEO = {
   en: {
     about: {
-      title: "About Me - Pedro Rojas Reyes",
-      description: "Learn about my 10+ years of experience as a Senior Backend Developer, specializing in Go, .NET, and cloud native technologies.",
-      keywords: "About Pedro Rojas, Backend Developer Experience, Go Developer, .NET Developer, Software Engineer Background"
+      title: "About Me - Pedro Rojas Reyes | Web Developer Puebla",
+      description: "Web consultant and developer in Puebla with 10+ years of experience. I help local businesses grow online with professional websites and custom solutions.",
+      keywords: "About Pedro Rojas, Web Developer Puebla, Puebla Web Consultant, Business Website Developer, Local Web Services"
     },
-    projects: {
-      title: "Projects - Pedro Rojas Reyes",
-      description: "Explore my personal projects and labs including Fintech backends, payment platforms, and clean architecture implementations in Go and .NET.",
-      keywords: "Go Projects, .NET Projects, Fintech Backend, Payment Platform, Clean Architecture, Open Source Projects"
+    services: {
+      title: "Web Services - Pedro Rojas Reyes | Puebla",
+      description: "Professional web services for Puebla businesses: essential websites, custom web applications, and ongoing maintenance. Get more clients online.",
+      keywords: "Web Services Puebla, Website Development Packages, Custom Web Apps, Website Maintenance, Business Web Solutions"
     },
-    experience: {
-      title: "Professional Experience - Pedro Rojas Reyes",
-      description: "My professional experience at OCC Mundial and BlackInTech, leading backend development, cloud migrations, and microservices architecture.",
-      keywords: "Professional Experience, OCC Mundial, BlackInTech, Backend Development, Kafka, GraphQL, Kubernetes Migration"
-    },
-    education: {
-      title: "Education & Certifications - Pedro Rojas Reyes",
-      description: "My academic background and professional certifications including Google Go, Kubernetes, and DevOps training from top institutions.",
-      keywords: "Education, Certifications, Google Go Certificate, Kubernetes Training, DevOps, Universidad Tecmilenio"
+    portfolio: {
+      title: "Portfolio - Pedro Rojas Reyes | Successful Projects",
+      description: "See my portfolio of successful web projects for local businesses. Real results: increased visibility, more clients, and automated processes.",
+      keywords: "Web Portfolio, Success Stories, Client Projects, Business Websites, Web Development Examples Puebla"
     },
     contact: {
-      title: "Contact - Pedro Rojas Reyes",
-      description: "Get in touch to discuss your next scalable project or career opportunities in backend development with Go, .NET, and cloud technologies.",
-      keywords: "Contact Pedro Rojas, Hire Backend Developer, Go Developer for Hire, .NET Developer, Freelance Developer"
+      title: "Contact - Pedro Rojas Reyes | Free Consultation",
+      description: "Get a free consultation for your business website project. Located in Puebla, serving local businesses throughout Mexico.",
+      keywords: "Contact Web Developer, Free Consultation Puebla, Hire Web Developer Mexico, Business Website Quote, Web Services Contact"
     }
   },
   es: {
     about: {
-      title: "Acerca de Mí - Pedro Rojas Reyes",
-      description: "Conoce mis más de 10 años de experiencia como Desarrollador Backend Senior, especializado en Go, .NET y tecnologías cloud native.",
-      keywords: "Acerca de Pedro Rojas, Experiencia Desarrollador Backend, Desarrollador Go, Desarrollador .NET, Antecedentes Ingeniero Software"
+      title: "Acerca de Mí - Pedro Rojas Reyes | Desarrollador Web Puebla",
+      description: "Consultor y desarrollador web en Puebla con más de 10 años de experiencia. Ayudo a negocios locales a crecer en línea con sitios web profesionales y soluciones personalizadas.",
+      keywords: "Acerca de Pedro Rojas, Desarrollador Web Puebla, Consultor Web Puebla, Desarrollador Sitios Negocios, Servicios Web Locales"
     },
-    projects: {
-      title: "Proyectos - Pedro Rojas Reyes", 
-      description: "Explora mis proyectos personales y laboratorios incluyendo backends Fintech, plataformas de pagos e implementaciones de arquitectura limpia en Go y .NET.",
-      keywords: "Proyectos Go, Proyectos .NET, Backend Fintech, Plataforma Pagos, Arquitectura Limpia, Proyectos Open Source"
+    services: {
+      title: "Servicios Web - Pedro Rojas Reyes | Puebla",
+      description: "Servicios web profesionales para negocios en Puebla: sitios esenciales, aplicaciones web personalizadas y mantenimiento continuo. Consigue más clientes en línea.",
+      keywords: "Servicios Web Puebla, Paquetes Desarrollo Web, Apps Web Personalizadas, Mantenimiento Sitios Web, Soluciones Web Negocios"
     },
-    experience: {
-      title: "Experiencia Profesional - Pedro Rojas Reyes",
-      description: "Mi experiencia profesional en OCC Mundial y BlackInTech, liderando desarrollo backend, migraciones cloud y arquitectura de microservicios.",
-      keywords: "Experiencia Profesional, OCC Mundial, BlackInTech, Desarrollo Backend, Kafka, GraphQL, Migración Kubernetes"
-    },
-    education: {
-      title: "Educación y Certificaciones - Pedro Rojas Reyes",
-      description: "Mi formación académica y certificaciones profesionales incluyendo Google Go, Kubernetes y DevOps de instituciones reconocidas.",
-      keywords: "Educación, Certificaciones, Certificado Google Go, Entrenamiento Kubernetes, DevOps, Universidad Tecmilenio"
+    portfolio: {
+      title: "Portafolio - Pedro Rojas Reyes | Proyectos Exitosos",
+      description: "Conoce mi portafolio de proyectos web exitosos para negocios locales. Resultados reales: mayor visibilidad, más clientes y procesos automatizados.",
+      keywords: "Portafolio Web, Casos de Éxito, Proyectos Clientes, Sitios Web Negocios, Ejemplos Desarrollo Web Puebla"
     },
     contact: {
-      title: "Contacto - Pedro Rojas Reyes",
-      description: "Contáctame para discutir tu próximo proyecto escalable o oportunidades laborales en desarrollo backend con Go, .NET y tecnologías cloud.",
-      keywords: "Contacto Pedro Rojas, Contratar Desarrollador Backend, Desarrollador Go Freelance, Desarrollador .NET, Desarrollador Independiente"
+      title: "Contacto - Pedro Rojas Reyes | Consulta Gratuita",
+      description: "Obtén una consulta gratuita para el proyecto web de tu negocio. Ubicado en Puebla, atendiendo negocios locales en todo México.",
+      keywords: "Contacto Desarrollador Web, Consulta Gratis Puebla, Contratar Desarrollador Web México, Cotización Sitio Web, Contacto Servicios Web"
     }
   }
 };

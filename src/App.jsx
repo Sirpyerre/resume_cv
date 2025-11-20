@@ -17,10 +17,6 @@ import AboutSection from "./components/sections/AboutSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import WhyMeSection from "./components/sections/WhyMeSection";
 import ContributionsSection from "./components/sections/ContributionsSection";
-// import ProjectsSection from "./components/sections/ProjectsSection"; // Hidden - will be replaced with case studies
-// import TechStackSection from "./components/sections/TechStackSection"; // Hidden - too technical
-// import ExperienceSection from "./components/sections/ExperienceSection"; // Hidden - CV style, not marketing
-// import EducationSection from "./components/sections/EducationSection"; // Hidden - CV style, not marketing
 import ContactSection from "./components/sections/ContactSection";
 
 export default function App() {

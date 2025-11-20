@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 // Generate sitemap.xml for SEO
 const generateSitemap = () => {
-  const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
+  const baseUrl = 'https://pedrorojas.lat';
   const currentDate = new Date().toISOString();
   
   const pages = [
@@ -67,7 +67,7 @@ ${pages.map(page => `  <url>
 
 // Generate robots.txt
 const generateRobotsTxt = () => {
-  const baseUrl = 'https://pedro-rojas-dev.monoforms.com'; // Update with your actual domain
+  const baseUrl = 'https://pedrorojas.lat';
   
   return `User-agent: *
 Allow: /

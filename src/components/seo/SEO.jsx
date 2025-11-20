@@ -1,5 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
+import { SITE_CONFIG } from "../../config/site";
 
 export default function SEO({
     title = "Pedro Rojas Reyes - Senior Backend Developer",
@@ -7,7 +8,7 @@ export default function SEO({
     keywords = "Backend Developer, Go, Golang, .NET, Kubernetes, Cloud Native, Microservices, AWS, Docker, GraphQL, REST API, Software Engineer, Full Stack Developer",
     author = "Pedro Rojas Reyes",
     image = "/og-image.jpg",
-    url = "https://pedrorojas.dev",
+    url = SITE_CONFIG.SITE_URL,
     type = "website",
     section = null,
     lang = "en"

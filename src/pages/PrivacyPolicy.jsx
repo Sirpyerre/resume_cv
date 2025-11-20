@@ -85,7 +85,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "Cambios al Aviso de Privacidad",
                     content: "El presente aviso de privacidad puede sufrir modificaciones, cambios o actualizaciones derivadas de nuevos requerimientos legales, de nuestras propias necesidades por los servicios que ofrecemos, de nuestras prácticas de privacidad o por otras causas.",
-                    notification: "Nos comprometemos a mantenerlo informado sobre los cambios que pueda sufrir el presente aviso de privacidad, a través de nuestro sitio web: https://pedrorojas.dev"
+                    notification: "Nos comprometemos a mantenerlo informado sobre los cambios que pueda sufrir el presente aviso de privacidad, a través de nuestro sitio web: https://pedrorojas.lat"
                 },
                 {
                     title: "Consentimiento",
@@ -178,7 +178,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "Changes to Privacy Notice",
                     content: "This privacy notice may undergo modifications, changes, or updates due to new legal requirements, our own needs for the services we offer, our privacy practices, or other reasons.",
-                    notification: "We commit to keeping you informed about changes to this privacy notice through our website: https://pedrorojas.dev"
+                    notification: "We commit to keeping you informed about changes to this privacy notice through our website: https://pedrorojas.lat"
                 },
                 {
                     title: "Consent",

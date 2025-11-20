@@ -1,21 +1,22 @@
 import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "../../contexts/LanguageContext";
+import { SITE_CONFIG } from "../../config/site";
 
 // SEO content for both languages
 const seoContent = {
     en: {
-        title: "Pedro Rojas Reyes - Senior Backend Developer",
-        description: "Senior Backend Developer with 10+ years experience in Go, .NET, Kubernetes, and Cloud Native technologies. Specializing in scalable microservices and distributed systems.",
-        keywords: "Backend Developer, Go, Golang, .NET, Kubernetes, Cloud Native, Microservices, AWS, Docker, GraphQL, REST API, Software Engineer, Full Stack Developer",
-        siteName: "Pedro Rojas Reyes Portfolio",
+        title: "Pedro Rojas Reyes - Web Developer for Puebla Businesses",
+        description: "I help local businesses in Puebla get more clients with professional, fast, and secure websites. Custom web solutions, automation, and ongoing support for growing businesses.",
+        keywords: "Web Developer Puebla, Website Design Puebla, Web Development Mexico, Business Website, Local Business Web Design, React Developer, Custom Web Applications, SEO Puebla, Freelance Web Developer",
+        siteName: "Pedro Rojas Reyes - Web Services",
         locale: "en_US"
     },
     es: {
-        title: "Pedro Rojas Reyes - Desarrollador Backend Senior",
-        description: "Desarrollador Backend Senior con más de 10 años de experiencia en Go, .NET, Kubernetes y tecnologías Cloud Native. Especializado en microservicios escalables y sistemas distribuidos.",
-        keywords: "Desarrollador Backend, Go, Golang, .NET, Kubernetes, Cloud Native, Microservicios, AWS, Docker, GraphQL, API REST, Ingeniero de Software, Desarrollador Full Stack",
-        siteName: "Portafolio de Pedro Rojas Reyes",
+        title: "Pedro Rojas Reyes - Desarrollo Web para Negocios en Puebla",
+        description: "Ayudo a negocios locales en Puebla a conseguir más clientes con sitios web profesionales, rápidos y seguros. Soluciones web personalizadas, automatización y soporte continuo para empresas en crecimiento.",
+        keywords: "Desarrollador Web Puebla, Diseño Web Puebla, Desarrollo Web México, Sitio Web para Negocios, Diseño Web para Empresas Locales, Desarrollador React, Aplicaciones Web Personalizadas, SEO Puebla, Desarrollador Web Freelance",
+        siteName: "Pedro Rojas Reyes - Servicios Web",
         locale: "es_ES"
     }
 };
@@ -26,7 +27,7 @@ export default function SEO({
     customKeywords,
     author = "Pedro Rojas Reyes",
     image = "/og-image.jpg",
-    url = "https://pedrorojas.dev",
+    url = SITE_CONFIG.SITE_URL,
     type = "website"
 }) {
     const { language } = useLanguage();
