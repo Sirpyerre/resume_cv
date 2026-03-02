@@ -64,23 +64,23 @@ export default function ConsentBanner() {
             }`}
         >
             {/* Overlay for mobile */}
-            <div className="fixed inset-0 bg-black/50 backdrop-blur-sm md:hidden" onClick={closeBanner} />
-            
+            <div className="fixed inset-0 bg-tinta/40 backdrop-blur-sm md:hidden" onClick={closeBanner} />
+
             {/* Banner */}
-            <div className="relative bg-slate-800 border-t-2 border-green-400 shadow-2xl">
+            <div className="relative bg-crema-medio border-t-2 border-verde shadow-2xl">
                 <div className="container mx-auto px-4 py-4 sm:py-6 max-w-6xl">
                     <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
                         {/* Text Content */}
                         <div className="flex-1">
-                            <h3 className="text-white font-bold text-base sm:text-lg mb-2">
+                            <h3 className="text-tinta font-bold text-base sm:text-lg mb-2">
                                 {t.title}
                             </h3>
-                            <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                            <p className="text-tinta-suave text-sm sm:text-base leading-relaxed">
                                 {t.message}
                             </p>
                             <a
                                 href="/cookie-policy"
-                                className="inline-block mt-2 text-green-400 hover:text-green-300 text-xs sm:text-sm underline transition-colors"
+                                className="inline-block mt-2 text-verde hover:text-verde/80 text-xs sm:text-sm underline transition-colors"
                             >
                                 {t.moreInfo}
                             </a>
@@ -90,13 +90,13 @@ export default function ConsentBanner() {
                         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:flex-shrink-0">
                             <button
                                 onClick={handleReject}
-                                className="px-6 py-2.5 bg-slate-700 hover:bg-slate-600 text-white rounded-lg font-medium transition-all duration-300 border border-slate-600 hover:border-slate-500 text-sm sm:text-base"
+                                className="px-6 py-2.5 bg-crema-oscuro hover:bg-crema-oscuro/80 text-tinta rounded-lg font-medium transition-all duration-300 border border-crema-oscuro text-sm sm:text-base"
                             >
                                 {t.rejectAll}
                             </button>
                             <button
                                 onClick={handleAccept}
-                                className="px-6 py-2.5 bg-green-400 hover:bg-green-300 text-slate-900 rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-green-400/50 transform hover:scale-105 text-sm sm:text-base"
+                                className="px-6 py-2.5 bg-verde hover:bg-verde/90 text-crema rounded-lg font-bold transition-all duration-300 shadow-lg hover:shadow-verde/30 transform hover:scale-105 text-sm sm:text-base"
                             >
                                 {t.acceptAll}
                             </button>
@@ -107,7 +107,7 @@ export default function ConsentBanner() {
                 {/* Close button (mobile) */}
                 <button
                     onClick={closeBanner}
-                    className="absolute top-2 right-2 md:hidden text-gray-400 hover:text-white transition-colors p-2"
+                    className="absolute top-2 right-2 md:hidden text-tinta-suave hover:text-tinta transition-colors p-2"
                     aria-label="Close"
                 >
                     <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

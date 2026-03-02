@@ -64,11 +64,11 @@ export default function Navbar() {
     }, []);
 
     return (
-        <header className="fixed top-0 left-0 right-0 bg-slate-800/95 backdrop-blur-sm text-white z-50 border-b border-slate-700">
+        <header className="fixed top-0 left-0 right-0 bg-crema-medio/95 backdrop-blur-sm text-tinta z-50 border-b border-crema-oscuro">
             <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-                <button 
+                <button
                     onClick={() => scrollToSection('hero')}
-                    className="text-xl font-bold text-green-400 hover:text-green-300 transition-colors"
+                    className="text-xl font-bold text-verde hover:text-verde/80 transition-colors"
                 >
                     &lt;PR /&gt;
                 </button>
@@ -79,8 +79,8 @@ export default function Navbar() {
                         <button
                             key={section.id}
                             onClick={() => scrollToSection(section.id)}
-                            className={`hover:text-green-400 transition-colors px-2 py-1 rounded ${
-                                activeSection === section.id ? 'text-green-400' : ''
+                            className={`hover:text-verde transition-colors px-2 py-1 rounded ${
+                                activeSection === section.id ? 'text-verde' : ''
                             }`}
                         >
                             {section.label}
@@ -92,7 +92,7 @@ export default function Navbar() {
                     {/* Language Toggle */}
                     <button
                         onClick={toggleLanguage}
-                        className="hidden sm:block text-sm hover:text-green-400 transition-colors"
+                        className="hidden sm:block text-sm hover:text-verde transition-colors"
                     >
                         {t.nav.language}
                     </button>
@@ -100,7 +100,7 @@ export default function Navbar() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="lg:hidden text-white focus:outline-none"
+                        className="lg:hidden text-tinta focus:outline-none"
                         aria-label="Toggle menu"
                     >
                         <svg className={`w-6 h-6 transition-transform ${isMenuOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -117,14 +117,14 @@ export default function Navbar() {
             {/* Mobile Menu */}
             <div className={`lg:hidden transition-all duration-300 ease-in-out ${
                 isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-            } overflow-hidden bg-slate-800 border-t border-slate-700`}>
+            } overflow-hidden bg-crema-medio border-t border-crema-oscuro`}>
                 <nav className="container mx-auto px-4 sm:px-6 py-4 space-y-4">
                     {sections.slice(1).map((section) => (
                         <button
                             key={section.id}
                             onClick={() => scrollToSection(section.id)}
-                            className={`block w-full text-left text-sm hover:text-green-400 transition-colors py-2 px-4 rounded ${
-                                activeSection === section.id ? 'text-green-400 bg-slate-700' : ''
+                            className={`block w-full text-left text-sm hover:text-verde transition-colors py-2 px-4 rounded ${
+                                activeSection === section.id ? 'text-verde bg-crema-oscuro' : ''
                             }`}
                         >
                             {section.label}
@@ -132,7 +132,7 @@ export default function Navbar() {
                     ))}
                     <button
                         onClick={toggleLanguage}
-                        className="block sm:hidden w-full text-left text-sm hover:text-green-400 transition-colors py-2 px-4 rounded border-t border-slate-700 mt-4 pt-4"
+                        className="block sm:hidden w-full text-left text-sm hover:text-verde transition-colors py-2 px-4 rounded border-t border-crema-oscuro mt-4 pt-4"
                     >
                         {t.nav.language}
                     </button>

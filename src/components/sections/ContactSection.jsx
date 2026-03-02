@@ -93,8 +93,8 @@ export default function ContactSection() {
             setFormStatus({
                 submitting: false,
                 submitted: false,
-                error: language === 'es' 
-                    ? 'Por favor espera unos segundos antes de enviar de nuevo' 
+                error: language === 'es'
+                    ? 'Por favor espera unos segundos antes de enviar de nuevo'
                     : 'Please wait a few seconds before submitting again'
             });
             return;
@@ -117,19 +117,19 @@ export default function ContactSection() {
                 console.info('Email:', formData.email);
                 console.info('Phone:', formData.phone);
                 console.info('Message:', formData.message);
-                
+
                 // Simulate API delay
                 await new Promise(resolve => setTimeout(resolve, 1500));
-                
+
                 // Show success message
                 setFormStatus({ submitting: false, submitted: true, error: null });
                 setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
-                
+
                 // Reset success message after 5 seconds
                 setTimeout(() => {
                     setFormStatus({ submitting: false, submitted: false, error: null });
                 }, 5000);
-                
+
                 return;
             }
 
@@ -152,11 +152,10 @@ export default function ContactSection() {
                 throw new Error('FormSpree submission failed');
             }
 
-
             // Success
             setFormStatus({ submitting: false, submitted: true, error: null });
             setFormData({ name: '', email: '', phone: '', message: '', honeypot: '' });
-            
+
             // Reset success message after 5 seconds
             setTimeout(() => {
                 setFormStatus({ submitting: false, submitted: false, error: null });
@@ -166,8 +165,8 @@ export default function ContactSection() {
             setFormStatus({
                 submitting: false,
                 submitted: false,
-                error: language === 'es' 
-                    ? 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.' 
+                error: language === 'es'
+                    ? 'Hubo un error al enviar el mensaje. Por favor intenta de nuevo.'
                     : 'There was an error sending the message. Please try again.'
             });
         }
@@ -213,30 +212,30 @@ export default function ContactSection() {
     ];
 
     return (
-        <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-slate-800/50">
+        <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio/50">
             <div className="container mx-auto max-w-6xl">
                 {/* Section Header */}
                 <div className="text-center mb-12 sm:mb-16">
-                    <h2 className="text-3xl sm:text-4xl font-bold text-green-400 mb-4 flex items-center justify-center">
-                        <span className="text-green-400 mr-3">📧</span>
+                    <h2 className="text-3xl sm:text-4xl font-bold text-verde mb-4 flex items-center justify-center">
+                        <span className="text-verde mr-3">📧</span>
                         {t.contact.title}
                     </h2>
-                    <p className="text-lg sm:text-xl text-gray-300 leading-relaxed max-w-2xl mx-auto">
+                    <p className="text-lg sm:text-xl text-tinta-suave leading-relaxed max-w-2xl mx-auto">
                         {t.contact.subtitle}
                     </p>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                     {/* Contact Form */}
-                    <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
-                        <h3 className="text-2xl font-bold text-white mb-6">
+                    <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                        <h3 className="text-2xl font-bold text-tinta mb-6">
                             {language === 'es' ? 'Envíame un Mensaje' : 'Send Me a Message'}
                         </h3>
-                        
+
                         <form onSubmit={handleSubmit} className="space-y-4">
                             {/* Name Field */}
                             <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="name" className="block text-sm font-medium text-tinta-suave mb-2">
                                     {language === 'es' ? 'Nombre *' : 'Name *'}
                                 </label>
                                 <input
@@ -245,20 +244,20 @@ export default function ContactSection() {
                                     name="name"
                                     value={formData.name}
                                     onChange={handleChange}
-                                    className={`w-full px-4 py-3 bg-slate-800 border ${
-                                        errors.name ? 'border-red-500' : 'border-slate-600'
-                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors`}
+                                    className={`w-full px-4 py-3 bg-crema-medio border ${
+                                        errors.name ? 'border-red-500' : 'border-crema-oscuro'
+                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
                                     placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
                                     disabled={formStatus.submitting}
                                 />
                                 {errors.name && (
-                                    <p className="mt-1 text-sm text-red-400">{errors.name}</p>
+                                    <p className="mt-1 text-sm text-red-600">{errors.name}</p>
                                 )}
                             </div>
 
                             {/* Email Field */}
                             <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="email" className="block text-sm font-medium text-tinta-suave mb-2">
                                     {language === 'es' ? 'Email *' : 'Email *'}
                                 </label>
                                 <input
@@ -267,20 +266,20 @@ export default function ContactSection() {
                                     name="email"
                                     value={formData.email}
                                     onChange={handleChange}
-                                    className={`w-full px-4 py-3 bg-slate-800 border ${
-                                        errors.email ? 'border-red-500' : 'border-slate-600'
-                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors`}
+                                    className={`w-full px-4 py-3 bg-crema-medio border ${
+                                        errors.email ? 'border-red-500' : 'border-crema-oscuro'
+                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
                                     placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
                                     disabled={formStatus.submitting}
                                 />
                                 {errors.email && (
-                                    <p className="mt-1 text-sm text-red-400">{errors.email}</p>
+                                    <p className="mt-1 text-sm text-red-600">{errors.email}</p>
                                 )}
                             </div>
 
                             {/* Phone Field (Optional) */}
                             <div>
-                                <label htmlFor="phone" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="phone" className="block text-sm font-medium text-tinta-suave mb-2">
                                     {language === 'es' ? 'Teléfono (opcional)' : 'Phone (optional)'}
                                 </label>
                                 <input
@@ -289,7 +288,7 @@ export default function ContactSection() {
                                     name="phone"
                                     value={formData.phone}
                                     onChange={handleChange}
-                                    className="w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors"
+                                    className="w-full px-4 py-3 bg-crema-medio border border-crema-oscuro rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors"
                                     placeholder={language === 'es' ? '222 123 4567' : '222 123 4567'}
                                     disabled={formStatus.submitting}
                                 />
@@ -297,7 +296,7 @@ export default function ContactSection() {
 
                             {/* Message Field */}
                             <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-gray-300 mb-2">
+                                <label htmlFor="message" className="block text-sm font-medium text-tinta-suave mb-2">
                                     {language === 'es' ? 'Mensaje *' : 'Message *'}
                                 </label>
                                 <textarea
@@ -306,16 +305,16 @@ export default function ContactSection() {
                                     value={formData.message}
                                     onChange={handleChange}
                                     rows="5"
-                                    className={`w-full px-4 py-3 bg-slate-800 border ${
-                                        errors.message ? 'border-red-500' : 'border-slate-600'
-                                    } rounded-lg text-white focus:outline-none focus:border-green-400 transition-colors resize-none`}
-                                    placeholder={language === 'es' 
-                                        ? 'Cuéntame sobre tu proyecto o negocio...' 
+                                    className={`w-full px-4 py-3 bg-crema-medio border ${
+                                        errors.message ? 'border-red-500' : 'border-crema-oscuro'
+                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors resize-none`}
+                                    placeholder={language === 'es'
+                                        ? 'Cuéntame sobre tu proyecto o negocio...'
                                         : 'Tell me about your project or business...'}
                                     disabled={formStatus.submitting}
                                 />
                                 {errors.message && (
-                                    <p className="mt-1 text-sm text-red-400">{errors.message}</p>
+                                    <p className="mt-1 text-sm text-red-600">{errors.message}</p>
                                 )}
                             </div>
 
@@ -337,11 +336,11 @@ export default function ContactSection() {
                             <button
                                 type="submit"
                                 disabled={formStatus.submitting}
-                                className="w-full bg-green-400 text-slate-900 px-6 py-4 rounded-lg font-bold hover:bg-green-300 transition-all duration-300 disabled:bg-slate-600 disabled:text-slate-400 disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
+                                className="w-full bg-verde text-crema px-6 py-4 rounded-lg font-bold hover:bg-verde/90 transition-all duration-300 disabled:bg-crema-oscuro disabled:text-tinta-suave disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
                             >
                                 {formStatus.submitting ? (
                                     <span className="flex items-center justify-center">
-                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-slate-900" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-crema" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                                             <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
                                             <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                                         </svg>
@@ -354,10 +353,10 @@ export default function ContactSection() {
 
                             {/* Success Message */}
                             {formStatus.submitted && (
-                                <div className="p-4 bg-green-400/20 border border-green-400 rounded-lg">
-                                    <p className="text-green-400 text-center font-medium">
-                                        {language === 'es' 
-                                            ? '¡Mensaje enviado! Te responderé pronto.' 
+                                <div className="p-4 bg-verde/10 border border-verde rounded-lg">
+                                    <p className="text-verde text-center font-medium">
+                                        {language === 'es'
+                                            ? '¡Mensaje enviado! Te responderé pronto.'
                                             : 'Message sent! I\'ll get back to you soon.'}
                                     </p>
                                 </div>
@@ -365,8 +364,8 @@ export default function ContactSection() {
 
                             {/* Error Message */}
                             {formStatus.error && (
-                                <div className="p-4 bg-red-400/20 border border-red-400 rounded-lg">
-                                    <p className="text-red-400 text-center font-medium">
+                                <div className="p-4 bg-red-100 border border-red-400 rounded-lg">
+                                    <p className="text-red-600 text-center font-medium">
                                         {formStatus.error}
                                     </p>
                                 </div>
@@ -377,54 +376,54 @@ export default function ContactSection() {
                     {/* Contact Information & Social Links */}
                     <div className="space-y-8">
                         {/* Direct Contact Info */}
-                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
-                            <h3 className="text-2xl font-bold text-white mb-6">
+                        <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                            <h3 className="text-2xl font-bold text-tinta mb-6">
                                 {language === 'es' ? 'Otras Formas de Contacto' : 'Other Ways to Reach Me'}
                             </h3>
-                            
+
                             <div className="space-y-4">
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-green-400/20 rounded-lg">
-                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="p-3 bg-verde/10 rounded-lg">
+                                        <svg className="w-6 h-6 text-verde" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-semibold mb-1">Email</h4>
-                                        <a href="mailto:contact@pedrorojas.dev" className="text-gray-400 hover:text-green-400 transition-colors">
+                                        <h4 className="text-tinta font-semibold mb-1">Email</h4>
+                                        <a href="mailto:contact@pedrorojas.dev" className="text-tinta-suave hover:text-verde transition-colors">
                                             contact@pedrorojas.dev
                                         </a>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-green-400/20 rounded-lg">
-                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="p-3 bg-verde/10 rounded-lg">
+                                        <svg className="w-6 h-6 text-verde" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-semibold mb-1">
+                                        <h4 className="text-tinta font-semibold mb-1">
                                             {language === 'es' ? 'Ubicación' : 'Location'}
                                         </h4>
-                                        <p className="text-gray-400">Puebla, México</p>
+                                        <p className="text-tinta-suave">Puebla, México</p>
                                     </div>
                                 </div>
 
                                 <div className="flex items-start gap-4">
-                                    <div className="p-3 bg-green-400/20 rounded-lg">
-                                        <svg className="w-6 h-6 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <div className="p-3 bg-verde/10 rounded-lg">
+                                        <svg className="w-6 h-6 text-verde" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                                         </svg>
                                     </div>
                                     <div>
-                                        <h4 className="text-white font-semibold mb-1">
+                                        <h4 className="text-tinta font-semibold mb-1">
                                             {language === 'es' ? 'Horario de Respuesta' : 'Response Time'}
                                         </h4>
-                                        <p className="text-gray-400">
-                                            {language === 'es' 
-                                                ? 'Normalmente en 24-48 horas' 
+                                        <p className="text-tinta-suave">
+                                            {language === 'es'
+                                                ? 'Normalmente en 24-48 horas'
                                                 : 'Usually within 24-48 hours'}
                                         </p>
                                     </div>
@@ -433,8 +432,8 @@ export default function ContactSection() {
                         </div>
 
                         {/* Social Links */}
-                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
-                            <h3 className="text-xl font-bold text-white mb-4">
+                        <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                            <h3 className="text-xl font-bold text-tinta mb-4">
                                 {language === 'es' ? 'Sígueme en Redes' : 'Follow Me on Social'}
                             </h3>
                             <div className="grid grid-cols-2 gap-3">
@@ -444,7 +443,7 @@ export default function ContactSection() {
                                         href={link.href}
                                         target={link.href.startsWith('http') ? '_blank' : undefined}
                                         rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
-                                        className="flex items-center gap-3 px-4 py-3 bg-slate-800 hover:bg-slate-700 border border-slate-600 hover:border-green-400 rounded-lg transition-all duration-300 text-white hover:text-green-400"
+                                        className="flex items-center gap-3 px-4 py-3 bg-crema-medio hover:bg-crema-oscuro border border-crema-oscuro hover:border-verde rounded-lg transition-all duration-300 text-tinta-suave hover:text-verde"
                                     >
                                         <div className="flex-shrink-0">
                                             {link.icon}
@@ -458,38 +457,38 @@ export default function ContactSection() {
                         </div>
 
                         {/* ARCO Rights Notice */}
-                        <div className="bg-slate-900 rounded-lg p-6 sm:p-8 border border-slate-700">
-                            <h3 className="text-xl font-bold text-white mb-4">
+                        <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                            <h3 className="text-xl font-bold text-tinta mb-4">
                                 {language === 'es' ? 'Protección de Datos Personales' : 'Personal Data Protection'}
                             </h3>
-                            <p className="text-gray-300 text-sm mb-4 leading-relaxed">
-                                {language === 'es' 
+                            <p className="text-tinta-suave text-sm mb-4 leading-relaxed">
+                                {language === 'es'
                                     ? 'Conforme a la Ley Federal de Protección de Datos Personales en Posesión de los Particulares, usted tiene derecho a Acceder, Rectificar, Cancelar y Oponerse (derechos ARCO) al tratamiento de sus datos personales.'
                                     : 'In accordance with the Federal Law on Protection of Personal Data Held by Private Parties, you have the right to Access, Rectify, Cancel, and Oppose (ARCO rights) the processing of your personal data.'}
                             </p>
-                            <p className="text-gray-400 text-xs mb-4">
+                            <p className="text-tinta-suave/70 text-xs mb-4">
                                 {language === 'es'
                                     ? 'Sus datos serán utilizados exclusivamente para responder a su consulta y no serán compartidos con terceros sin su consentimiento.'
                                     : 'Your data will be used exclusively to respond to your inquiry and will not be shared with third parties without your consent.'}
                             </p>
                             <div className="flex flex-wrap gap-2">
-                                <a 
-                                    href="/privacy-policy" 
-                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                <a
+                                    href="/privacy-policy"
+                                    className="text-verde hover:text-verde/80 text-xs underline transition-colors"
                                 >
                                     {language === 'es' ? 'Aviso de Privacidad' : 'Privacy Policy'}
                                 </a>
-                                <span className="text-gray-600">•</span>
-                                <a 
-                                    href="/terms-of-service" 
-                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                <span className="text-crema-oscuro">•</span>
+                                <a
+                                    href="/terms-of-service"
+                                    className="text-verde hover:text-verde/80 text-xs underline transition-colors"
                                 >
                                     {language === 'es' ? 'Términos de Uso' : 'Terms of Service'}
                                 </a>
-                                <span className="text-gray-600">•</span>
-                                <a 
-                                    href="/cookie-policy" 
-                                    className="text-green-400 hover:text-green-300 text-xs underline transition-colors"
+                                <span className="text-crema-oscuro">•</span>
+                                <a
+                                    href="/cookie-policy"
+                                    className="text-verde hover:text-verde/80 text-xs underline transition-colors"
                                 >
                                     {language === 'es' ? 'Política de Cookies' : 'Cookie Policy'}
                                 </a>

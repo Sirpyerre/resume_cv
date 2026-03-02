@@ -62,7 +62,7 @@ export default function WhatsAppButton() {
                     showTooltip ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-4 pointer-events-none'
                 }`}
             >
-                <div className="bg-white text-slate-900 px-4 py-2 rounded-lg shadow-xl border border-slate-200 whitespace-nowrap">
+                <div className="bg-crema text-tinta px-4 py-2 rounded-lg shadow-xl border border-crema-oscuro whitespace-nowrap">
                     <p className="text-sm font-medium">{t.tooltip}</p>
                     <div className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-2 w-0 h-0 border-t-8 border-t-transparent border-b-8 border-b-transparent border-l-8 border-l-white"></div>
                 </div>
@@ -88,7 +88,7 @@ export default function WhatsAppButton() {
                 </span>
 
                 {/* Mobile tooltip on long press */}
-                <span className="md:hidden absolute bottom-full right-0 mb-2 px-3 py-1 bg-slate-900 text-white text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
+                <span className="md:hidden absolute bottom-full right-0 mb-2 px-3 py-1 bg-tinta text-crema text-xs rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
                     WhatsApp
                 </span>
             </button>

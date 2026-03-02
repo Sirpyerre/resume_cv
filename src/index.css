@@ -2,15 +2,15 @@
 @tailwind components;
 @tailwind utilities;
 
-html { 
+html {
     scroll-behavior: smooth;
     scroll-padding-top: 80px; /* Account for fixed navbar */
 }
 
-html, body { 
-    height: 100%; 
-    background-color: #0f172a;
-    color: white;
+html, body {
+    height: 100%;
+    background-color: #F5F0E8;
+    color: #1C1A17;
     overflow-x: hidden;
 }
 
@@ -32,14 +32,14 @@ html, body {
 }
 
 ::-webkit-scrollbar-track {
-    background: #1e293b;
+    background: #D9CEBC;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #22c55e;
+    background: #2D6A4F;
     border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: #16a34a;
+    background: #3d8a68;
 }
