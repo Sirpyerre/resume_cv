@@ -69,13 +69,13 @@ export default function SEO({
             <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={`${url}${image}`} />
             
-            {/* Alternate Language Links */}
-            <link rel="alternate" hrefLang="en" href={`${url}?lang=en`} />
-            <link rel="alternate" hrefLang="es" href={`${url}?lang=es`} />
+            {/* Alternate Language Links — SPA: both langs share the same canonical URL */}
             <link rel="alternate" hrefLang="x-default" href={url} />
-            
+            <link rel="alternate" hrefLang="es" href={url} />
+            <link rel="alternate" hrefLang="en" href={url} />
+
             {/* Additional Meta Tags */}
-            <meta name="theme-color" content="#0f172a" />
+            <meta name="theme-color" content="#2D6A4F" />
             <link rel="canonical" href={url} />
         </Helmet>
     )
