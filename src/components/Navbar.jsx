@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from "../contexts/LanguageContext";
 import { content } from "../content/content";
 
@@ -11,34 +12,34 @@ export default function Navbar() {
     const location = useLocation();
     const t = content[language];
 
-    const sections = [
-        { id: 'hero', label: t.nav.aboutMe },
-        { id: 'about', label: t.nav.aboutMe },
+    const navLinks = [
         { id: 'services', label: t.nav.services },
-        { id: 'why-me', label: t.nav.whyMe },
         { id: 'contributions', label: t.nav.contributions },
-        { id: 'contact', label: t.nav.contact }
+        { id: 'about', label: t.nav.aboutMe },
     ];
 
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+
     const scrollToSection = (sectionId) => {
-        // Check if we're not on the home page
         if (location.pathname !== '/') {
-            // Navigate to home page with hash
             navigate('/', { replace: true });
-            // Wait for navigation to complete, then scroll
             setTimeout(() => {
-                const element = document.getElementById(sectionId);
-                if (element) {
-                    element.scrollIntoView({ behavior: 'smooth' });
-                }
+                document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
             }, 100);
         } else {
-            // We're already on home page, just scroll
-            const element = document.getElementById(sectionId);
-            if (element) {
-                element.scrollIntoView({ behavior: 'smooth' });
-            }
+            document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth' });
         }
+        setIsMenuOpen(false);
+    };
+
+    const handleWhatsApp = () => {
+        if (!whatsappNumber) return;
+        const msg = encodeURIComponent(
+            language === 'es'
+                ? 'Hola! Me gustaría consultar sobre sus servicios web.'
+                : 'Hi! I would like to inquire about your web services.'
+        );
+        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank', 'noopener,noreferrer');
         setIsMenuOpen(false);
     };
 
@@ -46,7 +47,6 @@ export default function Navbar() {
         const handleScroll = () => {
             const sections = ['hero', 'about', 'services', 'why-me', 'contributions', 'contact'];
             const scrollPosition = window.scrollY + 100;
-
             for (const sectionId of sections) {
                 const element = document.getElementById(sectionId);
                 if (element) {
@@ -58,52 +58,73 @@ export default function Navbar() {
                 }
             }
         };
-
         window.addEventListener('scroll', handleScroll);
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    // Close menu on outside click
+    useEffect(() => {
+        if (!isMenuOpen) return;
+        const handleClick = (e) => {
+            if (!e.target.closest('header')) setIsMenuOpen(false);
+        };
+        document.addEventListener('mousedown', handleClick);
+        return () => document.removeEventListener('mousedown', handleClick);
+    }, [isMenuOpen]);
+
     return (
-        <header className="fixed top-0 left-0 right-0 bg-crema-medio/95 backdrop-blur-sm text-tinta z-50 border-b border-crema-oscuro">
-            <div className="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+        <header className="fixed top-0 left-0 right-0 bg-crema/95 backdrop-blur-sm text-tinta z-50 border-b border-crema-oscuro">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+
+                {/* Logo */}
                 <button
                     onClick={() => scrollToSection('hero')}
-                    className="text-xl font-bold text-verde hover:text-verde/80 transition-colors"
+                    className="text-xl font-bold text-tinta hover:text-verde transition-colors"
                 >
-                    &lt;PR /&gt;
+                    Pedro.
                 </button>
 
                 {/* Desktop Navigation */}
-                <nav className="hidden lg:flex space-x-6 text-sm">
-                    {sections.slice(1).map((section) => (
+                <nav className="hidden lg:flex items-center gap-1 text-sm">
+                    {navLinks.map((link) => (
                         <button
-                            key={section.id}
-                            onClick={() => scrollToSection(section.id)}
-                            className={`hover:text-verde transition-colors px-2 py-1 rounded ${
-                                activeSection === section.id ? 'text-verde' : ''
+                            key={link.id}
+                            onClick={() => scrollToSection(link.id)}
+                            className={`px-4 py-2 rounded-lg font-medium transition-colors hover:text-verde ${
+                                activeSection === link.id
+                                    ? 'bg-verde/10 text-verde'
+                                    : 'text-tinta-suave'
                             }`}
                         >
-                            {section.label}
+                            {link.label}
                         </button>
                     ))}
                 </nav>
 
-                <div className="flex items-center space-x-4">
-                    {/* Language Toggle */}
+                <div className="flex items-center gap-3">
+                    {/* Language Toggle — desktop only */}
                     <button
                         onClick={toggleLanguage}
-                        className="hidden sm:block text-sm hover:text-verde transition-colors"
+                        className="hidden lg:block text-xs text-tinta-suave hover:text-verde transition-colors font-medium tracking-wide"
                     >
                         {t.nav.language}
                     </button>
 
-                    {/* Mobile Menu Button */}
+                    {/* Contact CTA — desktop */}
+                    <button
+                        onClick={() => scrollToSection('contact')}
+                        className="hidden lg:inline-flex items-center gap-1 bg-verde text-crema px-5 py-2 rounded-lg font-semibold text-sm hover:bg-verde/90 transition-colors"
+                    >
+                        {t.nav.contactBtn} →
+                    </button>
+
+                    {/* Mobile Menu Toggle */}
                     <button
                         onClick={() => setIsMenuOpen(!isMenuOpen)}
-                        className="lg:hidden text-tinta focus:outline-none"
+                        className="lg:hidden text-tinta focus:outline-none p-1"
                         aria-label="Toggle menu"
                     >
-                        <svg className={`w-6 h-6 transition-transform ${isMenuOpen ? 'rotate-90' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             {isMenuOpen ? (
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                             ) : (
@@ -115,28 +136,59 @@ export default function Navbar() {
             </div>
 
             {/* Mobile Menu */}
-            <div className={`lg:hidden transition-all duration-300 ease-in-out ${
-                isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
-            } overflow-hidden bg-crema-medio border-t border-crema-oscuro`}>
-                <nav className="container mx-auto px-4 sm:px-6 py-4 space-y-4">
-                    {sections.slice(1).map((section) => (
+            <div
+                className={`lg:hidden transition-all duration-300 ease-in-out ${
+                    isMenuOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0 pointer-events-none'
+                } overflow-hidden bg-crema border-t border-crema-oscuro`}
+            >
+                <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+                    <p className="text-xs font-bold tracking-widest text-tinta-suave/60 mb-3">
+                        {t.nav.mobileMenuTitle}
+                    </p>
+                    <div className="border-t border-crema-oscuro mb-4" />
+
+                    <nav className="space-y-1 mb-5">
+                        {navLinks.map((link) => (
+                            <button
+                                key={link.id}
+                                onClick={() => scrollToSection(link.id)}
+                                className={`flex items-center justify-between w-full text-left py-3 px-2 rounded-lg text-base font-medium transition-colors hover:text-verde ${
+                                    activeSection === link.id ? 'text-verde' : 'text-tinta'
+                                }`}
+                            >
+                                {link.label}
+                                <svg className="w-4 h-4 text-tinta-suave/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                </svg>
+                            </button>
+                        ))}
+                    </nav>
+
+                    {/* Mobile CTAs */}
+                    <div className="flex flex-col gap-3 pb-2">
                         <button
-                            key={section.id}
-                            onClick={() => scrollToSection(section.id)}
-                            className={`block w-full text-left text-sm hover:text-verde transition-colors py-2 px-4 rounded ${
-                                activeSection === section.id ? 'text-verde bg-crema-oscuro' : ''
-                            }`}
+                            onClick={() => scrollToSection('contact')}
+                            className="w-full bg-verde text-crema py-3.5 rounded-lg font-bold text-base hover:bg-verde/90 transition-colors active:scale-[0.98]"
                         >
-                            {section.label}
+                            {t.nav.bookCta} →
                         </button>
-                    ))}
-                    <button
-                        onClick={toggleLanguage}
-                        className="block sm:hidden w-full text-left text-sm hover:text-verde transition-colors py-2 px-4 rounded border-t border-crema-oscuro mt-4 pt-4"
-                    >
-                        {t.nav.language}
-                    </button>
-                </nav>
+                        <button
+                            onClick={handleWhatsApp}
+                            className="w-full inline-flex items-center justify-center gap-2 border-2 border-verde text-verde py-3.5 rounded-lg font-bold text-base hover:bg-verde/5 transition-colors active:scale-[0.98]"
+                        >
+                            <FaWhatsapp className="w-5 h-5" />
+                            {t.nav.whatsappCta}
+                        </button>
+
+                        {/* Language toggle in mobile menu */}
+                        <button
+                            onClick={toggleLanguage}
+                            className="text-sm text-tinta-suave hover:text-verde transition-colors pt-1"
+                        >
+                            {t.nav.language}
+                        </button>
+                    </div>
+                </div>
             </div>
         </header>
     );

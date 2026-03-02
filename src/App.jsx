@@ -15,7 +15,6 @@ import NotFound from "./pages/NotFound.jsx";
 import HeroSection from "./components/sections/HeroSection";
 import AboutSection from "./components/sections/AboutSection";
 import ServicesSection from "./components/sections/ServicesSection";
-import WhyMeSection from "./components/sections/WhyMeSection";
 import ContributionsSection from "./components/sections/ContributionsSection";
 import ContactSection from "./components/sections/ContactSection";
 
@@ -32,7 +31,6 @@ export default function App() {
                                 <HeroSection />
                                 <AboutSection />
                                 <ServicesSection />
-                                <WhyMeSection />
                                 <ContributionsSection />
                                 <ContactSection />
                             </>

@@ -2,6 +2,9 @@ module.exports = {
     content: ["./index.html", "./src/**/*.{js,jsx}"] ,
     theme: {
         extend: {
+            fontFamily: {
+                lora: ['Lora', 'serif'],
+            },
             colors: {
                 crema: '#F5F0E8',
                 'crema-medio': '#EDE6D6',

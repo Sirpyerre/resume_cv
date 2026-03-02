@@ -52,19 +52,20 @@ export default function ContributionsSection() {
                                 {/* Image Side */}
                                 <div className="order-2 lg:order-1">
                                     <div className="relative aspect-video bg-crema-oscuro/30 rounded-xl overflow-hidden group">
-                                        {/* Placeholder for image */}
-                                        <div className="absolute inset-0 flex items-center justify-center text-tinta-suave">
-                                            <div className="text-center p-8">
-                                                <div className="text-6xl mb-4">🌐</div>
-                                                <p className="text-lg font-medium">{currentProject.title}</p>
-                                                <p className="text-sm mt-2 opacity-70">
-                                                    {currentProject.url === '#'
-                                                        ? (language === 'es' ? 'Proyecto confidencial' : 'Confidential project')
-                                                        : currentProject.url}
-                                                </p>
+                                        {currentProject.image ? (
+                                            <img
+                                                src={currentProject.image}
+                                                alt={currentProject.title}
+                                                className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                                            />
+                                        ) : (
+                                            <div className="absolute inset-0 flex items-center justify-center text-tinta-suave">
+                                                <div className="text-center p-8">
+                                                    <div className="text-6xl mb-4">🌐</div>
+                                                    <p className="text-lg font-medium">{currentProject.title}</p>
+                                                </div>
                                             </div>
-                                        </div>
-
+                                        )}
                                         {/* Overlay on hover */}
                                         <div className="absolute inset-0 bg-verde/0 group-hover:bg-verde/10 transition-all duration-300"></div>
                                     </div>

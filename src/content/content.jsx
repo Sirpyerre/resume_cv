@@ -1,7 +1,7 @@
 export const content = {
   en: {
     nav: {
-      aboutMe: "About Me",
+      aboutMe: "About",
       services: "Services",
       whyMe: "Why Me",
       portfolio: "Portfolio",
@@ -10,18 +10,52 @@ export const content = {
       experience: "Experience",
       education: "Education",
       contact: "Contact",
-      language: "ES / Español"
+      contactBtn: "Contact",
+      language: "ES / Español",
+      mobileMenuTitle: "MENU",
+      bookCta: "Book free consultation",
+      whatsappCta: "Write on WhatsApp",
     },
     hero: {
       name: "Pedro Rojas Reyes",
+      badge: "Web Development · Puebla, México",
+      headlinePart1: "Your business deserves",
+      headlinePart2: "a website that",
+      headlineAccent: "actually",
+      headlinePart3: "gets clients.",
+      description: "I build fast, professional, Google-optimized sites for businesses in Puebla that want to grow online — no tech jargon, just real results.",
+      ctaPrimary: "Book your free consultation",
+      ctaSecondary: "View projects",
+      socialProofCount: "+5 businesses",
+      socialProofText: "in Puebla already online",
+      popularLabel: "Most popular service",
+      popularServiceName: "Essential Presence",
+      popularServiceDesc: "3–5 page site that shows up on Google and turns visits into calls.",
+      popularServicePrice: "$5,000",
+      popularServiceCurrency: "MXN",
+      popularServiceDelivery: "delivery in 2 weeks",
+      popularServiceFeatures: [
+        "Responsive design & fast loading",
+        "Optimized for Google (basic SEO)",
+        "Contact form + 1 month support"
+      ],
+      webAppName: "Web App",
+      webAppDesc: "Calculators, bookings and portals. From $15,000 MXN.",
+      maintenanceName: "Maintenance",
+      maintenanceDesc: "Your site always secure. $1,500 MXN/month.",
+      whatsappQuestion: "Have questions before deciding?",
+      whatsappText: "Message me today — I reply the same day.",
+      whatsappCta: "WhatsApp",
       title: "I Help Puebla Businesses Get More Clients and Automate",
-      description: "I create professional, fast, and secure websites that convert visitors into sales.",
       specialization: "Custom solutions that make your business stand out online and attract more customers.",
       downloadResume: "Schedule an Exploratory Call",
       availability: "Serving local businesses in Puebla and beyond."
     },
     about: {
       title: "About Me",
+      role: "Web Consultant & Developer",
+      location: "Puebla, México",
+      experience: "10+ years of experience",
       paragraph1: "I'm Pedro R., a web consultant and developer based in Puebla. My passion is using technology to help local businesses like yours grow. I understand the challenges of small and medium businesses and I know how important it is to have a strong online presence.",
       paragraph2: "With over 10 years of experience in web development and cloud infrastructure, I've worked with companies like OCC Mundial, building high-performance systems. Now, I use that expertise to help local businesses in Puebla get more customers and grow online.",
     },
@@ -102,28 +136,21 @@ export const content = {
     },
     portfolio: {
       title: "My Creative Showcase",
-      subtitle: "Real results for businesses and SMEs. Innovative projects, impactful designs, and solutions that set standards.",
+      subtitle: "Real projects, real results — from local businesses to developer communities.",
       projects: [
         {
           title: "Nuu Dee Consulting",
-          description: "A modern and ultra-fast website (Next.js) for a visa processing consultancy. The design focuses on a clear call-to-action and establishing authority, generating instant credibility and capturing new prospects.",
-          image: "/hero-section-resize1.png",
+          description: "Professional website for a US tourist visa consulting service and artisanal products (seasoned salt) in Oaxaca's Mixtec Region. Conversion-focused design with fast loading and strong local presence in Huajuapan de León.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/site-consultoria-empresarial_ttuais.png",
           url: "https://consultorianuudee.com",
-          tags: ["Next.js", "SEO", "Conversions"]
+          tags: ["Next.js", "Local SEO", "Conversions"]
         },
         {
-          title: "Local Restaurant",
-          description: "Responsive website with online menu and reservation system. Increased visibility by 200% in local searches and reduced phone inquiries by 60%.",
-          image: "/images/portfolio/restaurant.jpg",
-          url: "#",
-          tags: ["React", "Online Reservations", "Local SEO"]
-        },
-        {
-          title: "Professional Services",
-          description: "Corporate website with customer portal and automated quote system. Reduced response time from 48 to 2 hours.",
-          image: "/images/portfolio/services.jpg",
-          url: "#",
-          tags: ["Custom Portal", "Automation", "CRM"]
+          title: "PHP Mexico Community",
+          description: "Migration of the PHP Mexico community site from a Symfony/PHP stack to a modern Node.js + React architecture. Hosted on GitHub Pages — eliminating AWS server costs entirely while improving performance and maintainability for the community.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/phpmexico-site_xm9uqc.png",
+          url: "https://phpmexico.mx/",
+          tags: ["React", "Node.js", "Migration", "GitHub Pages"]
         }
       ]
     },
@@ -257,7 +284,7 @@ export const content = {
   },
   es: {
     nav: {
-      aboutMe: "Acerca de Mí",
+      aboutMe: "Sobre Mí",
       services: "Servicios",
       whyMe: "Por Qué Yo",
       portfolio: "Portafolio",
@@ -266,18 +293,52 @@ export const content = {
       experience: "Experiencia",
       education: "Educación",
       contact: "Contacto",
-      language: "EN / English"
+      contactBtn: "Contactar",
+      language: "EN / English",
+      mobileMenuTitle: "MENÚ",
+      bookCta: "Agendar consulta gratis",
+      whatsappCta: "Escribir por WhatsApp",
     },
     hero: {
       name: "Pedro Rojas Reyes",
+      badge: "Desarrollo Web · Puebla, México",
+      headlinePart1: "Tu negocio merece",
+      headlinePart2: "una web que",
+      headlineAccent: "sí",
+      headlinePart3: "consiga clientes.",
+      description: "Creo sitios rápidos, profesionales y optimizados para Google. Para negocios en Puebla que quieren crecer en línea — sin tecnicismos, con resultados reales.",
+      ctaPrimary: "Agenda tu consulta gratis",
+      ctaSecondary: "Ver proyectos",
+      socialProofCount: "+5 negocios",
+      socialProofText: "en Puebla ya tienen presencia online",
+      popularLabel: "Servicio más popular",
+      popularServiceName: "Presencia Esencial",
+      popularServiceDesc: "Sitio de 3–5 páginas que aparece en Google y convierte visitas en llamadas.",
+      popularServicePrice: "$5,000",
+      popularServiceCurrency: "MXN",
+      popularServiceDelivery: "entrega en 2 semanas",
+      popularServiceFeatures: [
+        "Diseño responsivo y carga rápida",
+        "Optimizado para Google (SEO básico)",
+        "Formulario de contacto + 1 mes soporte"
+      ],
+      webAppName: "Web App",
+      webAppDesc: "Cotizadores, reservas y portales. Desde $15,000 MXN.",
+      maintenanceName: "Mantenimiento",
+      maintenanceDesc: "Tu sitio siempre seguro. $1,500 MXN/mes.",
+      whatsappQuestion: "¿Tienes dudas antes de decidir?",
+      whatsappText: "Escríbeme hoy y te respondo el mismo día.",
+      whatsappCta: "WhatsApp",
       title: "Ayudo a Negocios en Puebla a Conseguir Más Clientes y Automatizar",
-      description: "Creo sitios web profesionales, rápidos y seguros que convierten visitantes en ventas.",
       specialization: "Soluciones personalizadas que hacen que tu negocio destaque en línea y atraiga más clientes.",
       downloadResume: "Agenda una Llamada Exploratoria",
       availability: "Sirviendo a negocios locales en Puebla y más."
     },
     about: {
       title: "Acerca de Mí",
+      role: "Consultor & Desarrollador Web",
+      location: "Puebla, México",
+      experience: "10+ años de experiencia",
       paragraph1: "Soy Pedro R., un consultor y desarrollador web basado en Puebla. Mi pasión es usar la tecnología para ayudar a negocios locales como el tuyo a crecer. Entiendo los retos de la pequeña y mediana empresa y sé lo importante que es tener una presencia en línea sólida.",
       paragraph2: "Con más de 10 años de experiencia en desarrollo web e infraestructura en la nube, he trabajado con empresas como OCC Mundial, construyendo sistemas de alto rendimiento. Ahora, uso esa experiencia para ayudar a negocios locales en Puebla a conseguir más clientes y crecer en línea.",
     },
@@ -358,28 +419,21 @@ export const content = {
     },
     portfolio: {
       title: "Mi Muestra Creativa",
-      subtitle: "Resultados reales para negocios y Pymes. Proyectos innovadores, diseños de impacto y soluciones que definen estándares.",
+      subtitle: "Proyectos reales, resultados reales — de negocios locales a comunidades de desarrolladores.",
       projects: [
         {
           title: "Consultoría Nuu Dee",
-          description: "Un sitio web moderno y ultra-rápido (Next.js) para una consultoría de trámites de visa. El diseño se enfoca en un llamado a la acción claro y en establecer autoridad, generando credibilidad al instante y capturando nuevos prospectos.",
-          image: "/images/portfolio/consultoria-nuudee.jpg",
+          description: "Sitio web profesional para consultoría de visa americana de turista y productos artesanales (sal condimentada) en la Región Mixteca de Oaxaca. Diseño enfocado en conversión, carga ultrarrápida y presencia digital en Huajuapan de León.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/site-consultoria-empresarial_ttuais.png",
           url: "https://consultorianuudee.com",
-          tags: ["Next.js", "SEO", "Conversiones"]
+          tags: ["Next.js", "SEO Local", "Conversiones"]
         },
         {
-          title: "Restaurante Local",
-          description: "Sitio web responsivo con menú en línea y sistema de reservas. Aumentó la visibilidad en 200% en búsquedas locales y redujo consultas telefónicas en 60%.",
-          image: "/images/portfolio/restaurant.jpg",
-          url: "#",
-          tags: ["React", "Reservas Online", "SEO Local"]
-        },
-        {
-          title: "Servicios Profesionales",
-          description: "Sitio corporativo con portal de clientes y sistema de cotización automatizado. Redujo tiempo de respuesta de 48 a 2 horas.",
-          image: "/images/portfolio/services.jpg",
-          url: "#",
-          tags: ["Portal Custom", "Automatización", "CRM"]
+          title: "Comunidad PHP México",
+          description: "Migración del sitio de la comunidad PHP México de Symfony/PHP a una arquitectura moderna con Node.js y React. Alojado en GitHub Pages, eliminando los costos de servidor en AWS y mejorando el rendimiento y mantenimiento para toda la comunidad.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/phpmexico-site_xm9uqc.png",
+          url: "https://phpmexico.mx/",
+          tags: ["React", "Node.js", "Migración", "GitHub Pages"]
         }
       ]
     },

@@ -1,69 +1,166 @@
 import React from 'react';
-import { useLanguage } from '../../contexts/LanguageContext.jsx'
+import { FaWhatsapp } from 'react-icons/fa';
+import { useLanguage } from '../../contexts/LanguageContext.jsx';
 import { content } from '../../content/content.jsx';
 
 export default function HeroSection() {
     const { language } = useLanguage();
     const t = content[language];
+    const h = t.hero;
+
+    const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
+
+    const handleWhatsApp = () => {
+        if (!whatsappNumber) return;
+        const msg = encodeURIComponent(
+            language === 'es'
+                ? 'Hola! Me gustaría consultar sobre sus servicios web.'
+                : 'Hi! I would like to inquire about your web services.'
+        );
+        window.open(`https://wa.me/${whatsappNumber}?text=${msg}`, '_blank', 'noopener,noreferrer');
+    };
+
+    const scrollTo = (id) => {
+        document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    };
 
     return (
-        <section id="hero" className="relative min-h-screen flex flex-col justify-center items-center text-center px-4 sm:px-6 pt-16 pb-20">
-            <div className="max-w-4xl mx-auto">
-                {/* Name */}
-                <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-tinta mb-4 sm:mb-6">
-                    {t.hero.name}
-                </h1>
+        <section id="hero" className="bg-crema min-h-screen flex flex-col justify-center pt-20 pb-12 px-4 sm:px-6">
+            <div className="max-w-6xl mx-auto w-full">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
 
-                {/* Title */}
-                <h2 className="text-xl sm:text-2xl md:text-3xl font-semibold text-verde mb-4 sm:mb-8 leading-tight">
-                    {t.hero.title}
-                </h2>
+                    {/* LEFT COLUMN */}
+                    <div className="flex flex-col gap-5 lg:gap-6">
 
-                {/* Description */}
-                <p className="text-base sm:text-lg md:text-xl text-tinta-suave mb-4 sm:mb-6 leading-relaxed">
-                    {t.hero.description}
-                </p>
+                        {/* Location Badge */}
+                        <div>
+                            <span className="inline-flex items-center gap-2 border border-tinta/20 rounded-full px-4 py-1.5 text-xs font-semibold tracking-widest text-tinta-suave uppercase">
+                                <span className="w-2 h-2 rounded-full bg-verde flex-shrink-0"></span>
+                                {h.badge}
+                            </span>
+                        </div>
 
-                <p className="text-sm sm:text-base md:text-lg text-tinta-suave/70 mb-8 sm:mb-12 leading-relaxed">
-                    {t.hero.specialization}
-                </p>
+                        {/* Headline */}
+                        <h1 className="text-4xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold text-tinta leading-tight">
+                            {h.headlinePart1}<br />
+                            {h.headlinePart2}{' '}
+                            <em className="font-lora italic text-verde not-italic" style={{ fontStyle: 'italic', fontFamily: 'Lora, serif' }}>
+                                {h.headlineAccent}
+                            </em>
+                            <br />
+                            {h.headlinePart3}
+                        </h1>
 
-                {/* Social Icons */}
-                <div className="flex justify-center space-x-4 sm:space-x-6 mb-8 sm:mb-12">
-                    <a href="https://www.linkedin.com/in/sirpyerre/" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-3 border border-crema-oscuro rounded-full hover:border-verde hover:text-verde transition-colors">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z" clipRule="evenodd"/>
-                        </svg>
-                    </a>
-                    <a href="https://github.com/Sirpyerre" target="_blank" rel="noopener noreferrer" className="p-2 sm:p-3 border border-crema-oscuro rounded-full hover:border-verde hover:text-verde transition-colors">
-                        <svg className="w-5 h-5 sm:w-6 sm:h-6" fill="currentColor" viewBox="0 0 20 20">
-                            <path fillRule="evenodd" d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z" clipRule="evenodd"/>
-                        </svg>
-                    </a>
+                        {/* Description */}
+                        <p className="text-base sm:text-lg text-tinta-suave leading-relaxed max-w-lg">
+                            {h.description}
+                        </p>
+
+                        {/* CTAs */}
+                        <div className="flex flex-col sm:flex-row gap-3 sm:items-center">
+                            <button
+                                onClick={() => scrollTo('contact')}
+                                className="inline-flex items-center justify-center gap-2 bg-verde text-crema px-6 py-4 rounded-lg font-bold text-base hover:bg-verde/90 transition-all duration-200 shadow-md active:scale-[0.98] w-full sm:w-auto"
+                            >
+                                {h.ctaPrimary} →
+                            </button>
+                            <button
+                                onClick={() => scrollTo('contributions')}
+                                className="inline-flex items-center justify-center gap-2 text-tinta-suave font-medium text-base hover:text-verde transition-colors px-2 py-3 w-full sm:w-auto"
+                            >
+                                <svg className="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 10h16M4 14h8M4 18h8" />
+                                </svg>
+                                {h.ctaSecondary}
+                            </button>
+                        </div>
+
+                        {/* Social Proof */}
+                        <div className="flex items-center gap-3">
+                            <div className="flex -space-x-2">
+                                {[
+                                    { initial: 'A', bg: 'bg-verde' },
+                                    { initial: 'M', bg: 'bg-tinta-suave' },
+                                    { initial: 'R', bg: 'bg-cobre' },
+                                ].map(({ initial, bg }, i) => (
+                                    <div
+                                        key={i}
+                                        className={`w-9 h-9 rounded-full border-2 border-crema flex items-center justify-center text-crema text-sm font-bold ${bg}`}
+                                    >
+                                        {initial}
+                                    </div>
+                                ))}
+                            </div>
+                            <div>
+                                <div className="text-yellow-500 text-sm leading-none mb-1">★★★★★</div>
+                                <p className="text-sm text-tinta-suave">
+                                    <strong className="text-tinta">{h.socialProofCount}</strong> {h.socialProofText}
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* RIGHT COLUMN */}
+                    <div className="flex flex-col gap-4">
+
+                        {/* Featured Service Card */}
+                        <div className="bg-crema-medio rounded-2xl p-5 sm:p-6 border border-crema-oscuro">
+                            <span className="text-xs font-bold tracking-widest text-tinta-suave uppercase mb-3 block">
+                                {h.popularLabel}
+                            </span>
+                            <h3 className="text-2xl font-bold text-tinta mb-2">{h.popularServiceName}</h3>
+                            <p className="text-tinta-suave text-sm mb-5 leading-relaxed">{h.popularServiceDesc}</p>
+
+                            <div className="flex items-baseline gap-2 mb-4">
+                                <span className="text-4xl font-bold text-tinta">{h.popularServicePrice}</span>
+                                <span className="text-tinta-suave text-sm">
+                                    {h.popularServiceCurrency} · {h.popularServiceDelivery}
+                                </span>
+                            </div>
+
+                            <ul className="space-y-2.5">
+                                {h.popularServiceFeatures.map((feature, i) => (
+                                    <li key={i} className="flex items-center gap-2.5 text-sm text-tinta-suave">
+                                        <svg className="w-4 h-4 text-verde flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                                        </svg>
+                                        {feature}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        {/* Two Small Service Cards */}
+                        <div className="grid grid-cols-2 gap-4">
+                            <div className="bg-crema-medio rounded-xl p-4 border border-crema-oscuro">
+                                <span className="text-xl mb-2 block">⚙️</span>
+                                <h4 className="font-bold text-tinta text-sm mb-1">{h.webAppName}</h4>
+                                <p className="text-xs text-tinta-suave leading-relaxed">{h.webAppDesc}</p>
+                            </div>
+                            <div className="bg-crema-medio rounded-xl p-4 border border-crema-oscuro">
+                                <span className="text-xl mb-2 block">🔧</span>
+                                <h4 className="font-bold text-tinta text-sm mb-1">{h.maintenanceName}</h4>
+                                <p className="text-xs text-tinta-suave leading-relaxed">{h.maintenanceDesc}</p>
+                            </div>
+                        </div>
+
+                        {/* WhatsApp CTA Bar */}
+                        <div className="bg-tinta rounded-xl px-5 py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                            <div>
+                                <p className="text-crema font-semibold text-sm">{h.whatsappQuestion}</p>
+                                <p className="text-crema/60 text-xs mt-0.5">{h.whatsappText}</p>
+                            </div>
+                            <button
+                                onClick={handleWhatsApp}
+                                className="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-4 py-2.5 rounded-lg font-bold text-sm transition-colors whitespace-nowrap flex-shrink-0 active:scale-[0.98]"
+                            >
+                                <FaWhatsapp className="w-4 h-4" />
+                                {h.whatsappCta}
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
-
-                {/* CTA Button */}
-                <div className="mb-8">
-                    <a
-                        href="#contact"
-                        className="inline-block bg-verde text-crema px-8 py-4 rounded-lg font-bold text-lg hover:bg-verde/90 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-verde/30"
-                    >
-                        {t.hero.downloadResume}
-                    </a>
-                    <p className="text-tinta-suave/60 text-xs sm:text-sm mt-3 italic">
-                        {language === 'es'
-                            ? '*La asesoría inicial no tendrá costo en caso de concretarse el proyecto.'
-                            : '*The initial consultation will be free if the project is confirmed.'}
-                    </p>
-                </div>
-
-            </div>
-
-            {/* Availability Message */}
-            <div className="absolute bottom-4 sm:bottom-8 left-1/2 transform -translate-x-1/2 px-4 w-full max-w-2xl">
-                <p className="text-yellow-700 font-medium text-sm sm:text-base text-center px-4">
-                    {t.hero.availability}
-                </p>
             </div>
         </section>
     );
