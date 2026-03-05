@@ -117,7 +117,7 @@ export default function TermsOfService() {
                 {
                     title: "Contacto",
                     content: "Si tiene preguntas sobre estos Términos y Condiciones, puede contactarnos en:",
-                    email: "Correo electrónico: contact@pedrorojas.dev",
+                    email: "Correo electrónico: contacto@pedrorojas.lat",
                     location: "Ubicación: Puebla, México"
                 }
             ]
@@ -233,7 +233,7 @@ export default function TermsOfService() {
                 {
                     title: "Contact",
                     content: "If you have questions about these Terms and Conditions, you can contact us at:",
-                    email: "Email: contact@pedrorojas.dev",
+                    email: "Email: contacto@pedrorojas.lat",
                     location: "Location: Puebla, Mexico"
                 }
             ]

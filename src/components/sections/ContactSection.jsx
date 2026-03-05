@@ -372,8 +372,8 @@ export default function ContactSection() {
                                     </div>
                                     <div>
                                         <h4 className="text-tinta font-semibold mb-1">Email</h4>
-                                        <a href="mailto:contact@pedrorojas.dev" className="text-tinta-suave hover:text-verde transition-colors">
-                                            contact@pedrorojas.dev
+                                        <a href="mailto:contacto@pedrorojas.lat" className="text-tinta-suave hover:text-verde transition-colors">
+                                            contacto@pedrorojas.lat
                                         </a>
                                     </div>
                                 </div>

@@ -1,23 +1,55 @@
-# Pedro Rojas Reyes - Senior Backend Developer
-Welcome to my professional portfolio! I am Pedro Rojas Reyes, a Senior Backend Developer specializing in Go, .NET, and Kubernetes. Here, you'll find information about my skills, projects, and experience in backend development.
+# pedrorojas.lat — Freelance Web Developer Portfolio
 
-## Skills
-- **Programming Languages:** Go, C#, JavaScript
-- **Frameworks:** .NET Core, Express.js
-- **Containerization:** Docker, Kubernetes
-- **Databases:** PostgreSQL, MongoDB
-- **Cloud Platforms:** AWS, Azure
+Personal portfolio and service landing page for **Pedro Rojas Reyes**, a web consultant and developer based in Puebla, México. Built to showcase services, portfolio projects, and drive client conversions for local businesses.
 
-## Projects
-1. **Project A:** Description of project A.
-2. **Project B:** Description of project B.
-3. **Project C:** Description of project C.
+Live site: [pedrorojas.lat](https://pedrorojas.lat)
 
-## Experience
-- **Company A:** Role and responsibilities.
-- **Company B:** Role and responsibilities.
-- **Company C:** Role and responsibilities.
+## About
 
-Feel free to explore my portfolio and reach out if you'd like to collaborate or learn more about my work!
+A bilingual (ES/EN) single-page application focused on conversion and mobile-first UX. Features a service-oriented hero, project carousel, about section, and direct contact via WhatsApp and email.
 
-## Contact
+## Tech Stack
+
+| Category | Technology |
+|---|---|
+| Framework | React 18 |
+| Build tool | Vite 7 |
+| Styling | Tailwind CSS 3 |
+| Routing | React Router DOM 7 |
+| SEO | React Helmet Async |
+| Icons | React Icons 5 |
+| Fonts | Lora (Google Fonts) |
+| Image CDN | Cloudinary |
+| Hosting | — |
+
+## Features
+
+- Bilingual content (Spanish / English) via Context API
+- Mobile-first hero with service cards and WhatsApp CTA
+- Project carousel with live screenshots
+- About section with photo and "Why Me" trust cards
+- Services section with pricing packages
+- Contact section
+- Cookie consent banner
+- Optimized sitemap and SEO meta tags
+
+## Getting Started
+
+```bash
+npm install
+npm run dev
+```
+
+Build for production:
+
+```bash
+npm run build
+```
+
+## Environment Variables
+
+Create a `.env` file at the root:
+
+```
+VITE_WHATSAPP_NUMBER=521XXXXXXXXXX
+```

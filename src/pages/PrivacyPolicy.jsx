@@ -43,7 +43,7 @@ export default function PrivacyPolicy() {
                         "Realizar estudios de satisfacción del cliente",
                         "Mejorar nuestros servicios y procesos"
                     ],
-                    note: "En caso de que no desee que sus datos personales sean tratados para estos fines secundarios, puede manifestar su negativa enviando un correo a: contact@pedrorojas.dev"
+                    note: "En caso de que no desee que sus datos personales sean tratados para estos fines secundarios, puede manifestar su negativa enviando un correo a: contacto@pedrorojas.lat"
                 },
                 {
                     title: "Transferencia de Datos",
@@ -57,7 +57,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "Derechos ARCO",
                     content: "Usted tiene derecho a conocer qué datos personales tenemos de usted, para qué los utilizamos y las condiciones del uso que les damos (Acceso). Asimismo, es su derecho solicitar la corrección de su información personal en caso de que esté desactualizada, sea inexacta o incompleta (Rectificación); que la eliminemos de nuestros registros o bases de datos cuando considere que la misma no está siendo utilizada conforme a los principios, deberes y obligaciones previstas en la normativa (Cancelación); así como oponerse al uso de sus datos personales para fines específicos (Oposición). Estos derechos se conocen como derechos ARCO.",
-                    process: "Para ejercer cualquiera de los derechos ARCO, usted deberá presentar la solicitud respectiva a través del siguiente correo electrónico: contact@pedrorojas.dev",
+                    process: "Para ejercer cualquiera de los derechos ARCO, usted deberá presentar la solicitud respectiva a través del siguiente correo electrónico: contacto@pedrorojas.lat",
                     requirements: "Su solicitud deberá contener la siguiente información:",
                     list: [
                         "Nombre completo del titular y correo electrónico para comunicarle la respuesta",
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "Revocación del Consentimiento",
                     content: "Usted puede revocar el consentimiento que, en su caso, nos haya otorgado para el tratamiento de sus datos personales. Sin embargo, es importante que tenga en cuenta que no en todos los casos podremos atender su solicitud o concluir el uso de forma inmediata, ya que es posible que por alguna obligación legal requiramos seguir tratando sus datos personales.",
-                    process: "Para revocar su consentimiento deberá enviar su solicitud al correo: contact@pedrorojas.dev"
+                    process: "Para revocar su consentimiento deberá enviar su solicitud al correo: contacto@pedrorojas.lat"
                 },
                 {
                     title: "Uso de Cookies y Tecnologías de Rastreo",
@@ -95,7 +95,7 @@ export default function PrivacyPolicy() {
             contact: {
                 title: "Contacto",
                 content: "Si tiene alguna duda o comentario sobre el presente aviso de privacidad, puede contactarnos en:",
-                email: "Correo electrónico: contact@pedrorojas.dev",
+                email: "Correo electrónico: contacto@pedrorojas.lat",
                 location: "Ubicación: Puebla, México"
             }
         },
@@ -136,7 +136,7 @@ export default function PrivacyPolicy() {
                         "Conduct customer satisfaction studies",
                         "Improve our services and processes"
                     ],
-                    note: "If you do not wish your personal data to be processed for these secondary purposes, you may express your refusal by sending an email to: contact@pedrorojas.dev"
+                    note: "If you do not wish your personal data to be processed for these secondary purposes, you may express your refusal by sending an email to: contacto@pedrorojas.lat"
                 },
                 {
                     title: "Data Transfer",
@@ -150,7 +150,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "ARCO Rights",
                     content: "You have the right to know what personal data we have about you, what we use it for, and the conditions of use (Access). You also have the right to request correction of your personal information if it is outdated, inaccurate, or incomplete (Rectification); to have it removed from our records or databases when you consider it is not being used in accordance with principles and obligations (Cancellation); and to oppose the use of your personal data for specific purposes (Opposition). These are known as ARCO rights.",
-                    process: "To exercise any ARCO rights, you must submit your request via email: contact@pedrorojas.dev",
+                    process: "To exercise any ARCO rights, you must submit your request via email: contacto@pedrorojas.lat",
                     requirements: "Your request must contain the following information:",
                     list: [
                         "Full name of the holder and email address for response",
@@ -163,7 +163,7 @@ export default function PrivacyPolicy() {
                 {
                     title: "Consent Revocation",
                     content: "You may revoke the consent you have given us for processing your personal data. However, please note that we may not be able to honor your request immediately in all cases, as we may be legally required to continue processing your data.",
-                    process: "To revoke your consent, send your request to: contact@pedrorojas.dev"
+                    process: "To revoke your consent, send your request to: contacto@pedrorojas.lat"
                 },
                 {
                     title: "Use of Cookies and Tracking Technologies",
@@ -188,7 +188,7 @@ export default function PrivacyPolicy() {
             contact: {
                 title: "Contact",
                 content: "If you have any questions or comments about this privacy notice, you can contact us at:",
-                email: "Email: contact@pedrorojas.dev",
+                email: "Email: contacto@pedrorojas.lat",
                 location: "Location: Puebla, Mexico"
             }
         }

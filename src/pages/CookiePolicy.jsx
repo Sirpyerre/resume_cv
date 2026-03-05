@@ -132,7 +132,7 @@ export default function CookiePolicy() {
                 {
                     title: "Contacto",
                     content: "Si tiene preguntas sobre nuestra Política de Cookies o sobre cómo utilizamos las cookies, puede contactarnos en:",
-                    email: "Correo electrónico: contact@pedrorojas.dev",
+                    email: "Correo electrónico: contacto@pedrorojas.lat",
                     location: "Ubicación: Puebla, México"
                 }
             ]
@@ -263,7 +263,7 @@ export default function CookiePolicy() {
                 {
                     title: "Contact",
                     content: "If you have questions about our Cookie Policy or how we use cookies, you can contact us at:",
-                    email: "Email: contact@pedrorojas.dev",
+                    email: "Email: contacto@pedrorojas.lat",
                     location: "Location: Puebla, Mexico"
                 }
             ]
