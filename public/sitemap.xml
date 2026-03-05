@@ -1,38 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-
-  <!-- Main page — SPA: all sections (hero, about, services, portfolio, contact) live here -->
   <url>
     <loc>https://pedrorojas.lat/</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-05T19:29:03.713Z</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://pedrorojas.lat/"/>
     <xhtml:link rel="alternate" hreflang="es" href="https://pedrorojas.lat/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://pedrorojas.lat/"/>
   </url>
-
-  <!-- Legal pages -->
   <url>
     <loc>https://pedrorojas.lat/privacy-policy</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-05T19:29:03.713Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
-
   <url>
     <loc>https://pedrorojas.lat/terms-of-service</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-05T19:29:03.713Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
-
   <url>
     <loc>https://pedrorojas.lat/cookie-policy</loc>
-    <lastmod>2026-03-02</lastmod>
+    <lastmod>2026-03-05T19:29:03.713Z</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.2</priority>
   </url>
-
 </urlset>

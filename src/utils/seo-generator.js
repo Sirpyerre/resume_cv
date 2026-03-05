@@ -10,41 +10,32 @@ const generateSitemap = () => {
   const baseUrl = 'https://pedrorojas.lat';
   const currentDate = new Date().toISOString();
   
+  // SPA: hash fragments (#about, #contact, etc.) are NOT valid sitemap URLs.
+  // Google ignores the fragment and treats them as duplicate/unindexable pages.
+  // Only list real navigable URLs here.
   const pages = [
     {
       url: '/',
-      changefreq: 'monthly',
+      changefreq: 'weekly',
       priority: '1.0',
       lastmod: currentDate
     },
     {
-      url: '/#about',
-      changefreq: 'monthly', 
-      priority: '0.8',
-      lastmod: currentDate
-    },
-    {
-      url: '/#projects',
-      changefreq: 'weekly',
-      priority: '0.9',
-      lastmod: currentDate
-    },
-    {
-      url: '/#experience',
-      changefreq: 'monthly',
-      priority: '0.8',
-      lastmod: currentDate
-    },
-    {
-      url: '/#education',
+      url: '/privacy-policy',
       changefreq: 'yearly',
-      priority: '0.6',
+      priority: '0.2',
       lastmod: currentDate
     },
     {
-      url: '/#contact',
-      changefreq: 'monthly',
-      priority: '0.7',
+      url: '/terms-of-service',
+      changefreq: 'yearly',
+      priority: '0.2',
+      lastmod: currentDate
+    },
+    {
+      url: '/cookie-policy',
+      changefreq: 'yearly',
+      priority: '0.2',
       lastmod: currentDate
     }
   ];
@@ -52,14 +43,20 @@ const generateSitemap = () => {
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
-${pages.map(page => `  <url>
+${pages.map(page => {
+    const isMain = page.url === '/';
+    const hreflang = isMain
+      ? `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/"/>`
+      : '';
+    return `  <url>
     <loc>${baseUrl}${page.url}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${page.url}"/>
-    <xhtml:link rel="alternate" hreflang="es" href="${baseUrl}${page.url}"/>
-  </url>`).join('\n')}
+    <priority>${page.priority}</priority>${hreflang}
+  </url>`;
+  }).join('\n')}
 </urlset>`;
 
   return sitemap;
