@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useLanguage } from '../contexts/LanguageContext';
 
 export default function TermsOfService() {
@@ -243,6 +244,10 @@ export default function TermsOfService() {
     const t = content[language];
 
     return (
+        <>
+        <Helmet>
+            <meta name="robots" content="noindex, nofollow" />
+        </Helmet>
         <div className="min-h-screen bg-slate-900 text-white">
             <div className="container mx-auto max-w-4xl px-4 py-16">
                 <button
@@ -298,5 +303,6 @@ export default function TermsOfService() {
                 ))}
             </div>
         </div>
+        </>
     );
 }

@@ -19,24 +19,6 @@ const generateSitemap = () => {
       changefreq: 'weekly',
       priority: '1.0',
       lastmod: currentDate
-    },
-    {
-      url: '/privacy-policy',
-      changefreq: 'yearly',
-      priority: '0.2',
-      lastmod: currentDate
-    },
-    {
-      url: '/terms-of-service',
-      changefreq: 'yearly',
-      priority: '0.2',
-      lastmod: currentDate
-    },
-    {
-      url: '/cookie-policy',
-      changefreq: 'yearly',
-      priority: '0.2',
-      lastmod: currentDate
     }
   ];
 
@@ -77,11 +59,9 @@ Sitemap: ${baseUrl}/sitemap.xml
 # Specific rules for search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
-User-agent: Bingbot  
-Allow: /
-Crawl-delay: 1`;
+User-agent: Bingbot
+Allow: /`;
 };
 
 // Main execution

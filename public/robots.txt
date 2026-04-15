@@ -9,8 +9,6 @@ Sitemap: https://pedrorojas.lat/sitemap.xml
 # Specific rules for search engines
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
 
-User-agent: Bingbot  
+User-agent: Bingbot
 Allow: /
-Crawl-delay: 1

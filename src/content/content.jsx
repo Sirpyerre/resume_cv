@@ -270,6 +270,32 @@ export const content = {
         ]
       }
     },
+    faq: {
+      title: "Frequently Asked Questions",
+      subtitle: "Clear answers to the most common questions before starting your project.",
+      items: [
+        {
+          question: "How much does a professional website cost?",
+          answer: "A professional website starts at $5,000 MXN for a 3–5 page site (Essential Presence package). Custom web apps (booking systems, quote calculators) start at $15,000 MXN. Monthly maintenance is $1,500 MXN/month. All prices include design, development, and 1 month of free support."
+        },
+        {
+          question: "How long does it take to build my website?",
+          answer: "The Essential Presence package is delivered in 2 weeks. Custom web apps typically take 4–8 weeks depending on complexity. The timeline starts once we agree on the scope and you provide the content (texts and images)."
+        },
+        {
+          question: "What's included in the Essential Presence package?",
+          answer: "It includes: modern responsive design (works on mobile and desktop), 3–5 professional pages, contact form connected to your email, basic SEO optimization so Google can find you, secure cloud hosting, and 1 month of free technical support."
+        },
+        {
+          question: "Do you work with businesses outside Puebla?",
+          answer: "Yes! While I'm based in Puebla and specialize in local businesses, I work with clients across Mexico and internationally. All communication and meetings can be done remotely via video call."
+        },
+        {
+          question: "Do I need technical knowledge to hire you?",
+          answer: "Not at all. You just need to know what your business needs — I take care of everything technical. I'll guide you through every step in plain language, no tech jargon."
+        }
+      ]
+    },
     contact: {
       title: "Contact",
       subtitle: "Ready to grow your business online? Let's talk about how I can help you get more customers!",
@@ -552,6 +578,32 @@ export const content = {
           }
         ]
       }
+    },
+    faq: {
+      title: "Preguntas Frecuentes",
+      subtitle: "Respuestas claras a las dudas más comunes antes de arrancar tu proyecto.",
+      items: [
+        {
+          question: "¿Cuánto cuesta una página web profesional?",
+          answer: "Una página web profesional comienza desde $5,000 MXN para un sitio de 3–5 páginas (paquete Presencia Esencial). Las web apps personalizadas (sistemas de citas, cotizadores) parten de $15,000 MXN. El mantenimiento mensual es $1,500 MXN/mes. Todos los precios incluyen diseño, desarrollo y 1 mes de soporte gratuito."
+        },
+        {
+          question: "¿Cuánto tiempo tarda en estar lista mi página web?",
+          answer: "El paquete Presencia Esencial se entrega en 2 semanas. Las web apps personalizadas toman entre 4 y 8 semanas según la complejidad. El tiempo empieza a contar una vez que acordamos el alcance y nos proporcionas el contenido (textos e imágenes)."
+        },
+        {
+          question: "¿Qué incluye el paquete Presencia Esencial?",
+          answer: "Incluye: diseño responsivo moderno (funciona en móvil y escritorio), 3–5 páginas profesionales, formulario de contacto conectado a tu correo, optimización SEO básica para que Google te encuentre, alojamiento en la nube seguro y 1 mes de soporte técnico gratuito."
+        },
+        {
+          question: "¿Trabajas con negocios fuera de Puebla?",
+          answer: "¡Sí! Aunque estoy basado en Puebla y me especializo en negocios locales, trabajo con clientes en toda la República Mexicana e internacionalmente. Toda la comunicación y reuniones se pueden hacer de forma remota por videollamada."
+        },
+        {
+          question: "¿Necesito saber de tecnología para contratar tus servicios?",
+          answer: "Para nada. Solo necesitas saber qué necesita tu negocio — yo me encargo de todo lo técnico. Te guío en cada paso con lenguaje claro, sin tecnicismos."
+        }
+      ]
     },
     contact: {
       title: "Contacto",

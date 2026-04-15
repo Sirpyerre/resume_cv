@@ -2,6 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import { useLanguage } from "../../contexts/LanguageContext";
 import { SITE_CONFIG } from "../../config/site";
+import { content } from "../../content/content";
 
 const seoContent = {
     en: {
@@ -109,9 +110,16 @@ function LocalBusinessSchema({ language }) {
                 }
             ]
         },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "5",
+            "ratingCount": "5",
+            "bestRating": "5",
+            "worstRating": "1"
+        },
         "sameAs": [
-            "https://www.linkedin.com/in/sirpyerre", 
-            "https://github.com/sirpyerre" 
+            "https://www.linkedin.com/in/sirpyerre",
+            "https://github.com/sirpyerre"
         ]
     };
 
@@ -119,6 +127,65 @@ function LocalBusinessSchema({ language }) {
         <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(schema, null, 2) }}
+        />
+    );
+}
+
+function PersonSchema({ language }) {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Pedro Rojas Reyes",
+        "jobTitle": language === "es" ? "Desarrollador Web Freelance" : "Freelance Web Developer",
+        "description": language === "es"
+            ? "Consultor y desarrollador web en Puebla con más de 10 años de experiencia. Especialista en sitios web para negocios locales."
+            : "Web consultant and developer in Puebla with 10+ years of experience. Specialist in websites for local businesses.",
+        "url": SITE_CONFIG.SITE_URL,
+        "email": "contacto@pedrorojas.lat",
+        "telephone": "+52-2224122606",
+        "image": `${SITE_CONFIG.SITE_URL}/hero-section-resize1.png`,
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Puebla",
+            "addressRegion": "Puebla",
+            "addressCountry": "MX"
+        },
+        "knowsAbout": ["Web Development", "React", "Go", "Node.js", "SEO", "Cloud Infrastructure", "Tailwind CSS"],
+        "sameAs": [
+            "https://www.linkedin.com/in/sirpyerre",
+            "https://github.com/sirpyerre"
+        ]
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        />
+    );
+}
+
+function FAQSchema({ language }) {
+    const faqs = content[language]?.faq?.items;
+    if (!faqs) return null;
+
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(item => ({
+            "@type": "Question",
+            "name": item.question,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": item.answer
+            }
+        }))
+    };
+
+    return (
+        <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
     );
 }
@@ -149,7 +216,7 @@ export default function SEO({
     customDescription,
     customKeywords,
     author = "Pedro Rojas Reyes",
-    image = "/og-image.jpg",
+    image = "/hero-section-resize1.png",
     url = SITE_CONFIG.SITE_URL,
     type = "website"
 }) {
@@ -207,6 +274,8 @@ export default function SEO({
             {/* JSON-LD schemas — fuera de Helmet, Helmet no acepta componentes React como hijos */}
             <LocalBusinessSchema language={language} />
             <WebSiteSchema />
+            <PersonSchema language={language} />
+            <FAQSchema language={language} />
         </>
     );
 }

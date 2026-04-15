@@ -16,6 +16,7 @@ import HeroSection from "./components/sections/HeroSection";
 import AboutSection from "./components/sections/AboutSection";
 import ServicesSection from "./components/sections/ServicesSection";
 import ContributionsSection from "./components/sections/ContributionsSection";
+import FAQSection from "./components/sections/FAQSection";
 import ContactSection from "./components/sections/ContactSection";
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
                                 <AboutSection />
                                 <ServicesSection />
                                 <ContributionsSection />
+                                <FAQSection />
                                 <ContactSection />
                             </>
                         } />
