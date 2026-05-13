@@ -13,9 +13,11 @@ export default function Navbar() {
     const t = content[language];
 
     const navLinks = [
+        { id: 'about', label: t.nav.aboutMe },
         { id: 'services', label: t.nav.services },
         { id: 'contributions', label: t.nav.contributions },
-        { id: 'about', label: t.nav.aboutMe },
+        { id: 'faq', label: t.nav.faq },
+        { id: 'contact', label: t.nav.contact },
     ];
 
     const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER;
@@ -45,7 +47,7 @@ export default function Navbar() {
 
     useEffect(() => {
         const handleScroll = () => {
-            const sections = ['hero', 'about', 'services', 'why-me', 'contributions', 'contact'];
+            const sections = ['hero', 'about', 'services', 'contributions', 'faq', 'contact'];
             const scrollPosition = window.scrollY + 100;
             for (const sectionId of sections) {
                 const element = document.getElementById(sectionId);

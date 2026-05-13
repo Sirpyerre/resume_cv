@@ -193,6 +193,8 @@ export default function ContactSection() {
         }
     ];
 
+    const podcastLinks = t.contact.podcast.platforms;
+
     return (
         <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio">
             <div className="container mx-auto max-w-6xl">
@@ -208,155 +210,154 @@ export default function ContactSection() {
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-                    {/* Contact Form */}
-                    <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
-                        <h3 className="text-2xl font-bold text-tinta mb-6">
-                            {language === 'es' ? 'Envíame un Mensaje' : 'Send Me a Message'}
-                        </h3>
-
-                        <form onSubmit={handleSubmit} className="space-y-4">
-                            {/* Name Field */}
-                            <div>
-                                <label htmlFor="name" className="block text-sm font-medium text-tinta-suave mb-2">
-                                    {language === 'es' ? 'Nombre *' : 'Name *'}
-                                </label>
-                                <input
-                                    type="text"
-                                    id="name"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    className={`w-full px-4 py-3 bg-crema-medio border ${
-                                        errors.name ? 'border-red-500' : 'border-crema-oscuro'
-                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
-                                    placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
-                                    disabled={formStatus.submitting}
-                                />
-                                {errors.name && (
-                                    <p className="mt-1 text-sm text-red-600">{errors.name}</p>
-                                )}
-                            </div>
-
-                            {/* Email Field */}
-                            <div>
-                                <label htmlFor="email" className="block text-sm font-medium text-tinta-suave mb-2">
-                                    {language === 'es' ? 'Email *' : 'Email *'}
-                                </label>
-                                <input
-                                    type="email"
-                                    id="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    className={`w-full px-4 py-3 bg-crema-medio border ${
-                                        errors.email ? 'border-red-500' : 'border-crema-oscuro'
-                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
-                                    placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
-                                    disabled={formStatus.submitting}
-                                />
-                                {errors.email && (
-                                    <p className="mt-1 text-sm text-red-600">{errors.email}</p>
-                                )}
-                            </div>
-
-                            {/* Phone Field (Optional) */}
-                            <div>
-                                <label htmlFor="phone" className="block text-sm font-medium text-tinta-suave mb-2">
-                                    {language === 'es' ? 'Teléfono (opcional)' : 'Phone (optional)'}
-                                </label>
-                                <input
-                                    type="tel"
-                                    id="phone"
-                                    name="phone"
-                                    value={formData.phone}
-                                    onChange={handleChange}
-                                    className="w-full px-4 py-3 bg-crema-medio border border-crema-oscuro rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors"
-                                    placeholder={language === 'es' ? '222 123 4567' : '222 123 4567'}
-                                    disabled={formStatus.submitting}
-                                />
-                            </div>
-
-                            {/* Message Field */}
-                            <div>
-                                <label htmlFor="message" className="block text-sm font-medium text-tinta-suave mb-2">
-                                    {language === 'es' ? 'Mensaje *' : 'Message *'}
-                                </label>
-                                <textarea
-                                    id="message"
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    rows="5"
-                                    className={`w-full px-4 py-3 bg-crema-medio border ${
-                                        errors.message ? 'border-red-500' : 'border-crema-oscuro'
-                                    } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors resize-none`}
-                                    placeholder={language === 'es'
-                                        ? 'Cuéntame sobre tu proyecto o negocio...'
-                                        : 'Tell me about your project or business...'}
-                                    disabled={formStatus.submitting}
-                                />
-                                {errors.message && (
-                                    <p className="mt-1 text-sm text-red-600">{errors.message}</p>
-                                )}
-                            </div>
-
-                            {/* Honeypot field - hidden from users, visible to bots */}
-                            <div className="hidden">
-                                <label htmlFor="honeypot">Leave this field empty</label>
-                                <input
-                                    type="text"
-                                    id="honeypot"
-                                    name="honeypot"
-                                    value={formData.honeypot}
-                                    onChange={handleChange}
-                                    tabIndex="-1"
-                                    autoComplete="off"
-                                />
-                            </div>
-
-                            {/* Submit Button */}
-                            <button
-                                type="submit"
-                                disabled={formStatus.submitting}
-                                className="w-full bg-verde text-crema px-6 py-4 rounded-lg font-bold hover:bg-verde/90 transition-all duration-300 disabled:bg-crema-oscuro disabled:text-tinta-suave disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
-                            >
-                                {formStatus.submitting ? (
-                                    <span className="flex items-center justify-center">
-                                        <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-crema" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                        </svg>
-                                        {language === 'es' ? 'Enviando...' : 'Sending...'}
-                                    </span>
-                                ) : (
-                                    language === 'es' ? 'Enviar Mensaje' : 'Send Message'
-                                )}
-                            </button>
-
-                            {/* Success Message */}
-                            {formStatus.submitted && (
-                                <div className="p-4 bg-verde/10 border border-verde rounded-lg">
-                                    <p className="text-verde text-center font-medium">
-                                        {language === 'es'
-                                            ? '¡Mensaje enviado! Te responderé pronto.'
-                                            : 'Message sent! I\'ll get back to you soon.'}
-                                    </p>
-                                </div>
-                            )}
-
-                            {/* Error Message */}
-                            {formStatus.error && (
-                                <div className="p-4 bg-red-100 border border-red-400 rounded-lg">
-                                    <p className="text-red-600 text-center font-medium">
-                                        {formStatus.error}
-                                    </p>
-                                </div>
-                            )}
-                        </form>
-                    </div>
-
-                    {/* Contact Information & Social Links */}
                     <div className="space-y-8">
+                        {/* Contact Form */}
+                        <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                            <h3 className="text-2xl font-bold text-tinta mb-6">
+                                {language === 'es' ? 'Envíame un Mensaje' : 'Send Me a Message'}
+                            </h3>
+
+                            <form onSubmit={handleSubmit} className="space-y-4">
+                                {/* Name Field */}
+                                <div>
+                                    <label htmlFor="name" className="block text-sm font-medium text-tinta-suave mb-2">
+                                        {language === 'es' ? 'Nombre *' : 'Name *'}
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="name"
+                                        name="name"
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        className={`w-full px-4 py-3 bg-crema-medio border ${
+                                            errors.name ? 'border-red-500' : 'border-crema-oscuro'
+                                        } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
+                                        placeholder={language === 'es' ? 'Tu nombre' : 'Your name'}
+                                        disabled={formStatus.submitting}
+                                    />
+                                    {errors.name && (
+                                        <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                                    )}
+                                </div>
+
+                                {/* Email Field */}
+                                <div>
+                                    <label htmlFor="email" className="block text-sm font-medium text-tinta-suave mb-2">
+                                        {language === 'es' ? 'Email *' : 'Email *'}
+                                    </label>
+                                    <input
+                                        type="email"
+                                        id="email"
+                                        name="email"
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        className={`w-full px-4 py-3 bg-crema-medio border ${
+                                            errors.email ? 'border-red-500' : 'border-crema-oscuro'
+                                        } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors`}
+                                        placeholder={language === 'es' ? 'tu@email.com' : 'your@email.com'}
+                                        disabled={formStatus.submitting}
+                                    />
+                                    {errors.email && (
+                                        <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                                    )}
+                                </div>
+
+                                {/* Phone Field (Optional) */}
+                                <div>
+                                    <label htmlFor="phone" className="block text-sm font-medium text-tinta-suave mb-2">
+                                        {language === 'es' ? 'Teléfono (opcional)' : 'Phone (optional)'}
+                                    </label>
+                                    <input
+                                        type="tel"
+                                        id="phone"
+                                        name="phone"
+                                        value={formData.phone}
+                                        onChange={handleChange}
+                                        className="w-full px-4 py-3 bg-crema-medio border border-crema-oscuro rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors"
+                                        placeholder={language === 'es' ? '222 123 4567' : '222 123 4567'}
+                                        disabled={formStatus.submitting}
+                                    />
+                                </div>
+
+                                {/* Message Field */}
+                                <div>
+                                    <label htmlFor="message" className="block text-sm font-medium text-tinta-suave mb-2">
+                                        {language === 'es' ? 'Mensaje *' : 'Message *'}
+                                    </label>
+                                    <textarea
+                                        id="message"
+                                        name="message"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        rows="5"
+                                        className={`w-full px-4 py-3 bg-crema-medio border ${
+                                            errors.message ? 'border-red-500' : 'border-crema-oscuro'
+                                        } rounded-lg text-tinta focus:outline-none focus:border-verde transition-colors resize-none`}
+                                        placeholder={language === 'es'
+                                            ? 'Cuéntame sobre tu proyecto o negocio...'
+                                            : 'Tell me about your project or business...'}
+                                        disabled={formStatus.submitting}
+                                    />
+                                    {errors.message && (
+                                        <p className="mt-1 text-sm text-red-600">{errors.message}</p>
+                                    )}
+                                </div>
+
+                                {/* Honeypot field - hidden from users, visible to bots */}
+                                <div className="hidden">
+                                    <label htmlFor="honeypot">Leave this field empty</label>
+                                    <input
+                                        type="text"
+                                        id="honeypot"
+                                        name="honeypot"
+                                        value={formData.honeypot}
+                                        onChange={handleChange}
+                                        tabIndex="-1"
+                                        autoComplete="off"
+                                    />
+                                </div>
+
+                                {/* Submit Button */}
+                                <button
+                                    type="submit"
+                                    disabled={formStatus.submitting}
+                                    className="w-full bg-verde text-crema px-6 py-4 rounded-lg font-bold hover:bg-verde/90 transition-all duration-300 disabled:bg-crema-oscuro disabled:text-tinta-suave disabled:cursor-not-allowed transform hover:scale-105 active:scale-95"
+                                >
+                                    {formStatus.submitting ? (
+                                        <span className="flex items-center justify-center">
+                                            <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-crema" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                            </svg>
+                                            {language === 'es' ? 'Enviando...' : 'Sending...'}
+                                        </span>
+                                    ) : (
+                                        language === 'es' ? 'Enviar Mensaje' : 'Send Message'
+                                    )}
+                                </button>
+
+                                {/* Success Message */}
+                                {formStatus.submitted && (
+                                    <div className="p-4 bg-verde/10 border border-verde rounded-lg">
+                                        <p className="text-verde text-center font-medium">
+                                            {language === 'es'
+                                                ? '¡Mensaje enviado! Te responderé pronto.'
+                                                : 'Message sent! I\'ll get back to you soon.'}
+                                        </p>
+                                    </div>
+                                )}
+
+                                {/* Error Message */}
+                                {formStatus.error && (
+                                    <div className="p-4 bg-red-100 border border-red-400 rounded-lg">
+                                        <p className="text-red-600 text-center font-medium">
+                                            {formStatus.error}
+                                        </p>
+                                    </div>
+                                )}
+                            </form>
+                        </div>
+
                         {/* Direct Contact Info */}
                         <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
                             <h3 className="text-2xl font-bold text-tinta mb-6">
@@ -412,7 +413,9 @@ export default function ContactSection() {
                                 </div>
                             </div>
                         </div>
+                    </div>
 
+                    <div className="space-y-8">
                         {/* Social Links */}
                         <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
                             <h3 className="text-xl font-bold text-tinta mb-4">
@@ -432,6 +435,35 @@ export default function ContactSection() {
                                         </div>
                                         <span className="font-medium text-sm truncate">
                                             {link.name}
+                                        </span>
+                                    </a>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Podcast Links */}
+                        <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
+                            <h3 className="text-xl font-bold text-tinta mb-2">
+                                {t.contact.podcast.title}
+                            </h3>
+                            <p className="text-tinta-suave text-sm mb-4">
+                                <span className="mr-2">🎧</span>
+                                {t.contact.podcast.subtitle}
+                            </p>
+                            <div className="grid grid-cols-1 gap-3">
+                                {podcastLinks.map((link, index) => (
+                                    <a
+                                        key={index}
+                                        href={link.href}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center justify-between gap-3 px-4 py-3 bg-crema-medio hover:bg-crema-oscuro border border-crema-oscuro hover:border-verde rounded-lg transition-all duration-300 text-tinta-suave hover:text-verde"
+                                    >
+                                        <span className="font-medium">
+                                            {link.name}
+                                        </span>
+                                        <span className="text-sm font-semibold">
+                                            {language === 'es' ? 'Escuchar' : 'Listen'}
                                         </span>
                                     </a>
                                 ))}

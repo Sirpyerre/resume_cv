@@ -6,6 +6,7 @@ export const content = {
       whyMe: "Why Me",
       portfolio: "Portfolio",
       contributions: "Portfolio",
+      faq: "FAQ",
       projects: "Projects",
       experience: "Experience",
       education: "Education",
@@ -313,6 +314,24 @@ export const content = {
     contact: {
       title: "Contact",
       subtitle: "Ready to grow your business online? Let's talk about how I can help you get more customers!",
+      podcast: {
+        title: "Podcast: Developer de a pie",
+        subtitle: "Listen on your platform:",
+        platforms: [
+          {
+            name: "🔴 YouTube",
+            href: "https://youtu.be/1DruiD1B7Jo?si=BNtulWlgk5M2M85J"
+          },
+          {
+            name: "🟢 Spotify",
+            href: "https://open.spotify.com/episode/7bY5P2xmYgEG6VKMnKjhFi?si=myb3WzTtTG6SAWatxdvrKQ"
+          },
+          {
+            name: "🟣 Apple Podcasts",
+            href: "https://podcasts.apple.com/us/podcast/me-pidieron-una-carta-a-santa-para-un-puesto/id1888271174?i=1000765530321"
+          }
+        ]
+      },
       links: {
         email: "Email",
         github: "GitHub",
@@ -329,6 +348,7 @@ export const content = {
       whyMe: "Por Qué Yo",
       portfolio: "Portafolio",
       contributions: "Portafolio",
+      faq: "FAQ",
       projects: "Proyectos",
       experience: "Experiencia",
       education: "Educación",
@@ -636,6 +656,24 @@ export const content = {
     contact: {
       title: "Contacto",
       subtitle: "¿Listo para hacer crecer tu negocio en línea? ¡Hablemos de cómo puedo ayudarte a conseguir más clientes!",
+      podcast: {
+        title: "Podcast: Developer de a pie",
+        subtitle: "Escúchalo en tu plataforma:",
+        platforms: [
+          {
+            name: "🔴 YouTube",
+            href: "https://youtu.be/1DruiD1B7Jo?si=BNtulWlgk5M2M85J"
+          },
+          {
+            name: "🟢 Spotify",
+            href: "https://open.spotify.com/episode/7bY5P2xmYgEG6VKMnKjhFi?si=myb3WzTtTG6SAWatxdvrKQ"
+          },
+          {
+            name: "🟣 Apple Podcasts",
+            href: "https://podcasts.apple.com/us/podcast/me-pidieron-una-carta-a-santa-para-un-puesto/id1888271174?i=1000765530321"
+          }
+        ]
+      },
       links: {
         email: "Email",
         github: "GitHub",
