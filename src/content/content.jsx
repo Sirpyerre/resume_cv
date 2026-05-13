@@ -151,7 +151,21 @@ export const content = {
           image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/phpmexico-site_xm9uqc.png",
           url: "https://phpmexico.mx/",
           tags: ["React", "Node.js", "Migration", "GitHub Pages"]
-        }
+        },
+        {
+          title: "ACL Ingeniería",
+          description: "Website redesign for Grupo ACL, a Puebla-based company specializing in preventive and corrective maintenance for industries, offices, and homes. Information architecture was reorganized and service presentation improved using the client's existing website builder — no platform migration required.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778698049/acl-ing-preview_hwjuva.png",
+          url: "https://aclingenieria.com.mx",
+          tags: ["Jimdo", "Web Redesign", "UX/Content"]
+        },
+          {
+          title: "Centro de Estudios Puebla",
+          description: "Website redesign for Centro de Estudios Puebla, a private school with 30 years of history offering education from preschool to high school. The institution's digital presence was modernized by reorganizing its academic information and improving the experience for parents, using Wix as the client's existing platform.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778698327/centro-de-estudios-puebla-web_rt7fdh.png",
+          url: "https://www.centrodeestudiospuebla.com/",
+          tags: ["Wix", "Web Redesign", "UX/Content", "Education"]
+          }
       ]
     },
     projects: {
@@ -460,6 +474,20 @@ export const content = {
           image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1772485267/portfoli-freelance/phpmexico-site_xm9uqc.png",
           url: "https://phpmexico.mx/",
           tags: ["React", "Node.js", "Migración", "GitHub Pages"]
+        },
+        {
+          title: "ACL Ingeniería",
+          description: "Rediseño del sitio web para Grupo ACL, empresa poblana de mantenimiento preventivo y correctivo para industrias, oficinas y hogares. Se reorganizó la arquitectura de la información y se mejoró la presentación de servicios utilizando el constructor existente del cliente, sin necesidad de migrar de plataforma.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778698049/acl-ing-preview_hwjuva.png",
+          url: "https://aclingenieria.com.mx",
+          tags: ["Jimdo", "Rediseño Web", "UX/Contenido"]
+        },
+         {
+          title: "Centro de Estudios Puebla",
+          description: "Rediseño del sitio web para el Centro de Estudios Puebla, colegio privado con 30 años de trayectoria que ofrece educación desde preescolar hasta bachillerato. Se modernizó la presencia digital de la institución reorganizando su información académica y mejorando la experiencia para padres de familia, usando Wix como plataforma existente del cliente.",
+          image: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778698327/centro-de-estudios-puebla-web_rt7fdh.png",
+          url: "https://www.centrodeestudiospuebla.com/",
+          tags: ["Wix", "Rediseño Web", "UX/Contenido", "Educación"]
         }
       ]
     },

@@ -194,7 +194,7 @@ export default function ContactSection() {
     ];
 
     return (
-        <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio/50">
+        <section id="contact" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio">
             <div className="container mx-auto max-w-6xl">
                 {/* Section Header */}
                 <div className="text-center mb-12 sm:mb-16">

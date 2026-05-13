@@ -16,7 +16,7 @@ export default function AboutSection() {
     const a = t.about;
 
     return (
-        <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio/50">
+        <section id="about" className="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio">
             <div className="container mx-auto max-w-6xl">
 
                 {/* Section Header */}
