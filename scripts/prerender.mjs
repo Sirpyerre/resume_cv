@@ -5,14 +5,16 @@
  */
 import puppeteer from 'puppeteer';
 import { createServer } from 'http';
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 import { createReadStream, existsSync } from 'fs';
 import { extname } from 'path';
+import matter from 'gray-matter';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DIST = join(__dirname, '../dist');
+const POSTS_DIR = join(__dirname, '../posts');
 const PORT = 5050;
 
 const MIME = {
@@ -42,6 +44,31 @@ function startServer() {
     });
 }
 
+/** Read blog slugs from /posts directory */
+function getBlogSlugs() {
+    try {
+        return readdirSync(POSTS_DIR)
+            .filter((f) => f.endsWith('.md'))
+            .map((f) => {
+                const raw = readFileSync(join(POSTS_DIR, f), 'utf-8');
+                const { data } = matter(raw);
+                return data.slug || f.replace(/\.md$/, '');
+            });
+    } catch {
+        return [];
+    }
+}
+
+/** Render a single route and save to dist */
+async function renderRoute(page, route, outPath) {
+    await page.goto(`http://localhost:${PORT}${route}`, { waitUntil: 'networkidle0' });
+    await page.waitForSelector('main', { timeout: 10000 }).catch(() => {});
+    const html = await page.content();
+    mkdirSync(dirname(outPath), { recursive: true });
+    writeFileSync(outPath, html, 'utf-8');
+    console.log(`✅ Prerendered ${route} → ${outPath.replace(DIST, 'dist')}`);
+}
+
 async function prerender() {
     console.log('🔄 Starting prerender...');
     const server = await startServer();
@@ -55,15 +82,21 @@ async function prerender() {
         const page = await browser.newPage();
         await page.setViewport({ width: 1280, height: 800 });
 
-        // Wait for the app to fully render
+        // Prerender homepage
         await page.goto(`http://localhost:${PORT}/`, { waitUntil: 'networkidle0' });
-
-        // Wait for React to finish rendering
         await page.waitForSelector('#faq', { timeout: 10000 }).catch(() => {});
-
-        const html = await page.content();
-        writeFileSync(join(DIST, 'index.html'), html, 'utf-8');
+        const homeHtml = await page.content();
+        writeFileSync(join(DIST, 'index.html'), homeHtml, 'utf-8');
         console.log('✅ Prerendered / → dist/index.html');
+
+        // Prerender /blog
+        await renderRoute(page, '/blog', join(DIST, 'blog', 'index.html'));
+
+        // Prerender each blog post
+        const slugs = getBlogSlugs();
+        for (const slug of slugs) {
+            await renderRoute(page, `/blog/${slug}`, join(DIST, 'blog', slug, 'index.html'));
+        }
     } finally {
         await browser.close();
         server.close();

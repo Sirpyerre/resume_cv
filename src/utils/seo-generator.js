@@ -1,26 +1,59 @@
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import matter from 'gray-matter';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+
+const POSTS_DIR = path.resolve(__dirname, '../../posts');
+
+/** Read all blog posts and return { slug, date } */
+function getBlogPosts() {
+  if (!fs.existsSync(POSTS_DIR)) return [];
+  return fs
+    .readdirSync(POSTS_DIR)
+    .filter((f) => f.endsWith('.md'))
+    .map((f) => {
+      const raw = fs.readFileSync(path.join(POSTS_DIR, f), 'utf-8');
+      const { data } = matter(raw);
+      return {
+        slug: data.slug || f.replace(/\.md$/, ''),
+        date: data.date ? new Date(data.date).toISOString() : new Date().toISOString(),
+      };
+    })
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+}
 
 // Generate sitemap.xml for SEO
 const generateSitemap = () => {
   const baseUrl = 'https://pedrorojas.lat';
   const currentDate = new Date().toISOString();
-  
-  // SPA: hash fragments (#about, #contact, etc.) are NOT valid sitemap URLs.
-  // Google ignores the fragment and treats them as duplicate/unindexable pages.
-  // Only list real navigable URLs here.
-  const pages = [
+  const blogPosts = getBlogPosts();
+
+  const staticPages = [
     {
       url: '/',
       changefreq: 'weekly',
       priority: '1.0',
       lastmod: currentDate
-    }
+    },
+    {
+      url: '/blog',
+      changefreq: 'weekly',
+      priority: '0.9',
+      lastmod: blogPosts[0]?.date || currentDate,
+    },
   ];
+
+  const blogPages = blogPosts.map((p) => ({
+    url: `/blog/${p.slug}`,
+    changefreq: 'monthly',
+    priority: '0.7',
+    lastmod: p.date,
+  }));
+
+  const pages = [...staticPages, ...blogPages];
 
   const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"

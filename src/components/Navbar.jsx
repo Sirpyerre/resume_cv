@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaWhatsapp } from 'react-icons/fa';
 import { useLanguage } from "../contexts/LanguageContext";
 import { content } from "../content/content";
@@ -101,6 +101,16 @@ export default function Navbar() {
                             {link.label}
                         </button>
                     ))}
+                    <Link
+                        to="/blog"
+                        className={`px-4 py-2 rounded-lg font-medium transition-colors hover:text-verde ${
+                            location.pathname.startsWith('/blog')
+                                ? 'bg-verde/10 text-verde'
+                                : 'text-tinta-suave'
+                        }`}
+                    >
+                        {t.nav.blog}
+                    </Link>
                 </nav>
 
                 <div className="flex items-center gap-3">
@@ -164,6 +174,18 @@ export default function Navbar() {
                                 </svg>
                             </button>
                         ))}
+                        <Link
+                            to="/blog"
+                            onClick={() => setIsMenuOpen(false)}
+                            className={`flex items-center justify-between w-full text-left py-3 px-2 rounded-lg text-base font-medium transition-colors hover:text-verde ${
+                                location.pathname.startsWith('/blog') ? 'text-verde' : 'text-tinta'
+                            }`}
+                        >
+                            {t.nav.blog}
+                            <svg className="w-4 h-4 text-tinta-suave/40" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                            </svg>
+                        </Link>
                     </nav>
 
                     {/* Mobile CTAs */}

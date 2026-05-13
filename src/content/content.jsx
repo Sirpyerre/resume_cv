@@ -16,6 +16,7 @@ export const content = {
       mobileMenuTitle: "MENU",
       bookCta: "Book free consultation",
       whatsappCta: "Write on WhatsApp",
+      blog: "Blog",
     },
     hero: {
       name: "Pedro Rojas Reyes",
@@ -358,6 +359,7 @@ export const content = {
       mobileMenuTitle: "MENÚ",
       bookCta: "Agendar consulta gratis",
       whatsappCta: "Escribir por WhatsApp",
+      blog: "Blog",
     },
     hero: {
       name: "Pedro Rojas Reyes",
