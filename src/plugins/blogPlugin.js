@@ -37,6 +37,7 @@ function loadPosts() {
       tags: data.tags || [],
       featured: data.featured || false,
       coverLabel: data.coverLabel || "",
+      cover: data.cover || "",
       readingTime: Math.ceil(stats.minutes),
       content: html,
     }

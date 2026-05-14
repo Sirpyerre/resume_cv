@@ -1,7 +1,19 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-function CoverThumbnail({ label }) {
+function CoverThumbnail({ src, alt, label }) {
+  if (src) {
+    return (
+      <div className="relative w-[140px] min-w-[140px] h-full min-h-[110px] overflow-hidden rounded-lg">
+        <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover" />
+        {label && (
+          <span className="absolute bottom-2 left-2 z-10 text-[9px] font-bold tracking-widest text-tinta-suave border border-tinta-suave/30 bg-crema/80 px-1.5 py-0.5 rounded leading-tight">
+            {label}
+          </span>
+        )}
+      </div>
+    )
+  }
   return (
     <div className="relative w-[140px] min-w-[140px] h-full min-h-[110px] bg-crema-medio overflow-hidden rounded-lg flex items-end p-2">
       <div
@@ -35,7 +47,7 @@ export default function PostCard({ post }) {
       to={`/blog/${post.slug}`}
       className="group flex gap-4 p-4 rounded-xl border border-crema-oscuro bg-crema hover:shadow-md transition-all"
     >
-      <CoverThumbnail label={post.coverLabel} />
+      <CoverThumbnail src={post.cover} alt={post.title} label={post.coverLabel} />
 
       <div className="flex-1 min-w-0 flex flex-col justify-between py-1">
         {/* Top meta */}

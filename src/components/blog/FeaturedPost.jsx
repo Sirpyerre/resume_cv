@@ -1,24 +1,50 @@
 import React from "react"
 import { Link } from "react-router-dom"
 
-function CoverPlaceholder({ label }) {
+function CoverImage({ src, alt, label, to }) {
+  const imageBoxClass = "relative w-full h-full min-h-[220px] overflow-hidden rounded-lg"
+
+  if (src) {
+    return (
+      <Link
+        to={to}
+        className="group block w-full h-full bg-crema rounded-xl p-3"
+        aria-label={`Abrir post: ${alt}`}
+      >
+        <div className={imageBoxClass}>
+          <img src={src} alt={alt} className="absolute inset-0 w-full h-full object-cover" />
+          {label && (
+            <span className="absolute bottom-3 left-3 z-10 text-[10px] font-bold tracking-widest text-tinta-suave border border-tinta-suave/30 bg-crema/80 px-2 py-1 rounded">
+              {label}
+            </span>
+          )}
+        </div>
+      </Link>
+    )
+  }
+
   return (
-    <div className="relative w-full h-full min-h-[220px] bg-crema-medio overflow-hidden rounded-lg flex items-end p-3">
-      {/* diagonal stripe pattern */}
-      <div
-        className="absolute inset-0 opacity-40"
-        style={{
-          backgroundImage:
-            "repeating-linear-gradient(45deg, #D9CEBC 0, #D9CEBC 1px, transparent 0, transparent 50%)",
-          backgroundSize: "8px 8px",
-        }}
-      />
-      {label && (
-        <span className="relative z-10 text-[10px] font-bold tracking-widest text-tinta-suave border border-tinta-suave/30 bg-crema/80 px-2 py-1 rounded">
-          {label}
-        </span>
-      )}
-    </div>
+    <Link
+      to={to}
+      className="group block w-full h-full bg-crema rounded-xl p-3"
+      aria-label={`Abrir post: ${alt}`}
+    >
+      <div className={`${imageBoxClass} bg-crema-oscuro flex items-center justify-center`}>
+        {/* diagonal stripe pattern */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "repeating-linear-gradient(135deg, rgba(217, 206, 188, 0.95) 0px, rgba(217, 206, 188, 0.95) 8px, rgba(245, 240, 232, 0.4) 8px, rgba(245, 240, 232, 0.4) 16px)",
+          }}
+        />
+        {label && (
+          <span className="relative z-10 text-[10px] font-bold tracking-widest text-tinta-suave border border-tinta-suave/30 bg-crema/80 px-2 py-1 rounded">
+            {label}
+          </span>
+        )}
+      </div>
+    </Link>
   )
 }
 
@@ -30,7 +56,7 @@ export default function FeaturedPost({ post }) {
       <div className="flex flex-col md:flex-row">
         {/* Cover */}
         <div className="md:w-[45%] min-h-[220px]">
-          <CoverPlaceholder label={post.coverLabel} />
+          <CoverImage src={post.cover} alt={post.title} label={post.coverLabel} to={`/blog/${post.slug}`} />
         </div>
 
         {/* Content */}
@@ -51,8 +77,13 @@ export default function FeaturedPost({ post }) {
           </div>
 
           {/* Title */}
-          <h2 className="font-lora text-2xl md:text-3xl font-bold text-tinta leading-tight mb-3">
-            {post.title}
+          <h2 className="font-lora text-2xl md:text-3xl font-bold leading-tight mb-3">
+            <Link
+              to={`/blog/${post.slug}`}
+              className="text-tinta hover:text-verde transition-colors"
+            >
+              {post.title}
+            </Link>
           </h2>
 
           {/* Description */}
@@ -61,28 +92,27 @@ export default function FeaturedPost({ post }) {
           </p>
 
           {/* Meta */}
-          <div className="flex flex-wrap items-center gap-3 text-xs text-tinta-suave/70 mb-4">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-xs text-tinta-suave/70 mb-4">
             <span>{formatDate(post.date)}</span>
-            <span className="w-1 h-1 rounded-full bg-tinta-suave/40" />
             <span>⏱ {post.readingTime} min de lectura</span>
-            <span className="w-1 h-1 rounded-full bg-tinta-suave/40" />
             <span>por <strong className="text-tinta-suave">Pedro R.</strong></span>
           </div>
 
-          {/* Hashtags */}
-          <div className="flex flex-wrap gap-2 mb-5">
-            {post.tags?.map((tag) => (
-              <span key={tag} className="text-xs text-tinta-suave/60">
-                #{tag}
-              </span>
-            ))}
-          </div>
-
-          {/* CTA */}
-          <div>
+          {/* Hashtags + CTA — same row */}
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <div className="flex flex-wrap gap-2">
+              {post.tags?.map((tag) => (
+                <span
+                  key={tag}
+                  className="text-[11px] text-tinta-suave border border-tinta-suave/30 rounded-full px-2.5 py-0.5"
+                >
+                  #{tag}
+                </span>
+              ))}
+            </div>
             <Link
               to={`/blog/${post.slug}`}
-              className="inline-flex items-center gap-1 text-sm font-semibold text-verde hover:text-verde/80 transition-colors"
+              className="inline-flex items-center gap-1 text-sm font-semibold text-verde hover:text-verde/80 transition-colors whitespace-nowrap"
             >
               Leer el post →
             </Link>

@@ -5,7 +5,8 @@ description: "Por qué lancé este blog, qué vas a encontrar aquí y cómo pued
 slug: "bienvenida"
 tags: ["seo", "pymes", "puebla"]
 featured: true
-coverLabel: "BLOG · INICIO"
+cover: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778797220/DSCN3790_onel3u.jpg"
+coverLabel: "Mausoleo del General Ignacio Zaragoza ubicado en la zona histórica de los Fuertes de Loreto y Guadalupe en Puebla, México. Fotografía de Pedro Rojas Reyes."
 ---
 
 ## ¿Por qué este blog?
@@ -58,7 +59,7 @@ Publico artículos cada semana o dos semanas. Por ahora la mejor forma de no per
 
 Si tienes un negocio en Puebla y quieres saber qué tan visible eres en Google, puedo hacerte una revisión gratuita — sin compromiso, sin venta agresiva, solo información útil.
 
-**[Contáctame aquí →](/)**
+**[Contáctame aquí →](/contacto)**
 
 ---
 

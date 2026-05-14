@@ -36,6 +36,10 @@ export default function BlogListPage() {
   const totalPages = Math.max(1, Math.ceil(filtered.length / POSTS_PER_PAGE))
   const currentPage = Math.min(page, totalPages)
   const pagePosts = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
+  const canonicalUrl = `${SITE_CONFIG.SITE_URL}/blog`
+  const seoImage = featuredPost?.cover
+    ? `${SITE_CONFIG.SITE_URL}${featuredPost.cover}`
+    : `${SITE_CONFIG.SITE_URL}/hero-section-resize1.png`
 
   const handleTagClick = (tag, searchValue) => {
     if (searchValue !== undefined) {
@@ -50,6 +54,44 @@ export default function BlogListPage() {
     setPage(1)
   }
 
+  const blogCollectionSchema = {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    name: "Blog — Web, SEO y Emprendimiento para PyMEs en Puebla",
+    description:
+      "Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes.",
+    url: canonicalUrl,
+    isPartOf: {
+      "@type": "WebSite",
+      name: "Pedro Rojas — Desarrollo Web Puebla",
+      url: SITE_CONFIG.SITE_URL,
+    },
+    inLanguage: "es-MX",
+  }
+
+  const blogItemListSchema = {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListOrder: "https://schema.org/ItemListOrderDescending",
+    numberOfItems: posts.length,
+    itemListElement: posts.map((post, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      url: `${SITE_CONFIG.SITE_URL}/blog/${post.slug}`,
+      item: {
+        "@type": "BlogPosting",
+        headline: post.title,
+        description: post.description,
+        datePublished: post.date,
+        author: {
+          "@type": "Person",
+          name: "Pedro Rojas Reyes",
+          url: SITE_CONFIG.SITE_URL,
+        },
+      },
+    })),
+  }
+
   return (
     <>
       <Helmet>
@@ -58,27 +100,50 @@ export default function BlogListPage() {
           name="description"
           content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes — sin agencias caras ni promesas vacías."
         />
-        <link rel="canonical" href={`${SITE_CONFIG.SITE_URL}/blog`} />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <link rel="canonical" href={canonicalUrl} />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Blog — Web, SEO y Emprendimiento para PyMEs en Puebla" />
+        <meta
+          property="og:description"
+          content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes."
+        />
+        <meta property="og:url" content={canonicalUrl} />
+        <meta property="og:image" content={seoImage} />
+        <meta property="og:site_name" content="Pedro Rojas — Desarrollo Web Puebla" />
+        <meta property="og:locale" content="es_MX" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Blog — Web, SEO y Emprendimiento para PyMEs en Puebla" />
+        <meta
+          name="twitter:description"
+          content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes."
+        />
+        <meta name="twitter:image" content={seoImage} />
+
+        <script type="application/ld+json">{JSON.stringify(blogCollectionSchema)}</script>
+        <script type="application/ld+json">{JSON.stringify(blogItemListSchema)}</script>
       </Helmet>
 
       <div className="bg-crema min-h-screen pt-20">
-        {/* Hero header — full-width, top/bottom border only */}
-        <div className="w-full bg-crema-medio border-t border-b border-crema-oscuro mt-6 mb-10">
-          <section className="max-w-3xl mx-auto px-4 sm:px-6 pt-12 pb-12 text-center">
-            <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-4 py-1.5 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-verde" />
-              BLOG · PUEBLA, MÉXICO
-            </div>
-            <h1 className="font-lora text-4xl sm:text-5xl font-bold text-tinta leading-tight mb-4">
-              Web, SEO y emprendimiento <br />
-              para PyMEs en{" "}
-              <em className="not-italic text-verde">Puebla.</em>
-            </h1>
-            <p className="text-tinta-suave text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
-              Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio
-              web que <em>sí</em> les traiga clientes — sin agencias caras ni promesas vacías.
-            </p>
-          </section>
+        {/* Hero header — wider than content (max-w-screen-xl) but not full-width */}
+        <div className="max-w-screen-xl mx-auto bg-crema-medio border-t border-b border-crema-oscuro mt-6 mb-10 px-4 sm:px-8">
+          <section className="max-w-3xl mx-auto pt-12 pb-12 text-center">
+              <div className="inline-flex items-center gap-2 text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-4 py-1.5 mb-6">
+                <span className="w-1.5 h-1.5 rounded-full bg-verde" />
+                BLOG · PUEBLA, MÉXICO
+              </div>
+              <h1 className="font-lora text-4xl sm:text-5xl font-bold text-tinta leading-tight mb-4">
+                Web, SEO y emprendimiento <br />
+                para PyMEs en{" "}
+                <em className="text-verde">Puebla.</em>
+              </h1>
+              <p className="text-tinta-suave text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
+                Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio
+                web que <em>sí</em> les traiga clientes — sin agencias caras ni promesas vacías.
+              </p>
+            </section>
         </div>
 
         <div className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
