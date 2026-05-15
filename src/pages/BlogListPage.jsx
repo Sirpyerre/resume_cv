@@ -154,12 +154,6 @@ export default function BlogListPage() {
                 <h2 className="text-lg font-bold text-tinta flex items-center gap-2">
                   <span className="text-verde font-mono text-sm">&lt;/&gt;</span> Lectura destacada
                 </h2>
-                <button
-                  onClick={() => setActiveTags([])}
-                  className="text-sm text-verde hover:underline"
-                >
-                  Ver todas las categorías →
-                </button>
               </div>
               <FeaturedPost post={featuredPost} />
             </section>

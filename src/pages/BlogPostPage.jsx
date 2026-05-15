@@ -58,6 +58,9 @@ function ShareButtons({ url, title }) {
 export default function BlogPostPage() {
   const { slug } = useParams()
   const post = posts.find((p) => p.slug === slug)
+  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER
+  const whatsappMessage = encodeURIComponent("Hola! Me gustaría agendar una consulta gratis para mi negocio.")
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`
 
   if (!post) return <Navigate to="/blog" replace />
 
@@ -159,44 +162,40 @@ export default function BlogPostPage() {
       <div className="bg-crema min-h-screen pt-20">
         {/* Article header */}
         <header className="max-w-6xl mx-auto px-4 sm:px-6 pt-10 pb-8">
-          <div className="lg:grid lg:grid-cols-12 lg:gap-x-10">
-            <div className="lg:col-span-8">
-              {/* Breadcrumb */}
-              <nav className="flex items-center gap-2 text-xs text-tinta-suave/60 mb-6">
-                <Link to="/" className="hover:text-verde transition-colors">Inicio</Link>
-                <span>/</span>
-                <Link to="/blog" className="hover:text-verde transition-colors">Blog</Link>
-                <span>/</span>
-                <span className="text-tinta-suave truncate max-w-[200px]">{post.title}</span>
-              </nav>
+          {/* Breadcrumb */}
+          <nav className="flex items-center gap-2 text-xs text-tinta-suave/60 mb-6">
+            <Link to="/" className="hover:text-verde transition-colors">Inicio</Link>
+            <span>/</span>
+            <Link to="/blog" className="hover:text-verde transition-colors">Blog</Link>
+            <span>/</span>
+            <span className="text-tinta-suave truncate max-w-[200px]">{post.title}</span>
+          </nav>
 
-              {/* Tags */}
-              <div className="flex flex-wrap gap-2 mb-4">
-                {post.tags?.map((tag) => (
-                  <Link
-                    key={tag}
-                    to={`/blog`}
-                    className="text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-3 py-1 hover:bg-verde/10 transition-colors"
-                  >
-                    ● {tag.toUpperCase()}
-                  </Link>
-                ))}
-              </div>
+          {/* Tags */}
+          <div className="flex flex-wrap gap-2 mb-4">
+            {post.tags?.map((tag) => (
+              <Link
+                key={tag}
+                to={`/blog`}
+                className="text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-3 py-1 hover:bg-verde/10 transition-colors"
+              >
+                ● {tag.toUpperCase()}
+              </Link>
+            ))}
+          </div>
 
-              {/* Title */}
-              <h1 className="font-lora text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-6">
-                {post.title}
-              </h1>
+          {/* Title */}
+          <h1 className="font-lora text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-6">
+            {post.title}
+          </h1>
 
-              {/* Meta */}
-              <div className="flex flex-wrap items-center gap-3 text-sm text-tinta-suave/70">
-                <span>{formatDate(post.date)}</span>
-                <span className="w-1 h-1 rounded-full bg-tinta-suave/30" />
-                <span>⏱ {post.readingTime} min de lectura</span>
-                <span className="w-1 h-1 rounded-full bg-tinta-suave/30" />
-                <span>por <strong className="text-tinta-suave">Pedro R.</strong></span>
-              </div>
-            </div>
+          {/* Meta */}
+          <div className="flex flex-wrap items-center gap-3 text-sm text-tinta-suave/70">
+            <span>{formatDate(post.date)}</span>
+            <span className="w-1 h-1 rounded-full bg-tinta-suave/30" />
+            <span>⏱ {post.readingTime} min de lectura</span>
+            <span className="w-1 h-1 rounded-full bg-tinta-suave/30" />
+            <span>por <strong className="text-tinta-suave">Pedro R.</strong></span>
           </div>
 
           <div className="mt-6 border-t border-crema-oscuro" />
@@ -276,12 +275,14 @@ export default function BlogPostPage() {
                 <p className="font-lora text-base font-bold leading-snug mb-4">
                   Agenda una consulta gratis y te digo qué necesita tu negocio.
                 </p>
-                <Link
-                  to="/#contact"
+                <a
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 bg-verde text-crema text-sm font-semibold px-4 py-2.5 rounded-lg hover:bg-verde/90 transition-colors"
                 >
                   Contactar →
-                </Link>
+                </a>
               </div>
             </aside>
           </div>

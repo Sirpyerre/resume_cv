@@ -2,7 +2,7 @@ import { FaShieldAlt, FaCode, FaHandshake, FaMapMarkerAlt } from 'react-icons/fa
 import { useLanguage } from '../../contexts/LanguageContext.jsx';
 import { content } from '../../content/content.jsx';
 
-const PHOTO_URL = 'https://res.cloudinary.com/dtbpucouh/image/upload/w_600,h_750,c_fill,g_face,q_auto,f_auto/v1772490098/portfoli-freelance/IMG20260204132220_BURST005_zvy7ih.jpg';
+const PHOTO_URL = 'https://res.cloudinary.com/dtbpucouh/image/upload/v1778863953/portada-pedro-rojas-lat_resize_yruq8s.jpg';
 
 const iconMap = {
     shield: FaShieldAlt,
