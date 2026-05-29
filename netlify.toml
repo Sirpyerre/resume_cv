@@ -7,6 +7,22 @@ publish = "dist"
 [build.environment]
 SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID"
 
+# Canonicalize trailing slashes → redirect to non-trailing-slash URLs
+# (Netlify redirects /blog/slug → /blog/slug/ when a prerendered dir exists;
+#  these rules reverse that so canonical URLs stay consistent with <link rel="canonical">)
+[[redirects]]
+from = "/blog/*/"
+to = "/blog/:splat"
+status = 301
+force = true
+
+[[redirects]]
+from = "/blog/"
+to = "/blog"
+status = 301
+force = true
+
+# SPA fallback — serves prerendered index.html for any path not matched above
 [[redirects]]
 from = "/*"
 to = "/index.html"
