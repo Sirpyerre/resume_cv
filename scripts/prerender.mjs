@@ -90,12 +90,12 @@ async function prerender() {
         console.log('✅ Prerendered / → dist/index.html');
 
         // Prerender /blog
-        await renderRoute(page, '/blog', join(DIST, 'blog', 'index.html'));
+        await renderRoute(page, '/blog', join(DIST, 'blog.html'));
 
         // Prerender each blog post
         const slugs = getBlogSlugs();
         for (const slug of slugs) {
-            await renderRoute(page, `/blog/${slug}`, join(DIST, 'blog', slug, 'index.html'));
+            await renderRoute(page, `/blog/${slug}`, join(DIST, 'blog', `${slug}.html`));
         }
     } finally {
         await browser.close();
