@@ -66,7 +66,7 @@ export default function BlogPostPage() {
 
   const canonicalUrl = `${SITE_CONFIG.SITE_URL}/blog/${post.slug}`
   const seoImage = post.cover
-    ? `${SITE_CONFIG.SITE_URL}${post.cover}`
+    ? (post.cover.startsWith('http') ? post.cover : `${SITE_CONFIG.SITE_URL}${post.cover}`)
     : `${SITE_CONFIG.SITE_URL}/hero-section-resize1.png`
   const related = posts.filter((p) => p.slug !== post.slug && p.tags?.some((t) => post.tags?.includes(t))).slice(0, 3)
 

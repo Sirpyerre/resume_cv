@@ -6,17 +6,17 @@ import { content } from "../../content/content";
 
 const seoContent = {
     en: {
-        title: "Pedro Rojas — Web Development for Businesses in Puebla, México",
-        description: "Professional websites for local businesses in Puebla. Fast, secure, and built to get you more clients. From $5,000 MXN. Free consultation.",
-        keywords: "web developer Puebla, website design Puebla, web development Mexico, business website Puebla, local business web design, freelance web developer Puebla",
+        title: "Pedro Rojas — Freelance Web Developer in Puebla, México",
+        description: "Freelance web developer in Puebla. Websites for doctors, clinics, and local businesses. Fast, Google-optimized sites from $5,000 MXN. Free consultation.",
+        keywords: "freelance web developer Puebla, website for doctors Puebla, medical clinic website Puebla, web development Mexico, local business website Puebla, website design Puebla",
         siteName: "Pedro Rojas — Web Services Puebla",
         locale: "en_US",
         alternateLocale: "es_MX"
     },
     es: {
-        title: "Pedro Rojas — Desarrollo Web para Negocios en Puebla, México",
-        description: "Sitios web profesionales para negocios en Puebla. Rápidos, seguros y optimizados para Google. Desde $5,000 MXN. Consulta gratuita sin compromiso.",
-        keywords: "desarrollador web Puebla, diseño web Puebla, páginas web para negocios Puebla, desarrollo web México, SEO Puebla, freelance web developer Puebla",
+        title: "Pedro Rojas — Desarrollador Web Freelance en Puebla, México",
+        description: "Desarrollador web freelance en Puebla. Sitios para médicos, consultorios y negocios locales. Rápidos, bien posicionados en Google. Desde $5,000 MXN.",
+        keywords: "desarrollador web freelance Puebla, desarrollo web para médicos Puebla, sitio web para consultorio Puebla, página web para doctor Puebla, diseño web Puebla, páginas web para negocios Puebla, desarrollo web México, SEO local Puebla",
         siteName: "Pedro Rojas — Servicios Web Puebla",
         locale: "es_MX",
         alternateLocale: "en_US"

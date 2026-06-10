@@ -38,7 +38,7 @@ export default function BlogListPage() {
   const pagePosts = filtered.slice((currentPage - 1) * POSTS_PER_PAGE, currentPage * POSTS_PER_PAGE)
   const canonicalUrl = `${SITE_CONFIG.SITE_URL}/blog`
   const seoImage = featuredPost?.cover
-    ? `${SITE_CONFIG.SITE_URL}${featuredPost.cover}`
+    ? (featuredPost.cover.startsWith('http') ? featuredPost.cover : `${SITE_CONFIG.SITE_URL}${featuredPost.cover}`)
     : `${SITE_CONFIG.SITE_URL}/hero-section-resize1.png`
 
   const handleTagClick = (tag, searchValue) => {
@@ -57,9 +57,9 @@ export default function BlogListPage() {
   const blogCollectionSchema = {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    name: "Blog — Web, SEO y Emprendimiento para PyMEs en Puebla",
+    name: "Blog — Desarrollo Web Freelance y SEO Local en Puebla",
     description:
-      "Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes.",
+      "Guías de desarrollo web freelance, SEO local y emprendimiento para médicos, consultorios y negocios en Puebla.",
     url: canonicalUrl,
     isPartOf: {
       "@type": "WebSite",
@@ -95,19 +95,19 @@ export default function BlogListPage() {
   return (
     <>
       <Helmet>
-        <title>Blog — Web, SEO y Emprendimiento para PyMEs en Puebla | Pedro Rojas</title>
+        <title>Blog — Desarrollo Web Freelance y SEO Local en Puebla | Pedro Rojas</title>
         <meta
           name="description"
-          content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes — sin agencias caras ni promesas vacías."
+          content="Guías de desarrollo web freelance, SEO local y emprendimiento para médicos, consultorios y negocios en Puebla. Sin agencias caras, con resultados reales."
         />
         <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
         <link rel="canonical" href={canonicalUrl} />
 
         <meta property="og:type" content="website" />
-        <meta property="og:title" content="Blog — Web, SEO y Emprendimiento para PyMEs en Puebla" />
+        <meta property="og:title" content="Blog — Desarrollo Web Freelance y SEO Local en Puebla" />
         <meta
           property="og:description"
-          content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes."
+          content="Guías de desarrollo web freelance, SEO local y emprendimiento para médicos, consultorios y negocios en Puebla. Sin agencias caras, con resultados reales."
         />
         <meta property="og:url" content={canonicalUrl} />
         <meta property="og:image" content={seoImage} />
@@ -115,10 +115,10 @@ export default function BlogListPage() {
         <meta property="og:locale" content="es_MX" />
 
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="Blog — Web, SEO y Emprendimiento para PyMEs en Puebla" />
+        <meta name="twitter:title" content="Blog — Desarrollo Web Freelance y SEO Local en Puebla" />
         <meta
           name="twitter:description"
-          content="Casos reales, guías prácticas y tips honestos para dueños de PyMEs que quieren un sitio web que sí les traiga clientes."
+          content="Guías de desarrollo web freelance, SEO local y emprendimiento para médicos, consultorios y negocios en Puebla. Sin agencias caras, con resultados reales."
         />
         <meta name="twitter:image" content={seoImage} />
 
@@ -135,8 +135,9 @@ export default function BlogListPage() {
                 BLOG · PUEBLA, MÉXICO
               </div>
               <h1 className="font-lora text-4xl sm:text-5xl font-bold text-tinta leading-tight mb-4">
-                Web, SEO y emprendimiento <br />
-                para PyMEs en{" "}
+                Desarrollo web freelance,<br />
+                SEO local y emprendimiento<br />
+                para negocios en{" "}
                 <em className="text-verde">Puebla.</em>
               </h1>
               <p className="text-tinta-suave text-base sm:text-lg leading-relaxed max-w-xl mx-auto">
