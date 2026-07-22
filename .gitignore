@@ -70,3 +70,7 @@ yarn-error.log
 
 .idea/
 .vscode/
+
+# Google Search Console service account credentials — never commit
+*service-account*.json
+gsc-credentials.json

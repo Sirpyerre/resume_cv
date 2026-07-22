@@ -15,7 +15,7 @@ const seoContent = {
     },
     es: {
         title: "Pedro Rojas — Desarrollador Web Freelance en Puebla, México",
-        description: "Desarrollador web freelance en Puebla. Sitios para médicos, consultorios y negocios locales. Rápidos, bien posicionados en Google. Desde $5,000 MXN.",
+        description: "Desarrollador web freelance en Puebla. Sitios para médicos, consultorios y negocios locales. Rápidos, bien posicionados en Google. Desde $5,000 MXN. Consulta gratis.",
         keywords: "desarrollador web freelance Puebla, desarrollo web para médicos Puebla, sitio web para consultorio Puebla, página web para doctor Puebla, diseño web Puebla, páginas web para negocios Puebla, desarrollo web México, SEO local Puebla",
         siteName: "Pedro Rojas — Servicios Web Puebla",
         locale: "es_MX",
