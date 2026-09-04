@@ -1,0 +1,73 @@
+---
+import { getCollection } from "astro:content"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import PageHeader from "../site/PageHeader.astro"
+import { formatPostDate, sortBlogEntries } from "../../lib/blog.js"
+import { getLocalizedPath, getUiCopy } from "../../lib/i18n.js"
+
+const { language = "es" } = Astro.props
+const posts = sortBlogEntries(await getCollection("blog"))
+const ui = getUiCopy(language)
+const localeDate = language === "en" ? "en-US" : "es-MX"
+const pageCopy =
+  language === "en"
+    ? {
+        title: "Blog | Pedro Rojas",
+        heading: "Guides on web development, local SEO, and digital growth",
+        description:
+          "Practical articles for businesses in Puebla that want a faster website, better SEO, and stronger conversion paths.",
+      }
+    : {
+        title: "Blog | Pedro Rojas",
+        heading: "Guias de desarrollo web, SEO local y crecimiento digital",
+        description:
+          "Articulos practicos para negocios en Puebla que quieren un sitio mas rapido, mejor SEO y mejores rutas de conversion.",
+      }
+---
+
+<BaseLayout language={language} title={pageCopy.title} description={pageCopy.description} basePath="/blog">
+  <PageHeader eyebrow="BLOG" title={pageCopy.heading} description={pageCopy.description} />
+
+  <section class="px-4 sm:px-6 pb-16 bg-crema">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid gap-6 md:grid-cols-2">
+        {posts.map((post) => (
+          <article class="bg-crema-medio rounded-2xl border border-crema-oscuro overflow-hidden flex flex-col">
+            {post.data.cover && (
+              <img
+                src={post.data.cover}
+                alt={post.data.title}
+                class="w-full aspect-[16/9] object-cover"
+                loading="lazy"
+              />
+            )}
+            <div class="p-6 flex flex-col gap-4 flex-1">
+              <div class="flex flex-wrap gap-2">
+                {post.data.categories.map((category) => (
+                  <span class="text-[11px] font-bold tracking-widest text-verde border border-verde/30 rounded-full px-3 py-1">
+                    {category}
+                  </span>
+                ))}
+              </div>
+              <div>
+                <p class="text-sm text-tinta-suave/70 mb-2">
+                  {formatPostDate(post.data.date, localeDate)}
+                </p>
+                <h2 class="text-2xl font-bold text-tinta mb-3">{post.data.title}</h2>
+                <p class="text-tinta-suave leading-relaxed">{post.data.description}</p>
+              </div>
+              <div class="mt-auto">
+                <a
+                  href={getLocalizedPath(language, `/blog/${post.id}`)}
+                  class="inline-flex items-center gap-2 text-verde font-semibold hover:text-cobre transition-colors"
+                >
+                  {ui.featuredPost === "Featured read" ? "Read article" : "Leer articulo"} →
+                </a>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

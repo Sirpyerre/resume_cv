@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import ContactForm from "../islands/ContactForm.jsx"
+import PageHeader from "../site/PageHeader.astro"
+
+const { language = "es" } = Astro.props
+const copy =
+  language === "en"
+    ? {
+        title: "Contact | Pedro Rojas",
+        heading: "Tell me about your business and what you want to build",
+        description:
+          "Use the form or direct channels to request a quote, ask a question, or schedule a free exploratory call.",
+      }
+    : {
+        title: "Contacto | Pedro Rojas",
+        heading: "Cuentame sobre tu negocio y lo que quieres construir",
+        description:
+          "Usa el formulario o los canales directos para pedir una cotizacion, hacer una pregunta o agendar una llamada exploratoria.",
+      }
+---
+
+<BaseLayout
+  language={language}
+  title={copy.title}
+  description={copy.description}
+  basePath="/contact"
+>
+  <PageHeader eyebrow="CONTACT" title={copy.heading} description={copy.description} />
+  <ContactForm client:visible language={language} />
+</BaseLayout>

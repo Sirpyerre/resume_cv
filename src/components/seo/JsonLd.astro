@@ -1,0 +1,20 @@
+---
+/**
+ * Serializa un objeto de schema.org a un bloque <script type="application/ld+json">.
+ * Acepta un objeto o un arreglo; ignora los valores nulos para que las paginas
+ * puedan pasar builders que devuelven null cuando no hay datos.
+ */
+const { schema } = Astro.props
+
+const schemas = (Array.isArray(schema) ? schema : [schema]).filter(Boolean)
+---
+
+{
+  schemas.map((item) => (
+    <script
+      type="application/ld+json"
+      is:inline
+      set:html={JSON.stringify(item)}
+    />
+  ))
+}

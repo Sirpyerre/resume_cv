@@ -1,0 +1,27 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro"
+---
+
+<BaseLayout
+  language="es"
+  title="Pagina no encontrada | Pedro Rojas"
+  description="La pagina que buscas no existe."
+  basePath="/404"
+  noIndex={true}
+>
+  <section class="min-h-[60vh] px-4 sm:px-6 py-20 flex items-center justify-center bg-crema">
+    <div class="text-center max-w-xl">
+      <p class="text-sm font-bold tracking-widest text-verde mb-4">404</p>
+      <h1 class="text-4xl font-bold text-tinta mb-4">Pagina no encontrada</h1>
+      <p class="text-tinta-suave mb-8">
+        La ruta solicitada no existe o fue movida durante la migracion a Astro.
+      </p>
+      <a
+        href="/"
+        class="inline-flex items-center justify-center gap-2 bg-verde text-crema px-6 py-3 rounded-lg font-semibold hover:bg-verde/90 transition-colors"
+      >
+        Volver al inicio
+      </a>
+    </div>
+  </section>
+</BaseLayout>

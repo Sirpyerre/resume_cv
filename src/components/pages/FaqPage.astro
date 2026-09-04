@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import FAQAccordion from "../islands/FAQAccordion.jsx"
+import PageHeader from "../site/PageHeader.astro"
+import JsonLd from "../seo/JsonLd.astro"
+import { buildFaqPage } from "../../lib/schema.js"
+
+const { language = "es" } = Astro.props
+const copy =
+  language === "en"
+    ? {
+        title: "FAQ | Pedro Rojas",
+        heading: "Questions clients ask before starting a project",
+        description:
+          "Clear answers about cost, delivery timelines, scope, and the process behind local-business websites.",
+      }
+    : {
+        title: "FAQ | Pedro Rojas",
+        heading: "Preguntas que suelen aparecer antes de arrancar un proyecto",
+        description:
+          "Respuestas claras sobre costos, tiempos de entrega, alcance y el proceso detras de un sitio para negocios locales.",
+      }
+
+const faqSchema = buildFaqPage(language)
+---
+
+<BaseLayout language={language} title={copy.title} description={copy.description} basePath="/faq">
+  <JsonLd slot="head" schema={faqSchema} />
+  <PageHeader eyebrow="FAQ" title={copy.heading} description={copy.description} />
+  <FAQAccordion client:idle language={language} />
+</BaseLayout>

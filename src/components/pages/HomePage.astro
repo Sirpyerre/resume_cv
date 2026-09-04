@@ -1,0 +1,37 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import AboutSection from "../site/AboutSection.astro"
+import HeroSection from "../site/HeroSection.astro"
+import ServicesSection from "../site/ServicesSection.astro"
+import ContactForm from "../islands/ContactForm.jsx"
+import FAQAccordion from "../islands/FAQAccordion.jsx"
+import PortfolioCarousel from "../islands/PortfolioCarousel.jsx"
+
+const { language = "es" } = Astro.props
+const copy =
+  language === "en"
+    ? {
+        title: "Pedro Rojas - Freelance Web Developer in Puebla",
+        description:
+          "Astro-powered portfolio with React islands for services, portfolio, FAQ, and contact focused on SEO and Core Web Vitals.",
+      }
+    : {
+        title: "Pedro Rojas - Desarrollador Web Freelance en Puebla",
+        description:
+          "Portafolio estatico con Astro y React Islands para maximizar SEO, Core Web Vitals y conversiones para negocios en Puebla.",
+      }
+---
+
+<BaseLayout
+  language={language}
+  title={copy.title}
+  description={copy.description}
+  basePath="/"
+>
+  <HeroSection language={language} />
+  <AboutSection language={language} />
+  <ServicesSection language={language} />
+  <PortfolioCarousel client:visible language={language} />
+  <FAQAccordion client:idle language={language} />
+  <ContactForm client:visible language={language} />
+</BaseLayout>

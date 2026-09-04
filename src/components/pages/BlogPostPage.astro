@@ -1,0 +1,95 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import { render } from "astro:content"
+import { formatPostDate, getReadingTime } from "../../lib/blog.js"
+import { getLocalizedPath } from "../../lib/i18n.js"
+import JsonLd from "../seo/JsonLd.astro"
+import { SITE_CONFIG } from "../../config/site.js"
+import { buildBlogPosting, buildBreadcrumbList } from "../../lib/schema.js"
+
+const { entry, language = "es" } = Astro.props
+const { Content } = await render(entry)
+const localeDate = language === "en" ? "en-US" : "es-MX"
+const title = `${entry.data.title} | Pedro Rojas`
+const description = entry.data.description
+const pagePath = `/blog/${entry.id}`
+
+// Los posts solo existen en espanol: las rutas /en/blog/<slug> apuntan su
+// canonical a la version ES en vez de declararse como traduccion.
+const canonicalPath = language === "en" ? pagePath : undefined
+const canonicalUrl = `${SITE_CONFIG.SITE_URL}${canonicalPath ?? pagePath}`
+const publishedTime = new Date(entry.data.date).toISOString()
+const postSchemas = [
+  buildBlogPosting(entry, language, canonicalUrl),
+  buildBreadcrumbList([
+    { name: language === "en" ? "Home" : "Inicio", path: getLocalizedPath(language, "/") },
+    { name: "Blog", path: getLocalizedPath(language, "/blog") },
+    { name: entry.data.title, path: getLocalizedPath(language, pagePath) },
+  ]),
+]
+---
+
+<BaseLayout
+  language={language}
+  title={title}
+  description={description}
+  basePath={pagePath}
+  image={entry.data.cover || "/hero-section-resize1.png"}
+  ogType="article"
+  publishedTime={publishedTime}
+  canonicalPath={canonicalPath}
+>
+  <JsonLd slot="head" schema={postSchemas} />
+  <section class="px-4 sm:px-6 py-10 bg-crema">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-xs text-tinta-suave/60 mb-6">
+        <a href={getLocalizedPath(language, "/")} class="hover:text-verde transition-colors">
+          {language === "en" ? "Home" : "Inicio"}
+        </a>
+        <span>/</span>
+        <a href={getLocalizedPath(language, "/blog")} class="hover:text-verde transition-colors">
+          Blog
+        </a>
+      </nav>
+
+      <div class="flex flex-wrap gap-2 mb-4">
+        {entry.data.categories.map((category) => (
+          <span class="text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-3 py-1">
+            {category}
+          </span>
+        ))}
+      </div>
+
+      <h1 class="font-lora text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-6">
+        {entry.data.title}
+      </h1>
+
+      <div class="flex flex-wrap items-center gap-3 text-sm text-tinta-suave/70 mb-8">
+        <span>{formatPostDate(entry.data.date, localeDate)}</span>
+        <span class="w-1 h-1 rounded-full bg-tinta-suave/30"></span>
+        <span>⏱ {getReadingTime(entry.body)} min</span>
+        <span class="w-1 h-1 rounded-full bg-tinta-suave/30"></span>
+        <span>Pedro R.</span>
+      </div>
+
+      {entry.data.cover && (
+        <figure class="mb-8">
+          <img
+            src={entry.data.cover}
+            alt={entry.data.title}
+            class="w-full max-h-[480px] object-cover rounded-xl border border-crema-oscuro"
+          />
+          {entry.data.coverLabel && (
+            <figcaption class="text-center text-xs text-tinta-suave/60 mt-2 italic">
+              {entry.data.coverLabel}
+            </figcaption>
+          )}
+        </figure>
+      )}
+
+      <article class="prose prose-lg max-w-none prose-headings:text-tinta prose-p:text-tinta-suave prose-li:text-tinta-suave prose-a:text-verde">
+        <Content />
+      </article>
+    </div>
+  </section>
+</BaseLayout>

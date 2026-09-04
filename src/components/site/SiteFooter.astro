@@ -1,0 +1,90 @@
+---
+import {
+  getBlogCategories,
+  getSiteLinks,
+  getUiCopy,
+} from "../../lib/i18n.js"
+
+const { language = "es" } = Astro.props
+const links = getSiteLinks(language)
+const ui = getUiCopy(language)
+const categories = getBlogCategories(language)
+const currentYear = new Date().getFullYear()
+---
+
+<footer class="bg-tinta text-crema py-12 px-4 sm:px-6">
+  <div class="container mx-auto max-w-6xl">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+      <div class="lg:col-span-2">
+        <p class="text-xl font-bold text-crema mb-2">Pedro.</p>
+        <p class="text-crema/60 text-sm leading-relaxed mb-3 max-w-xs">
+          {language === "en"
+            ? "Web consultant and developer in Puebla, Mexico. I build fast sites that help local businesses get more clients."
+            : "Consultor y desarrollador web en Puebla, Mexico. Construyo sitios rapidos que ayudan a negocios locales a conseguir clientes."}
+        </p>
+        <p class="text-crema/40 text-xs flex items-center gap-1">Puebla, Mexico</p>
+      </div>
+
+      <div>
+        <p class="text-[10px] font-bold tracking-widest text-crema/40 mb-4">{ui.site}</p>
+        <ul class="space-y-2 text-sm text-crema/70">
+          <li><a href={links.home} class="hover:text-verde transition-colors">{ui.home}</a></li>
+          <li>
+            <a href={links.services} class="hover:text-verde transition-colors">{ui.services}</a>
+          </li>
+          <li>
+            <a href={links.portfolio} class="hover:text-verde transition-colors">{ui.portfolio}</a>
+          </li>
+          <li><a href={links.blog} class="hover:text-verde transition-colors">{ui.blog}</a></li>
+          <li><a href={links.faq} class="hover:text-verde transition-colors">{ui.faq}</a></li>
+          <li>
+            <a href={links.contact} class="hover:text-verde transition-colors">{ui.contact}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <p class="text-[10px] font-bold tracking-widest text-crema/40 mb-4">
+          {ui.blogCategories}
+        </p>
+        <ul class="space-y-2 text-sm text-crema/70">
+          {categories.map((category) => (
+            <li>
+              <a href={links.blog} class="hover:text-verde transition-colors">
+                {category}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-crema/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-crema/40">
+      <div class="text-center sm:text-left">
+        <p>
+          © {currentYear} Pedro Rojas · Puebla, Mexico.{" "}
+          {language === "en" ? "All rights reserved." : "Todos los derechos reservados."}
+        </p>
+        <div class="flex gap-4 mt-1.5 justify-center sm:justify-start">
+          <a href={links.privacy} class="hover:text-verde transition-colors">
+            {language === "en" ? "Privacy Policy" : "Aviso de Privacidad"}
+          </a>
+          <span class="text-crema/20">•</span>
+          <a href={links.terms} class="hover:text-verde transition-colors">
+            {language === "en" ? "Terms of Service" : "Terminos de Uso"}
+          </a>
+          <span class="text-crema/20">•</span>
+          <a href={links.cookies} class="hover:text-verde transition-colors">
+            {language === "en" ? "Cookie Policy" : "Politica de Cookies"}
+          </a>
+        </div>
+      </div>
+      <div class="flex items-center gap-4">
+        <span>{ui.builtWith} Astro + React Islands</span>
+        <a href="#top" class="text-verde hover:text-verde/80 transition-colors">
+          ↑ {ui.backToTop}
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

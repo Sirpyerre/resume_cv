@@ -4,7 +4,7 @@ Disallow: /admin/
 Disallow: /.git/
 Disallow: /node_modules/
 
-Sitemap: https://pedrorojas.lat/sitemap.xml
+Sitemap: https://pedrorojas.lat/sitemap-index.xml
 
 # Specific rules for search engines
 User-agent: Googlebot

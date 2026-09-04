@@ -1,0 +1,36 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import ServicesSection from "../site/ServicesSection.astro"
+import PageHeader from "../site/PageHeader.astro"
+import JsonLd from "../seo/JsonLd.astro"
+import { buildServiceCatalog } from "../../lib/schema.js"
+
+const { language = "es" } = Astro.props
+const copy =
+  language === "en"
+    ? {
+        title: "Services | Pedro Rojas",
+        heading: "Services designed to grow your business online",
+        description:
+          "Professional websites, custom web apps, and monthly maintenance built for local SEO, speed, and conversion.",
+      }
+    : {
+        title: "Servicios | Pedro Rojas",
+        heading: "Servicios disenados para crecer tu negocio en linea",
+        description:
+          "Sitios profesionales, web apps a la medida y mantenimiento mensual pensados para SEO local, velocidad y conversion.",
+      }
+
+const serviceSchema = buildServiceCatalog(language)
+---
+
+<BaseLayout
+  language={language}
+  title={copy.title}
+  description={copy.description}
+  basePath="/services"
+>
+  <JsonLd slot="head" schema={serviceSchema} />
+  <PageHeader eyebrow="SERVICES" title={copy.heading} description={copy.description} />
+  <ServicesSection language={language} showCta={true} />
+</BaseLayout>

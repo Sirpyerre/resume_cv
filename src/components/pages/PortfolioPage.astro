@@ -1,0 +1,31 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import PortfolioCarousel from "../islands/PortfolioCarousel.jsx"
+import PageHeader from "../site/PageHeader.astro"
+
+const { language = "es" } = Astro.props
+const copy =
+  language === "en"
+    ? {
+        title: "Portfolio | Pedro Rojas",
+        heading: "Selected work for local businesses and developer communities",
+        description:
+          "Conversion-focused websites, redesigns, and migration projects delivered with strong performance and practical SEO.",
+      }
+    : {
+        title: "Portafolio | Pedro Rojas",
+        heading: "Trabajo seleccionado para negocios locales y comunidades tech",
+        description:
+          "Sitios orientados a conversion, redisenos y migraciones con alto rendimiento y SEO practico.",
+      }
+---
+
+<BaseLayout
+  language={language}
+  title={copy.title}
+  description={copy.description}
+  basePath="/portfolio"
+>
+  <PageHeader eyebrow="PORTFOLIO" title={copy.heading} description={copy.description} />
+  <PortfolioCarousel client:visible language={language} />
+</BaseLayout>
