@@ -12,22 +12,22 @@ const categories = getBlogCategories(language)
 const currentYear = new Date().getFullYear()
 ---
 
-<footer class="bg-tinta text-crema py-12 px-4 sm:px-6">
+<footer class="bg-crema-medio border-t border-crema-oscuro py-12 px-4 sm:px-6">
   <div class="container mx-auto max-w-6xl">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
       <div class="lg:col-span-2">
-        <p class="text-xl font-bold text-crema mb-2">Pedro.</p>
-        <p class="text-crema/60 text-sm leading-relaxed mb-3 max-w-xs">
+        <p class="font-heading text-xl font-bold text-tinta mb-2">Pedro.</p>
+        <p class="text-tinta-suave text-sm leading-relaxed mb-3 max-w-xs">
           {language === "en"
             ? "Web consultant and developer in Puebla, Mexico. I build fast sites that help local businesses get more clients."
             : "Consultor y desarrollador web en Puebla, Mexico. Construyo sitios rapidos que ayudan a negocios locales a conseguir clientes."}
         </p>
-        <p class="text-crema/40 text-xs flex items-center gap-1">Puebla, Mexico</p>
+        <p class="text-tinta-suave/70 text-xs flex items-center gap-1">Puebla, Mexico</p>
       </div>
 
       <div>
-        <p class="text-[10px] font-bold tracking-widest text-crema/40 mb-4">{ui.site}</p>
-        <ul class="space-y-2 text-sm text-crema/70">
+        <p class="font-heading text-[10px] font-bold tracking-widest text-tinta-suave/70 mb-4">{ui.site}</p>
+        <ul class="space-y-2 text-sm text-tinta-suave">
           <li><a href={links.home} class="hover:text-verde transition-colors">{ui.home}</a></li>
           <li>
             <a href={links.services} class="hover:text-verde transition-colors">{ui.services}</a>
@@ -44,10 +44,10 @@ const currentYear = new Date().getFullYear()
       </div>
 
       <div>
-        <p class="text-[10px] font-bold tracking-widest text-crema/40 mb-4">
+        <p class="font-heading text-[10px] font-bold tracking-widest text-tinta-suave/70 mb-4">
           {ui.blogCategories}
         </p>
-        <ul class="space-y-2 text-sm text-crema/70">
+        <ul class="space-y-2 text-sm text-tinta-suave">
           {categories.map((category) => (
             <li>
               <a href={links.blog} class="hover:text-verde transition-colors">
@@ -59,7 +59,7 @@ const currentYear = new Date().getFullYear()
       </div>
     </div>
 
-    <div class="border-t border-crema/10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-crema/40">
+    <div class="border-t border-crema-oscuro pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-tinta-suave/70">
       <div class="text-center sm:text-left">
         <p>
           © {currentYear} Pedro Rojas · Puebla, Mexico.{" "}
@@ -69,11 +69,11 @@ const currentYear = new Date().getFullYear()
           <a href={links.privacy} class="hover:text-verde transition-colors">
             {language === "en" ? "Privacy Policy" : "Aviso de Privacidad"}
           </a>
-          <span class="text-crema/20">•</span>
+          <span class="text-tinta-suave/40">•</span>
           <a href={links.terms} class="hover:text-verde transition-colors">
             {language === "en" ? "Terms of Service" : "Terminos de Uso"}
           </a>
-          <span class="text-crema/20">•</span>
+          <span class="text-tinta-suave/40">•</span>
           <a href={links.cookies} class="hover:text-verde transition-colors">
             {language === "en" ? "Cookie Policy" : "Politica de Cookies"}
           </a>

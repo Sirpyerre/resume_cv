@@ -6,9 +6,9 @@ const t = getDictionary(language)
 const links = getSiteLinks(language)
 ---
 
-<section id="services" class="py-16 px-4 bg-crema-medio">
+<section id="services" class="section bg-crema-medio">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-3xl md:text-4xl font-bold text-verde mb-4 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-tinta mb-4 text-center">
       {t.services.title}
     </h2>
     <p class="text-tinta-suave text-center mb-12 max-w-3xl mx-auto">
@@ -49,7 +49,7 @@ const links = getSiteLinks(language)
       <div class="text-center mt-12">
         <a
           href={links.contact}
-          class="inline-block bg-verde text-crema px-8 py-3 rounded-lg font-semibold hover:bg-verde/90 transition-colors duration-300"
+          class="btn-primary"
         >
           {language === "en" ? "Get Your Free Consultation" : "Obten tu Consulta Gratuita"}
         </a>

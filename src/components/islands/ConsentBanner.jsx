@@ -88,7 +88,7 @@ export default function ConsentBanner({
               </button>
               <button
                 onClick={() => handleChoice("accepted")}
-                className="px-6 py-2.5 bg-verde hover:bg-verde/90 text-crema rounded-lg font-bold transition-all duration-300 text-sm sm:text-base"
+                className="btn-primary"
               >
                 {copy.acceptAll}
               </button>

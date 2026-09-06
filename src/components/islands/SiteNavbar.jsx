@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react"
+import ThemeToggle from "./ThemeToggle.jsx"
 
 export default function SiteNavbar({
   language = "es",
@@ -30,23 +31,21 @@ export default function SiteNavbar({
   }
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-crema/95 backdrop-blur-sm text-tinta z-50 border-b border-crema-oscuro">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+    <header className="sticky top-0 z-50 border-b border-crema-oscuro bg-crema/95 backdrop-blur-sm">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 py-5 flex justify-between items-center gap-4">
         <a
           href={links.home}
-          className="text-xl font-bold text-tinta hover:text-verde transition-colors"
+          className="font-heading text-xl font-bold text-tinta hover:text-verde transition-colors"
         >
           Pedro.
         </a>
 
-        <nav className="hidden lg:flex items-center gap-1 text-sm">
+        <nav className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <a
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-lg font-medium transition-colors hover:text-verde ${
-                isActive(link.match) ? "bg-verde/10 text-verde" : "text-tinta-suave"
-              }`}
+              className={`nav-link ${isActive(link.match) ? "nav-link-active" : ""}`}
             >
               {link.label}
             </a>
@@ -56,15 +55,14 @@ export default function SiteNavbar({
         <div className="flex items-center gap-3">
           <a
             href={alternateLocalePath}
-            className="hidden lg:block text-xs text-tinta-suave hover:text-verde transition-colors font-medium tracking-wide"
+            className="hidden lg:block font-heading text-xs text-tinta-suave hover:text-verde transition-colors tracking-wide"
           >
             {ui.switchLocale}
           </a>
 
-          <a
-            href={links.contact}
-            className="hidden lg:inline-flex items-center gap-1 bg-verde text-crema px-5 py-2 rounded-lg font-semibold text-sm hover:bg-verde/90 transition-colors"
-          >
+          <ThemeToggle language={language} />
+
+          <a href={links.contact} className="hidden lg:inline-flex btn-primary">
             {ui.contact} →
           </a>
 
@@ -72,6 +70,7 @@ export default function SiteNavbar({
             onClick={() => setIsMenuOpen((value) => !value)}
             className="lg:hidden text-tinta focus:outline-none p-1"
             aria-label={language === "en" ? "Toggle menu" : "Abrir menu"}
+            aria-expanded={isMenuOpen}
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               {isMenuOpen ? (
@@ -102,7 +101,7 @@ export default function SiteNavbar({
         } overflow-hidden bg-crema border-t border-crema-oscuro`}
       >
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-4">
-          <p className="text-xs font-bold tracking-widest text-tinta-suave/60 mb-3">
+          <p className="font-heading text-xs font-bold tracking-widest text-tinta-suave/60 mb-3">
             {language === "en" ? "MENU" : "MENU"}
           </p>
           <div className="border-t border-crema-oscuro mb-4" />
@@ -113,7 +112,7 @@ export default function SiteNavbar({
                 key={link.href}
                 href={link.href}
                 onClick={() => setIsMenuOpen(false)}
-                className={`flex items-center justify-between w-full text-left py-3 px-2 rounded-lg text-base font-medium transition-colors hover:text-verde ${
+                className={`flex items-center justify-between w-full text-left py-3 px-2 rounded-lg font-heading text-base transition-colors hover:text-verde ${
                   isActive(link.match) ? "text-verde" : "text-tinta"
                 }`}
               >
@@ -139,14 +138,14 @@ export default function SiteNavbar({
             <a
               href={links.contact}
               onClick={() => setIsMenuOpen(false)}
-              className="w-full bg-verde text-crema py-3.5 rounded-lg font-bold text-base hover:bg-verde/90 transition-colors text-center"
+              className="btn-primary w-full"
             >
               {language === "en" ? "Book free consultation" : "Agendar consulta gratis"} →
             </a>
             <a
               href={alternateLocalePath}
               onClick={() => setIsMenuOpen(false)}
-              className="text-sm text-tinta-suave hover:text-verde transition-colors pt-1"
+              className="text-sm text-tinta-suave hover:text-verde transition-colors pt-1 text-center"
             >
               {ui.switchLocale}
             </a>

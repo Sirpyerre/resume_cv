@@ -12,7 +12,7 @@ export default function FAQAccordion({ language = "es" }) {
           {faq.items.map((item, index) => (
             <div
               key={item.question}
-              className="border border-crema-oscuro rounded-xl overflow-hidden"
+              className="border border-crema-oscuro rounded-lg overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}

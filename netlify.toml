@@ -2,10 +2,11 @@
 command = "npm run build"
 publish = "dist"
 
-# Allow FormSpree Form ID to be included in build output
-# This is safe because it's a public form endpoint ID, not a secret API key
+# Ambos valores son publicos por diseno y terminan en el HTML:
+# el Form ID de FormSpree es un endpoint publico, y el numero de WhatsApp
+# se muestra en los enlaces wa.me. Sin declararlos, el escaner falla el build.
 [build.environment]
-SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID"
+SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID,VITE_WHATSAPP_NUMBER"
 
 # Astro 7 exige Node >=22.12. Sin fijarlo, Netlify usa el default del sitio
 # (heredado de cuando era un proyecto Vite/React) y el build falla.

@@ -13,10 +13,10 @@ const photoUrl =
   "https://res.cloudinary.com/dtbpucouh/image/upload/v1778863953/portada-pedro-rojas-lat_resize_yruq8s.jpg"
 ---
 
-<section id="about" class="py-16 sm:py-20 px-4 sm:px-6 bg-crema-medio">
+<section id="about" class="section bg-crema-medio">
   <div class="container mx-auto max-w-6xl">
     <div class="text-center mb-10 sm:mb-14">
-      <h2 class="text-3xl sm:text-4xl font-bold text-verde flex items-center justify-center gap-3">
+      <h2 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-tinta flex flex-wrap items-center justify-center gap-x-3 gap-y-1 text-center">
         <span>&lt;/&gt;</span>
         {a.title}
       </h2>
@@ -25,8 +25,8 @@ const photoUrl =
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center mb-12 sm:mb-16">
       <div class="flex justify-center lg:justify-end">
         <div class="relative w-64 sm:w-72 lg:w-80">
-          <div class="absolute -bottom-3 -right-3 w-full h-full rounded-2xl bg-verde/15 border border-verde/20"></div>
-          <div class="relative rounded-2xl overflow-hidden shadow-xl border-2 border-crema-oscuro">
+          <div class="absolute -bottom-3 -right-3 w-full h-full rounded-lg bg-verde/15 border border-verde/20"></div>
+          <div class="relative rounded-lg overflow-hidden border-2 border-crema-oscuro">
             <img
               src={photoUrl}
               alt="Pedro Rojas Reyes"
@@ -34,7 +34,7 @@ const photoUrl =
               loading="lazy"
             />
           </div>
-          <div class="absolute -top-4 -left-4 bg-verde text-crema text-xs font-bold px-3 py-2 rounded-xl shadow-lg leading-tight text-center">
+          <div class="absolute -top-4 -left-4 bg-verde text-white text-xs font-bold px-3 py-2 rounded-lg leading-tight text-center">
             {a.experience}
           </div>
         </div>
@@ -61,7 +61,7 @@ const photoUrl =
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {t.whyMe.reasons.map((reason) => (
-        <div class="bg-crema rounded-xl p-6 border border-crema-oscuro hover:border-verde transition-colors duration-300">
+        <div class="bg-crema rounded-lg p-6 border border-crema-oscuro hover:border-verde transition-colors duration-300">
           <div class="flex justify-center mb-4">
             <div class="bg-verde/10 p-4 rounded-full text-3xl">{icons[reason.icon]}</div>
           </div>

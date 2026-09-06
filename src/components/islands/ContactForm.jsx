@@ -302,7 +302,7 @@ export default function ContactForm({ language = "es" }) {
               <button
                 type="submit"
                 disabled={status.submitting}
-                className="w-full bg-verde text-crema px-6 py-3 rounded-lg font-semibold hover:bg-verde/90 transition-colors disabled:opacity-60"
+                className="btn-primary w-full disabled:opacity-60"
               >
                 {status.submitting ? copy.submitting : copy.submit}
               </button>

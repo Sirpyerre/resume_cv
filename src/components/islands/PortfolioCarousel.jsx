@@ -33,10 +33,10 @@ export default function PortfolioCarousel({ language = "es" }) {
         </div>
 
         <div className="relative">
-          <div className="bg-crema-medio/50 rounded-2xl p-6 md:p-8 lg:p-12 border border-crema-oscuro/50 backdrop-blur-sm">
+          <div className="bg-crema-medio/50 rounded-lg p-6 md:p-8 lg:p-12 border border-crema-oscuro/50 backdrop-blur-sm">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="order-2 lg:order-1">
-                <div className="relative aspect-video bg-crema-oscuro/30 rounded-xl overflow-hidden group">
+                <div className="relative aspect-video bg-crema-oscuro/30 rounded-lg overflow-hidden group">
                   <img
                     src={currentProject.image}
                     alt={currentProject.title}
@@ -65,7 +65,7 @@ export default function PortfolioCarousel({ language = "es" }) {
                   href={currentProject.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-crema hover:bg-verde text-tinta hover:text-crema px-6 py-3 rounded-lg font-semibold transition-all duration-300 border border-crema-oscuro hover:border-verde group"
+                  className="btn-outline-primary group"
                 >
                   {language === "es" ? "Ver Sitio en Vivo" : "View Live Site"}
                   <FaExternalLinkAlt className="group-hover:translate-x-1 transition-transform" />

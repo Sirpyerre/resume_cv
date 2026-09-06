@@ -54,13 +54,13 @@ const postSchemas = [
 
       <div class="flex flex-wrap gap-2 mb-4">
         {entry.data.categories.map((category) => (
-          <span class="text-[11px] font-bold tracking-widest text-verde border border-verde/40 rounded-full px-3 py-1">
+          <span class="chip">
             {category}
           </span>
         ))}
       </div>
 
-      <h1 class="font-lora text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-6">
+      <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-6">
         {entry.data.title}
       </h1>
 
@@ -77,7 +77,7 @@ const postSchemas = [
           <img
             src={entry.data.cover}
             alt={entry.data.title}
-            class="w-full max-h-[480px] object-cover rounded-xl border border-crema-oscuro"
+            class="w-full max-h-[480px] object-cover rounded-lg border border-crema-oscuro"
           />
           {entry.data.coverLabel && (
             <figcaption class="text-center text-xs text-tinta-suave/60 mt-2 italic">
@@ -87,7 +87,7 @@ const postSchemas = [
         </figure>
       )}
 
-      <article class="prose prose-lg max-w-none prose-headings:text-tinta prose-p:text-tinta-suave prose-li:text-tinta-suave prose-a:text-verde">
+      <article class="prose prose-lg max-w-none prose-headings:font-heading prose-headings:text-tinta prose-p:text-tinta-suave prose-li:text-tinta-suave prose-strong:text-tinta prose-a:text-verde prose-a:no-underline hover:prose-a:underline prose-code:text-tinta prose-blockquote:text-tinta-suave prose-blockquote:border-verde prose-hr:border-crema-oscuro prose-img:rounded-lg">
         <Content />
       </article>
     </div>

@@ -28,11 +28,11 @@ const pageCopy =
 <BaseLayout language={language} title={pageCopy.title} description={pageCopy.description} basePath="/blog">
   <PageHeader eyebrow="BLOG" title={pageCopy.heading} description={pageCopy.description} />
 
-  <section class="px-4 sm:px-6 pb-16 bg-crema">
+  <section class="section pt-0 bg-crema">
     <div class="max-w-6xl mx-auto">
       <div class="grid gap-6 md:grid-cols-2">
         {posts.map((post) => (
-          <article class="bg-crema-medio rounded-2xl border border-crema-oscuro overflow-hidden flex flex-col">
+          <article class="card overflow-hidden flex flex-col transition-colors hover:border-verde">
             {post.data.cover && (
               <img
                 src={post.data.cover}
@@ -44,7 +44,7 @@ const pageCopy =
             <div class="p-6 flex flex-col gap-4 flex-1">
               <div class="flex flex-wrap gap-2">
                 {post.data.categories.map((category) => (
-                  <span class="text-[11px] font-bold tracking-widest text-verde border border-verde/30 rounded-full px-3 py-1">
+                  <span class="chip">
                     {category}
                   </span>
                 ))}
@@ -53,13 +53,13 @@ const pageCopy =
                 <p class="text-sm text-tinta-suave/70 mb-2">
                   {formatPostDate(post.data.date, localeDate)}
                 </p>
-                <h2 class="text-2xl font-bold text-tinta mb-3">{post.data.title}</h2>
+                <h2 class="font-heading text-2xl font-bold text-tinta mb-3">{post.data.title}</h2>
                 <p class="text-tinta-suave leading-relaxed">{post.data.description}</p>
               </div>
               <div class="mt-auto">
                 <a
                   href={getLocalizedPath(language, `/blog/${post.id}`)}
-                  class="inline-flex items-center gap-2 text-verde font-semibold hover:text-cobre transition-colors"
+                  class="inline-flex items-center gap-2 font-heading text-sm font-bold text-verde hover:text-cobre transition-colors"
                 >
                   {ui.featuredPost === "Featured read" ? "Read article" : "Leer articulo"} →
                 </a>

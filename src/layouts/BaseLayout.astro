@@ -55,8 +55,29 @@ const baseSchemas = [
       name="robots"
       content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
     />
-    <meta name="theme-color" content="#2D6A4F" />
+    <meta name="theme-color" content="#ffffff" />
     <link rel="canonical" href={canonicalUrl} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700;800&family=Raleway:wght@400;500;600;700&display=swap"
+    />
+
+    {/* Debe correr antes de pintar o hay un flash de tema claro al cargar en oscuro.
+        Sin preferencia guardada no se toca nada y manda el media query del CSS. */}
+    <script is:inline>
+      (function () {
+        try {
+          var stored = localStorage.getItem("theme")
+          if (stored !== "dark" && stored !== "light") return
+          document.documentElement.dataset.theme = stored
+          var meta = document.querySelector('meta[name="theme-color"]')
+          if (meta) meta.setAttribute("content", stored === "dark" ? "#1a1a1a" : "#ffffff")
+        } catch (e) {}
+      })()
+    </script>
     {
       emitHreflang && (
         <>
@@ -96,7 +117,7 @@ const baseSchemas = [
 
     <slot name="head" />
   </head>
-  <body id="top" class="min-h-screen bg-crema text-tinta overflow-x-hidden">
+  <body id="top" class="min-h-screen">
     <SiteNavbar
       client:idle
       language={language}
@@ -105,7 +126,7 @@ const baseSchemas = [
       ui={ui}
       alternateLocalePath={alternateLocalePath}
     />
-    <main class="overflow-x-hidden pt-20">
+    <main>
       <slot />
     </main>
     <SiteFooter language={language} />

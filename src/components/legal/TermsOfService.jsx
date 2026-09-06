@@ -250,7 +250,7 @@ export default function TermsOfService({ language = "es" }) {
                     ← {language === 'es' ? 'Volver' : 'Back'}
                 </button>
 
-                <h1 className="font-lora text-4xl font-bold text-tinta mb-4">{t.title}</h1>
+                <h1 className="font-heading text-4xl font-bold text-tinta mb-4">{t.title}</h1>
                 <p className="text-tinta-suave/70 mb-8">{t.lastUpdate}: {currentDate}</p>
 
                 {t.sections.map((section, index) => (
