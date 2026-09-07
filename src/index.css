@@ -106,8 +106,11 @@
     }
 
     /* .nav-link del tema: pill de 30px, 13.5px, capitalize. */
+    /* El tema usa px-6, pero con 7 entradas mas idioma, tema y CTA no cabe a
+       1024px (el punto donde aparece el menu de escritorio). Se aprieta solo
+       en ese tramo y se recupera el padding original desde xl. */
     .nav-link {
-        @apply rounded-full px-6 py-2.5 font-heading capitalize
+        @apply rounded-full px-3 xl:px-6 py-2.5 font-heading capitalize
                text-tinta-suave transition-colors duration-150 hover:text-verde;
         font-size: 13.5px;
     }

@@ -172,27 +172,21 @@ export const content = {
         }
       ]
     },
+    podcast: {
+      pageTitle: "Podcast | El Developer de a Pie",
+      eyebrow: "PODCAST",
+      title: "El Developer de a Pie",
+      tagline: "Conversations from the real trenches of a developer career.",
+      description: "A podcast for people in the actual trenches, not the polished LinkedIn highlight reel. Job hunting, layoffs, interviews that make no sense, and what nobody tells you about working in tech.",
+      listenOn: "Listen on your platform",
+      episodesTitle: "Episodes",
+      episodesSubtitle: "Newest first.",
+      listenCta: "Listen to episode",
+      empty: "No episodes available right now.",
+    },
     contact: {
       title: "Contact",
       subtitle: "Ready to grow your business online? Let's talk about how I can help you get more customers!",
-      podcast: {
-        title: "Podcast: Developer de a pie",
-        subtitle: "Listen on your platform:",
-        platforms: [
-          {
-            name: "🔴 YouTube",
-            href: "https://youtu.be/1DruiD1B7Jo?si=BNtulWlgk5M2M85J"
-          },
-          {
-            name: "🟢 Spotify",
-            href: "https://open.spotify.com/episode/7bY5P2xmYgEG6VKMnKjhFi?si=myb3WzTtTG6SAWatxdvrKQ"
-          },
-          {
-            name: "🟣 Apple Podcasts",
-            href: "https://podcasts.apple.com/us/podcast/me-pidieron-una-carta-a-santa-para-un-puesto/id1888271174?i=1000765530321"
-          }
-        ]
-      },
       links: {
         email: "Email",
         github: "GitHub",
@@ -375,27 +369,21 @@ export const content = {
         }
       ]
     },
+    podcast: {
+      pageTitle: "Podcast | El Developer de a Pie",
+      eyebrow: "PODCAST",
+      title: "El Developer de a Pie",
+      tagline: "Conversaciones desde las trincheras reales de una carrera en desarrollo.",
+      description: "Un podcast para los que están en las trincheras reales, no en el LinkedIn de los logros pulidos. Búsqueda de empleo, recortes, entrevistas sin sentido y lo que nadie te cuenta sobre trabajar en tecnología.",
+      listenOn: "Escúchalo en tu plataforma",
+      episodesTitle: "Episodios",
+      episodesSubtitle: "Del más reciente al más antiguo.",
+      listenCta: "Escuchar episodio",
+      empty: "No hay episodios disponibles por ahora.",
+    },
     contact: {
       title: "Contacto",
       subtitle: "¿Listo para hacer crecer tu negocio en línea? ¡Hablemos de cómo puedo ayudarte a conseguir más clientes!",
-      podcast: {
-        title: "Podcast: Developer de a pie",
-        subtitle: "Escúchalo en tu plataforma:",
-        platforms: [
-          {
-            name: "🔴 YouTube",
-            href: "https://youtu.be/1DruiD1B7Jo?si=BNtulWlgk5M2M85J"
-          },
-          {
-            name: "🟢 Spotify",
-            href: "https://open.spotify.com/episode/7bY5P2xmYgEG6VKMnKjhFi?si=myb3WzTtTG6SAWatxdvrKQ"
-          },
-          {
-            name: "🟣 Apple Podcasts",
-            href: "https://podcasts.apple.com/us/podcast/me-pidieron-una-carta-a-santa-para-un-puesto/id1888271174?i=1000765530321"
-          }
-        ]
-      },
       links: {
         email: "Email",
         github: "GitHub",

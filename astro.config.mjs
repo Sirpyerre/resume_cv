@@ -3,9 +3,9 @@ import react from "@astrojs/react"
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
 
-// Los posts solo existen en espanol. Las rutas /en/blog/<slug> se sirven pero
-// declaran su canonical hacia la version ES, asi que no entran al sitemap.
-const EN_BLOG_POST = /\/en\/blog\/.+/
+// El blog y el podcast solo existen en espanol. Sus rutas /en/* se sirven
+// pero declaran su canonical hacia la version ES, asi que no entran al sitemap.
+const EN_SPANISH_ONLY = /\/en\/(?:blog\/.+|podcast)$/
 
 export default defineConfig({
   site: "https://pedrorojas.lat",
@@ -17,7 +17,7 @@ export default defineConfig({
     react(),
     mdx(),
     sitemap({
-      filter: (page) => !EN_BLOG_POST.test(page),
+      filter: (page) => !EN_SPANISH_ONLY.test(page),
     }),
   ],
   i18n: {

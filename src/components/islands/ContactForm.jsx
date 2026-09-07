@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react"
 import { content } from "../../content/content.jsx"
+import { getLocalizedPath } from "../../lib/i18n.js"
 
 const emptyForm = {
   name: "",
@@ -10,6 +11,7 @@ const emptyForm = {
 }
 
 export default function ContactForm({ language = "es" }) {
+  const podcastPath = getLocalizedPath(language, "/podcast")
   const t = content[language]
   const formId = import.meta.env.VITE_FORMSPREE_FORM_ID
   const [formData, setFormData] = useState(emptyForm)
@@ -41,7 +43,8 @@ export default function ContactForm({ language = "es" }) {
             messageRequired: "Message is required",
             messageLength: "Message must be at least 10 characters",
             rateLimit: "Please wait a few seconds before trying again.",
-            podcast: "Listen on your platform:",
+            podcast: "Job hunting, layoffs, and what nobody tells you about working in tech.",
+            podcastCta: "Go to the podcast",
             direct: "Direct links",
           }
         : {
@@ -61,7 +64,8 @@ export default function ContactForm({ language = "es" }) {
             messageRequired: "El mensaje es requerido",
             messageLength: "El mensaje debe tener al menos 10 caracteres",
             rateLimit: "Espera unos segundos antes de volver a intentar.",
-            podcast: "Escuchalo en tu plataforma:",
+            podcast: "Búsqueda de empleo, recortes y lo que nadie te cuenta sobre trabajar en tecnología.",
+            podcastCta: "Ir al podcast",
             direct: "Enlaces directos",
           },
     [language],
@@ -197,22 +201,14 @@ export default function ContactForm({ language = "es" }) {
             </div>
 
             <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
-              <h3 className="text-xl font-bold text-tinta mb-2">{t.contact.podcast.title}</h3>
+              <h3 className="text-xl font-bold text-tinta mb-2">{t.podcast.title}</h3>
               <p className="text-sm text-tinta-suave mb-4">{copy.podcast}</p>
-              <div className="space-y-2">
-                {t.contact.podcast.platforms.map((platform) => (
-                  <a
-                    key={platform.href}
-                    href={platform.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-between rounded-lg border border-crema-oscuro px-4 py-3 text-sm text-tinta hover:border-verde hover:text-verde transition-colors"
-                  >
-                    <span>{platform.name}</span>
-                    <span>↗</span>
-                  </a>
-                ))}
-              </div>
+              <a
+                href={podcastPath}
+                className="inline-flex items-center gap-2 font-heading text-sm font-bold text-verde hover:text-cobre transition-colors"
+              >
+                {copy.podcastCta} →
+              </a>
             </div>
           </div>
 

@@ -212,6 +212,24 @@ export function buildServiceCatalog(language = "es") {
   }
 }
 
+export function buildPodcastSeries({ language = "es", description, image } = {}) {
+  return {
+    "@context": CONTEXT,
+    "@type": "PodcastSeries",
+    name: "El Developer de a Pie",
+    description,
+    url: absolute("/podcast"),
+    image,
+    inLanguage: "es-MX",
+    webFeed: "https://anchor.fm/s/1107c3128/podcast/rss",
+    author: {
+      "@type": "Person",
+      name: "Pedro Rojas Reyes",
+      url: SITE_CONFIG.SITE_URL,
+    },
+  }
+}
+
 export function buildBlogPosting(entry, language = "es", url) {
   const published = new Date(entry.data.date).toISOString()
 

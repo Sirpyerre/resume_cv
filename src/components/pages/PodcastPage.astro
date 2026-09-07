@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets"
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import JsonLd from "../seo/JsonLd.astro"
+import cover from "../../assets/podcast-cover.png"
+import { getDictionary } from "../../lib/i18n.js"
+import { formatPostDate } from "../../lib/blog.js"
+import { episodeExcerpt, getPodcastFeed, PODCAST_PLATFORMS } from "../../lib/podcast.js"
+import { buildBreadcrumbList, buildPodcastSeries } from "../../lib/schema.js"
+import { SITE_CONFIG } from "../../config/site.js"
+
+const { language = "es" } = Astro.props
+const t = getDictionary(language).podcast
+const localeDate = language === "en" ? "en-US" : "es-MX"
+
+const feed = await getPodcastFeed()
+
+// El podcast solo existe en espanol: la ruta EN apunta su canonical a la
+// version ES en vez de declararse como traduccion.
+const canonicalPath = language === "en" ? "/podcast" : undefined
+const coverUrl = `${SITE_CONFIG.SITE_URL}${cover.src}`
+
+const schemas = [
+  buildPodcastSeries({ language, description: t.description, image: coverUrl }),
+  buildBreadcrumbList([
+    { name: language === "en" ? "Home" : "Inicio", path: language === "en" ? "/en" : "/" },
+    { name: t.title, path: "/podcast" },
+  ]),
+]
+
+const platformStyles = {
+  spotify: "hover:border-[#1DB954] hover:text-[#1DB954]",
+  apple: "hover:border-[#9933CC] hover:text-[#9933CC]",
+  youtube: "hover:border-[#FF0000] hover:text-[#FF0000]",
+}
+---
+
+<BaseLayout
+  language={language}
+  title={t.pageTitle}
+  description={t.description}
+  basePath="/podcast"
+  canonicalPath={canonicalPath}
+>
+  <JsonLd slot="head" schema={schemas} />
+
+  <section class="section bg-crema">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-[minmax(0,380px)_1fr] gap-8 lg:gap-14 items-center">
+        <Image
+          src={cover}
+          alt={t.title}
+          widths={[380, 560, 760]}
+          sizes="(min-width: 1024px) 380px, 90vw"
+          class="w-full max-w-sm mx-auto lg:mx-0 rounded-lg border border-crema-oscuro"
+          loading="eager"
+        />
+
+        <div class="flex flex-col gap-5 text-center lg:text-left">
+          <span class="chip self-center lg:self-start">{t.eyebrow}</span>
+
+          <div>
+            <h1 class="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-tinta leading-tight mb-3">
+              {t.title}
+            </h1>
+            <p class="text-base sm:text-lg text-verde font-heading">{t.tagline}</p>
+          </div>
+
+          <p class="text-base text-tinta-suave leading-relaxed max-w-xl mx-auto lg:mx-0">
+            {t.description}
+          </p>
+
+          <div>
+            <p class="font-heading text-[11px] font-bold tracking-widest text-tinta-suave/70 mb-3">
+              {t.listenOn}
+            </p>
+            <div class="flex flex-wrap gap-3 justify-center lg:justify-start">
+              {
+                PODCAST_PLATFORMS.map((platform) => (
+                  <a
+                    href={platform.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class={`btn-outline-primary ${platformStyles[platform.id]}`}
+                  >
+                    {platform.name}
+                  </a>
+                ))
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-crema-medio">
+    <div class="max-w-4xl mx-auto">
+      <div class="mb-10 text-center">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta mb-2">
+          {t.episodesTitle}
+        </h2>
+        <p class="text-tinta-suave">{t.episodesSubtitle}</p>
+      </div>
+
+      {
+        feed.episodes.length === 0 ? (
+          <p class="text-center text-tinta-suave">{t.empty}</p>
+        ) : (
+          <ol class="space-y-5">
+            {feed.episodes.map((episode, index) => (
+              <li class="card p-6 transition-colors hover:border-verde">
+                <div class="flex items-baseline gap-3 mb-2 flex-wrap">
+                  <span class="font-heading text-sm font-bold text-verde">
+                    {String(feed.episodes.length - index).padStart(2, "0")}
+                  </span>
+                  <span class="text-sm text-tinta-suave/70">
+                    {episode.date && formatPostDate(new Date(episode.date), localeDate)}
+                  </span>
+                  {episode.durationMinutes && (
+                    <>
+                      <span class="w-1 h-1 rounded-full bg-tinta-suave/30" />
+                      <span class="text-sm text-tinta-suave/70">
+                        {episode.durationMinutes} min
+                      </span>
+                    </>
+                  )}
+                </div>
+
+                <h3 class="font-heading text-xl font-bold text-tinta mb-2">
+                  {episode.title}
+                </h3>
+                <p class="text-tinta-suave leading-relaxed mb-4">
+                  {episodeExcerpt(episode.description)}
+                </p>
+
+                <a
+                  href={episode.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="inline-flex items-center gap-2 font-heading text-sm font-bold text-verde hover:text-cobre transition-colors"
+                >
+                  {t.listenCta} →
+                </a>
+              </li>
+            ))}
+          </ol>
+        )
+      }
+    </div>
+  </section>
+</BaseLayout>
