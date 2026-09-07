@@ -7,14 +7,29 @@
 const { schema } = Astro.props
 
 const schemas = (Array.isArray(schema) ? schema : [schema]).filter(Boolean)
+
+/**
+ * JSON.stringify no escapa "<", ">" ni "&", asi que un "</script>" dentro de
+ * cualquier cadena del schema (p. ej. el titulo de un post) cerraria la
+ * etiqueta y permitiria inyectar marcado. set:html no escapa nada, asi que hay
+ * que hacerlo aqui.
+ *
+ * < y compania son escapes JSON validos: el documento parsea al mismo
+ * texto, de modo que los buscadores leen exactamente los mismos datos.
+ * U+2028/U+2029 se escapan porque rompen el parseo en algunos consumidores.
+ */
+function serialize(value) {
+  return JSON.stringify(value)
+    .replace(/</g, "\\u003c")
+    .replace(/>/g, "\\u003e")
+    .replace(/&/g, "\\u0026")
+    .replace(/\u2028/g, "\\u2028")
+    .replace(/\u2029/g, "\\u2029")
+}
 ---
 
 {
   schemas.map((item) => (
-    <script
-      type="application/ld+json"
-      is:inline
-      set:html={JSON.stringify(item)}
-    />
+    <script type="application/ld+json" is:inline set:html={serialize(item)} />
   ))
 }

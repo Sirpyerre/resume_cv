@@ -1,7 +1,6 @@
 import { content } from "../content/content.jsx"
 
-export const defaultLocale = "es"
-export const locales = ["es", "en"]
+const defaultLocale = "es"
 
 const uiCopy = {
   es: {

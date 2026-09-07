@@ -12,6 +12,50 @@ SECRETS_SCAN_OMIT_KEYS = "VITE_FORMSPREE_FORM_ID,VITE_WHATSAPP_NUMBER"
 # (heredado de cuando era un proyecto Vite/React) y el build falla.
 NODE_VERSION = "22"
 
+# ---------------------------------------------------------------------------
+# Cabeceras de seguridad
+#
+# El CSP se ajusta a lo que el sitio carga de verdad: tipografias de Google,
+# la foto en Cloudinary y el POST del formulario a Formspree. El resto de
+# enlaces externos (GitHub, LinkedIn, wa.me, Spotify...) son navegaciones, no
+# subrecursos, y no requieren directiva.
+#
+# script-src incluye 'unsafe-inline' porque Astro emite scripts inline para
+# hidratar los islands y el script anti-FOUC del tema debe correr antes de
+# pintar. Eso significa que este CSP NO protege contra XSS inyectado; su valor
+# real esta en frame-ancestors (clickjacking), object-src, base-uri y en
+# limitar a donde se puede exfiltrar via connect-src.
+# ---------------------------------------------------------------------------
+[[headers]]
+for = "/*"
+
+  [headers.values]
+  X-Frame-Options = "DENY"
+  X-Content-Type-Options = "nosniff"
+  Referrer-Policy = "strict-origin-when-cross-origin"
+  Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
+  Cross-Origin-Opener-Policy = "same-origin"
+  Content-Security-Policy = """\
+default-src 'self'; \
+base-uri 'self'; \
+object-src 'none'; \
+frame-ancestors 'none'; \
+form-action 'self' https://formspree.io; \
+script-src 'self' 'unsafe-inline'; \
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
+font-src 'self' https://fonts.gstatic.com; \
+img-src 'self' data: https://res.cloudinary.com; \
+connect-src 'self' https://formspree.io; \
+manifest-src 'self'; \
+upgrade-insecure-requests"""
+
+# Los assets con hash en el nombre son inmutables.
+[[headers]]
+for = "/_astro/*"
+
+  [headers.values]
+  Cache-Control = "public, max-age=31536000, immutable"
+
 # Canonicalize case variants and trailing slashes
 [[redirects]]
 from = "/Blog"
