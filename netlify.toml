@@ -71,11 +71,18 @@ to = "/blog/:slug/"
 status = 301
 force = true
 
-# Search Console tiene enviado /sitemap.xml desde el sitio React, que la
-# migracion borro. Astro emite sitemap-index.xml; sin este puente esa entrada
-# sigue devolviendo 404 y Google no descubre ninguna URL por sitemap.
+# El sitemap volvio a ser /sitemap.xml (lo genera src/pages/sitemap.xml.js), que
+# es justo la URL que Search Console tiene enviada desde el sitio React. Estos
+# 301 cubren los nombres que emitia @astrojs/sitemap y que robots.txt anuncio
+# un tiempo, para que nada quede apuntando a un 404.
 [[redirects]]
-from = "/sitemap.xml"
-to = "/sitemap-index.xml"
+from = "/sitemap-index.xml"
+to = "/sitemap.xml"
+status = 301
+force = true
+
+[[redirects]]
+from = "/sitemap-0.xml"
+to = "/sitemap.xml"
 status = 301
 force = true
