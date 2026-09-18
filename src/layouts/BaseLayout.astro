@@ -11,6 +11,7 @@ import {
   getLocalizedPath,
   getSiteLinks,
   getUiCopy,
+  withTrailingSlash,
 } from "../lib/i18n.js"
 import "../index.css"
 
@@ -30,7 +31,7 @@ const {
 
 const localizedPath = getLocalizedPath(language, basePath)
 const alternateLocalePath = getAlternateLocalePath(language, basePath)
-const canonicalUrl = `${SITE_CONFIG.SITE_URL}${canonicalPath ?? localizedPath}`
+const canonicalUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(canonicalPath ?? localizedPath)}`
 const esUrl = `${SITE_CONFIG.SITE_URL}${getLocalizedPath("es", basePath)}`
 const enUrl = `${SITE_CONFIG.SITE_URL}${getLocalizedPath("en", basePath)}`
 const imageUrl = image.startsWith("http") ? image : `${SITE_CONFIG.SITE_URL}${image}`

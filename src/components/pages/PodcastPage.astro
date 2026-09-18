@@ -3,7 +3,7 @@ import { Image } from "astro:assets"
 import BaseLayout from "../../layouts/BaseLayout.astro"
 import JsonLd from "../seo/JsonLd.astro"
 import cover from "../../assets/podcast-cover.png"
-import { getDictionary } from "../../lib/i18n.js"
+import { getDictionary, getLocalizedPath, withTrailingSlash } from "../../lib/i18n.js"
 import { formatPostDate } from "../../lib/blog.js"
 import { episodeExcerpt, getPodcastFeed, PODCAST_PLATFORMS } from "../../lib/podcast.js"
 import { buildBreadcrumbList, buildPodcastSeries } from "../../lib/schema.js"
@@ -23,8 +23,9 @@ const coverUrl = `${SITE_CONFIG.SITE_URL}${cover.src}`
 const schemas = [
   buildPodcastSeries({ language, description: t.description, image: coverUrl }),
   buildBreadcrumbList([
-    { name: language === "en" ? "Home" : "Inicio", path: language === "en" ? "/en" : "/" },
-    { name: t.title, path: "/podcast" },
+    { name: language === "en" ? "Home" : "Inicio", path: getLocalizedPath(language, "/") },
+    // El crumb del podcast apunta a la version ES en ambos idiomas, igual que el canonical.
+    { name: t.title, path: withTrailingSlash("/podcast") },
   ]),
 ]
 

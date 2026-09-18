@@ -62,12 +62,27 @@ export function getUiCopy(locale = defaultLocale) {
   return uiCopy[locale] ?? uiCopy[defaultLocale]
 }
 
-export function getLocalizedPath(locale = defaultLocale, path = "/") {
-  if (locale === "en") {
-    return path === "/" ? "/en" : `/en${path}`
+/**
+ * Netlify sirve dist/<ruta>/index.html unicamente en /<ruta>/ y redirige 301
+ * desde /<ruta>. Toda URL que emitamos (canonical, og:url, hreflang, enlaces
+ * internos, sitemap) debe llevar la barra final o Google ve una cadena de
+ * redirect apuntando a un canonical circular, y no indexa ninguna de las dos.
+ * Ver trailingSlash en astro.config.mjs.
+ */
+export function withTrailingSlash(path = "/") {
+  if (!path.startsWith("/")) {
+    return path
   }
 
-  return path
+  return path.endsWith("/") ? path : `${path}/`
+}
+
+export function getLocalizedPath(locale = defaultLocale, path = "/") {
+  if (locale === "en") {
+    return withTrailingSlash(path === "/" ? "/en" : `/en${path}`)
+  }
+
+  return withTrailingSlash(path)
 }
 
 export function getAlternateLocalePath(locale = defaultLocale, path = "/") {

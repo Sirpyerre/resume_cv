@@ -56,27 +56,36 @@ for = "/_astro/*"
   [headers.values]
   Cache-Control = "public, max-age=31536000, immutable"
 
-# Canonicalize case variants and trailing slashes
+# ---------------------------------------------------------------------------
+# Redirects
+#
+# Aqui NO hay reglas de barra final: Netlify normaliza la barra antes de aplicar
+# los redirects, asi que /blog y /blog/ son la misma ruta para el matcher. Las
+# reglas que habia para quitarla no se ejecutaban nunca, y forzarlas haria bucle.
+# La forma canonica (con barra) la fija trailingSlash en astro.config.mjs.
+# ---------------------------------------------------------------------------
+
+# Variantes con mayuscula heredadas del sitio anterior. El destino ya lleva la
+# barra para no encadenar dos 301 (/Blog -> /blog -> /blog/).
 [[redirects]]
 from = "/Blog"
-to = "/blog"
+to = "/blog/"
 status = 301
 force = true
 
+# :slug en vez de *: el splat de Netlify solo es valido al final de la ruta, y
+# aqui hace falta anadir la barra despues del segmento capturado.
 [[redirects]]
-from = "/Blog/*"
-to = "/blog/:splat"
+from = "/Blog/:slug"
+to = "/blog/:slug/"
 status = 301
 force = true
 
+# Search Console tiene enviado /sitemap.xml desde el sitio React, que la
+# migracion borro. Astro emite sitemap-index.xml; sin este puente esa entrada
+# sigue devolviendo 404 y Google no descubre ninguna URL por sitemap.
 [[redirects]]
-from = "/blog/*/"
-to = "/blog/:splat"
-status = 301
-force = true
-
-[[redirects]]
-from = "/blog/"
-to = "/blog"
+from = "/sitemap.xml"
+to = "/sitemap-index.xml"
 status = 301
 force = true

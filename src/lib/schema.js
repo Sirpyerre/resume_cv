@@ -74,14 +74,14 @@ export function buildLocalBusiness(language = "es") {
       "Desarrollo web profesional para negocios en Puebla. Sitios rapidos, seguros y optimizados para Google.",
       "Professional web development for businesses in Puebla. Fast, secure, and SEO-optimized sites.",
     ),
-    url: SITE_CONFIG.SITE_URL,
+    url: absolute("/"),
     telephone: TELEPHONE,
     email: EMAIL,
     founder: {
       "@type": "Person",
       name: "Pedro Rojas Reyes",
       jobTitle: es(language, "Desarrollador Web Freelance", "Freelance Web Developer"),
-      url: SITE_CONFIG.SITE_URL,
+      url: absolute("/"),
     },
     address: { ...PUEBLA_ADDRESS, postalCode: "72490" },
     geo: {
@@ -119,7 +119,7 @@ export function buildWebSite() {
     "@context": CONTEXT,
     "@type": "WebSite",
     name: "Pedro Rojas — Desarrollo Web Puebla",
-    url: SITE_CONFIG.SITE_URL,
+    url: absolute("/"),
     inLanguage: ["es-MX", "en-US"],
     author: {
       "@type": "Person",
@@ -139,7 +139,7 @@ export function buildPerson(language = "es") {
       "Consultor y desarrollador web en Puebla con mas de 10 anos de experiencia. Especialista en sitios web para negocios locales.",
       "Web consultant and developer in Puebla with 10+ years of experience. Specialist in websites for local businesses.",
     ),
-    url: SITE_CONFIG.SITE_URL,
+    url: absolute("/"),
     email: EMAIL,
     telephone: TELEPHONE,
     image: absolute(DEFAULT_IMAGE),
@@ -196,7 +196,7 @@ export function buildServiceCatalog(language = "es") {
     provider: {
       "@type": "LocalBusiness",
       name: "Pedro Rojas — Desarrollo Web",
-      url: SITE_CONFIG.SITE_URL,
+      url: absolute("/"),
       address: { ...PUEBLA_ADDRESS, postalCode: "72490" },
     },
     areaServed: {
@@ -218,14 +218,14 @@ export function buildPodcastSeries({ language = "es", description, image } = {})
     "@type": "PodcastSeries",
     name: "El Developer de a Pie",
     description,
-    url: absolute("/podcast"),
+    url: absolute("/podcast/"),
     image,
     inLanguage: "es-MX",
     webFeed: "https://anchor.fm/s/1107c3128/podcast/rss",
     author: {
       "@type": "Person",
       name: "Pedro Rojas Reyes",
-      url: SITE_CONFIG.SITE_URL,
+      url: absolute("/"),
     },
   }
 }
@@ -250,12 +250,12 @@ export function buildBlogPosting(entry, language = "es", url) {
     author: {
       "@type": "Person",
       name: "Pedro Rojas Reyes",
-      url: SITE_CONFIG.SITE_URL,
+      url: absolute("/"),
     },
     publisher: {
       "@type": "Organization",
       name: "Pedro Rojas — Desarrollo Web Puebla",
-      url: SITE_CONFIG.SITE_URL,
+      url: absolute("/"),
       logo: {
         "@type": "ImageObject",
         url: absolute("/apple-touch-icon.png"),
