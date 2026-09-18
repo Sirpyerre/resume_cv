@@ -15,16 +15,15 @@ NODE_VERSION = "22"
 # ---------------------------------------------------------------------------
 # Cabeceras de seguridad
 #
-# El CSP se ajusta a lo que el sitio carga de verdad: tipografias de Google,
-# la foto en Cloudinary y el POST del formulario a Formspree. El resto de
-# enlaces externos (GitHub, LinkedIn, wa.me, Spotify...) son navegaciones, no
-# subrecursos, y no requieren directiva.
+# El grueso del CSP (default-src, script-src con hashes, style-src, img-src...)
+# lo emite Astro por pagina en un <meta http-equiv>, porque necesita los sha256
+# de cada script y style inline y esos cambian por pagina. Ver security.csp en
+# astro.config.mjs.
 #
-# script-src incluye 'unsafe-inline' porque Astro emite scripts inline para
-# hidratar los islands y el script anti-FOUC del tema debe correr antes de
-# pintar. Eso significa que este CSP NO protege contra XSS inyectado; su valor
-# real esta en frame-ancestors (clickjacking), object-src, base-uri y en
-# limitar a donde se puede exfiltrar via connect-src.
+# Aqui solo queda frame-ancestors: el spec manda ignorarlo en <meta>, asi que
+# tiene que viajar en cabecera. Ojo, no se puede repetir el resto de directivas
+# aqui: las dos politicas se aplican a la vez y la interseccion manda, asi que
+# un default-src 'self' en la cabecera bloquearia los inline que el meta permite.
 # ---------------------------------------------------------------------------
 [[headers]]
 for = "/*"
@@ -35,19 +34,10 @@ for = "/*"
   Referrer-Policy = "strict-origin-when-cross-origin"
   Permissions-Policy = "geolocation=(), microphone=(), camera=(), payment=(), usb=(), interest-cohort=()"
   Cross-Origin-Opener-Policy = "same-origin"
-  Content-Security-Policy = """\
-default-src 'self'; \
-base-uri 'self'; \
-object-src 'none'; \
-frame-ancestors 'none'; \
-form-action 'self' https://formspree.io; \
-script-src 'self' 'unsafe-inline'; \
-style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; \
-font-src 'self' https://fonts.gstatic.com; \
-img-src 'self' data: https://res.cloudinary.com; \
-connect-src 'self' https://formspree.io; \
-manifest-src 'self'; \
-upgrade-insecure-requests"""
+  Content-Security-Policy = "frame-ancestors 'none'"
+  # Netlify ya manda HSTS por su cuenta, pero sin includeSubDomains y dependiendo
+  # de un default de plataforma. Declararlo fija el valor y cubre los subdominios.
+  Strict-Transport-Security = "max-age=31536000; includeSubDomains"
 
 # Los assets con hash en el nombre son inmutables.
 [[headers]]

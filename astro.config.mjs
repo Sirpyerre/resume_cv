@@ -2,6 +2,18 @@ import { defineConfig } from "astro/config"
 import react from "@astrojs/react"
 import mdx from "@astrojs/mdx"
 import sitemap from "@astrojs/sitemap"
+import { createHash } from "node:crypto"
+import { readFileSync } from "node:fs"
+
+// El script anti-FOUC del tema es is:inline (tiene que correr antes de pintar,
+// asi que no puede ser un modulo diferido) y Astro no hashea lo que no procesa.
+// Se hashea aqui, leyendo el mismo archivo que BaseLayout inyecta con ?raw:
+// el hash se deriva de la fuente y no puede quedar obsoleto al editarla.
+const themeInitSource = readFileSync(
+  new URL("./src/scripts/theme-init.js", import.meta.url),
+  "utf8",
+)
+const themeInitHash = `sha256-${createHash("sha256").update(themeInitSource).digest("base64")}`
 
 // El blog y el podcast solo existen en espanol. Sus rutas /en/* se sirven
 // pero declaran su canonical hacia la version ES, asi que no entran al sitemap.
@@ -25,6 +37,39 @@ export default defineConfig({
       filter: (page) => !EN_SPANISH_ONLY.test(page),
     }),
   ],
+  // ---------------------------------------------------------------------------
+  // CSP con hashes (Astro >=6, estable).
+  //
+  // Astro calcula el sha256 de cada <script> y <style> inline que emite (los
+  // islands de React y el script anti-FOUC del tema) y los publica en un
+  // <meta http-equiv="content-security-policy"> por pagina. Eso permite quitar
+  // 'unsafe-inline' de script-src: hasta ahora el CSP no frenaba un script
+  // inyectado, solo limitaba destinos.
+  //
+  // El resto de directivas se declaran aqui y no en netlify.toml porque una
+  // directiva ausente cae en default-src: si la cabecera dijera
+  // default-src 'self' sin script-src, bloquearia los propios inline de Astro
+  // pese a que el meta los permite (ambas politicas se aplican a la vez).
+  // En netlify.toml solo queda frame-ancestors, que el <meta> no puede expresar.
+  // ---------------------------------------------------------------------------
+  security: {
+    csp: {
+      directives: [
+        "default-src 'self'",
+        "base-uri 'self'",
+        "object-src 'none'",
+        "form-action 'self' https://formspree.io",
+        "img-src 'self' data: https://res.cloudinary.com",
+        "font-src 'self' https://fonts.gstatic.com",
+        "connect-src 'self' https://formspree.io",
+        "manifest-src 'self'",
+        "upgrade-insecure-requests",
+      ],
+      // resources NO incluye 'self' por defecto: hay que listarlo.
+      scriptDirective: { resources: ["'self'"], hashes: [themeInitHash] },
+      styleDirective: { resources: ["'self'", "https://fonts.googleapis.com"] },
+    },
+  },
   i18n: {
     defaultLocale: "es",
     locales: ["es", "en"],

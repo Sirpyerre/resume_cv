@@ -5,6 +5,9 @@ import WhatsAppButton from "../components/islands/WhatsAppButton.jsx"
 import SiteFooter from "../components/site/SiteFooter.astro"
 import JsonLd from "../components/seo/JsonLd.astro"
 import { SITE_CONFIG } from "../config/site.js"
+// ?raw: se inyecta tal cual con set:html. astro.config.mjs hashea este mismo
+// archivo para el CSP, asi que los bytes de aqui y los del hash coinciden.
+import themeInit from "../scripts/theme-init.js?raw"
 import { buildLocalBusiness, buildPerson, buildWebSite } from "../lib/schema.js"
 import {
   getAlternateLocalePath,
@@ -66,19 +69,7 @@ const baseSchemas = [
       href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700;800&family=Raleway:wght@400;500;600;700&display=swap"
     />
 
-    {/* Debe correr antes de pintar o hay un flash de tema claro al cargar en oscuro.
-        Sin preferencia guardada no se toca nada y manda el media query del CSS. */}
-    <script is:inline>
-      (function () {
-        try {
-          var stored = localStorage.getItem("theme")
-          if (stored !== "dark" && stored !== "light") return
-          document.documentElement.dataset.theme = stored
-          var meta = document.querySelector('meta[name="theme-color"]')
-          if (meta) meta.setAttribute("content", stored === "dark" ? "#1a1a1a" : "#ffffff")
-        } catch (e) {}
-      })()
-    </script>
+    <script is:inline set:html={themeInit} />
     {
       emitHreflang && (
         <>

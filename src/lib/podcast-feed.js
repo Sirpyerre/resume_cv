@@ -36,6 +36,23 @@ function readTag(xml, tag) {
   return (cdata ? cdata[1] : raw).trim()
 }
 
+/**
+ * El <link> del episodio sale de un RSS de terceros y se renderiza como href.
+ * Astro escapa el contenido pero no valida el esquema de una URL, asi que un
+ * feed comprometido podria colocar "javascript:..." y ejecutarlo al hacer clic
+ * (el CSP no lo frena: script-src lleva 'unsafe-inline'). Solo se aceptan
+ * http/https absolutos; cualquier otra cosa se descarta y el episodio se cae
+ * en el filtro de parsePodcastFeed.
+ */
+function safeUrl(value = "") {
+  try {
+    const url = new URL(value)
+    return url.protocol === "http:" || url.protocol === "https:" ? url.href : ""
+  } catch {
+    return ""
+  }
+}
+
 /** Convierte "00:19:08" o "1148" a minutos enteros. */
 export function durationToMinutes(value = "") {
   if (!value) return null
@@ -66,7 +83,7 @@ export function parsePodcastFeed(xml) {
     return {
       title,
       description,
-      url: readTag(item, "link"),
+      url: safeUrl(readTag(item, "link")),
       date: pubDate ? new Date(pubDate).toISOString() : null,
       durationMinutes: durationToMinutes(readTag(item, "itunes:duration")),
     }
