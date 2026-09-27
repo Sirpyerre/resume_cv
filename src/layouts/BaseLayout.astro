@@ -25,6 +25,8 @@ const {
   basePath = "/",
   image = "/hero-section-resize1.png",
   noIndex = false,
+  noCanonical = false,
+  noHreflang = false,
   ogType = "website",
   publishedTime,
   // Rutas sin traduccion propia (p. ej. /en/blog/<slug>) apuntan su canonical a
@@ -40,7 +42,7 @@ const enUrl = `${SITE_CONFIG.SITE_URL}${getLocalizedPath("en", basePath)}`
 const imageUrl = image.startsWith("http") ? image : `${SITE_CONFIG.SITE_URL}${image}`
 const links = getSiteLinks(language)
 const ui = getUiCopy(language)
-const emitHreflang = !canonicalPath
+const emitHreflang = !canonicalPath && !noHreflang
 const baseSchemas = [
   buildLocalBusiness(language),
   buildWebSite(),
@@ -60,7 +62,7 @@ const baseSchemas = [
       content={noIndex ? "noindex, nofollow" : "index, follow, max-image-preview:large"}
     />
     <meta name="theme-color" content="#ffffff" />
-    <link rel="canonical" href={canonicalUrl} />
+    {!noCanonical && <link rel="canonical" href={canonicalUrl} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -91,8 +93,6 @@ const baseSchemas = [
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={imageUrl} />
-    <meta property="og:image:width" content="1200" />
-    <meta property="og:image:height" content="630" />
     <meta property="og:locale" content={language === "es" ? "es_MX" : "en_US"} />
     <meta
       property="og:locale:alternate"

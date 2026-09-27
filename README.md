@@ -19,7 +19,7 @@ Previously a React 18 + Vite single-page app with React Router and React Helmet;
 | Content | Astro content collections (Markdown/MDX, Zod schema) |
 | Styling | Tailwind CSS 3, CSS custom properties for theming |
 | Fonts | Merriweather Sans (headings) + Raleway (body) |
-| SEO | Native `<head>` metadata, JSON-LD, `@astrojs/sitemap` |
+| SEO | Native `<head>` metadata, JSON-LD, custom sitemap |
 | Forms | Formspree |
 | Image CDN | Cloudinary |
 | Hosting | Netlify |
@@ -62,8 +62,11 @@ The accent shifts from `#2D6A4F` in light to `#4CAF80` in dark: the darker green
 - Per-page `<title>`, description, canonical, and Open Graph tags
 - Self-referencing `hreflang` for both locales plus a per-page `x-default`
 - JSON-LD: `LocalBusiness` (with Puebla geo data), `WebSite`, `Person`, `FAQPage`, `Service`, `BlogPosting`, `BreadcrumbList` — built in `src/lib/schema.js`
-- Sitemap generated at build time as `sitemap-index.xml`; `robots.txt` points to it
-- `trailingSlash: "never"` keeps sitemap URLs, canonicals, and internal links consistent
+- Sitemap is served at `/sitemap.xml`; `robots.txt` points to it. Noindex legal pages are excluded.
+- `trailingSlash: "always"` keeps sitemap URLs, canonicals, and internal links consistent with Netlify
+- The legacy route map and remaining Search Console actions are tracked in [`docs/seo-phase-1-audit.md`](docs/seo-phase-1-audit.md).
+
+To submit the sitemap, open the `sc-domain:pedrorojas.lat` property in Google Search Console, choose **Sitemaps**, and submit `sitemap.xml`. After processing, review **Pages** for old URLs reported as not found or redirected. The existing read-only report can be run with `GOOGLE_APPLICATION_CREDENTIALS=/path/to/service-account.json npm run gsc:report`.
 
 ## Getting Started
 

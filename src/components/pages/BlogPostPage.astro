@@ -10,7 +10,7 @@ import { buildBlogPosting, buildBreadcrumbList } from "../../lib/schema.js"
 const { entry, language = "es" } = Astro.props
 const { Content } = await render(entry)
 const localeDate = language === "en" ? "en-US" : "es-MX"
-const title = `${entry.data.title} | Pedro Rojas`
+const title = `${entry.data.seoTitle ?? entry.data.title} | Pedro Rojas`
 const description = entry.data.description
 const pagePath = `/blog/${entry.id}`
 

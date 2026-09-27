@@ -1,7 +1,8 @@
 ---
 title: "Bienvenida al Blog: Web, SEO y Emprendimiento para PyMEs en Puebla"
+seoTitle: "SEO local y desarrollo web en Puebla"
 date: "2026-05-13"
-description: "Por qué lancé este blog, qué vas a encontrar aquí y cómo puede ayudarte a que tu negocio en Puebla aparezca en Google y consiga más clientes."
+description: "Artículos sobre desarrollo web y SEO local para negocios y profesionales de Puebla que quieren aparecer en Google y conseguir más clientes."
 slug: "bienvenida"
 categories:
   - "SEO Local"

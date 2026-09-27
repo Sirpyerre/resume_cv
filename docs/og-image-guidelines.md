@@ -8,7 +8,7 @@ Specs for the social preview image used in `og:image` and `twitter:image`.
 - **File format**: JPG or PNG
 - **File size**: Under 1MB
 
-`BaseLayout.astro` already declares `og:image:width` 1200 and `og:image:height` 630, so an image with different proportions will be cropped by the social networks.
+The site's current hero image is 617 × 641, while blog covers have different dimensions. `BaseLayout.astro` omits fixed `og:image:width` and `og:image:height` values so it does not publish dimensions that disagree with the selected image. For a future share-card asset, use the recommended 1200 × 630 dimensions and declare its actual dimensions if the metadata becomes image-specific.
 
 ## Content Suggestions
 - Professional photo

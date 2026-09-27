@@ -1,7 +1,8 @@
 ---
 title: "Presencia online para PyMEs y profesionales en Puebla: por qué importa el SEO local"
+seoTitle: "SEO local para PyMEs y profesionales en Puebla"
 date: "2026-05-13"
-description: "Cómo una web bien hecha ayuda a médicos, contadores, restaurantes y emprendedores de Puebla a aparecer en Google, ser recomendados por AIs, y convertir clientes vía WhatsApp sin perder ventas por sitios lentos."
+description: "Descubre cómo el SEO local y un sitio web rápido ayudan a médicos, PyMEs y profesionales de Puebla a atraer clientes y generar contactos."
 slug: "presencia-online-puebla"
 categories:
   - "SEO Local"
