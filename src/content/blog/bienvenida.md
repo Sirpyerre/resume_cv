@@ -1,74 +1,46 @@
 ---
-title: "Bienvenida al Blog: Web, SEO y Emprendimiento para PyMEs en Puebla"
-seoTitle: "SEO local y desarrollo web en Puebla"
+title: "Web, web app o sistema interno: ¿qué necesita tu negocio en Puebla?"
+seoTitle: "Cómo elegir entre una página web, una app y un sistema interno"
 date: "2026-05-13"
-description: "Artículos sobre desarrollo web y SEO local para negocios y profesionales de Puebla que quieren aparecer en Google y conseguir más clientes."
+description: "Compara qué problema resuelve un sitio web, una aplicación web y un sistema interno antes de elegir una solución digital para tu negocio."
 slug: "bienvenida"
 categories:
-  - "SEO Local"
-  - "Emprendimiento"
+  - "Desarrollo Web"
   - "PyMEs"
 tags:
-  - seo
-  - pymes
-  - puebla
-featured: true
+  - soluciones digitales
+  - páginas web
+  - aplicaciones web
+  - Puebla
+featured: false
 cover: "https://res.cloudinary.com/dtbpucouh/image/upload/v1778797220/DSCN3790_onel3u.jpg"
-coverLabel: "Mausoleo del General Ignacio Zaragoza ubicado en la zona histórica de los Fuertes de Loreto y Guadalupe en Puebla, México. Fotografía de Pedro Rojas Reyes."
+coverLabel: "Atardecer en la zona histórica de Los Fuertes de Loreto y Guadalupe, Puebla. Fotografía de Pedro Rojas Reyes."
 ---
 
-## ¿Por qué este blog?
+Elegir una solución digital empieza por definir qué necesitas que cambie. Un sitio web ayuda a explicar lo que ofrece un negocio; una aplicación atiende una tarea concreta; un sistema interno organiza el trabajo de un equipo. No todas las empresas necesitan las tres cosas.
 
-Si tienes un negocio en Puebla y alguna vez buscaste en Google "[tu servicio] cerca de mí" sin encontrarte, este blog es para ti.
+## Cuando necesitas que te encuentren y te contacten
 
-Soy Pedro Rojas, desarrollador y consultor web con más de 10 años ayudando a negocios locales en Puebla a tener presencia digital real — no solo un sitio bonito, sino uno que **trae clientes**.
+Un sitio web es un buen punto de partida si tus clientes necesitan conocer tus servicios, ubicación, horarios o formas de contacto. También puede incluir formularios, catálogo y páginas para explicar distintas líneas de servicio.
 
-Con el tiempo me di cuenta de que muchas dudas se repiten:
+La pregunta útil es: ¿qué información busca una persona antes de elegirte y qué acción quieres que pueda realizar en el sitio? Revisa el servicio de [desarrollo web en Puebla](/services/desarrollo-web-puebla/).
 
-- ¿Cuánto cuesta una página web para mi negocio?
-- ¿Vale la pena invertir en SEO local?
-- ¿WordPress o a la medida?
-- ¿Cómo compito con empresas más grandes en Google?
+## Cuando una tarea necesita una herramienta propia
 
-Este blog existe para responder esas preguntas con honestidad, sin tecnicismos innecesarios y con ejemplos reales de negocios en Puebla.
+Una web app puede resolver una interacción específica para clientes o para tu equipo: solicitar una cotización, reservar un espacio, consultar un pedido o acceder a un portal. Tiene sentido cuando el proceso requiere reglas o pasos que un sitio informativo no cubre.
 
-## ¿Qué vas a encontrar aquí?
+Conoce la opción de [software a medida en Puebla](/services/software-a-medida-puebla/).
 
-### Casos de estudio reales
+## Cuando varias personas comparten un proceso
 
-No teoría. Historias de negocios poblanos que pasaron de ser invisibles en Google a generar reservaciones, llamadas y ventas. Con números, estrategia y lo que no funcionó también.
+Si distintas áreas capturan, revisan y consultan información, un sistema interno puede reunir esos pasos en un flujo compartido. Antes de proponerlo, conviene documentar quién participa, qué datos necesita y qué decisiones toma.
 
-### Guías prácticas de SEO local
+La [automatización de procesos y sistemas internos](/services/automatizacion-procesos-puebla/) puede ser adecuada cuando archivos separados y tareas repetitivas dificultan ese trabajo.
 
-Cómo optimizar tu perfil de Google Business, qué palabras clave usar si tu mercado es Puebla, y por qué el SEO local es diferente al nacional.
+## Tres preguntas para elegir
 
-### Desarrollo web sin rodeos
+1. ¿La necesidad principal es comunicar una oferta, completar una tarea o coordinar un proceso?
+2. ¿Quién usará la solución: visitantes, clientes identificados, equipo interno o varios grupos?
+3. ¿Qué resultado observable indicaría que la solución está funcionando?
 
-Comparativas honestas: cuándo conviene WordPress, cuándo React, cuándo una solución a la medida. Qué incluir en tu sitio y qué es puro relleno.
-
-### Herramientas y recursos
-
-Las herramientas que uso día a día — la mayoría gratuitas — para analizar sitios, encontrar keywords y medir resultados.
-
-## ¿Para quién es este blog?
-
-Para dueños de PyMEs en Puebla que:
-
-- Quieren que su negocio aparezca en Google pero no saben por dónde empezar
-- Ya tienen un sitio web pero no les trae clientes
-- Están cansados de agencias que cobran caro y no explican qué hacen
-- Prefieren entender lo básico antes de invertir
-
-No necesitas saber programar. Solo necesitas querer hacer crecer tu negocio.
-
-## ¿Cómo seguir el blog?
-
-Publico artículos cada semana o dos semanas. Por ahora la mejor forma de no perderse nada es guardar esta dirección en tus marcadores o escribirme directamente si tienes una duda específica sobre tu negocio.
-
-Si tienes un negocio en Puebla y quieres saber qué tan visible eres en Google, puedo hacerte una revisión gratuita — sin compromiso, sin venta agresiva, solo información útil.
-
-**[Contáctame aquí →](/contact/)**
-
----
-
-_Pedro Rojas · Consultor Web · Puebla, México_
+Si aún no está claro qué construir, empieza describiendo el problema y el proceso actual. La herramienta se define después, con un alcance que responda a esa necesidad.

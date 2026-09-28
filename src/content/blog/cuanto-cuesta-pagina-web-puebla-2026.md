@@ -1,6 +1,6 @@
 ---
 title: "¿Cuánto cuesta una página web en Puebla en 2026?"
-seoTitle: "¿Cuánto cuesta una página web en Puebla en 2026? | Pedro Rojas"
+seoTitle: "¿Cuánto cuesta una página web en Puebla en 2026?"
 date: 2026-09-27
 description: "Conoce qué incluye un sitio web desde $5,000 MXN y qué factores conviene definir antes de cotizar un proyecto en Puebla."
 language: es

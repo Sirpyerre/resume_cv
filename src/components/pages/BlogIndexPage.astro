@@ -43,7 +43,7 @@ const pageCopy =
             {post.data.cover && (
               <img
                 src={post.data.cover}
-                alt={post.data.title}
+                alt={post.data.coverLabel ?? post.data.title}
                 class="w-full aspect-[16/9] object-cover"
                 loading="lazy"
               />

@@ -1,43 +1,56 @@
 ---
 title: "Software a medida vs. Excel: ¿cuándo conviene crear un sistema propio?"
-seoTitle: "Software a medida vs. Excel: cuándo crear un sistema propio | Pedro Rojas"
-date: 2026-09-27
-description: "Compara hojas de cálculo y sistemas web para decidir cuándo Excel es suficiente y cuándo un proceso necesita usuarios, permisos o información centralizada."
+seoTitle: "Software a medida vs. Excel: criterios para elegir"
+date: "2026-09-27"
+description: "Compara Excel, una herramienta comercial y un sistema a medida según la colaboración, las reglas del proceso y el nivel de control que necesitas."
 language: es
 categories:
   - PyMEs
   - Desarrollo Web
 tags:
-  - software a medida
-  - Excel empresarial
-  - automatización de procesos
+  - software a medida vs Excel
+  - hojas de cálculo
+  - sistemas empresariales
 featured: false
-cover: "/images/posts/De%20Excel%20a%20un%20sistema%20web.png"
-coverLabel: "Comparación visual entre hojas de cálculo y un sistema web con datos organizados."
+cover: "/images/posts/software-vs-excel-decision.png"
+coverLabel: "Comparación entre una hoja de cálculo y un sistema web compartido para un equipo."
 ---
 
-Excel puede ser una buena herramienta para organizar información y resolver tareas puntuales. La pregunta no es si una empresa debe dejar de usarlo por completo, sino si el proceso actual todavía se puede gestionar con claridad y seguridad.
+Excel y un sistema propio resuelven necesidades distintas. La decisión depende de cuántas personas colaboran, qué reglas deben cumplirse y cuánto control requiere el proceso. También conviene considerar una herramienta comercial antes de desarrollar software a medida.
 
-## Cuándo Excel puede ser suficiente
+## Excel puede ser suficiente cuando…
 
-Una hoja suele bastar cuando pocas personas trabajan con los mismos datos, el proceso es sencillo y las actualizaciones no dependen de coordinar varias áreas. Si el archivo es comprensible y permite completar el trabajo, cambiar de herramienta no necesariamente aporta valor.
+- Una persona o un grupo pequeño mantiene los datos.
+- El flujo es sencillo y cambia poco.
+- No se necesitan permisos por función ni un historial detallado.
+- La hoja se puede revisar y respaldar sin interrumpir el trabajo.
 
-## Señales de que el proceso necesita otra herramienta
+En este escenario, documentar la hoja y asignar a una persona responsable puede ser suficiente.
 
-- Varias áreas mantienen archivos distintos con datos repetidos.
-- Alguien reúne manualmente la información para preparar reportes.
-- El equipo necesita permisos diferentes según el usuario.
-- Es importante consultar quién cambió un registro y cuándo.
-- Los datos se comparten por correo o mensajes antes de volver a capturarse.
+## Una herramienta comercial puede encajar cuando…
 
-Estas señales pueden justificar un sistema web, aunque la solución y su alcance deben definirse después de revisar el proceso.
+- El proceso es común y el producto ya ofrece las funciones necesarias.
+- El equipo acepta la forma de trabajo del producto.
+- Las integraciones, permisos y reportes requeridos están disponibles.
+- El costo recurrente y las condiciones de uso son adecuados para el negocio.
 
-## ¿Web App o sistema interno?
+Antes de contratar, valida el flujo completo con una prueba y revisa cómo podrás exportar tus datos.
 
-Una web app puede resolver una tarea específica como reservas, cotizaciones o un portal de clientes. Un sistema interno suele organizar flujos que involucran a varias personas o áreas. Algunos proyectos pueden combinar ambas necesidades.
+## Un sistema a medida puede tener sentido cuando…
 
-Conoce las opciones de [software a medida en Puebla](/services/software-a-medida-puebla/) y de [automatización de procesos y sistemas internos](/services/automatizacion-procesos-puebla/).
+- Las reglas del proceso son específicas y no caben bien en herramientas existentes.
+- Varias áreas necesitan colaborar con responsabilidades y permisos distintos.
+- El equipo requiere conectar datos o sistemas que hoy no se comunican.
+- El proceso es suficientemente importante para justificar el diseño y mantenimiento de una solución propia.
 
-## Cómo decidir el siguiente paso
+Un sistema propio también exige presupuesto para construirlo, operarlo y darle soporte. La comparación debe considerar el ciclo de vida completo, no solo el costo inicial.
 
-Describe el proceso actual, quién participa, qué información se comparte y qué errores o pasos repetidos quieres reducir. Con ese diagnóstico puedes comparar si conviene ajustar la hoja, adoptar un producto existente o cotizar un sistema propio.
+## Una guía rápida para decidir
+
+| Situación | Punto de partida |
+| --- | --- |
+| Tarea sencilla, pocos usuarios y reglas estables | Mantener y ordenar Excel |
+| Proceso común cubierto por un producto existente | Evaluar una herramienta comercial |
+| Reglas particulares, varias áreas o integraciones específicas | Analizar un sistema a medida |
+
+La tabla orienta la conversación, no sustituye un diagnóstico. Si la opción propia parece adecuada, revisa [cómo se estima el precio de software a medida](/blog/cuanto-cuesta-software-a-medida-puebla/) y el servicio de [software a medida en Puebla](/services/software-a-medida-puebla/). Si ya decidiste cambiar una hoja por un flujo compartido, consulta los [pasos para migrar de Excel a un sistema web](/blog/de-excel-a-sistema-web/).

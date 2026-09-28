@@ -52,10 +52,10 @@ Antes de construir, ayuda responder estas preguntas:
 
 Con esas respuestas se puede describir una primera versión, acordar sus módulos y estimar el trabajo con menos incertidumbre. El proceso puede incluir diagnóstico, diseño, prototipo, desarrollo, pruebas con datos representativos e implementación.
 
-## ¿Cuándo conviene un sistema a medida?
+## Qué incluir en una solicitud de cotización
 
-Puede valer la pena cuando un proceso importante depende de archivos que se duplican, capturas repetidas o reportes que alguien consolida manualmente. Si una hoja de cálculo resuelve bien una tarea sencilla, no es necesario reemplazarla solo por usar software.
+Para recibir una propuesta comparable, describe el proceso actual, las personas que participan, los datos que deben registrarse y las funciones que son indispensables para la primera versión. Añade las integraciones conocidas y señala qué podría esperar a una etapa posterior.
 
-La meta no es construir la plataforma más grande: es resolver el primer cuello de botella con un alcance que el equipo pueda adoptar.
+Una conversación de alcance permite distinguir una web app para una tarea concreta de un sistema interno con varios módulos. Para valorar si realmente necesitas una solución propia frente a Excel o un producto existente, consulta [software a medida vs. Excel](/blog/software-a-medida-vs-excel/).
 
 Conoce el servicio de [software a medida en Puebla](/services/software-a-medida-puebla/) y la opción de [automatización de procesos y sistemas internos](/services/automatizacion-procesos-puebla/). Si quieres revisar un proceso concreto, [agenda una consulta](/contact/).

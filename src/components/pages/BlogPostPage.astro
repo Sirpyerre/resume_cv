@@ -89,7 +89,7 @@ const postSchemas = [
         <figure class="mb-8">
           <img
             src={entry.data.cover}
-            alt={entry.data.title}
+            alt={entry.data.coverLabel ?? entry.data.title}
             class="w-full max-h-[480px] object-cover rounded-lg border border-crema-oscuro"
           />
           {entry.data.coverLabel && (
