@@ -1,9 +1,9 @@
 import { useEffect, useState } from "react"
 import { FaWhatsapp } from "react-icons/fa"
+import { getWhatsAppHref } from "../../config/contact.js"
 
 export default function WhatsAppButton({ language = "es" }) {
   const [showTooltip, setShowTooltip] = useState(false)
-  const whatsappNumber = import.meta.env.VITE_WHATSAPP_NUMBER
 
   useEffect(() => {
     const showTimer = window.setTimeout(() => setShowTooltip(true), 3000)
@@ -22,19 +22,19 @@ export default function WhatsAppButton({ language = "es" }) {
   const tooltip = language === "en" ? "Need help?" : "Necesitas ayuda?"
 
   const handleClick = () => {
-    if (!whatsappNumber) {
+    const href = getWhatsAppHref(message)
+    if (!href) {
       return
     }
 
-    const encodedMessage = encodeURIComponent(message)
     window.open(
-      `https://wa.me/${whatsappNumber}?text=${encodedMessage}`,
+      href,
       "_blank",
       "noopener,noreferrer",
     )
   }
 
-  if (!whatsappNumber) {
+  if (!getWhatsAppHref(message)) {
     return null
   }
 

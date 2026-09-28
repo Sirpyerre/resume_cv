@@ -1,0 +1,16 @@
+---
+import { getWhatsAppHref } from "../../config/contact.js"
+
+const { message, label, ariaLabel, fallbackHref, class: className = "" } = Astro.props
+const href = getWhatsAppHref(message)
+---
+
+<a
+  href={href ?? fallbackHref}
+  target={href ? "_blank" : undefined}
+  rel={href ? "noopener noreferrer" : undefined}
+  aria-label={ariaLabel}
+  class={className}
+>
+  {label}
+</a>

@@ -14,13 +14,11 @@ import { withTrailingSlash } from "../lib/i18n.js"
  * corre en `astro:build:done`, de modo que en `astro dev` el sitemap no existia.
  * Siendo una ruta normal, ahora funciona igual en dev, preview y produccion.
  *
- * El limite del protocolo son 50.000 URLs por archivo; aqui hay ~21.
+ * El límite del protocolo son 50.000 URLs por archivo; el sitio tiene menos de 50.
  */
 
-// Rutas ES equivalentes: el blog y el podcast solo existen en espanol, asi que
-// /en/podcast y /en/blog/<slug> declaran su canonical hacia la version ES. Una
-// URL que apunta a otra como canonical no debe ir en el sitemap.
-const EN_SPANISH_ONLY = /^\/en\/(?:blog\/[^/]+|podcast)$/
+// El podcast no tiene versión inglesa propia y canonicaliza a español.
+const EN_SPANISH_ONLY = /^\/en\/podcast$/
 // Legal pages are intentionally noindex in their page layouts and should not
 // be advertised to search engines through the sitemap.
 const NOINDEX_ROUTES = new Set([
@@ -51,10 +49,14 @@ export async function GET() {
     .map(fileToRoute)
     .filter((route) => !route.includes("[") && route !== "/404" && !NOINDEX_ROUTES.has(route))
 
-  const blogRoutes = posts.flatMap((post) => [
-    { route: `/blog/${post.id}`, lastmod: postDates.get(post.id) },
-    { route: `/en/blog/${post.id}`, lastmod: postDates.get(post.id) },
-  ])
+  const blogRoutes = [
+    ...posts
+      .filter((post) => post.data.language !== "en")
+      .map((post) => ({ route: `/blog/${post.id}`, lastmod: postDates.get(post.id) })),
+    ...posts
+      .filter((post) => post.data.language === "en")
+      .map((post) => ({ route: `/en/blog/${post.id}`, lastmod: postDates.get(post.id) })),
+  ]
 
   const entries = [...staticRoutes.map((route) => ({ route })), ...blogRoutes]
     .filter(({ route }) => !EN_SPANISH_ONLY.test(route))

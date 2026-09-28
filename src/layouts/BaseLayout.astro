@@ -29,16 +29,18 @@ const {
   noHreflang = false,
   ogType = "website",
   publishedTime,
+  localizedPaths,
+  alternateLocalePath: alternateLocalePathOverride,
   // Rutas sin traduccion propia (p. ej. /en/blog/<slug>) apuntan su canonical a
   // la version ES y no emiten hreflang, para no declarar una alternancia falsa.
   canonicalPath,
 } = Astro.props
 
 const localizedPath = getLocalizedPath(language, basePath)
-const alternateLocalePath = getAlternateLocalePath(language, basePath)
-const canonicalUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(canonicalPath ?? localizedPath)}`
-const esUrl = `${SITE_CONFIG.SITE_URL}${getLocalizedPath("es", basePath)}`
-const enUrl = `${SITE_CONFIG.SITE_URL}${getLocalizedPath("en", basePath)}`
+const alternateLocalePath = alternateLocalePathOverride ?? getAlternateLocalePath(language, basePath)
+const canonicalUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(canonicalPath ?? localizedPaths?.[language] ?? localizedPath)}`
+const esUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(localizedPaths?.es ?? getLocalizedPath("es", basePath))}`
+const enUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(localizedPaths?.en ?? getLocalizedPath("en", basePath))}`
 const imageUrl = image.startsWith("http") ? image : `${SITE_CONFIG.SITE_URL}${image}`
 const links = getSiteLinks(language)
 const ui = getUiCopy(language)

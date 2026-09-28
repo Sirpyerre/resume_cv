@@ -1,9 +1,5 @@
 export function sortBlogEntries(entries) {
   return [...entries].sort((a, b) => {
-    if (a.data.featured !== b.data.featured) {
-      return a.data.featured ? -1 : 1
-    }
-
     return new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
   })
 }

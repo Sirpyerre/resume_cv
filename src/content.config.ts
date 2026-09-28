@@ -7,6 +7,8 @@ const categories = [
   "Desarrollo Web",
   "PyMEs",
   "Emprendimiento",
+  "Web Development",
+  "SMBs",
 ] as const
 
 const blog = defineCollection({
@@ -17,6 +19,9 @@ const blog = defineCollection({
     date: z.coerce.date(),
     description: z.string(),
     slug: z.string().optional(),
+    language: z.enum(["es", "en"]).default("es"),
+    translationKey: z.string().optional(),
+    alternateSlug: z.string().optional(),
     categories: z.array(z.enum(categories)).min(1),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),

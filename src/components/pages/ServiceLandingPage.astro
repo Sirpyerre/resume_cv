@@ -1,0 +1,206 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro"
+import JsonLd from "../seo/JsonLd.astro"
+import PageHeader from "../site/PageHeader.astro"
+import WhatsAppLink from "../site/WhatsAppLink.astro"
+import { getServiceLandingPage } from "../../data/service-landing-pages.js"
+import { getSiteLinks, withTrailingSlash } from "../../lib/i18n.js"
+import { buildBreadcrumbList, buildFaqSchema, buildServiceDetail } from "../../lib/schema.js"
+
+const { serviceKey, language = "es" } = Astro.props
+const page = getServiceLandingPage(serviceKey, language)
+const localRoute = page.paths[language].route
+const localeRoutes = {
+  es: withTrailingSlash(page.paths.es.route),
+  en: withTrailingSlash(`/en${page.paths.en.route}`),
+}
+const alternateLocalePath = localeRoutes[language === "en" ? "es" : "en"]
+const basePath = localRoute
+const links = getSiteLinks(language)
+const priceValue = {
+  "web-development": "5000",
+  "custom-software": "15000",
+  "process-automation": "20000",
+  "maintenance-support": "1500",
+}[serviceKey]
+const whatsappClass = "btn-outline-primary inline-flex items-center justify-center whitespace-nowrap px-5 border-[#25D366] text-[#167a3d] hover:bg-[#25D366] hover:text-white"
+const schema = [
+  buildServiceDetail({
+    language,
+    name: page.eyebrow,
+    description: page.description,
+    path: localeRoutes[language],
+    price: priceValue,
+    priceDescription: serviceKey === "maintenance-support"
+      ? language === "en" ? "Monthly maintenance plan price." : "Precio mensual del plan de mantenimiento."
+      : language === "en" ? "Starting price; final quote depends on agreed project scope." : "Precio inicial; la cotización final depende del alcance acordado.",
+  }),
+  buildBreadcrumbList([
+    { name: language === "en" ? "Home" : "Inicio", path: language === "en" ? "/en/" : "/" },
+    { name: language === "en" ? "Services" : "Servicios", path: links.services },
+    { name: page.eyebrow, path: localeRoutes[language] },
+  ]),
+  buildFaqSchema(page.faqs),
+]
+---
+
+<BaseLayout
+  language={language}
+  title={`${page.eyebrow} | Pedro Rojas`}
+  description={page.description}
+  basePath={basePath}
+  localizedPaths={localeRoutes}
+  alternateLocalePath={alternateLocalePath}
+>
+  <JsonLd slot="head" schema={schema} />
+  <PageHeader eyebrow={page.eyebrow} title={page.title} description={page.description} />
+
+  <section class="px-4 sm:px-6 pb-12 bg-crema">
+    <div class="max-w-4xl mx-auto flex flex-col sm:flex-row sm:items-center sm:justify-between gap-5 rounded-xl border border-crema-oscuro bg-crema-medio p-6 sm:p-8">
+      <div>
+        <p class="font-heading text-sm font-bold tracking-wide text-verde">{language === "en" ? "Starting price" : "Precio inicial"}</p>
+        <p class="text-3xl sm:text-4xl font-bold text-tinta mt-1">{page.price}</p>
+        <p class="text-sm text-tinta-suave mt-2">{page.priceNote}</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-3">
+        <a href={links.contact} aria-label={page.ctaAriaLabel} class="btn-primary shrink-0 whitespace-nowrap px-5 text-sm">{page.cta} →</a>
+        <WhatsAppLink
+          message={page.whatsappMessage}
+          label={page.whatsappCta}
+          ariaLabel={page.whatsappAriaLabel}
+          fallbackHref={links.contact}
+          class={whatsappClass}
+        />
+      </div>
+    </div>
+  </section>
+
+  {page.caseStudy && (
+    <section class="section bg-crema-medio">
+      <div class="max-w-6xl mx-auto rounded-2xl border border-crema-oscuro bg-crema p-6 sm:p-8 lg:p-10 grid lg:grid-cols-[0.8fr_1.2fr] gap-6 lg:gap-12 items-center">
+        <div>
+          <p class="font-heading text-xs font-bold tracking-[0.14em] uppercase text-verde mb-3">
+            {language === "en" ? "Project example" : "Ejemplo de proyecto"}
+          </p>
+          <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta">{page.caseStudy.title}</h2>
+        </div>
+        <p class="text-tinta-suave leading-relaxed">{page.caseStudy.body}</p>
+      </div>
+    </section>
+  )}
+
+  <section class="section bg-crema-medio">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-5 lg:gap-6">
+      <article class="rounded-2xl border border-crema-oscuro bg-crema p-6 sm:p-8">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta mb-6">{page.problemTitle}</h2>
+        <ul class="space-y-4">
+          {page.problems.map((item) => <li class="flex gap-3 text-tinta-suave leading-relaxed"><span aria-hidden="true" class="text-cobre">•</span><span>{item}</span></li>)}
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-crema-oscuro bg-crema p-6 sm:p-8">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta mb-4">{page.solutionTitle}</h2>
+        <p class="text-tinta-suave leading-relaxed">{page.solution}</p>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-3">
+          {page.features.map((item) => <li class="flex items-start text-sm text-tinta-suave leading-relaxed"><span aria-hidden="true" class="text-verde mr-2">✓</span><span>{item}</span></li>)}
+        </ul>
+      </article>
+    </div>
+  </section>
+
+  <section class="section bg-crema">
+    <div class="max-w-6xl mx-auto grid lg:grid-cols-2 gap-5 lg:gap-6">
+      <article class="rounded-2xl border border-crema-oscuro bg-crema-medio p-6 sm:p-8 flex flex-col">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta">{page.fitTitle}</h2>
+        <ul class="mt-6 grid sm:grid-cols-2 gap-x-5 gap-y-4">
+          {page.fit.map((item) => <li class="flex items-start gap-3 text-tinta-suave leading-relaxed"><span aria-hidden="true" class="mt-0.5 text-verde">✓</span><span>{item}</span></li>)}
+        </ul>
+      </article>
+      <article class="rounded-2xl border border-crema-oscuro bg-crema-medio p-6 sm:p-8 flex flex-col">
+        <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta">{page.sectorsTitle}</h2>
+        <div class="flex flex-wrap gap-2 mt-6">
+          {page.sectors.map((sector) => <span class="chip">{sector}</span>)}
+        </div>
+        <p class="text-sm text-tinta-suave mt-auto pt-8">
+          {language === "en" ? "Different use case?" : "¿Tu caso es distinto?"}{" "}
+          <a href={links.contact} class="font-semibold text-verde hover:text-cobre transition-colors">
+            {language === "en" ? "Tell me about it" : "Cuéntamelo"}
+          </a>
+          {language === "en" ? " and I’ll help you assess the fit." : " y te digo si encaja."}
+        </p>
+      </article>
+    </div>
+  </section>
+
+  <section class="section bg-crema-medio">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-tinta mb-6">{page.processTitle}</h2>
+      <ol class="grid sm:grid-cols-2 xl:grid-cols-4 gap-4">
+          {page.process.map(([step, detail], index) => (
+            <li class="flex gap-4 rounded-xl bg-crema p-4 sm:p-5 border border-crema-oscuro">
+              <span class="font-heading text-verde font-bold">{index + 1}.</span>
+              <div><h3 class="font-bold text-tinta">{step}</h3><p class="text-sm text-tinta-suave mt-1">{detail}</p></div>
+            </li>
+          ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="px-4 sm:px-6 py-14 sm:py-16 bg-crema">
+    <div class="max-w-6xl mx-auto">
+      <header class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 border-b border-crema-oscuro pb-8 mb-2">
+        <div>
+          <h2 class="font-heading text-3xl sm:text-4xl font-bold text-tinta leading-tight">{page.faqsTitle}</h2>
+          <p class="text-tinta-suave mt-3">
+            {language === "en" ? "Answers to common questions before starting." : "Lo que más me preguntan antes de empezar un proyecto."}
+          </p>
+        </div>
+        <WhatsAppLink
+          message={page.faqWhatsappMessage}
+          label={language === "en" ? "Another question? Ask me on WhatsApp →" : "¿Otra duda? Pregúntame por WhatsApp →"}
+          ariaLabel={language === "en" ? `Ask another question about ${page.faqWhatsappServiceName} on WhatsApp` : `Pregunta otra duda sobre ${page.faqWhatsappServiceName} por WhatsApp`}
+          fallbackHref={links.contact}
+          class="btn-outline-primary px-5 text-sm sm:whitespace-nowrap"
+        />
+      </header>
+      <div class="grid md:grid-cols-2 md:gap-x-12">
+        {page.faqs.map((item) => (
+          <article class="border-b border-crema-oscuro py-6">
+            <h3 class="font-bold text-tinta text-lg">{item.question}</h3>
+            <p class="text-tinta-suave leading-relaxed mt-3">{item.answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+
+    <div class="max-w-6xl mx-auto mt-16">
+      <h2 class="font-heading text-xs font-bold tracking-[0.14em] uppercase text-tinta-suave/80 mb-5">{page.relatedServicesTitle}</h2>
+      <div class="grid md:grid-cols-2 xl:grid-cols-3 gap-4">
+        {page.relatedServices.map((service) => (
+          <a href={service.href} class="group flex items-center justify-between gap-5 rounded-2xl border border-crema-oscuro p-6 hover:border-verde transition-colors">
+            <span>
+              <span class="block font-heading text-xl font-bold text-tinta">{service.title}</span>
+              <span class="block text-sm text-tinta-suave mt-2">{service.description}</span>
+            </span>
+            <span aria-hidden="true" class="text-verde text-2xl transition-transform group-hover:translate-x-1">→</span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-crema">
+    <div class="max-w-4xl mx-auto text-center rounded-xl bg-tinta p-8 sm:p-12">
+      <h2 class="font-heading text-2xl sm:text-3xl font-bold text-crema mb-6">{page.ctaTitle}</h2>
+      <div class="flex flex-col sm:flex-row justify-center gap-3">
+        <a href={links.contact} aria-label={page.ctaAriaLabel} class="btn-primary whitespace-nowrap px-5 text-sm">{page.cta} →</a>
+        <WhatsAppLink
+          message={page.whatsappMessage}
+          label={page.whatsappCta}
+          ariaLabel={page.whatsappAriaLabel}
+          fallbackHref={links.contact}
+          class={whatsappClass}
+        />
+      </div>
+    </div>
+  </section>
+</BaseLayout>

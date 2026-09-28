@@ -9,16 +9,16 @@ const { language = "es" } = Astro.props
 const copy =
   language === "en"
     ? {
-        title: "Web Design & Development in Puebla | Pedro Rojas",
-        heading: "Services designed to grow your business online",
+        title: "Websites & Business Software in Puebla | Pedro Rojas",
+        heading: "Digital solutions built around your business",
         description:
-          "Professional websites, custom web apps, and monthly maintenance built for local SEO, speed, and conversion.",
+          "From a professional website to custom software and internal systems that help your team manage work in one place.",
       }
     : {
-        title: "Diseño web en Puebla | Servicios | Pedro Rojas",
-        heading: "Servicios disenados para crecer tu negocio en linea",
+        title: "Desarrollo web y software a medida | Puebla",
+        heading: "Soluciones digitales para la operación de tu empresa",
         description:
-          "Sitios profesionales, web apps a la medida y mantenimiento mensual pensados para SEO local, velocidad y conversion.",
+          "Desde una página web profesional hasta software a medida y sistemas internos para organizar información y reducir tareas manuales.",
       }
 
 const serviceSchema = buildServiceCatalog(language)

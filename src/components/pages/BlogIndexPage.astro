@@ -6,7 +6,14 @@ import { formatPostDate, sortBlogEntries } from "../../lib/blog.js"
 import { getLocalizedPath, getUiCopy } from "../../lib/i18n.js"
 
 const { language = "es" } = Astro.props
-const posts = sortBlogEntries(await getCollection("blog"))
+const allPosts = await getCollection("blog")
+const posts = sortBlogEntries(
+  allPosts.filter((post) =>
+    language === "en"
+      ? post.data.language === "en" || (!post.data.translationKey && post.data.language !== "en")
+      : post.data.language !== "en",
+  ),
+)
 const ui = getUiCopy(language)
 const localeDate = language === "en" ? "en-US" : "es-MX"
 const pageCopy =

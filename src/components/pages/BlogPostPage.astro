@@ -13,11 +13,22 @@ const localeDate = language === "en" ? "en-US" : "es-MX"
 const title = `${entry.data.seoTitle ?? entry.data.title} | Pedro Rojas`
 const description = entry.data.description
 const pagePath = `/blog/${entry.id}`
+const localizedPaths = entry.data.translationKey
+  ? {
+      es: withTrailingSlash(
+        language === "en" ? `/blog/${entry.data.alternateSlug}` : pagePath,
+      ),
+      en: withTrailingSlash(
+        language === "en" ? `/en/blog/${entry.id}` : `/en/blog/${entry.data.alternateSlug}`,
+      ),
+    }
+  : undefined
 
-// Los posts solo existen en espanol: las rutas /en/blog/<slug> apuntan su
-// canonical a la version ES en vez de declararse como traduccion.
-const canonicalPath = language === "en" ? pagePath : undefined
-const canonicalUrl = `${SITE_CONFIG.SITE_URL}${withTrailingSlash(canonicalPath ?? pagePath)}`
+// Los posts antiguos sin traduccion siguen canonicalizando a ES; los pares
+// con translationKey declaran canonical y hreflang propios por idioma.
+const canonicalPath = language === "en" && !localizedPaths ? pagePath : undefined
+const canonicalUrl = `${SITE_CONFIG.SITE_URL}${localizedPaths?.[language] ?? withTrailingSlash(canonicalPath ?? pagePath)}`
+const alternateLocalePath = localizedPaths?.[language === "en" ? "es" : "en"]
 const publishedTime = new Date(entry.data.date).toISOString()
 const postSchemas = [
   buildBlogPosting(entry, language, canonicalUrl),
@@ -38,6 +49,8 @@ const postSchemas = [
   ogType="article"
   publishedTime={publishedTime}
   canonicalPath={canonicalPath}
+  localizedPaths={localizedPaths}
+  alternateLocalePath={alternateLocalePath}
 >
   <JsonLd slot="head" schema={postSchemas} />
   <section class="px-4 sm:px-6 py-10 bg-crema">

@@ -44,6 +44,19 @@ function buildOffers(language) {
       price: "15000",
     },
     {
+      name: es(
+        language,
+        "Automatización de Procesos y Sistemas Internos",
+        "Process Automation and Internal Systems",
+      ),
+      description: es(
+        language,
+        "Sistemas web para centralizar información y organizar procesos internos, según el alcance del proyecto.",
+        "Web systems to centralize information and organize internal workflows, scoped to each project.",
+      ),
+      price: "20000",
+    },
+    {
       name: es(language, "Mantenimiento Mensual", "Monthly Maintenance"),
       description: es(
         language,
@@ -68,11 +81,11 @@ export function buildLocalBusiness(language = "es") {
   return {
     "@context": CONTEXT,
     "@type": "LocalBusiness",
-    name: "Pedro Rojas — Desarrollo Web",
+    name: "Pedro Rojas — Desarrollo Web y Software a Medida",
     description: es(
       language,
-      "Desarrollo web profesional para negocios en Puebla. Sitios rapidos, seguros y optimizados para Google.",
-      "Professional web development for businesses in Puebla. Fast, secure, and SEO-optimized sites.",
+      "Desarrollo web y software a medida para empresas en Puebla, desde sitios profesionales hasta sistemas internos.",
+      "Web development and custom software for Puebla businesses, from professional websites to internal systems.",
     ),
     url: absolute("/"),
     telephone: TELEPHONE,
@@ -118,7 +131,7 @@ export function buildWebSite() {
   return {
     "@context": CONTEXT,
     "@type": "WebSite",
-    name: "Pedro Rojas — Desarrollo Web Puebla",
+    name: "Pedro Rojas — Desarrollo Web y Software a Medida en Puebla",
     url: absolute("/"),
     inLanguage: ["es-MX", "en-US"],
     author: {
@@ -164,6 +177,11 @@ export function buildPerson(language = "es") {
 export function buildFaqPage(language = "es") {
   const items = getDictionary(language)?.faq?.items
 
+  return buildFaqSchema(items)
+}
+
+export function buildFaqSchema(items = []) {
+
   if (!items?.length) {
     return null
   }
@@ -187,15 +205,15 @@ export function buildServiceCatalog(language = "es") {
     "@context": CONTEXT,
     "@type": "Service",
     serviceType: es(language, "Desarrollo web", "Web development"),
-    name: es(language, "Servicios de desarrollo web", "Web development services"),
+    name: es(language, "Servicios de desarrollo web y software a medida", "Web development and custom software services"),
     description: es(
       language,
-      "Sitios web y aplicaciones a medida para medicos, consultorios y negocios locales en Puebla.",
-      "Custom websites and web apps for doctors, clinics, and local businesses in Puebla.",
+      "Desarrollo web, aplicaciones personalizadas y sistemas internos para empresas en Puebla.",
+      "Websites, custom applications, and internal systems for businesses in Puebla.",
     ),
     provider: {
       "@type": "LocalBusiness",
-      name: "Pedro Rojas — Desarrollo Web",
+      name: "Pedro Rojas — Desarrollo Web y Software a Medida",
       url: absolute("/"),
       address: { ...PUEBLA_ADDRESS, postalCode: "72490" },
     },
@@ -208,6 +226,34 @@ export function buildServiceCatalog(language = "es") {
       "@type": "OfferCatalog",
       name: es(language, "Paquetes", "Packages"),
       itemListElement: buildOffers(language),
+    },
+  }
+}
+
+export function buildServiceDetail({ language = "es", name, description, path, price, priceDescription }) {
+  return {
+    "@context": CONTEXT,
+    "@type": "Service",
+    serviceType: name,
+    name,
+    description,
+    url: absolute(path),
+    provider: {
+      "@type": "LocalBusiness",
+      name: "Pedro Rojas — Desarrollo Web y Software a Medida",
+      url: absolute("/"),
+      address: { ...PUEBLA_ADDRESS, postalCode: "72490" },
+    },
+    areaServed: { "@type": "City", name: "Puebla", sameAs: "https://www.wikidata.org/wiki/Q125293" },
+    offers: {
+      "@type": "Offer",
+      price,
+      priceCurrency: "MXN",
+      description: priceDescription ?? es(
+        language,
+        "Precio inicial; la cotización final depende del alcance acordado.",
+        "Starting price; the final quote depends on the agreed scope.",
+      ),
     },
   }
 }
@@ -254,7 +300,7 @@ export function buildBlogPosting(entry, language = "es", url) {
     },
     publisher: {
       "@type": "Organization",
-      name: "Pedro Rojas — Desarrollo Web Puebla",
+      name: "Pedro Rojas — Desarrollo Web y Software a Medida en Puebla",
       url: absolute("/"),
       logo: {
         "@type": "ImageObject",
