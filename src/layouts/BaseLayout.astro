@@ -106,12 +106,11 @@ const baseSchemas = [
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={imageUrl} />
-    
-    <meta name="msvalidate.01" content="1AC393E6761F200AF234AA90079589C7" />
 
     <JsonLd schema={baseSchemas} />
 
     <slot name="head" />
+    <meta name="msvalidate.01" content="1AC393E6761F200AF234AA90079589C7" />
   </head>
   <body id="top" class="min-h-screen">
     <SiteNavbar
