@@ -55,6 +55,13 @@ const baseSchemas = [
 <!doctype html>
 <html lang={language === "es" ? "es-MX" : "en-US"}>
   <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3420F3DB4"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-G3420F3DB4');
+    </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
@@ -110,7 +117,6 @@ const baseSchemas = [
     <JsonLd schema={baseSchemas} />
 
     <slot name="head" />
-    <meta name="msvalidate.01" content="1AC393E6761F200AF234AA90079589C7" />
   </head>
   <body id="top" class="min-h-screen">
     <SiteNavbar
