@@ -56,11 +56,13 @@ const baseSchemas = [
 <html lang={language === "es" ? "es-MX" : "en-US"}>
   <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-G3420F3DB4"></script>
-    <script is:inline>
+    <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-G3420F3DB4');
+      window.gtag = function () {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", "G-G3420F3DB4");
     </script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -137,5 +139,15 @@ const baseSchemas = [
       cookiePolicyPath={links.cookies}
     />
     <WhatsAppButton client:idle language={language} />
+    <script>
+      document.addEventListener("click", (event) => {
+        if (!(event.target instanceof Element)) return;
+        const link = event.target.closest("[data-whatsapp-location]");
+        if (!link) return;
+        window.gtag?.("event", "click_whatsapp", {
+          button_location: link.getAttribute("data-whatsapp-location"),
+        });
+      });
+    </script>
   </body>
 </html>

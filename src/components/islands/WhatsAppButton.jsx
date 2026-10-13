@@ -27,6 +27,8 @@ export default function WhatsAppButton({ language = "es" }) {
       return
     }
 
+    window.gtag?.("event", "click_whatsapp", { button_location: "flotante" })
+
     window.open(
       href,
       "_blank",

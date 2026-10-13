@@ -95,6 +95,7 @@ const whatsappHref = getWhatsAppHref(whatsappMessage) ?? links.contact
             href={whatsappHref}
             target={getWhatsAppHref(whatsappMessage) ? "_blank" : undefined}
             rel={getWhatsAppHref(whatsappMessage) ? "noopener noreferrer" : undefined}
+            data-whatsapp-location="inicio"
             class="inline-flex items-center gap-2 bg-[#25D366] hover:bg-[#20BA5A] text-white px-4 py-2.5 rounded-lg font-bold text-sm transition-colors whitespace-nowrap flex-shrink-0"
           >
             {t.hero.whatsappCta}

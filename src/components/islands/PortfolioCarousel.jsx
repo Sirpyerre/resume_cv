@@ -55,7 +55,7 @@ export default function PortfolioCarousel({ language = "es" }) {
 
                 <div className="flex flex-wrap gap-2">
                   {currentProject.tags.map((tag) => (
-                    <span className="px-3 py-1 bg-crema-oscuro/50 text-verde rounded-full text-sm border border-crema-oscuro">
+                    <span key={tag} className="px-3 py-1 bg-crema-oscuro/50 text-verde rounded-full text-sm border border-crema-oscuro">
                       {tag}
                     </span>
                   ))}

@@ -1,7 +1,7 @@
 ---
 import { getWhatsAppHref } from "../../config/contact.js"
 
-const { message, label, ariaLabel, fallbackHref, class: className = "" } = Astro.props
+const { message, label, ariaLabel, fallbackHref, location = "contacto", class: className = "" } = Astro.props
 const href = getWhatsAppHref(message)
 ---
 
@@ -10,6 +10,7 @@ const href = getWhatsAppHref(message)
   target={href ? "_blank" : undefined}
   rel={href ? "noopener noreferrer" : undefined}
   aria-label={ariaLabel}
+  data-whatsapp-location={location}
   class={className}
 >
   {label}

@@ -154,6 +154,7 @@ export default function ContactForm({ language = "es" }) {
         }
       }
 
+      window.gtag?.("event", "generate_lead", { form_id: "contacto" })
       setFormData(emptyForm)
       setStatus({ submitting: false, submitted: true, error: null })
     } catch {
