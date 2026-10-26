@@ -94,17 +94,17 @@ export const content = {
         {
           name: "Maintenance & Support",
           price: "$1,500 MXN/month",
-          description: "Your site always secure and up-to-date. I take care of the technology so you can take care of your business.",
+          description: "Reduce security risks with vulnerability reviews, updates, and backups. I take care of maintenance so you can focus on your business.",
           href: "/en/services/website-maintenance/",
           features: [
-            "Monthly security updates",
+            "Security updates within the agreed scope",
             "Performance monitoring",
             "Regular backups",
             "Priority technical support",
             "Minor content updates",
-            "Peace of mind knowing your site is protected"
+            "Known vulnerability reviews"
           ],
-          ideal: "Ideal for: Any business that wants to forget about technical problems"
+          ideal: "Ideal for: Businesses that need ongoing maintenance and help managing website security risks."
         }
       ]
     },
@@ -308,17 +308,17 @@ export const content = {
         {
           name: "Mantenimiento y Soporte",
           price: "$1,500 MXN/mes",
-          description: "Tu sitio siempre seguro y actualizado. Me encargo de la tecnología para que tú te encargues de tu negocio.",
+          description: "Reduce riesgos con revisión de vulnerabilidades, actualizaciones y respaldos. Me encargo del mantenimiento para que te enfoques en tu negocio.",
           href: "/services/mantenimiento-web/",
           features: [
-            "Actualizaciones de seguridad mensuales",
+            "Actualizaciones de seguridad según el alcance",
             "Monitoreo de rendimiento",
             "Respaldos regulares",
             "Soporte técnico prioritario",
             "Actualizaciones menores de contenido",
-            "Tranquilidad de saber que tu sitio está protegido"
+            "Revisión de vulnerabilidades conocidas"
           ],
-          ideal: "Ideal para: Cualquier negocio que quiera olvidarse de problemas técnicos"
+          ideal: "Ideal para: Negocios que necesitan mantenimiento continuo y apoyo para atender riesgos de seguridad web."
         }
       ]
     },

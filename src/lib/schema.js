@@ -60,8 +60,8 @@ function buildOffers(language) {
       name: es(language, "Mantenimiento Mensual", "Monthly Maintenance"),
       description: es(
         language,
-        "Soporte tecnico, actualizaciones y monitoreo mensual",
-        "Technical support, updates, and monthly monitoring",
+        "Revisión de vulnerabilidades conocidas, actualizaciones de seguridad, respaldos y soporte técnico según el alcance acordado",
+        "Known vulnerability reviews, security updates, backups, and technical support within the agreed scope",
       ),
       price: "1500",
     },
