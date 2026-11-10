@@ -146,6 +146,7 @@ export function buildPerson(language = "es") {
     "@context": CONTEXT,
     "@type": "Person",
     name: "Pedro Rojas Reyes",
+    alternateName: ["Pedro Rojas", "Pedro Rojas Reyes Freelance Puebla"],
     jobTitle: es(language, "Desarrollador Web Freelance", "Freelance Web Developer"),
     description: es(
       language,
@@ -158,6 +159,9 @@ export function buildPerson(language = "es") {
     image: absolute(DEFAULT_IMAGE),
     address: PUEBLA_ADDRESS,
     knowsAbout: [
+      "Freelance Web Development Puebla",
+      "Desarrollo web para médicos y consultorios",
+      "Software a medida",
       "Web Development",
       "React",
       "Go",
