@@ -3,6 +3,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro"
 import JsonLd from "../seo/JsonLd.astro"
 import PageHeader from "../site/PageHeader.astro"
 import WhatsAppLink from "../site/WhatsAppLink.astro"
+import SeasonalCampaignBlock from "../site/SeasonalCampaignBlock.astro"
 import { getServiceLandingPage } from "../../data/service-landing-pages.js"
 import { getSiteLinks, withTrailingSlash } from "../../lib/i18n.js"
 import { buildBreadcrumbList, buildFaqSchema, buildServiceDetail } from "../../lib/schema.js"
@@ -74,6 +75,8 @@ const schema = [
       </div>
     </div>
   </section>
+
+  {serviceKey === "web-development" && <SeasonalCampaignBlock language={language} />}
 
   {page.caseStudy && (
     <section class="section bg-crema-medio">

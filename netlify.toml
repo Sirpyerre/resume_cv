@@ -86,3 +86,11 @@ from = "/sitemap-0.xml"
 to = "/sitemap.xml"
 status = 301
 force = true
+
+# Campana de temporada: URL corta para compartir por LinkedIn/WhatsApp. Es 302
+# (no 301) porque el destino y el utm_campaign cambian cada temporada.
+[[redirects]]
+from = "/promo"
+to = "/services/desarrollo-web-puebla/?utm_campaign=noviembre_web_2026"
+status = 302
+force = true
