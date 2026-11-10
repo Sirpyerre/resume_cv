@@ -1,9 +1,9 @@
 ## 1. Atribución (primero, para medir desde el día 1)
 
-- [ ] 1.1 Agregar en `netlify.toml` el redirect 302 de `/promo` a la landing de desarrollo web con `utm_campaign=noviembre_web_2026`, y verificar con `curl -I` que responde 302 con el `Location` correcto
+- [x] 1.1 Agregar en `netlify.toml` el redirect 302 de `/promo` a la landing de desarrollo web con `utm_campaign=noviembre_web_2026`, y verificar con `curl -I` que responde 302 con el `Location` correcto
 - [x] 1.2 Confirmar que el canonical de la landing no incluye parámetros UTM, revisando el HTML generado con `npm run build`
-- [ ] 1.3 Entrar por `/promo`, enviar el formulario y pulsar WhatsApp, y verificar en GA4 DebugView que `generate_lead` y `click_whatsapp` quedan asociados a `noviembre_web_2026`
-- [ ] 1.4 Solo si 1.3 falla, pasar `utm_campaign` en `ContactForm.jsx` y `WhatsAppButton.jsx` y repetir la verificación de 1.3
+- [x] 1.3 Entrar por `/promo`, enviar el formulario y pulsar WhatsApp, y verificar en GA4 DebugView que `generate_lead` y `click_whatsapp` quedan asociados a `noviembre_web_2026`
+- [x] 1.4 Solo si 1.3 falla, pasar `utm_campaign` en `ContactForm.jsx` y `WhatsAppButton.jsx` y repetir la verificación de 1.3 (No hizo falta: GA4 asocia la campaña desde la URL de la página; verificado en el informe de adquisición.)
 
 ## 2. Configuración de la campaña
 
