@@ -51,7 +51,7 @@ export default defineConfig({
         "form-action 'self' https://formspree.io",
         "img-src 'self' data: https://res.cloudinary.com https://*.google-analytics.com https://*.googletagmanager.com",
         "font-src 'self' https://fonts.gstatic.com",
-        "connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com",
+        "connect-src 'self' https://formspree.io https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://www.google.com/g/collect",
         "manifest-src 'self'",
         "upgrade-insecure-requests",
       ],
