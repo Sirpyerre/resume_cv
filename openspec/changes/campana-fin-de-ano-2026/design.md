@@ -30,7 +30,7 @@ Las fechas, el cupo restante y los textos de la oferta se concentran en un objet
 Con 2 proyectos, el "quedan N cupos" se edita a mano en la configuración. Un contador dinámico no se justifica.
 
 **4. Atribución con URL corta y UTM.**
-`/promo` redirige (302) a la landing con `utm_campaign=noviembre_web_2026`. Se usa 302 porque la URL cambia de destino por temporada. Después se comprueba en GA4 DebugView que `utm_campaign` se asocia a `generate_lead` y `click_whatsapp`. Solo si no ocurre, se añade el parámetro a los eventos. Alternativa: pasar siempre el UTM en cada evento; es más código y redundante si GA4 ya lo conserva.
+`/promo` redirige (302) a la landing con `utm_campaign=noviembre_web_2026`. Se usa 302 porque la URL cambia de destino por temporada. Netlify descarta `?utm_source=` en `/promo`, así que el canal va en rutas propias (`/promo/linkedin`, `/promo/whatsapp`, `/promo/referencia`), cada una con su `utm_source`. Después se comprueba en GA4 DebugView que `utm_campaign` se asocia a `generate_lead` y `click_whatsapp`. Solo si no ocurre, se añade el parámetro a los eventos. Alternativa: pasar siempre el UTM en cada evento; es más código y redundante si GA4 ya lo conserva.
 
 **5. Precio coherente con el schema.**
 La oferta dice "desde $5,000 MXN" y el valor extra (analítica y revisión SEO técnico incluidos) es el gancho. `schema.js` no cambia. Se dejan explícitos entregables, condiciones, impuestos aplicables, fecha de contratación y fecha de entrega estimada.

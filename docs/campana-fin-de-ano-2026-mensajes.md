@@ -10,12 +10,13 @@ Reglas de la campaña (no cambiar en los textos):
 
 ## Antes de enviar
 
-1. Confirma que `https://pedrorojas.lat/promo` responde 302 (`curl -I https://pedrorojas.lat/promo`).
-2. Confirma que se conserva el canal: `curl -I "https://pedrorojas.lat/promo?utm_source=whatsapp"` debe devolver un `Location` con `utm_source` **y** `utm_campaign`. Si solo trae `utm_campaign`, usa el enlace sin `utm_source` y anota el canal a mano en la hoja.
-3. Enlaces por canal (si el paso 2 pasa):
-   - LinkedIn: `https://pedrorojas.lat/promo?utm_source=linkedin`
-   - WhatsApp: `https://pedrorojas.lat/promo?utm_source=whatsapp`
-   - Referencias: `https://pedrorojas.lat/promo?utm_source=referencia`
+1. Confirma que cada enlace responde 302 y conserva su canal:
+   `curl -I https://pedrorojas.lat/promo/whatsapp` debe devolver un `Location` con `utm_source=whatsapp` **y** `utm_campaign=noviembre_web_2026`.
+2. Usa un enlace por canal (Netlify descarta `?utm_source=` en `/promo`, por eso hay una ruta por canal):
+   - LinkedIn: `https://pedrorojas.lat/promo/linkedin`
+   - WhatsApp: `https://pedrorojas.lat/promo/whatsapp`
+   - Referencias: `https://pedrorojas.lat/promo/referencia`
+   - `https://pedrorojas.lat/promo` sirve para otros canales; el canal se anota a mano en la hoja.
 
 ## 1. Publicación en LinkedIn
 
@@ -25,21 +26,21 @@ Reglas de la campaña (no cambiar en los textos):
 >
 > Tomo solo 2 proyectos entre noviembre y diciembre; contratación hasta el 15 de diciembre.
 >
-> Pide tu diagnóstico: https://pedrorojas.lat/promo?utm_source=linkedin
+> Pide tu diagnóstico: https://pedrorojas.lat/promo/linkedin
 >
 > #DesarrolloWeb #Puebla #PyMEs
 
 ## 2. Mensaje directo en LinkedIn
 
-> Hola [nombre], vi que [negocio] tiene sitio web y quería ofrecerte algo sencillo: un diagnóstico gratuito de 30 min (velocidad, móvil, WhatsApp y formularios) con un informe corto. Sin compromiso. Si te sirve, lo agendamos aquí: https://pedrorojas.lat/promo?utm_source=linkedin
+> Hola [nombre], vi que [negocio] tiene sitio web y quería ofrecerte algo sencillo: un diagnóstico gratuito de 30 min (velocidad, móvil, WhatsApp y formularios) con un informe corto. Sin compromiso. Si te sirve, lo agendamos aquí: https://pedrorojas.lat/promo/linkedin
 
 ## 3. WhatsApp a contactos y clientes anteriores
 
-> Hola [nombre], ¿cómo estás? Cierro el año con 2 cupos para proyectos web. Antes de eso hago diagnósticos gratuitos de 30 min del sitio de tu negocio: revisamos móvil, velocidad, WhatsApp y formularios, y te mando un informe corto. ¿Te interesa que revise el tuyo? Aquí hay más detalle: https://pedrorojas.lat/promo?utm_source=whatsapp
+> Hola [nombre], ¿cómo estás? Cierro el año con 2 cupos para proyectos web. Antes de eso hago diagnósticos gratuitos de 30 min del sitio de tu negocio: revisamos móvil, velocidad, WhatsApp y formularios, y te mando un informe corto. ¿Te interesa que revise el tuyo? Aquí hay más detalle: https://pedrorojas.lat/promo/whatsapp
 
 ## 4. WhatsApp para pedir una referencia
 
-> Hola [nombre]. Estoy haciendo diagnósticos gratuitos de sitios web para negocios de Puebla. Si conoces a alguien que quiera mejorar su sitio o crear uno, ¿me lo recomiendas? Le dejo este enlace: https://pedrorojas.lat/promo?utm_source=referencia
+> Hola [nombre]. Estoy haciendo diagnósticos gratuitos de sitios web para negocios de Puebla. Si conoces a alguien que quiera mejorar su sitio o crear uno, ¿me lo recomiendas? Le dejo este enlace: https://pedrorojas.lat/promo/referencia
 
 ## 5. Seguimiento (3 a 4 días sin respuesta)
 

@@ -94,3 +94,23 @@ from = "/promo"
 to = "/services/desarrollo-web-puebla/?utm_campaign=noviembre_web_2026"
 status = 302
 force = true
+
+# Una ruta por canal: Netlify descarta el query de la URL entrante cuando el
+# destino ya trae el suyo, asi que /promo?utm_source=... pierde el canal.
+[[redirects]]
+from = "/promo/linkedin"
+to = "/services/desarrollo-web-puebla/?utm_source=linkedin&utm_campaign=noviembre_web_2026"
+status = 302
+force = true
+
+[[redirects]]
+from = "/promo/whatsapp"
+to = "/services/desarrollo-web-puebla/?utm_source=whatsapp&utm_campaign=noviembre_web_2026"
+status = 302
+force = true
+
+[[redirects]]
+from = "/promo/referencia"
+to = "/services/desarrollo-web-puebla/?utm_source=referencia&utm_campaign=noviembre_web_2026"
+status = 302
+force = true
