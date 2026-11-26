@@ -20,7 +20,7 @@ coverLabel: "Ilustración de un sistema web y los factores que influyen en su co
 
 El precio de un sistema a medida depende de lo que debe resolver. No cuesta lo mismo una aplicación para recibir solicitudes que una plataforma con varios módulos, perfiles de usuario e integraciones.
 
-En Puebla, una **web app personalizada puede iniciar desde $15,000 MXN**. Para un sistema interno que centraliza información y automatiza procesos, el precio inicial es **$20,000 MXN**. Son precios de partida: la cotización final se define después de entender el proceso y acordar el alcance.
+En Puebla, una **web app personalizada puede iniciar desde $25,000 MXN**. Para un sistema interno que centraliza información y automatiza procesos, el precio inicial es **$25,000 MXN**. Son precios de partida: la cotización final se define después de entender el proceso y acordar el alcance.
 
 ## Qué determina el costo
 

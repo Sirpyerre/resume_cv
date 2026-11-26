@@ -18,7 +18,6 @@ export default function SiteNavbar({
       { href: links.faq, label: ui.faq, match: "/faq" },
       { href: links.contact, label: ui.contact, match: "/contact" },
       { href: links.blog, label: ui.blog, match: "/blog" },
-      { href: links.podcast, label: ui.podcast, match: "/podcast" },
     ],
     [links, ui],
   )

@@ -1,17 +1,18 @@
 import { useMemo, useState } from "react"
 import { content } from "../../content/content.jsx"
-import { getLocalizedPath } from "../../lib/i18n.js"
+import { getWhatsAppHref } from "../../config/contact.js"
 
 const emptyForm = {
   name: "",
-  email: "",
-  phone: "",
+  businessType: "",
   message: "",
+  budget: "",
+  phone: "",
+  email: "",
   honeypot: "",
 }
 
 export default function ContactForm({ language = "es" }) {
-  const podcastPath = getLocalizedPath(language, "/podcast")
   const t = content[language]
   const formId = import.meta.env.VITE_FORMSPREE_FORM_ID
   const [formData, setFormData] = useState(emptyForm)
@@ -27,46 +28,66 @@ export default function ContactForm({ language = "es" }) {
     () =>
       language === "en"
         ? {
-            sendTitle: "Send Me a Message",
+            sendTitle: "Tell me about your business",
             name: "Name *",
-            email: "Email *",
-            phone: "Phone",
-            message: "Message *",
-            submit: "Send message",
-            submitting: "Sending...",
-            success: "Message sent successfully. I will get back to you soon.",
+            businessType: "Type of business *",
+            businessPlaceholder: "E.g. clinic, store, accounting firm",
+            message: "What do you want to solve? *",
+            messagePlaceholder: "E.g. I track orders in Excel and lose time every week",
+            budget: "Budget range (optional)",
+            budgetOptions: ["Not sure yet", "Up to $10,000 MXN", "$10,000 – $25,000 MXN", "$25,000 – $45,000 MXN", "More than $45,000 MXN"],
+            phone: "Phone (optional)",
+            email: "Email (optional)",
+            submit: "Send it to me on WhatsApp",
+            submitting: "Opening WhatsApp...",
+            success: "Done! Continue the conversation on WhatsApp. I reply the same day.",
+            successFallback: "Message sent. I will get back to you soon.",
             error: "There was an error sending your message. Please try again.",
             nameRequired: "Name is required",
             nameLength: "Name must be at least 2 characters",
-            emailRequired: "Email is required",
+            businessRequired: "Tell me what type of business you have",
             emailInvalid: "Invalid email address",
-            messageRequired: "Message is required",
-            messageLength: "Message must be at least 10 characters",
+            messageRequired: "Tell me what you want to solve",
+            messageLength: "Please add a little more detail (at least 10 characters)",
             rateLimit: "Please wait a few seconds before trying again.",
-            podcast: "Job hunting, layoffs, and what nobody tells you about working in tech.",
-            podcastCta: "Go to the podcast",
             direct: "Direct links",
+            waHello: "Hi, I'm",
+            waBusiness: "Business",
+            waSolve: "I want to solve",
+            waBudget: "Budget",
+            waPhone: "Phone",
+            waEmail: "Email",
           }
         : {
-            sendTitle: "Enviame un Mensaje",
+            sendTitle: "Cuéntame de tu negocio",
             name: "Nombre *",
-            email: "Email *",
-            phone: "Telefono",
-            message: "Mensaje *",
-            submit: "Enviar mensaje",
-            submitting: "Enviando...",
-            success: "Mensaje enviado correctamente. Te respondere pronto.",
+            businessType: "Tipo de negocio *",
+            businessPlaceholder: "Ej. clínica, tienda, despacho contable",
+            message: "¿Qué quieres resolver? *",
+            messagePlaceholder: "Ej. llevo pedidos en Excel y pierdo tiempo cada semana",
+            budget: "Rango de presupuesto (opcional)",
+            budgetOptions: ["Aún no lo sé", "Hasta $10,000 MXN", "$10,000 – $25,000 MXN", "$25,000 – $45,000 MXN", "Más de $45,000 MXN"],
+            phone: "Teléfono (opcional)",
+            email: "Email (opcional)",
+            submit: "Envíamelo por WhatsApp",
+            submitting: "Abriendo WhatsApp...",
+            success: "¡Listo! Continúa la conversación en WhatsApp. Respondo el mismo día.",
+            successFallback: "Mensaje enviado. Te responderé pronto.",
             error: "Hubo un error al enviar el mensaje. Intenta de nuevo.",
             nameRequired: "El nombre es requerido",
             nameLength: "El nombre debe tener al menos 2 caracteres",
-            emailRequired: "El email es requerido",
-            emailInvalid: "Email invalido",
-            messageRequired: "El mensaje es requerido",
-            messageLength: "El mensaje debe tener al menos 10 caracteres",
+            businessRequired: "Dime qué tipo de negocio tienes",
+            emailInvalid: "Email inválido",
+            messageRequired: "Cuéntame qué quieres resolver",
+            messageLength: "Agrega un poco más de detalle (mínimo 10 caracteres)",
             rateLimit: "Espera unos segundos antes de volver a intentar.",
-            podcast: "Búsqueda de empleo, recortes y lo que nadie te cuenta sobre trabajar en tecnología.",
-            podcastCta: "Ir al podcast",
             direct: "Enlaces directos",
+            waHello: "Hola, soy",
+            waBusiness: "Negocio",
+            waSolve: "Quiero resolver",
+            waBudget: "Presupuesto",
+            waPhone: "Teléfono",
+            waEmail: "Email",
           },
     [language],
   )
@@ -80,9 +101,11 @@ export default function ContactForm({ language = "es" }) {
       nextErrors.name = copy.nameLength
     }
 
-    if (!formData.email.trim()) {
-      nextErrors.email = copy.emailRequired
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    if (!formData.businessType.trim()) {
+      nextErrors.businessType = copy.businessRequired
+    }
+
+    if (formData.email.trim() && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
       nextErrors.email = copy.emailInvalid
     }
 
@@ -131,8 +154,22 @@ export default function ContactForm({ language = "es" }) {
     setLastSubmit(now)
     setStatus({ submitting: true, submitted: false, error: null })
 
+    const lines = [
+      `${copy.waHello} ${formData.name.trim()}.`,
+      `${copy.waBusiness}: ${formData.businessType.trim()}`,
+      `${copy.waSolve}: ${formData.message.trim()}`,
+      formData.budget && `${copy.waBudget}: ${formData.budget}`,
+      formData.phone.trim() && `${copy.waPhone}: ${formData.phone.trim()}`,
+      formData.email.trim() && `${copy.waEmail}: ${formData.email.trim()}`,
+    ].filter(Boolean)
+    const waHref = getWhatsAppHref(lines.join("\n"))
+    let usedWhatsApp = false
+
     try {
-      if (!formId) {
+      if (waHref) {
+        window.open(waHref, "_blank", "noopener,noreferrer")
+        usedWhatsApp = true
+      } else if (!formId) {
         await new Promise((resolve) => setTimeout(resolve, 1200))
       } else {
         const response = await fetch(`https://formspree.io/f/${formId}`, {
@@ -142,10 +179,12 @@ export default function ContactForm({ language = "es" }) {
           },
           body: JSON.stringify({
             name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
+            businessType: formData.businessType,
             message: formData.message,
-            _subject: `New contact from ${formData.name}`,
+            budget: formData.budget,
+            phone: formData.phone,
+            email: formData.email,
+            _subject: `New lead from ${formData.name}`,
           }),
         })
 
@@ -154,9 +193,9 @@ export default function ContactForm({ language = "es" }) {
         }
       }
 
-      window.gtag?.("event", "generate_lead", { form_id: "contacto" })
+      window.gtag?.("event", "generate_lead", { form_id: "contacto", channel: usedWhatsApp ? "whatsapp" : "formspree" })
       setFormData(emptyForm)
-      setStatus({ submitting: false, submitted: true, error: null })
+      setStatus({ submitting: false, submitted: usedWhatsApp ? "whatsapp" : "fallback", error: null })
     } catch {
       setStatus({ submitting: false, submitted: false, error: copy.error })
     }
@@ -200,17 +239,6 @@ export default function ContactForm({ language = "es" }) {
                 </a>
               </div>
             </div>
-
-            <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
-              <h3 className="text-xl font-bold text-tinta mb-2">{t.podcast.title}</h3>
-              <p className="text-sm text-tinta-suave mb-4">{copy.podcast}</p>
-              <a
-                href={podcastPath}
-                className="inline-flex items-center gap-2 font-heading text-sm font-bold text-verde hover:text-cobre transition-colors"
-              >
-                {copy.podcastCta} →
-              </a>
-            </div>
           </div>
 
           <div className="bg-crema rounded-lg p-6 sm:p-8 border border-crema-oscuro">
@@ -243,58 +271,98 @@ export default function ContactForm({ language = "es" }) {
               </div>
 
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-tinta-suave mb-2">
-                  {copy.email}
+                <label htmlFor="businessType" className="block text-sm font-medium text-tinta-suave mb-2">
+                  {copy.businessType}
                 </label>
                 <input
-                  id="email"
-                  type="email"
-                  name="email"
-                  value={formData.email}
+                  id="businessType"
+                  name="businessType"
+                  value={formData.businessType}
                   onChange={handleChange}
-                  className={inputClass("email")}
+                  placeholder={copy.businessPlaceholder}
+                  className={inputClass("businessType")}
                   disabled={status.submitting}
                 />
-                {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                {errors.businessType && (
+                  <p className="mt-1 text-sm text-red-600">{errors.businessType}</p>
+                )}
               </div>
 
               <div>
-                <label htmlFor="phone" className="block text-sm font-medium text-tinta-suave mb-2">
-                  {copy.phone}
-                </label>
-                <input
-                  id="phone"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  className={inputClass("phone")}
-                  disabled={status.submitting}
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
-                  className="block text-sm font-medium text-tinta-suave mb-2"
-                >
+                <label htmlFor="message" className="block text-sm font-medium text-tinta-suave mb-2">
                   {copy.message}
                 </label>
                 <textarea
                   id="message"
                   name="message"
-                  rows={5}
+                  rows={4}
                   value={formData.message}
                   onChange={handleChange}
+                  placeholder={copy.messagePlaceholder}
                   className={inputClass("message")}
                   disabled={status.submitting}
                 />
-                {errors.message && (
-                  <p className="mt-1 text-sm text-red-600">{errors.message}</p>
-                )}
+                {errors.message && <p className="mt-1 text-sm text-red-600">{errors.message}</p>}
+              </div>
+
+              <div>
+                <label htmlFor="budget" className="block text-sm font-medium text-tinta-suave mb-2">
+                  {copy.budget}
+                </label>
+                <select
+                  id="budget"
+                  name="budget"
+                  value={formData.budget}
+                  onChange={handleChange}
+                  className={inputClass("budget")}
+                  disabled={status.submitting}
+                >
+                  <option value=""></option>
+                  {copy.budgetOptions.map((option) => (
+                    <option key={option} value={option}>
+                      {option}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-tinta-suave mb-2">
+                    {copy.phone}
+                  </label>
+                  <input
+                    id="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    className={inputClass("phone")}
+                    disabled={status.submitting}
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-tinta-suave mb-2">
+                    {copy.email}
+                  </label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    className={inputClass("email")}
+                    disabled={status.submitting}
+                  />
+                  {errors.email && <p className="mt-1 text-sm text-red-600">{errors.email}</p>}
+                </div>
               </div>
 
               {status.error && <p className="text-sm text-red-600">{status.error}</p>}
-              {status.submitted && <p className="text-sm text-verde">{copy.success}</p>}
+              {status.submitted && (
+                <p className="text-sm text-verde">
+                  {status.submitted === "whatsapp" ? copy.success : copy.successFallback}
+                </p>
+              )}
 
               <button
                 type="submit"

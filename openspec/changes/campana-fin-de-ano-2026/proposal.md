@@ -5,7 +5,7 @@ La temporada de ofertas de noviembre y el cierre de año llevan a negocios de Pu
 ## What Changes
 
 - Agregar un bloque de campaña de temporada dentro de `/services/desarrollo-web-puebla/` (ES y EN), sin crear una URL nueva ni una landing duplicada que compita por "desarrollo web Puebla".
-- Ofrecer un diagnóstico gratuito de 30 min con informe corto, y dos salidas de pago: optimización puntual de un sitio existente y Presencia Esencial desde $5,000 MXN con analítica y SEO técnico incluidos.
+- Ofrecer un diagnóstico gratuito de 30 min con informe corto, y dos salidas de pago: optimización puntual de un sitio existente y Web que vende desde $8,500 MXN con analítica y SEO técnico incluidos.
 - Limitar la oferta a 2 proyectos entre noviembre y diciembre de 2026, con el cupo restante visible y actualizado a mano.
 - Publicar fechas explícitas de cierre de contratación y entrega estimada (por definir), además de entregables, condiciones e impuestos aplicables.
 - Crear una URL corta de campaña (por ejemplo `/promo`) que redirige a la landing con `utm_campaign=noviembre_web_2026`.
@@ -29,6 +29,6 @@ La temporada de ofertas de noviembre y el cierre de año llevan a negocios de Pu
 - `src/components/pages/ServiceLandingPage.astro` y `src/pages/services/desarrollo-web-puebla.astro` (y su versión EN en `src/pages/en/services/web-development-puebla.astro`) para el bloque.
 - `netlify.toml` para el redirect corto con UTM.
 - `src/components/islands/ContactForm.jsx` y `WhatsAppButton.jsx` si la atribución no se conserva sola.
-- `src/content/blog/` para el artículo; `src/lib/schema.js` no cambia, porque el precio $5,000 ya está publicado.
+- `src/content/blog/` para el artículo; `src/lib/schema.js` no cambia, porque el precio $8,500 ya está publicado.
 - Sin dependencias nuevas.
 - Riesgo principal: la campaña no depende de SEO. Un cambio de esta semana no posiciona antes de fin de mes, así que el resultado vendrá de mensajes directos por LinkedIn y WhatsApp.

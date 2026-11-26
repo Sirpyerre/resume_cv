@@ -1,0 +1,48 @@
+---
+import { getDictionary, getSiteLinks } from "../../lib/i18n.js"
+import { getWhatsAppHref } from "../../config/contact.js"
+
+const { language = "es" } = Astro.props
+const t = getDictionary(language)
+const links = getSiteLinks(language)
+const c = t.credibility
+---
+
+<section id="casos" class="section bg-crema">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-tinta mb-3 text-center">{c.title}</h2>
+    <p class="text-tinta-suave text-center mb-10 max-w-2xl mx-auto">{c.subtitle}</p>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {c.cases.map((item) => {
+        const href = getWhatsAppHref(item.message)
+        return (
+          <article class="bg-crema-medio rounded-lg p-6 border border-crema-oscuro flex flex-col">
+            <p class="font-heading text-3xl sm:text-4xl font-bold text-verde leading-tight">{item.metric}</p>
+            <p class="text-xs font-bold uppercase tracking-widest text-tinta-suave/70 mt-1 mb-3">{item.company}</p>
+            <h3 class="text-lg font-bold text-tinta mb-3">{item.title}</h3>
+            <blockquote class="border-l-4 border-cobre pl-4 italic text-tinta font-semibold mb-4">“{item.quote}”</blockquote>
+            <p class="text-sm text-tinta-suave mb-2"><strong class="text-tinta">{c.problemLabel}:</strong> {item.problem}</p>
+            <p class="text-sm text-tinta-suave mb-3"><strong class="text-tinta">{c.didLabel}:</strong> {item.did}</p>
+            <ul class="space-y-1 mb-4">
+              {item.results.map((r) => (
+                <li class="flex items-start text-sm text-tinta-suave"><span class="text-verde mr-2">✓</span><span>{r}</span></li>
+              ))}
+            </ul>
+            <p class="text-sm text-tinta mt-auto pt-3 border-t border-crema-oscuro"><strong>{c.familiarLabel}</strong> {item.familiar}</p>
+            <a
+              href={href ?? links.contact}
+              target={href ? "_blank" : undefined}
+              rel={href ? "noopener noreferrer" : undefined}
+              data-whatsapp-location={`caso-${item.metric}`}
+              class="btn-primary text-center mt-4"
+            >
+              {item.cta} →
+            </a>
+            {item.stack && <p class="text-[10px] text-tinta-suave/60 mt-3">{item.stack}</p>}
+          </article>
+        )
+      })}
+    </div>
+  </div>
+</section>

@@ -16,11 +16,11 @@ El sitio SHALL mostrar la oferta de temporada como un bloque dentro de la landin
 - **THEN** la landing se muestra sin el bloque y sin otros cambios
 
 ### Requirement: Oferta y precio coherentes
-La oferta SHALL presentar el diagnóstico gratuito de 30 minutos con informe corto y dos salidas de pago: optimización de un sitio existente y Presencia Esencial desde $5,000 MXN con analítica y revisión SEO técnico incluidos. El precio mostrado MUST coincidir con el publicado en el schema del sitio.
+La oferta SHALL presentar el diagnóstico gratuito de 30 minutos con informe corto y dos salidas de pago: optimización de un sitio existente y Web que vende desde $8,500 MXN con analítica y revisión SEO técnico incluidos. El precio mostrado MUST coincidir con el publicado en el schema del sitio.
 
 #### Scenario: Precio visible
-- **WHEN** el bloque muestra el precio de Presencia Esencial
-- **THEN** indica "desde $5,000 MXN", igual que el schema
+- **WHEN** el bloque muestra el precio de Web que vende
+- **THEN** indica "desde $8,500 MXN", igual que el schema
 
 ### Requirement: Cupos limitados visibles
 El bloque SHALL indicar cuántos de los 2 cupos de noviembre y diciembre siguen disponibles, y SHALL reflejar un cupo agotado.

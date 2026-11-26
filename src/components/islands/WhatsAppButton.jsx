@@ -17,9 +17,9 @@ export default function WhatsAppButton({ language = "es" }) {
 
   const message =
     language === "en"
-      ? "Hi! I would like to inquire about your web services."
-      : "Hola! Me gustaria consultar sobre sus servicios web."
-  const tooltip = language === "en" ? "Need help?" : "Necesitas ayuda?"
+      ? "Hi! I would like to ask about your services."
+      : "¡Hola! Me gustaría consultar sobre tus servicios."
+  const tooltip = language === "en" ? "Need help? Message me" : "¿Necesitas ayuda? Escríbeme"
 
   const handleClick = () => {
     const href = getWhatsAppHref(message)
@@ -47,9 +47,13 @@ export default function WhatsAppButton({ language = "es" }) {
           showTooltip ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"
         }`}
       >
-        <div className="bg-crema text-tinta px-4 py-2 rounded-lg shadow-xl border border-crema-oscuro whitespace-nowrap">
-          <p className="text-sm font-medium">{tooltip}</p>
-        </div>
+        <button
+          type="button"
+          onClick={handleClick}
+          className="bg-crema text-tinta px-4 py-2 rounded-lg shadow-xl border border-crema-oscuro whitespace-nowrap text-sm font-medium hover:border-verde"
+        >
+          {tooltip}
+        </button>
       </div>
 
       <button

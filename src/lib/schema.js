@@ -26,13 +26,13 @@ const PUEBLA_ADDRESS = {
 function buildOffers(language) {
   return [
     {
-      name: es(language, "Presencia Esencial", "Essential Presence"),
+      name: es(language, "Web que vende", "Website that sells"),
       description: es(
         language,
-        "Sitio web de 3-5 paginas, rapido y optimizado para Google",
-        "3-5 page website, fast and Google-optimized",
+        "Sitio web de 3-5 paginas con WhatsApp, Google Business Profile y SEO basico",
+        "3-5 page website with WhatsApp, Google Business Profile, and basic SEO",
       ),
-      price: "5000",
+      price: "8500",
     },
     {
       name: es(language, "Web App Personalizada", "Custom Web App"),
@@ -41,7 +41,7 @@ function buildOffers(language) {
         "Sistemas de reservas, cotizadores y portales a medida",
         "Booking systems, quote tools, and custom portals",
       ),
-      price: "15000",
+      price: "25000",
     },
     {
       name: es(
@@ -54,7 +54,7 @@ function buildOffers(language) {
         "Sistemas web para centralizar información y organizar procesos internos, según el alcance del proyecto.",
         "Web systems to centralize information and organize internal workflows, scoped to each project.",
       ),
-      price: "20000",
+      price: "25000",
     },
     {
       name: es(language, "Mantenimiento Mensual", "Monthly Maintenance"),

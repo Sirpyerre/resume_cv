@@ -2,7 +2,7 @@
 title: "¿Cuánto cuesta una página web en Puebla en 2026?"
 seoTitle: "¿Cuánto cuesta una página web en Puebla en 2026?"
 date: 2026-09-27
-description: "Conoce qué incluye un sitio web desde $5,000 MXN y qué factores conviene definir antes de cotizar un proyecto en Puebla."
+description: "Conoce qué incluye un sitio web desde $8,500 MXN y qué factores conviene definir antes de cotizar un proyecto en Puebla."
 language: es
 categories:
   - Desarrollo Web
@@ -15,9 +15,9 @@ cover: "/images/posts/precio-pagina-web-puebla.png"
 coverLabel: "Ilustración de una página web y una cotización de proyecto en Puebla."
 ---
 
-El precio de una página web depende de lo que el negocio necesita publicar y de las funciones que debe cubrir. Para tener una referencia concreta, el paquete **Presencia Esencial empieza en $5,000 MXN** e incluye un sitio de 3 a 5 páginas, SEO básico, formulario de contacto y un mes de soporte.
+El precio de una página web depende de lo que el negocio necesita publicar y de las funciones que debe cubrir. Para tener una referencia concreta, el paquete **Web que vende empieza en $8,500 MXN** e incluye un sitio de 3 a 5 páginas, WhatsApp integrado, Google Business Profile configurado, SEO básico, formulario de contacto y un mes de soporte.
 
-## Qué incluye el paquete Presencia Esencial
+## Qué incluye el paquete Web que vende
 
 El alcance base está pensado para presentar un negocio y facilitar que un cliente potencial encuentre sus servicios y solicite información. Antes de iniciar se acuerdan las páginas, el contenido, el formulario y los accesos necesarios.
 

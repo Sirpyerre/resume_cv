@@ -15,7 +15,7 @@
 
 - [ ] 3.1 Crear el componente del bloque con diagnóstico gratuito, las dos salidas de pago, el cupo restante, las condiciones e impuestos, y el CTA al contacto; verificar visualmente en ES y EN con `npm run dev`
 - [x] 3.2 Insertarlo en `ServiceLandingPage.astro` para `/services/desarrollo-web-puebla/` y su versión EN, y verificar que solo aparece con `active: true`
-- [x] 3.3 Mostrar el precio "desde $5,000 MXN" y comprobar que coincide con `buildOffers` en `src/lib/schema.js`, sin modificar el schema
+- [x] 3.3 Mostrar el precio "desde $8,500 MXN" y comprobar que coincide con `buildOffers` en `src/lib/schema.js`, sin modificar el schema
 - [x] 3.4 Mostrar el estado sin cupos y verificar que, con cupos en cero, el bloque no invita a contratar
 - [x] 3.5 Revisar el copy ES/EN y verificar con `grep -rni "buen fin" src/config/campaign.js` que no hay marca oficial en el bloque
 

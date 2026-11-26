@@ -20,7 +20,7 @@ coverLabel: "Illustration of a web system and the factors that shape its quote."
 
 The price of a custom system depends on the problem it needs to solve. An application that collects requests has a different scope from a platform with multiple modules, user roles, and integrations.
 
-In Puebla, a **custom web app can start at $15,000 MXN**. For an internal system that centralizes information and automates processes, the starting price is **$20,000 MXN**. These are starting points: the final quote comes after reviewing the workflow and agreeing on scope.
+In Puebla, a **custom web app can start at $25,000 MXN**. For an internal system that centralizes information and automates processes, the starting price is **$25,000 MXN**. These are starting points: the final quote comes after reviewing the workflow and agreeing on scope.
 
 ## What affects the cost
 

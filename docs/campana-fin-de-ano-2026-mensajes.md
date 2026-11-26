@@ -22,7 +22,7 @@ Reglas de la campaña (no cambiar en los textos):
 
 > Si tu negocio recibe más visitas en temporada de ofertas, la pregunta es qué pasa cuando llegan: ¿el sitio carga rápido en el celular? ¿se ve el botón de WhatsApp? ¿el formulario te llega?
 >
-> Para cerrar el año, ofrezco un **diagnóstico gratuito de 30 minutos** de tu sitio web, con un informe corto de lo que conviene mejorar. Si después quieres avanzar, tengo dos opciones: optimizar tu sitio actual (3 a 5 mejoras puntuales) o una página nueva desde $5,000 MXN + impuestos.
+> Para cerrar el año, ofrezco un **diagnóstico gratuito de 30 minutos** de tu sitio web, con un informe corto de lo que conviene mejorar. Si después quieres avanzar, tengo dos opciones: optimizar tu sitio actual (3 a 5 mejoras puntuales) o una página nueva desde $8,500 MXN + impuestos.
 >
 > Tomo solo 2 proyectos entre noviembre y diciembre; contratación hasta el 15 de diciembre.
 >
@@ -50,13 +50,13 @@ Reglas de la campaña (no cambiar en los textos):
 
 > Gracias por la llamada, [nombre]. Te dejo el informe con lo que vimos. Para avanzar tienes dos caminos:
 > 1. **Optimización de tu sitio actual:** 3 a 5 mejoras puntuales; el presupuesto es cerrado y te lo envío esta semana. Entrega estimada: 2 semanas después de contratar.
-> 2. **Página nueva (Presencia Esencial):** desde $5,000 MXN + impuestos.
+> 2. **Página nueva (Web que vende):** desde $8,500 MXN + impuestos.
 >
 > Contratación hasta el 15 de diciembre. Quedan [N] de 2 cupos.
 
 ## 7. Respuesta a "¿cuánto cuesta?"
 
-> La página nueva empieza desde $5,000 MXN + impuestos. La optimización de un sitio existente se cotiza tras el diagnóstico gratuito, porque depende de lo que haya que mejorar. ¿Agendamos 30 minutos para revisarlo?
+> La página nueva empieza desde $8,500 MXN + impuestos. La optimización de un sitio existente se cotiza tras el diagnóstico gratuito, porque depende de lo que haya que mejorar. ¿Agendamos 30 minutos para revisarlo?
 
 ## 8. Cuando se llenan los cupos
 

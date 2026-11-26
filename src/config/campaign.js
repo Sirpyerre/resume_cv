@@ -23,8 +23,8 @@ export const CAMPAIGN = {
           body: "3 a 5 mejoras puntuales de velocidad, experiencia móvil, SEO técnico y conversiones. El presupuesto se define tras el diagnóstico.",
         },
         {
-          title: "Presencia Esencial desde $5,000 MXN + impuestos",
-          body: "Sitio profesional de 3 a 5 páginas, con configuración de analítica y eventos de contacto, y revisión inicial de SEO técnico incluidas.",
+          title: "Web que vende desde $8,500 MXN + impuestos",
+          body: "Sitio profesional de 3 a 5 páginas con WhatsApp y Google Business Profile, con configuración de analítica y eventos de contacto, y revisión inicial de SEO técnico incluidas.",
         },
       ],
       slotsLabel: (remaining, total) =>
@@ -57,7 +57,7 @@ export const CAMPAIGN = {
           body: "3 to 5 targeted improvements to speed, mobile experience, technical SEO, and conversions. Pricing is set after the diagnostic.",
         },
         {
-          title: "Essential Presence from $5,000 MXN + taxes",
+          title: "Website that sells from $8,500 MXN + taxes",
           body: "Professional 3 to 5 page website, with analytics and contact-event setup and an initial technical SEO review included.",
         },
       ],

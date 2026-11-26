@@ -1,36 +1,35 @@
+import { price } from "../config/pricing.js"
+
 export const content = {
   en: {
     hero: {
       name: "Pedro Rojas Reyes",
-      badge: "Web Development · Puebla, México",
-      selectorTitle: "What do you need to solve?",
-      headlinePart1: "Web development and",
-      headlinePart2: "custom software in Puebla",
-      description: "Websites, apps, and internal systems designed around how your business works — from getting found online to organizing processes in one place.",
-      ctaPrimary: "Book your free consultation",
-      ctaSecondary: "View projects",
-      socialProofCount: "+5 businesses",
-      socialProofText: "in Puebla already online",
-      popularLabel: "Most popular service",
-      popularServiceName: "Essential Presence",
-      popularServiceDesc: "3–5 page site that shows up on Google and turns visits into calls.",
-      popularServicePrice: "$5,000",
-      popularServiceCurrency: "MXN",
-      popularServiceDelivery: "delivery in 2 weeks",
-      popularServiceFeatures: [
-        "Responsive design & fast loading",
-        "Optimized for Google (basic SEO)",
-        "Contact form + 1 month support"
-      ],
-      webAppName: "Custom web apps",
-      webAppDesc: "Bookings, quote tools, and portals. From $15,000 MXN.",
-      automationName: "Process automation",
-      automationDesc: "Internal systems for repetitive workflows. From $20,000 MXN.",
-      whatsappQuestion: "Have questions before deciding?",
-      whatsappText: "Message me today — I reply the same day.",
-      whatsappCta: "WhatsApp",
-      title: "Websites and software that support the way your business works",
-      specialization: "I help businesses in Puebla build a stronger online presence and replace manual work with useful digital systems.",
+      badge: "Custom software & web · Puebla, México",
+      selectorTitle: "Pick how you want to stop losing time and customers",
+      headlinePart1: "Get your business out of",
+      headlinePart2: "Excel and WhatsApp",
+      description: "I build the system your team needs: orders, inventory, appointments, quotes, or collections in one place. Less manual work, fewer errors, more time to sell.",
+      ctaPrimary: "Get your system quote",
+      ctaSecondary: "See real cases",
+      socialProofCount: "10+ years",
+      socialProofText: "building systems for companies that cannot afford to fail",
+      starBadge: "Biggest results",
+      starName: "From Excel to your system",
+      starDesc: "A web system built around your process: role-based users, reports, and training included.",
+      starPrice: `From ${price.system} MXN`,
+      starTime: "3 to 5 weeks",
+      starCta: "I want out of Excel",
+      starHref: "/en/services/business-process-automation-puebla/",
+      webName: "Website that sells",
+      webDesc: `Site + WhatsApp + Google Business. From ${price.web} MXN.`,
+      supportName: "Monthly support",
+      supportDesc: `Hosting, backups, and changes. From ${price.supportWeb} MXN/month.`,
+      whatsappQuestion: "Questions before deciding?",
+      whatsappText: "Message me today and I will reply the same day.",
+      whatsappCta: "Message me on WhatsApp",
+      whatsappMessage: "Hi! I want to get my business out of Excel and WhatsApp. Can you help me see how?",
+      title: "Systems and websites that solve how your business works",
+      specialization: "I help businesses in Puebla replace manual work and win more customers online.",
       downloadResume: "Schedule an Exploratory Call",
       availability: "Serving local businesses in Puebla and beyond."
     },
@@ -44,67 +43,126 @@ export const content = {
     },
     services: {
       title: "Services and pricing",
-      subtitle: "Choose the right starting point, from a professional website to software for your business processes.",
+      subtitle: "Start with the problem that costs you most: a system for your operation, a website that brings customers, or support so you can sleep well.",
       packages: [
         {
-          name: "Essential Presence",
-          price: "Starting at $5,000 MXN",
-          description: "A professional and ultra-fast website so your customers can find you. Includes 3-5 pages (Home, Services, Contact) and a form to receive prospects directly to your email.",
-          href: "/en/services/web-development-puebla/",
-          features: [
-            "Modern and responsive design (mobile-friendly)",
-            "3-5 professional pages",
-            "Contact form integrated with email",
-            "Google-optimized (Fast SEO)",
-            "Hosted on secure cloud infrastructure",
-            "1 month of free support"
-          ],
-          ideal: "Examples: local businesses and professionals who need a clear website."
-        },
-        {
-          name: "Custom Web App",
-          price: "From $15,000 MXN",
-          description: "A web application designed around a specific task, such as bookings, online quotes, or a customer portal.",
-          href: "/en/services/custom-software-puebla/",
-          featuresLabel: "Possible features, depending on scope:",
-          features: [
-            "Custom online booking system",
-            "Online quote calculator",
-            "Customer/member portal",
-            "Inventory or catalog management",
-            "Integration with payment systems",
-            "Scalable cloud infrastructure"
-          ],
-          ideal: "Examples: service businesses, stores, and teams that need a dedicated online tool."
-        },
-        {
-          name: "Process Automation & Internal Systems",
-          price: "From $20,000 MXN",
-          description: "Move information and recurring work out of scattered spreadsheets and into a system designed around your process.",
+          name: "From Excel to your system",
+          badge: "Flagship",
+          featured: true,
+          price: `From ${price.system} MXN`,
+          time: "3 to 5 weeks",
+          description: "A web system for one of your business processes: orders, inventory, appointments, quotes, or collections. Role-based users, reports, and training for your team.",
           href: "/en/services/business-process-automation-puebla/",
-          featuresLabel: "Possible features, depending on scope:",
+          extraHref: "/en/services/custom-software-puebla/",
+          extraLabel: "Need a custom web app?",
+          cta: "I want out of Excel",
+          ctaMessage: `Hi, I want to get my business out of Excel. I am interested in From Excel to your system (from ${price.system} MXN).`,
           features: [
-            "Centralized information and role-based access",
-            "Workflows and task tracking",
-            "History, dashboards, or reports when needed",
-            "Integrations scoped to the project",
+            "Orders, inventory, appointments, quotes, or collections",
+            "Role-based users and permissions",
+            "Reports you no longer build by hand",
+            "Training for your team",
+            "Integrations with payments, invoicing, or WhatsApp when in scope"
           ],
-          ideal: "Examples: teams that consolidate spreadsheets, emails, and recurring reports."
+          ideal: "For teams losing hours between spreadsheets, email, and chats."
         },
         {
-          name: "Maintenance & Support",
-          price: "$1,500 MXN/month",
-          description: "Reduce security risks with vulnerability reviews, updates, and backups. I take care of maintenance so you can focus on your business.",
-          href: "/en/services/website-maintenance/",
+          name: "Website that sells",
+          price: `From ${price.web} MXN`,
+          time: "1 to 2 weeks",
+          description: "A 3 to 5 page site built so people find you and message you: WhatsApp built in, Google Business Profile set up, and a contact form.",
+          href: "/en/services/web-development-puebla/",
+          cta: "I want more customers",
+          ctaMessage: `Hi, I want a website that sells. I am interested in Website that sells (from ${price.web} MXN).`,
           features: [
-            "Security updates within the agreed scope",
-            "Performance monitoring",
-            "Regular backups",
-            "Priority technical support",
-            "Minor content updates",
-            "Known vulnerability reviews"
+            "3 to 5 responsive pages",
+            "WhatsApp button and flow",
+            "Google Business Profile set up",
+            "Contact form",
+            "Basic SEO and fast loading",
+            "1 month of support"
           ],
-          ideal: "Ideal for: Businesses that need ongoing maintenance and help managing website security risks."
+          ideal: "For businesses and professionals who want to be found and contacted."
+        },
+        {
+          name: "Monthly support",
+          price: `From ${price.supportWeb} MXN/month (website)`,
+          priceAlt: `${price.supportSystemFrom} to ${price.supportSystemTo} MXN/month (system)`,
+          time: "Recurring",
+          description: "I make sure everything keeps running: hosting, backups, updates, and 2 hours of changes per month.",
+          href: "/en/services/website-maintenance/",
+          cta: "I want peace of mind",
+          ctaMessage: "Hi, I would like information about monthly support for my website or system.",
+          features: [
+            "Hosting and backups",
+            "Security updates",
+            "2 hours of changes per month",
+            "Performance monitoring",
+            "Priority technical support"
+          ],
+          ideal: "For anyone who does not want to worry about the technical side."
+        }
+      ]
+    },
+    credibility: {
+      title: "I have built systems for companies like…",
+      subtitle: "Real cases, no names. If one sounds familiar, tell me about yours.",
+      familiarLabel: "Sound familiar?",
+      problemLabel: "The problem",
+      didLabel: "What I did",
+      resultLabel: "The result",
+      cases: [
+        {
+          metric: "8 h → 15 min",
+          company: "Identity verification and trust company",
+          title: "A dashboard that brings all the information into one place",
+          quote: "Each review went from 6–8 hours to 15–20 minutes.",
+          problem: "To review each person, the team queried several external services one by one and combined the results by hand. A single review could take 6 to 8 hours.",
+          did: "I built an internal system that queries all those sources automatically and shows the information on a single screen. The team no longer jumps between tools: they see everything, assess, and decide.",
+          results: ["Each review went from 6–8 hours to 15–20 minutes.", "The same team handles many more cases per day.", "Fewer errors from copying and pasting data by hand."],
+          familiar: "If your team loses hours checking several systems, spreadsheets, or portals to build a report, that can be automated.",
+          stack: "React · PHP (Mezzio/Laminas) · Go · MongoDB · AWS Lambda",
+          cta: "I want to automate my reports",
+          message: "Hi, my team loses hours gathering information from several systems. I want to see if it can be automated (From Excel to your system)."
+        },
+        {
+          metric: "−40% errors",
+          company: "Nationwide job platform",
+          title: "A faster page that ranks better on Google",
+          quote: "40% fewer load errors and better Google ranking.",
+          problem: "The job listings page, one of the most visited, had to request data from several systems before displaying. It was slow, sometimes never finished loading, and Google penalized it.",
+          did: "I built an intermediate layer that gathers all the data in a single request and groups repeated queries so the same thing is never fetched twice.",
+          results: ["40% fewer load errors.", "Faster pages for users.", "Better Google ranking."],
+          familiar: "A slow page loses visitors and customers. If your site is slow to load or does not show up on Google, it can be optimized.",
+          stack: "Go · GraphQL",
+          cta: "I want a faster website",
+          message: "Hi, my website is slow or does not show up on Google. I am interested in Website that sells."
+        },
+        {
+          metric: "0 rework",
+          company: "Digital payments company",
+          title: "Clarify the rules before coding: less rework, lower cost",
+          quote: "I found a bug already in production that affected more customers than anyone thought.",
+          problem: "When adding a new payment method, the business rules were unclear: who decides which methods each customer sees? Every change raised new questions and development moved blind.",
+          did: "Before coding further, I built a table of all possible scenarios and reviewed it with the business team until every rule was defined and documented.",
+          results: ["Clear rules validated by the business.", "Development finished with no rework.", "An existing production bug came to light."],
+          familiar: "Many projects get more expensive because code is written before the process is understood. That is why I first define with you how your business works, then build.",
+          stack: "",
+          cta: "I want to define my process first",
+          message: "Hi, I want to define my process properly before building a system (From Excel to your system)."
+        },
+        {
+          metric: "Payments that stay up",
+          company: "Digital payments company",
+          title: "Connect systems with external services safely and reliably",
+          quote: "Payments keep working even when the external service fails.",
+          problem: "The company needed to connect its billing system to an external fraud-prevention service without stopping payments if that service failed or exposing customers' personal data.",
+          did: "I built a reusable component that talks to the anti-fraud service, retries automatically on failure, and never stores sensitive data in logs. I planned and documented everything before writing code.",
+          results: ["A production-ready, reusable connection.", "Payments keep working even if the external service has problems.", "Customers' personal data stays protected."],
+          familiar: "If your business needs to connect with invoicing, online payments, WhatsApp, or your inventory system, I can integrate it safely.",
+          stack: "",
+          cta: "I want to connect my systems",
+          message: "Hi, I need to connect my business with invoicing, payments, WhatsApp, or inventory (From Excel to your system)."
         }
       ]
     },
@@ -118,8 +176,8 @@ export const content = {
           icon: "shield"
         },
         {
-          title: "Real Solutions, Not Just Templates",
-          description: "Unlike other designers, I build functionality from scratch. If you need a specific tool for your business, I don't depend on plugins; I create it for you. This gives you total control and flexibility for the future.",
+          title: "Your system does what your business needs",
+          description: "I start from how you work, not from a template. If you need a specific tool, I build it for you, so you get control, flexibility, and a system that grows with your business.",
           icon: "code"
         },
         {
@@ -169,15 +227,15 @@ export const content = {
       items: [
         {
           question: "How much does a professional website cost?",
-          answer: "A professional website starts at $5,000 MXN, and custom web apps start at $15,000 MXN. Process automation and internal systems start at $20,000 MXN; the final quote depends on modules, users, integrations, and process complexity. Monthly maintenance is $1,500 MXN/month."
+          answer: `A website that sells (3–5 pages, WhatsApp, Google Business Profile, and contact form) starts at ${price.web} MXN. Systems that replace Excel and WhatsApp start at ${price.system} MXN; the final quote depends on modules, users, integrations, and process complexity. Monthly support starts at ${price.supportWeb} MXN/month (website) and ${price.supportSystemFrom}–${price.supportSystemTo} MXN/month (system).`
         },
         {
           question: "How long does it take to build my website?",
-          answer: "The Essential Presence package is delivered in 2 weeks. Custom web apps typically take 4–8 weeks depending on complexity. The timeline starts once we agree on the scope and you provide the content (texts and images)."
+          answer: "Website that sells is delivered in 1 to 2 weeks. Systems that replace Excel typically take 3 to 5 weeks depending on complexity. The timeline starts once we agree on the scope and you provide the content (texts and images)."
         },
         {
-          question: "What's included in the Essential Presence package?",
-          answer: "It includes: modern responsive design (works on mobile and desktop), 3–5 professional pages, contact form connected to your email, basic SEO optimization so Google can find you, secure cloud hosting, and 1 month of free technical support."
+          question: "What does Website that sells include?",
+          answer: "It includes: modern responsive design (works on mobile and desktop), 3–5 professional pages, WhatsApp integration, Google Business Profile set up, a contact form, basic SEO optimization so Google can find you, secure cloud hosting, and 1 month of free technical support."
         },
         {
           question: "Do you work with businesses outside Puebla?",
@@ -203,7 +261,7 @@ export const content = {
     },
     contact: {
       title: "Contact",
-      subtitle: "Ready to grow your business online? Let's talk about how I can help you get more customers!",
+      subtitle: "Ready to leave Excel behind and win more customers? Tell me about your business and what you want to solve; I will reply on WhatsApp.",
       links: {
         email: "Email",
         github: "GitHub",
@@ -216,35 +274,32 @@ export const content = {
   es: {
     hero: {
       name: "Pedro Rojas Reyes",
-      badge: "Desarrollo Web · Puebla, México",
-      selectorTitle: "¿Qué necesitas resolver?",
-      headlinePart1: "Desarrollo web y",
-      headlinePart2: "software a medida en Puebla",
-      description: "Sitios, aplicaciones y sistemas internos diseñados para cómo trabaja tu empresa: desde atraer clientes hasta organizar procesos en un solo lugar.",
-      ctaPrimary: "Agenda tu consulta gratis",
-      ctaSecondary: "Ver proyectos",
-      socialProofCount: "+5 negocios",
-      socialProofText: "en Puebla ya tienen presencia online",
-      popularLabel: "Servicio más popular",
-      popularServiceName: "Presencia Esencial",
-      popularServiceDesc: "Sitio de 3–5 páginas que aparece en Google y convierte visitas en llamadas.",
-      popularServicePrice: "$5,000",
-      popularServiceCurrency: "MXN",
-      popularServiceDelivery: "entrega en 2 semanas",
-      popularServiceFeatures: [
-        "Diseño responsivo y carga rápida",
-        "Optimizado para Google (SEO básico)",
-        "Formulario de contacto + 1 mes soporte"
-      ],
-      webAppName: "Web apps a medida",
-      webAppDesc: "Reservas, cotizadores y portales. Desde $15,000 MXN.",
-      automationName: "Automatización de procesos",
-      automationDesc: "Sistemas internos para tareas repetitivas. Desde $20,000 MXN.",
-      whatsappQuestion: "¿Tienes dudas antes de decidir?",
+      badge: "Software a medida y web · Puebla, México",
+      selectorTitle: "Elige cómo quieres dejar de perder tiempo y clientes",
+      headlinePart1: "Saca tu negocio del",
+      headlinePart2: "Excel y WhatsApp",
+      description: "Construyo el sistema que tu equipo necesita: pedidos, inventario, citas, cotizaciones o cobranza en un solo lugar. Menos trabajo manual, menos errores, más tiempo para vender.",
+      ctaPrimary: "Cotiza tu sistema",
+      ctaSecondary: "Mira casos reales",
+      socialProofCount: "10+ años",
+      socialProofText: "construyendo sistemas para empresas que no pueden fallar",
+      starBadge: "Lo que más resultados da",
+      starName: "Del Excel a tu sistema",
+      starDesc: "Un sistema web hecho para tu proceso: usuarios por rol, reportes y capacitación incluida.",
+      starPrice: `Desde ${price.system} MXN`,
+      starTime: "3 a 5 semanas",
+      starCta: "Quiero salir del Excel",
+      starHref: "/services/automatizacion-procesos-puebla/",
+      webName: "Web que vende",
+      webDesc: `Sitio + WhatsApp + Google Business. Desde ${price.web} MXN.`,
+      supportName: "Soporte mensual",
+      supportDesc: `Hosting, respaldos y cambios. Desde ${price.supportWeb} MXN/mes.`,
+      whatsappQuestion: "¿Dudas antes de decidir?",
       whatsappText: "Escríbeme hoy y te respondo el mismo día.",
-      whatsappCta: "WhatsApp",
-      title: "Sitios y software que se adaptan a cómo trabaja tu empresa",
-      specialization: "Ayudo a empresas en Puebla a fortalecer su presencia digital y cambiar tareas manuales por sistemas útiles.",
+      whatsappCta: "Escríbeme por WhatsApp",
+      whatsappMessage: "¡Hola! Quiero sacar mi negocio del Excel y WhatsApp. ¿Me ayudas a ver cómo?",
+      title: "Sistemas y sitios que resuelven cómo trabaja tu negocio",
+      specialization: "Ayudo a empresas en Puebla a dejar las tareas manuales y a conseguir más clientes en línea.",
       downloadResume: "Agenda una Llamada Exploratoria",
       availability: "Sirviendo a negocios locales en Puebla y más."
     },
@@ -258,67 +313,126 @@ export const content = {
     },
     services: {
       title: "Servicios y precios",
-      subtitle: "Elige el punto de partida adecuado, desde una página profesional hasta software para los procesos de tu empresa.",
+      subtitle: "Empieza por el problema que más te cuesta: un sistema para tu operación, una web que te traiga clientes, o soporte para dormir tranquilo.",
       packages: [
         {
-          name: "Presencia Esencial",
-          price: "Desde $5,000 MXN",
-          description: "Un sitio web profesional y ultra-rápido para que tus clientes te encuentren. Incluye 3-5 páginas (Inicio, Servicios, Contacto) y un formulario para recibir prospectos directo en tu email.",
-          href: "/services/desarrollo-web-puebla/",
-          features: [
-            "Diseño moderno y responsivo (móvil-friendly)",
-            "3-5 páginas profesionales",
-            "Formulario de contacto integrado con email",
-            "Optimizado para Google (SEO rápido)",
-            "Alojamiento en infraestructura en la nube segura",
-            "1 mes de soporte gratuito"
-          ],
-          ideal: "Ejemplos: negocios locales y profesionales que necesitan un sitio claro."
-        },
-        {
-          name: "Web App Personalizada",
-          price: "Desde $15,000 MXN",
-          description: "Una aplicación web diseñada para una tarea concreta, como reservas, cotizaciones en línea o un portal para clientes.",
-          href: "/services/software-a-medida-puebla/",
-          featuresLabel: "Funciones posibles según el alcance:",
-          features: [
-            "Sistema de reservas en línea personalizado",
-            "Cotizador en línea",
-            "Portal para clientes/miembros",
-            "Gestión de inventarios o catálogos",
-            "Integración con sistemas de pago",
-            "Infraestructura en la nube escalable"
-          ],
-          ideal: "Ejemplos: negocios de servicios, tiendas y equipos que necesitan una herramienta en línea específica."
-        },
-        {
-          name: "Automatización de Procesos y Sistemas Internos",
-          price: "Desde $20,000 MXN",
-          description: "Lleva la información y el trabajo recurrente de hojas dispersas a un sistema diseñado alrededor de tu proceso.",
+          name: "Del Excel a tu sistema",
+          badge: "Estrella",
+          featured: true,
+          price: `Desde ${price.system} MXN`,
+          time: "3 a 5 semanas",
+          description: "Un sistema web para un proceso de tu negocio: pedidos, inventario, citas, cotizaciones o cobranza. Usuarios por rol, reportes y capacitación para tu equipo.",
           href: "/services/automatizacion-procesos-puebla/",
-          featuresLabel: "Funciones posibles según el alcance:",
+          extraHref: "/services/software-a-medida-puebla/",
+          extraLabel: "¿Necesitas una web app a medida?",
+          cta: "Quiero salir del Excel",
+          ctaMessage: `Hola, quiero sacar mi negocio del Excel. Me interesa Del Excel a tu sistema (desde ${price.system} MXN).`,
           features: [
-            "Información centralizada y accesos por perfil",
-            "Flujos de trabajo y seguimiento de tareas",
-            "Historial, tableros o reportes según se necesiten",
-            "Integraciones definidas para cada proyecto",
+            "Pedidos, inventario, citas, cotizaciones o cobranza",
+            "Usuarios por rol y permisos",
+            "Reportes que ya no armas a mano",
+            "Capacitación para tu equipo",
+            "Integraciones con pagos, facturación o WhatsApp según el alcance"
           ],
-          ideal: "Ejemplos: equipos que consolidan hojas de cálculo, correos e informes periódicos."
+          ideal: "Para equipos que pierden horas entre hojas de cálculo, correos y chats."
         },
         {
-          name: "Mantenimiento y Soporte",
-          price: "$1,500 MXN/mes",
-          description: "Reduce riesgos con revisión de vulnerabilidades, actualizaciones y respaldos. Me encargo del mantenimiento para que te enfoques en tu negocio.",
-          href: "/services/mantenimiento-web/",
+          name: "Web que vende",
+          price: `Desde ${price.web} MXN`,
+          time: "1 a 2 semanas",
+          description: "Sitio de 3 a 5 páginas pensado para que te encuentren y te escriban: WhatsApp integrado, Google Business Profile configurado y formulario de contacto.",
+          href: "/services/desarrollo-web-puebla/",
+          cta: "Quiero más clientes",
+          ctaMessage: `Hola, quiero una web que venda. Me interesa Web que vende (desde ${price.web} MXN).`,
           features: [
-            "Actualizaciones de seguridad según el alcance",
-            "Monitoreo de rendimiento",
-            "Respaldos regulares",
-            "Soporte técnico prioritario",
-            "Actualizaciones menores de contenido",
-            "Revisión de vulnerabilidades conocidas"
+            "3 a 5 páginas con diseño responsivo",
+            "Botón y flujo de WhatsApp",
+            "Google Business Profile configurado",
+            "Formulario de contacto",
+            "SEO básico y carga rápida",
+            "1 mes de soporte"
           ],
-          ideal: "Ideal para: Negocios que necesitan mantenimiento continuo y apoyo para atender riesgos de seguridad web."
+          ideal: "Para negocios y profesionales que quieren que los encuentren y los contacten."
+        },
+        {
+          name: "Soporte mensual",
+          price: `Desde ${price.supportWeb} MXN/mes (web)`,
+          priceAlt: `${price.supportSystemFrom} a ${price.supportSystemTo} MXN/mes (sistema)`,
+          time: "Recurrente",
+          description: "Yo me encargo de que todo siga funcionando: hosting, respaldos, actualizaciones y 2 horas de cambios al mes.",
+          href: "/services/mantenimiento-web/",
+          cta: "Quiero estar tranquilo",
+          ctaMessage: "Hola, quiero información sobre el soporte mensual para mi sitio o sistema.",
+          features: [
+            "Hosting y respaldos",
+            "Actualizaciones de seguridad",
+            "2 horas de cambios al mes",
+            "Monitoreo de rendimiento",
+            "Soporte técnico prioritario"
+          ],
+          ideal: "Para quien no quiere preocuparse por la parte técnica."
+        }
+      ]
+    },
+    credibility: {
+      title: "He construido sistemas para empresas como…",
+      subtitle: "Casos reales, sin nombres. Si algo te suena familiar, cuéntame el tuyo.",
+      familiarLabel: "¿Te suena familiar?",
+      problemLabel: "El problema",
+      didLabel: "Lo que hice",
+      resultLabel: "El resultado",
+      cases: [
+        {
+          metric: "8 h → 15 min",
+          company: "Empresa de verificación de identidad y confianza",
+          title: "Un panel que reúne toda la información en un solo lugar",
+          quote: "Cada revisión pasó de 6–8 horas a 15–20 minutos.",
+          problem: "Para revisar a cada persona, el equipo consultaba varios servicios externos uno por uno y juntaba los resultados a mano. Una sola revisión podía llevar entre 6 y 8 horas.",
+          did: "Desarrollé un sistema interno que consulta todas esas fuentes de forma automática y muestra la información en una sola pantalla. El equipo ya no salta entre herramientas: ve todo, evalúa y decide.",
+          results: ["Cada revisión pasó de 6–8 horas a 15–20 minutos.", "El mismo equipo atiende muchos más casos al día.", "Menos errores por copiar y pegar datos a mano."],
+          familiar: "Si tu equipo pierde horas consultando varios sistemas, hojas de Excel o portales para armar un reporte, eso se puede automatizar.",
+          stack: "React · PHP (Mezzio/Laminas) · Go · MongoDB · AWS Lambda",
+          cta: "Quiero automatizar mis reportes",
+          message: "Hola, mi equipo pierde horas juntando información de varios sistemas. Quiero ver si se puede automatizar (Del Excel a tu sistema)."
+        },
+        {
+          metric: "−40% errores",
+          company: "Plataforma de empleo de alcance nacional",
+          title: "Una página más rápida que posiciona mejor en Google",
+          quote: "40% menos errores de carga y mejor posicionamiento en Google.",
+          problem: "La página de vacantes, una de las más visitadas, tenía que pedir información a varios sistemas antes de mostrarse. Era lenta, a veces no terminaba de cargar y Google la penalizaba.",
+          did: "Creé una capa intermedia que reúne toda la información en una sola petición y agrupa las consultas repetidas para no pedir dos veces lo mismo.",
+          results: ["40% menos errores de carga.", "Páginas más rápidas para los usuarios.", "Mejor posicionamiento en Google."],
+          familiar: "Una página lenta pierde visitantes y clientes. Si tu sitio tarda en cargar o no aparece en Google, se puede optimizar.",
+          stack: "Go · GraphQL",
+          cta: "Quiero un sitio más rápido",
+          message: "Hola, mi sitio es lento o no aparece en Google. Me interesa Web que vende."
+        },
+        {
+          metric: "0 retrabajo",
+          company: "Empresa de pagos digitales",
+          title: "Aclarar las reglas antes de programar: menos retrabajo, menos costo",
+          quote: "Descubrí un error que ya existía en producción y afectaba a más clientes de los que se creía.",
+          problem: "Al agregar un nuevo método de pago, las reglas del negocio no estaban claras: ¿quién decide qué métodos ve cada cliente? Cada cambio generaba dudas nuevas y el desarrollo avanzaba a ciegas.",
+          did: "Antes de seguir programando, armé una tabla con todos los escenarios posibles y la revisé con el equipo de negocio hasta tener cada regla definida y documentada.",
+          results: ["Reglas claras y validadas por el negocio.", "El desarrollo se terminó sin retrabajo.", "Un error existente en producción salió a la luz."],
+          familiar: "Muchos proyectos se encarecen porque se programa antes de entender el proceso. Por eso, primero defino contigo cómo funciona tu negocio y después construyo.",
+          stack: "",
+          cta: "Quiero definir mi proceso primero",
+          message: "Hola, quiero definir bien mi proceso antes de construir un sistema (Del Excel a tu sistema)."
+        },
+        {
+          metric: "Cobros que no se caen",
+          company: "Empresa de pagos digitales",
+          title: "Conectar sistemas con servicios externos de forma segura y confiable",
+          quote: "Los cobros siguen funcionando aunque el servicio externo falle.",
+          problem: "La empresa necesitaba conectar su sistema de cobros con un servicio externo de prevención de fraude, sin detener pagos si ese servicio fallaba ni exponer datos personales de los clientes.",
+          did: "Desarrollé un componente reutilizable que se comunica con el servicio antifraude, reintenta automáticamente si algo falla y nunca guarda información sensible en los registros. Lo planifiqué y documenté por completo antes de escribir código.",
+          results: ["Una conexión lista para producción y reutilizable.", "Los cobros siguen funcionando aunque el servicio externo tenga problemas.", "Los datos personales de los clientes quedan protegidos."],
+          familiar: "Si tu negocio necesita conectarse con tu facturación, pagos en línea, WhatsApp o tu sistema de inventario, puedo integrarlo de forma segura.",
+          stack: "",
+          cta: "Quiero conectar mis sistemas",
+          message: "Hola, necesito conectar mi negocio con facturación, pagos, WhatsApp o inventario (Del Excel a tu sistema)."
         }
       ]
     },
@@ -332,8 +446,8 @@ export const content = {
           icon: "shield"
         },
         {
-          title: "Soluciones Reales, No Solo Plantillas",
-          description: "A diferencia de otros diseñadores, yo construyo la funcionalidad desde cero. Si necesitas una herramienta específica para tu negocio, no dependo de plugins; yo la creo para ti. Esto te da control total y flexibilidad a futuro.",
+          title: "Tu sistema hace lo que tu negocio necesita",
+          description: "Parto de cómo trabajas tú, no de una plantilla. Si necesitas una herramienta específica, la construyo para ti: tienes control, flexibilidad y un sistema que crece con tu negocio.",
           icon: "code"
         },
         {
@@ -383,15 +497,15 @@ export const content = {
       items: [
         {
           question: "¿Cuánto cuesta una página web profesional?",
-          answer: "Una página web profesional comienza desde $5,000 MXN y las web apps personalizadas desde $15,000 MXN. La automatización de procesos y los sistemas internos comienzan desde $20,000 MXN; la cotización final depende de módulos, usuarios, integraciones y complejidad del proceso. El mantenimiento mensual cuesta $1,500 MXN."
+          answer: `Una Web que vende (3–5 páginas, WhatsApp, Google Business Profile y formulario) comienza desde ${price.web} MXN. Los sistemas que te sacan del Excel y WhatsApp comienzan desde ${price.system} MXN; la cotización final depende de módulos, usuarios, integraciones y complejidad del proceso. El soporte mensual va desde ${price.supportWeb} MXN/mes (web) y ${price.supportSystemFrom}–${price.supportSystemTo} MXN/mes (sistema).`
         },
         {
           question: "¿Cuánto tiempo tarda en estar lista mi página web?",
-          answer: "El paquete Presencia Esencial se entrega en 2 semanas. Las web apps personalizadas toman entre 4 y 8 semanas según la complejidad. El tiempo empieza a contar una vez que acordamos el alcance y nos proporcionas el contenido (textos e imágenes)."
+          answer: "Web que vende se entrega en 1 a 2 semanas. Los sistemas que reemplazan el Excel toman de 3 a 5 semanas según la complejidad. El tiempo empieza a contar una vez que acordamos el alcance y nos proporcionas el contenido (textos e imágenes)."
         },
         {
-          question: "¿Qué incluye el paquete Presencia Esencial?",
-          answer: "Incluye: diseño responsivo moderno (funciona en móvil y escritorio), 3–5 páginas profesionales, formulario de contacto conectado a tu correo, optimización SEO básica para que Google te encuentre, alojamiento en la nube seguro y 1 mes de soporte técnico gratuito."
+          question: "¿Qué incluye Web que vende?",
+          answer: "Incluye: diseño responsivo moderno (funciona en móvil y escritorio), 3–5 páginas profesionales, integración con WhatsApp, Google Business Profile configurado, formulario de contacto, optimización SEO básica para que Google te encuentre, alojamiento en la nube seguro y 1 mes de soporte técnico gratuito."
         },
         {
           question: "¿Trabajas con negocios fuera de Puebla?",
@@ -417,7 +531,7 @@ export const content = {
     },
     contact: {
       title: "Contacto",
-      subtitle: "¿Listo para hacer crecer tu negocio en línea? ¡Hablemos de cómo puedo ayudarte a conseguir más clientes!",
+      subtitle: "¿Listo para dejar el Excel y conseguir más clientes? Cuéntame tu negocio y qué quieres resolver; te respondo por WhatsApp.",
       links: {
         email: "Email",
         github: "GitHub",

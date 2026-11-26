@@ -1,5 +1,6 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro"
+import CredibilityStrip from "../site/CredibilityStrip.astro"
 import AboutSection from "../site/AboutSection.astro"
 import HeroSection from "../site/HeroSection.astro"
 import ServicesSection from "../site/ServicesSection.astro"
@@ -29,6 +30,7 @@ const copy =
   basePath="/"
 >
   <HeroSection language={language} />
+  <CredibilityStrip language={language} />
   <AboutSection language={language} />
   <ServicesSection language={language} />
   <PortfolioCarousel client:visible language={language} />
